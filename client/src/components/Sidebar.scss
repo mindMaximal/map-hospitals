@@ -1,0 +1,31 @@
+$Shades-of-royal-blue--navy-1-hex: #000FBF;
+$bg: #000A80;
+$btn: #0015FF;
+$dark: #000540;
+$Shades-of-royal-blue--navy-5-hex: #0013E6;
+
+.sidebar {
+	box-shadow: 2px 0 2px 0 rgba(0,0,0,.1);
+	background-color: #fff;
+	max-width: 352px;
+	width: 100%;
+	height: 100vh;
+	z-index: 2;
+
+	&__header {
+		background-color: $dark;
+		padding: 50px 20px;
+	}
+
+	&__search {
+		border-radius: 5px;
+		background-color: #ffffff;
+		padding: 5px 15px;
+	}
+
+	&__input {
+		border: none;
+		width: 100%;
+		padding: 5px 0;
+	}
+}
