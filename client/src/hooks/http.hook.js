@@ -5,6 +5,7 @@ export const useHttp = (callback, deps) => {
   const [error, setError] = useState(null)
 
   const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
+
     setLoading(true)
 
     try {
@@ -19,7 +20,7 @@ export const useHttp = (callback, deps) => {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.message || 'Что-то пошло не так')
+        throw new Error('useHttp: ' + data.message || 'Что-то пошло не так')
       }
 
       setLoading(false)
@@ -27,9 +28,11 @@ export const useHttp = (callback, deps) => {
       return data
 
     } catch (e) {
+
       setLoading(false)
-      setError(e.message)
+      setError('useHttp catch: ' + e.message)
       throw e
+
     }
   }, [])
 

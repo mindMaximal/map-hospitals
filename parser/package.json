@@ -1,0 +1,22 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "parse": "node functions/jsonParse.js",
+    "start": "node app.js"
+  },
+  "author": "Evgeniy Volkov <vamper.2012@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "@types/node": "^14.14.7",
+    "cherio": "^1.0.0-rc.2",
+    "puppeteer": "^5.4.1",
+    "transliteration": "^2.2.0"
+  }
+}

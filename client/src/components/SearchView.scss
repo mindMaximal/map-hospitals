@@ -1,0 +1,40 @@
+.search-view {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	background-color: #ffffff;
+	border-top: 1px solid rgba(#000000, .2);
+
+	&:last-of-type {
+		border-bottom: 1px solid rgba(#000000, .2);
+	}
+
+	&__link {
+		color: #000000;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	&__text {
+		font-size: 14px;
+	}
+
+	&__photo {
+		background-color: #0145fe;
+		border-radius: 5px;
+		width: 64px;
+		height: 64px;
+		position: relative;
+
+		img {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
+
+}
