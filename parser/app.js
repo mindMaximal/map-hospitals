@@ -1,17 +1,18 @@
 const cherio = require('cherio')
 const data = require('./data/data.json')
 const fs = require('fs')
-const path = require('path')
 const PuppeteerHandler =  require('./functions/puppeteer')
 
 const p = new PuppeteerHandler()
 const SPACE = '%20'
 
-const main = async (result, errors, input, inputError) => {
+const getInfoList = async (data) => {
   try {
 
-    input.write('[\r\n')
-    inputError.write('[\r\n')
+    let success = []
+    let errors = []
+    let parents = []
+    let similar = 0
 
     let parentId = 0
 
@@ -20,6 +21,13 @@ const main = async (result, errors, input, inputError) => {
       parentId++
 
       const parent = org.name
+
+      const parentObj = {
+        name: parent,
+        id: parentId
+      }
+
+      parents.push(parentObj)
 
       for (const page of org.data) {
 
@@ -33,7 +41,7 @@ const main = async (result, errors, input, inputError) => {
         if (pageContent === null) {
           console.log('Ошибка на странице: ' + page + ' вторая попытка поиска информации')
 
-          name = name.replace(/.\.\s/g, '')
+          name = page.replace(/.\.\s/g, '').replace(/\s/g, SPACE)
 
           url = `https://yandex.ru/maps/?mode=search&text=${name}`
 
@@ -44,42 +52,52 @@ const main = async (result, errors, input, inputError) => {
 
             const error = {
               name: page,
-              url
+              url,
+              parent,
+              parentId
             }
 
             errors.push(error)
-            inputError.write('  ' + JSON.stringify(error, null, 2) + ',')
 
             break
           }
-
-          console.log('   - Вторая попытка оказалось удачной')
-
+          console.log('\t - Вторая попытка оказалось удачной')
         }
 
         const $ = cherio.load(pageContent)
 
         const nameYandex = $('.card-title-view__title-link').text()
         const geo = $('.card-share-view__text').text()
+        const address = $('.business-contacts-view__address-link').text()
 
         const obj = {
           name: page,
           nameYandex,
           geo,
+          address,
           parent,
           parentId
         }
 
-        console.log(obj)
-        result.push(obj)
-        input.write('  ' + JSON.stringify(obj, null, 2) + ',\r\n')
+        let isUnique = true
 
+        for (const obj_ of success) {
+          if (obj.geo == obj_.geo) isUnique = false
+        }
+
+        if (isUnique) {
+          console.log(obj)
+          success.push(obj)
+        } else similar++
       }
-
     }
 
-    input.end(JSON.stringify(']'))
-    inputError.end(JSON.stringify(']'))
+    return {
+      data: success,
+      errors: errors,
+      parents: parents,
+      similar: similar
+    }
 
   } catch (e) {
     throw e
@@ -88,29 +106,11 @@ const main = async (result, errors, input, inputError) => {
   }
 }
 
-const clearDirectory = directory => {
-  fs.readdir(directory, (err, files) => {
-    if (err) throw err
-
-    for (const file of files) {
-      fs.unlink(path.join(directory, file), err => {
-        if (err) throw err
-      })
-    }
-  })
-}
-
-const info = []
-const errors = []
-
-const directory = 'result';
-
-clearDirectory(directory)
-
-let fileInfo = fs.createWriteStream('result/info.json')
-let fileErrors = fs.createWriteStream('result/errors.json')
-
-main(info, errors, fileInfo, fileErrors).then(() => {
+getInfoList(data).then((res) => {
+  fs.writeFile("result/data.json", JSON.stringify(res,  null, '\t'), (e) => {
+    if(e) throw e; // если возникла ошибка
+    console.log("Запись файла завершена.");
+  });
 
 }).catch(e => {
   console.log('Ошибка: ', e)

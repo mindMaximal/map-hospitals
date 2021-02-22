@@ -1,0 +1,21 @@
+.reports {
+	position: absolute;
+	bottom: 30px;
+	right: 20px;
+	z-index: 1;
+
+	&__button {
+		padding: 8px 10px;
+		background-color: #ffffff;
+		border: none;
+		border-radius: 8px;
+		margin-right: 10px;
+		font-size: 14px;
+		outline: none;
+		cursor: pointer;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}

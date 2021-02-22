@@ -2,8 +2,23 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
+	transition: .3s;
 	background-color: #ffffff;
 	border-top: 1px solid rgba(#000000, .2);
+
+	& > {
+		transition: inherit;
+	}
+	
+	&:focus,
+	&:hover {
+		background-color: #f6f6f6;
+		cursor: pointer;
+
+		.search-view__link {
+			color: #0f297e;
+		}
+	}
 
 	&:last-of-type {
 		border-bottom: 1px solid rgba(#000000, .2);
@@ -14,9 +29,17 @@
 		text-decoration: none;
 		font-weight: bold;
 		font-size: 16px;
+
 	}
 
-	&__text {
+	&__address {
+		margin-top: 5px;
+		color: rgba(#000000, .7);
+		font-size: 14px;
+	}
+
+	&__schedule {
+		margin-top: 10px;
 		font-size: 14px;
 	}
 

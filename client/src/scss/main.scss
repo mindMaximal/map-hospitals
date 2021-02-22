@@ -50,6 +50,26 @@ body {
 	display: flex;
 }
 
+.shadow {
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+}
+
+.button {
+	border-radius: 8px;
+	border: 1px solid rgba(0, 0, 0, .2);
+	padding: 10px 15px;
+	background-color: #ffffff;
+	transition: .3s;
+	outline: none;
+	cursor: pointer;
+	color: $text;
+
+	&:focus,
+	&:hover {
+		//fix
+	}
+}
+
 /*
 @include media-breakpoint-down(md) {
 }

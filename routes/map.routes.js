@@ -2,6 +2,7 @@ const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()
+let data = require('../parser/result/data.json');
 
 const configDB = {
   host: config.get('host'),
@@ -17,23 +18,23 @@ const initializeConnection = (config) => {
     connection.on("error", function (error) {
       if (error instanceof Error) {
         if (error.code === "PROTOCOL_CONNECTION_LOST") {
-          console.error(error.stack);
-          console.log("Lost connection. Reconnecting...");
+          console.error(error.stack)
+          console.log("Lost connection. Reconnecting...")
 
           initializeConnection(connection.config);
         } else if (error.fatal) {
-          throw error;
+          throw error
         }
       }
-    });
+    })
   }
 
-  const connection = mysql.createConnection(config);
+  const connection = mysql.createConnection(config)
 
-  addDisconnectHandler(connection);
+  addDisconnectHandler(connection)
 
-  connection.connect();
-  return connection;
+  connection.connect()
+  return connection
 }
 
 // /api/map/
@@ -45,42 +46,22 @@ router.post(
 
       console.log(req.body)
 
-      const connection = initializeConnection(configDB)
+      /*const connection = initializeConnection(configDB)
 
       connection.query('SELECT * FROM units', (err, rows, fields) => {
         if (err) {
           throw err
         }
 
-        res.json({data: rows})
+        //res.json({data: rows})
+
+      })*/
+      //Подмена для dev-mode
+      data = data.data
+
+      res.json({
+        data
       })
-
-    } catch (e) {
-      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-    }
-  }
-)
-
-router.get(
-  '/',
-  [],
-  async (req, res) => {
-    try {
-
-      connection.connect()
-
-      connection.query('SELECT * FROM units', (error, rows, fields) => {
-        if (error) {
-          return res.status(400).json({
-            errors: error.array(),
-            message: 'Ошибка'
-          })
-        }
-
-        res.json({data: rows})
-      })
-
-      connection.end()
 
     } catch (e) {
       res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})

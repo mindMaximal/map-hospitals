@@ -1,60 +1,25 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import {ListView} from './ListView'
 import magnifer from '../img/magnifier.svg'
-import {useHttp} from "../hooks/http.hook";
+import {ReactComponent as Filter} from '../img/filter.svg'
 import './Sidebar.scss'
+import {MapContext} from "../context/MapContext";
 
-export const Sidebar = () => {
+export const Sidebar = (props) => {
 
-  const {loading, error, request, clearError} = useHttp()
-  const [data, setData] = useState([])
+  const {mapState, setMapState} = useContext(MapContext)
 
-  useEffect(() => {
-    if (error) {
-      console.log('Ошибка: ' + error)
-    }
-    clearError()
-  }, [clearError, error])
-
-  const fetchData = useCallback(async () => {
-    try {
-      const fetched = await request('/api/map', 'POST')
-      setData(fetched.data)
-    } catch (e) {}
-  }, [request])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
-
-  if (loading) {
-    console.log('Loading')
+  const searchViewClick = (e) => {
+    console.log(mapState)
+    //setMapState({...mapState, ["zoom"]: 5})
   }
-
-  const list = [
-    {
-      name: 'name 1',
-      text: 'text 1',
-      photo: 'photo 1'
-    },
-    {
-      name: 'name 2',
-      text: 'text 2'
-    },
-    {
-      name: 'name 3',
-      text: 'text 3',
-      photo: 'photo 3'
-    }
-  ]
-
 
   return (
     <div className="sidebar">
 
       <div className="sidebar__wrapper">
 
-        <div className="sidebar__header">
+        <div className="sidebar__header shadow">
 
           <div className="sidebar__search">
 
@@ -72,8 +37,17 @@ export const Sidebar = () => {
 
           </div>
 
+          <div className="sidebar__filter">
+            <button className="sidebar__button--filter">
+              <Filter />
+            </button>
+          </div>
+
         </div>
-        {!loading && <ListView list={data}/>}
+
+        <div className="sidebar__panel">
+          {!props.loading && <ListView list={props.data} searchViewClick={searchViewClick}/>}
+        </div>
 
       </div>
 

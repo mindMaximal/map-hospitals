@@ -54,6 +54,6 @@ const read = (input, file) => {
   })
 }
 
-let file = fs.createWriteStream('data.json')
+let file = fs.createWriteStream('info.json')
 
 console.log(read(stream, file))

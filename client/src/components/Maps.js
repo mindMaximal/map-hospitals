@@ -1,24 +1,33 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import './Maps.scss'
-import { YMaps, Map, Clusterer, Placemark } from "react-yandex-maps"
+import { YMaps, Map, Clusterer, Placemark, Button } from "react-yandex-maps"
+import {AuthContext} from "../context/AuthContext";
+import {MapContext} from "../context/MapContext";
 
 export const Maps = (props) => {
+  const map = useContext(MapContext)
 
-  const mapState = {
-    center: [55.751574, 37.573856],
-    zoom: 9,
-    behaviors: ["default", "scrollZoom"],
+  /*useEffect(() => {
+  const map = React.useRef(null);
+    if (map.current) {
+      map.current.setZoom(9, { duration: 300 });
+      console.log(map)
+    }
+  }, [zoom]);*/
 
+  const handleApiAvailable = ymaps => {
+
+    console.log(ymaps)
+    this.ymaps = ymaps;
   };
 
-  const points = [
-    [55.721574, 37.334856],
-    [55.731574, 37.573856]
-  ]
+  const getPointData = (el) => {
 
-  const getPointData = () => {
     return {
-      balloonContentBody: "placemark <strong>balloon " +  "</strong>",
+      balloonContentBody: `
+        <div style='background: #ffffff'><b>Название: </b>${el.name}</div>
+        <div><b>Организация:</b> ${el.parent}</div>
+      `,
       clusterCaption: "placemark <strong>" + "</strong>"
     };
   };
@@ -30,31 +39,40 @@ export const Maps = (props) => {
   };
 
   return (
-    <YMaps>
-      <Map
-        state={mapState}
-        className="y-map"
+    <div className="map">
+
+      <YMaps
+        onApiAvaliable={maps => handleApiAvailable(maps)}
       >
-        <Clusterer
-          options={{
-            preset: "islands#invertedVioletClusterIcons",
-            groupByCoordinates: false,
-            clusterDisableClickZoom: true,
-            clusterHideIconOnBalloonOpen: false,
-            geoObjectHideIconOnBalloonOpen: false
-          }}
+        <Map
+          state={map.mapState}
+          className="y-map"
+          instanceRef={map}
+          //onLoad={ymaps => (map = ymaps)}
         >
-          {points.map((coordinates, i) => (
-            <Placemark
-              key={i}
-              geometry={coordinates}
-              properties={getPointData()}
-              options={getPointOptions()}
-              modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-            />
-          ))}
-        </Clusterer>
-      </Map>
-    </YMaps>
+          <Clusterer
+            options={{
+              preset: "islands#invertedVioletClusterIcons",
+              groupByCoordinates: false,
+              clusterDisableClickZoom: false,
+              clusterHideIconOnBalloonOpen: false,
+              geoObjectHideIconOnBalloonOpen: false
+            }}
+          >
+            {props.data.map((obj, i) => (
+              <Placemark
+                key={i}
+                geometry={obj.geo.split(', ')}
+                properties={getPointData(obj)}
+                options={getPointOptions()}
+                modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+              />
+            ))}
+          </Clusterer>
+        </Map>
+
+      </YMaps>
+
+    </div>
   )
 }
