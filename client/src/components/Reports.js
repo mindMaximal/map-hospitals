@@ -1,25 +1,54 @@
-import React from 'react'
+import React, {useState} from 'react'
+import 'materialize-css';
+import { Button, Card, Row, Col } from 'react-materialize';
 import './Reports.scss'
 import {ReportPanel} from "./ReportPanel";
 
 export const Reports = (props) => {
+
+  const [reportState, setReportState] = useState({
+    show: false
+  })
+
+  const handleReportButton = (e) => {
+    setReportState({...reportState, 'show': !reportState.show})
+  }
+
   return (
     <div className="reports">
 
       <div className="reports__controls">
 
-        <button className="reports__button shadow">
+        <Button
+          node="button"
+          small
+          style={{
+            marginRight: '5px'
+          }}
+          waves="light"
+          onClick={handleReportButton}
+        >
           Отчеты
-        </button>
+        </Button>
 
-        <button className="reports__button shadow">
+        <Button
+          node="button"
+          small
+          style={{
+            marginRight: '5px'
+          }}
+          waves="light"
+          onClick={handleReportButton}
+        >
           Отчеты по запросу
-        </button>
+        </Button>
 
       </div>
 
-      <ReportPanel />
-
+      { reportState.show ?
+        <ReportPanel />
+        : null
+      }
     </div>
   )
 }

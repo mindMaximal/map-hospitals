@@ -6,7 +6,7 @@
 	height: 100vh;
 	z-index: 2;
 	position: relative;
-	//overflow: hidden;
+	overflow: hidden;
 
 	img, svg {
 		max-width: 100%;
@@ -26,10 +26,11 @@
 		display: flex;
 		align-items: center;
 		max-width: 100%;
-		border-radius: 5px;
-		background-color: #ffffff;
 		padding: 5px 15px;
-		border: 1px solid rgba(#000000, .2);
+
+		&--fixed {
+			box-shadow: none;
+		}
 	}
 
 	&__panel {
@@ -38,13 +39,8 @@
 		max-height: 100%;
 
 		& > * {
-			margin-top: 76px;
+			margin-top: 105px;
 		}
-	}
-
-	&__filter {
-		margin-left: 12px;
-		display: flex;
 	}
 
 	&__search {
@@ -52,12 +48,21 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
+
+		.input-field{
+			width: 100%;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 	}
 
-	&__input {
-		border: none;
-		width: 100%;
-		padding: 5px 0;
+	&__controls {
+		position: absolute;
+		right: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
 	}
 
 	&__button {
@@ -65,12 +70,21 @@
 		outline: none;
 		cursor: pointer;
 		background-color: transparent;
-		margin: 0;
+		margin: 0 10px 0 0;
 		padding: 0;
 
+		&:focus,
+		&:hover {
+			background-color: transparent;
+		}
+
+		&:last-of-type {
+			margin: 0;
+		}
+
 		&--filter {
-			width: 24px;
-			height: 24px;
+			width: 20px;
+			height: 20px;
 			padding: 0;
 			background-color: transparent;
 			border: none;

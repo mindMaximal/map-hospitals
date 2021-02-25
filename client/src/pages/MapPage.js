@@ -9,6 +9,7 @@ export const MapPage = () => {
 
   const {loading, error, request, clearError} = useHttp()
   const [data, setData] = useState([])
+  const [dataModified, setDataModified] = useState([])
 
   useEffect(() => {
     if (error) {
@@ -21,6 +22,7 @@ export const MapPage = () => {
     try {
       const fetched = await request('/api/map', 'POST')
       setData(fetched.data)
+      setDataModified(fetched.data)
     } catch (e) {}
   }, [request])
 
@@ -30,6 +32,10 @@ export const MapPage = () => {
 
   if (loading) {
     console.log('Loading')
+  }
+
+  const updateData = (value) => {
+    setDataModified(value)
   }
 
   const [mapState, setMapState] = useState({
@@ -45,9 +51,9 @@ export const MapPage = () => {
         mapState, setMapState
       }}>
 
-        <Sidebar loading={loading} data={data}/>
+        <Sidebar loading={loading} data={data} dataModified={dataModified} updateData={updateData}/>
 
-        <Maps data={data}/>
+        <Maps data={dataModified}/>
 
         <Reports />
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './ReportPanel.scss'
+import {Select, Button, Checkbox, TextInput} from "react-materialize";
 
 export const ReportPanel = (props) => {
   return (
@@ -11,23 +12,73 @@ export const ReportPanel = (props) => {
           Заготовленные отчеты
         </div>
 
-        <select name="area" id="area" className="report-panel__select">
-          <option value="1">Области 1</option>
-          <option value="2">Области 2</option>
-          <option value="3">Области 3</option>
-        </select>
+        <Select
+          id="report-area"
+          className="report-panel__select"
+          multiple={false}
+          onChange={function noRefCheck(){}}
+          options={{
+            classes: '',
+            dropdownOptions: {
+              alignment: 'left',
+              autoTrigger: true,
+              closeOnClick: true,
+              constrainWidth: true,
+              coverTrigger: true,
+              hover: false,
+              inDuration: 150,
+              onCloseEnd: null,
+              onCloseStart: null,
+              onOpenEnd: null,
+              onOpenStart: null,
+              outDuration: 250
+            }
+          }}
+          value=""
+        >
+          <option
+            disabled
+            value=""
+          >
+            Выберите область
+          </option>
+          <option value="1">
+            Область 1
+          </option>
+          <option value="2">
+            Область 2
+          </option>
+          <option value="3">
+            Область 3
+          </option>
+        </Select>
 
-        <button className="button report-panel__button">
+        <Button
+          node="button"
+          small
+          waves="light"
+          className="report-panel__button"
+        >
           Отчет об укомплектованности мед. работниками
-        </button>
+        </Button>
 
-        <button className="button report-panel__button">
+        <Button
+          node="button"
+          small
+          waves="light"
+          className="report-panel__button"
+        >
           Отчет о ФАПах с возможностью оказания первой помощи
-        </button>
+        </Button>
 
-        <button className="button report-panel__button">
+        <Button
+          node="button"
+          small
+          waves="light"
+          className="report-panel__button"
+        >
           Отчет о ФАПах с аптеками
-        </button>
+        </Button>
 
       </div>
 
@@ -37,44 +88,103 @@ export const ReportPanel = (props) => {
           Конструктор отчетов
         </div>
 
-        <select name="area" id="area" className="report-panel__select">
-          <option value="#fix">Области 1</option>
-          <option value="#fix">Области 2</option>
-          <option value="#fix">Области 3</option>
-        </select>
+        <Select
+          id="report-area"
+          className="report-panel__select"
+          multiple={false}
+          onChange={function noRefCheck(){}}
+          options={{
+          classes: '',
+          dropdownOptions: {
+            alignment: 'left',
+            autoTrigger: true,
+            closeOnClick: true,
+            constrainWidth: true,
+            coverTrigger: true,
+            hover: false,
+            inDuration: 150,
+            onCloseEnd: null,
+            onCloseStart: null,
+            onOpenEnd: null,
+            onOpenStart: null,
+            outDuration: 250
+          }
+        }}
+          value=""
+          >
+        <option
+          disabled
+          value=""
+        >
+          Выберите область
+        </option>
+        <option value="1">
+          Область 1
+        </option>
+        <option value="2">
+          Область 2
+        </option>
+        <option value="3">
+          Область 3
+        </option>
+      </Select>
 
-        <div className="report-panel__block">
-          <input type="checkbox" className="report-panel__checkbox" value="#fix" id="pharmacy"/>
-          <label className="report-panel__label" htmlFor="pharmacy">Аптека</label>
+        <div className="report-filter__block">
+          <Checkbox
+            filledIn
+            id="report-filter__pharmacy"
+            label="Аптека"
+            value="pharmacy"
+          />
         </div>
 
-        <div className="report-panel__block">
-          <input type="checkbox" className="report-panel__checkbox" value="#fix" id="first-aid"/>
-          <label className="report-panel__label" htmlFor="first-aid">Первая помощь</label>
+        <div className="report-filter__block">
+          <Checkbox
+            filledIn
+            id="report-filter__first-aid"
+            label="Первая помощь"
+            value="first-aid"
+          />
         </div>
 
-        <div className="report-panel__block">
-          <input type="checkbox" className="report-panel__checkbox" value="#fix" id="emergency-assistance"/>
-          <label className="report-panel__label" htmlFor="emergency-assistance">Экстренная помощь</label>
+        <div className="report-filter__block">
+          <Checkbox
+            filledIn
+            id="report-filter__emergency-assistance"
+            label="Экстренная помощь"
+            value="emergency-assistance"
+          />
         </div>
 
-        <div className="report-panel__block">
-          <input type="checkbox" className="report-panel__checkbox" value="#fix" id="staffing"/>
-          <label className="report-panel__label" htmlFor="staffing">Укомплектованность фельдшерами</label>
+        <div className="report-filter__block">
+          <Checkbox
+            filledIn
+            id="report-filter__staffing"
+            label="Укомплектованность фельдшерами"
+            value="staffing"
+          />
         </div>
 
-        <div className="report-panel__block">
-          <span>Год основания</span>
-          <input type="number" className="report-panel__checkbox" value="#fix" id="year-foundation"/>
+        <div className="report-filter__block">
+          <TextInput
+            id="report-filter__year-foundation"
+            type="number"
+            s
+            label="Год основания"
+          />
         </div>
 
       </div>
 
       <div className="report-panel__controls">
 
-        <button className="shadow button report-panel__button">
+        <Button
+          node="button"
+          small
+          waves="light"
+        >
           Сформировать отчет
-        </button>
+        </Button>
 
       </div>
 

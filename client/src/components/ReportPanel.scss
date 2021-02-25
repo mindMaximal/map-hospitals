@@ -18,6 +18,7 @@
 
 	&__title {
 		margin-bottom: 15px;
+		font-size: 18px;
 	}
 
 	&__button {
@@ -26,6 +27,11 @@
 
 	&__select {
 		margin-bottom: 10px;
+		max-width: 280px;
+	}
+
+	&__span {
+		display: block;
 	}
 
 	&__label {
@@ -33,7 +39,6 @@
 	}
 
 	&__controls {
-		margin-top: 10px;
 		padding: 0 20px 20px 20px;
 	}
 }

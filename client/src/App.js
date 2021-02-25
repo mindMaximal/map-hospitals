@@ -1,9 +1,10 @@
 import React from 'react'
-import {BrowserRouter as Router} from "react-router-dom";
-import {useRoutes} from "./routes";
-import {useAuth} from "./hooks/auth.hook";
-import {AuthContext} from "./context/AuthContext";
+import {BrowserRouter as Router} from "react-router-dom"
+import {useRoutes} from "./routes"
+import {useAuth} from "./hooks/auth.hook"
+import {AuthContext} from "./context/AuthContext"
 import './scss/main.scss'
+
 
 function App() {
 
@@ -16,9 +17,7 @@ function App() {
         token, login, logout, userId, isAuthenticated
       }}>
         <Router>
-          <div className="container">
-            {routes}
-          </div>
+          {routes}
         </Router>
       </AuthContext.Provider>
   )

@@ -1,0 +1,18 @@
+.search-filter {
+	position: fixed;
+	top: 12px;
+	left: 365px;
+
+	&__select {
+		margin-bottom: 10px;
+		max-width: 280px;
+	}
+
+	&__span {
+		display: block;
+	}
+
+	&__label {
+		margin-left: 5px;
+	}
+}

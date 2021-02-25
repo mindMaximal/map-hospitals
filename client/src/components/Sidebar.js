@@ -1,11 +1,24 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {ListView} from './ListView'
 import magnifer from '../img/magnifier.svg'
 import {ReactComponent as Filter} from '../img/filter.svg'
 import './Sidebar.scss'
 import {MapContext} from "../context/MapContext";
+import {SearchFilter} from "./SearchFilter";
+import {CardPanel, TextInput} from "react-materialize";
 
 export const Sidebar = (props) => {
+  let myRef = React.createRef()
+
+  const [scroll, setScroll] = useState(false)
+
+  const [filterState, setFilterState] = useState({
+    show: false
+  })
+
+  const [search, setSearch] = useState({
+    value: null
+  })
 
   const {mapState, setMapState} = useContext(MapContext)
 
@@ -14,20 +27,56 @@ export const Sidebar = (props) => {
     //setMapState({...mapState, ["zoom"]: 5})
   }
 
+  const handleFilterButton = (e) => {
+    console.log(filterState.show)
+    console.log(e)
+    setFilterState({...filterState, 'show': !filterState.show})
+  }
+
+  const HandleInputSearch = (e) => {
+    setSearch({...search, 'value': e.target.value.trim().toLowerCase()})
+  }
+
+  const handlePanelScroll = (e) => {
+    const scrollTop = myRef.current.scrollTop
+
+    if (scrollTop > 50) {
+      setScroll(true)
+    } else {
+      setScroll(false)
+    }
+  }
+
+  useEffect(() => {
+    props.updateData(props.data.filter((obj) => {
+
+      if (obj.name.toLowerCase().indexOf(search.value) !== -1)
+        console.log('Name: ' + obj.name.toLowerCase() + ' str: ' + search.value)
+
+      return obj.name.toLowerCase().indexOf(search.value) !== -1;
+    }))
+  }, [search])
+
   return (
     <div className="sidebar">
 
       <div className="sidebar__wrapper">
 
-        <div className="sidebar__header shadow">
+        <CardPanel className={ scroll ? "sidebar__header" : "sidebar__header sidebar__header--fixed"}>
 
           <div className="sidebar__search">
 
-            <input
-              type="text"
+            <TextInput
+              id="sidebar-input"
+              inputClassName="sidebar__text-input"
               placeholder="Поиск"
-              className="sidebar__input"
+              xl
+              onChange={HandleInputSearch}
             />
+
+          </div>
+
+          <div className="sidebar__controls">
 
             <button
               className="sidebar__button sidebar__button--search"
@@ -35,18 +84,27 @@ export const Sidebar = (props) => {
               <img src={magnifer} alt="Поиск"/>
             </button>
 
-          </div>
-
-          <div className="sidebar__filter">
-            <button className="sidebar__button--filter">
+            <button
+              className="sidebar__button sidebar__button--filter"
+              onClick={handleFilterButton}
+            >
               <Filter />
             </button>
           </div>
 
-        </div>
+          { filterState.show ?
+            <SearchFilter />
+            : null
+          }
 
-        <div className="sidebar__panel">
-          {!props.loading && <ListView list={props.data} searchViewClick={searchViewClick}/>}
+        </CardPanel>
+
+        <div
+          className="sidebar__panel"
+          ref={myRef}
+          onScroll={handlePanelScroll}
+        >
+          {!props.loading && <ListView list={props.dataModified} searchViewClick={searchViewClick}/>}
         </div>
 
       </div>
