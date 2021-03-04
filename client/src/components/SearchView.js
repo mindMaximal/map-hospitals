@@ -5,7 +5,9 @@ export const SearchView = (props) => {
   return (
     <div
       className="search-view"
-      onClick={props.searchViewClick}
+      onClick={(e) => {
+        props.searchViewClick(e, props.id)
+      }}
     >
 
       <div className="search-view__info">

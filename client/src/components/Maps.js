@@ -15,10 +15,18 @@ export const Maps = (props) => {
     }
   }, [zoom]);*/
 
-  const handleApiAvailable = ymaps => {
+  function createZoomControlLayout(ymaps) {
+    // Функция по созданию layout'a целиком взята из песочницы яндекс карт
+    // https://tech.yandex.com/maps/jsbox/2.1/zoom_layout
+    const ZoomLayout = ymaps.templateLayoutFactory.createClass("<div id='zoom-in' class='btn'><i class='icon-plus'>1</i></div><br>")
 
+    return ZoomLayout
+  }
+
+  const handleApiAvailable = ymaps => {
     console.log(ymaps)
-    this.ymaps = ymaps;
+    const layout = createZoomControlLayout(ymaps)
+    this.setState({ layout })
   };
 
   const getPointData = (el) => {
@@ -34,7 +42,8 @@ export const Maps = (props) => {
 
   const getPointOptions = () => {
     return {
-      preset: "islands#violetIcon"
+      preset: 'islands#violetIcon',
+      iconColor: '#26a69a'
     };
   };
 
@@ -42,7 +51,7 @@ export const Maps = (props) => {
     <div className="map">
 
       <YMaps
-        onApiAvaliable={maps => handleApiAvailable(maps)}
+        onApiAvaliable={ymaps => handleApiAvailable(ymaps)}
       >
         <Map
           state={map.mapState}
@@ -52,14 +61,15 @@ export const Maps = (props) => {
         >
           <Clusterer
             options={{
-              preset: "islands#invertedVioletClusterIcons",
+              preset: 'islands#darkGreenClusterIcons',
               groupByCoordinates: false,
               clusterDisableClickZoom: false,
               clusterHideIconOnBalloonOpen: false,
-              geoObjectHideIconOnBalloonOpen: false
+              geoObjectHideIconOnBalloonOpen: false,
+              iconColor: '#26a69a'
             }}
           >
-            {props.data.map((obj, i) => (
+            {props.data.modified.map((obj, i) => (
               <Placemark
                 key={i}
                 geometry={obj.geo.split(', ')}
@@ -69,6 +79,7 @@ export const Maps = (props) => {
               />
             ))}
           </Clusterer>
+
         </Map>
 
       </YMaps>

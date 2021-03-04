@@ -57,13 +57,19 @@ router.post(
 
       })*/
       //Подмена для dev-mode
-      data = data.data
+
+      try {
+        data = data.data
+      } catch (er) {
+        console.log(er)
+      }
 
       res.json({
         data
       })
 
     } catch (e) {
+      console.log(e)
       res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
     }
   }

@@ -4,12 +4,27 @@ import {Maps} from "../components/Maps"
 import {useHttp} from "../hooks/http.hook"
 import {MapContext} from "../context/MapContext"
 import {Reports} from "../components/Reports";
+import {Loader} from "../components/Loader";
+
+
+/*
+*   ToDo:
+*    - Отчеты
+*    - Поиск по фильтрам
+*    - Пофиксить пропадание при увелечении
+*    - scrollbar
+*
+*  */
 
 export const MapPage = () => {
 
   const {loading, error, request, clearError} = useHttp()
-  const [data, setData] = useState([])
-  const [dataModified, setDataModified] = useState([])
+  const [state, setState] = useState({
+    data: {
+      default: [],
+      modified: []
+    }
+  })
 
   useEffect(() => {
     if (error) {
@@ -21,21 +36,37 @@ export const MapPage = () => {
   const fetchData = useCallback(async () => {
     try {
       const fetched = await request('/api/map', 'POST')
-      setData(fetched.data)
-      setDataModified(fetched.data)
+
+      //Delete
+     fetched.data.map((el, i) => {
+        el.id = i
+        el.active = false
+        el.pharmacy = Math.random() < 0.5
+        el.firstAid = Math.random() < 0.5
+        el.emergencyAssistance = Math.random() < 0.5
+        el.staff = Math.floor((Math.random() * 10) + 1);
+      })
+
+      setState({
+        data: {
+          default: fetched.data,
+          modified: fetched.data
+        }
+      })
+
     } catch (e) {}
   }, [request])
+
 
   useEffect(() => {
     fetchData()
   }, [fetchData])
 
-  if (loading) {
-    console.log('Loading')
-  }
-
   const updateData = (value) => {
-    setDataModified(value)
+    setState({...state, 'data': {
+        default: state.data.default,
+        modified: value
+      }})
   }
 
   const [mapState, setMapState] = useState({
@@ -45,15 +76,23 @@ export const MapPage = () => {
     controls: [],
   });
 
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <div className="container--map">
       <MapContext.Provider value={{
         mapState, setMapState
       }}>
 
-        <Sidebar loading={loading} data={data} dataModified={dataModified} updateData={updateData}/>
+        {
+          !loading && <Sidebar loading={loading} data={state.data} updateData={updateData}/>
+        }
 
-        <Maps data={dataModified}/>
+        {
+          !loading && <Maps loading={loading} data={state.data} />
+        }
 
         <Reports />
 

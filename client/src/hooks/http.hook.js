@@ -6,8 +6,6 @@ export const useHttp = (callback, deps) => {
 
   const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
 
-    setLoading(true)
-
     try {
 
       if (body) {
@@ -28,11 +26,9 @@ export const useHttp = (callback, deps) => {
       return data
 
     } catch (e) {
-
       setLoading(false)
       setError('useHttp catch: ' + e.message)
       throw e
-
     }
   }, [])
 
