@@ -1,12 +1,15 @@
 import React from 'react'
 import './SearchView.scss'
+import {useMap} from "../hooks/map.hook";
 
 export const SearchView = (props) => {
+  const {searchViewClick} = useMap()
+
   return (
     <div
       className="search-view"
       onClick={(e) => {
-        props.searchViewClick(e, props.id)
+        searchViewClick(e, props.id)
       }}
     >
 

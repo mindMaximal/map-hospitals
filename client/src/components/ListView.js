@@ -1,6 +1,7 @@
 import React from 'react'
 import './ListView.scss'
 import {SearchView} from "./SearchView";
+import {useMap} from "../hooks/map.hook";
 
 export const ListView = (props) => {
   return (
@@ -11,7 +12,6 @@ export const ListView = (props) => {
           name={view.name}
           addres={view.address}
           id={view.id}
-          searchViewClick={props.searchViewClick}
         />
       )) :
         <div className="list-view--empty">

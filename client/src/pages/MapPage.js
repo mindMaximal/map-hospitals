@@ -5,6 +5,7 @@ import {useHttp} from "../hooks/http.hook"
 import {MapContext} from "../context/MapContext"
 import {Reports} from "../components/Reports";
 import {Loader} from "../components/Loader";
+import {useMap} from "../hooks/map.hook";
 
 
 /*
@@ -19,12 +20,7 @@ import {Loader} from "../components/Loader";
 export const MapPage = () => {
 
   const {loading, error, request, clearError} = useHttp()
-  const [state, setState] = useState({
-    data: {
-      default: [],
-      modified: []
-    }
-  })
+  const {setData, getData} = useMap()
 
   useEffect(() => {
     if (error) {
@@ -47,27 +43,19 @@ export const MapPage = () => {
         el.staff = Math.floor((Math.random() * 10) + 1);
       })
 
-      setState({
-        data: {
-          default: fetched.data,
-          modified: fetched.data
-        }
+      setData({
+        default: fetched.data,
+        modified: fetched.data
       })
+
+      console.log(fetched)
 
     } catch (e) {}
   }, [request])
 
-
   useEffect(() => {
     fetchData()
   }, [fetchData])
-
-  const updateData = (value) => {
-    setState({...state, 'data': {
-        default: state.data.default,
-        modified: value
-      }})
-  }
 
   const [mapState, setMapState] = useState({
     center: [52.287054, 104.281047],
@@ -87,11 +75,17 @@ export const MapPage = () => {
       }}>
 
         {
-          !loading && <Sidebar loading={loading} data={state.data} updateData={updateData}/>
+          !loading &&
+            <Sidebar
+              loading={loading}
+            />
         }
 
         {
-          !loading && <Maps loading={loading} data={state.data} />
+          !loading &&
+            <Maps
+              loading={loading}
+            />
         }
 
         <Reports />

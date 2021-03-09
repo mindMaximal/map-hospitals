@@ -1,12 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {ListView} from './ListView'
 import './Sidebar.scss'
-import {MapContext} from "../context/MapContext"
 import {SingleView} from "./SingleView"
 import {Search} from "./Search"
+import {Scrollbar} from "./Scrollbar";
+import {useMap} from "../hooks/map.hook";
 
 export const Sidebar = (props) => {
-  let myRef = React.createRef()
+  let panelScrollRef = React.createRef()
+  const {updateData, getData} = useMap()
 
   const [state, setState] = useState({
     scroll: false,
@@ -16,17 +18,6 @@ export const Sidebar = (props) => {
       show: false
     }
   })
-
-  const {mapState, setMapState} = useContext(MapContext)
-
-  const searchViewClick = (e, id) => {
-    let el = props.data.default.find(el => el.id === id)
-    el.active = true
-
-    props.updateData([el])
-    setMapState({...mapState, 'center': el.geo.split(', ')})
-    setState({...state, 'singleView': true})
-  }
 
   const handleFilterButton = (e) => {
     setState({...state, 'filter': {
@@ -39,8 +30,15 @@ export const Sidebar = (props) => {
     setState({...state, 'search': e.target.value.trim().toLowerCase()})
   }
 
+  const scrollInit = (elem, scrollbar) => {
+    const scrollHeight = elem.scrollHeight
+    const viewHeight = elem.offsetHeight
+
+    scrollbar.querySelector('.scrollbar__slider').style.height = viewHeight * viewHeight / scrollHeight + 'px';
+  }
+
   const handlePanelScroll = (e) => {
-    const scrollTop = myRef.current.scrollTop
+    const scrollTop = panelScrollRef.current.scrollTop
 
     if (scrollTop > 50) {
       setState({...state, 'scroll': true})
@@ -48,23 +46,30 @@ export const Sidebar = (props) => {
       setState({...state, 'scroll': false})
     }
 
-    const scrollbarSlider = document.querySelector('.scrollbar__slider')
-    const scrollTargetHeight = document.querySelector('.sidebar__panel').scrollHeight
+    const scrollbar = document.querySelector('.scrollbar');
+    const scrollbarSlider = scrollbar.querySelector('.scrollbar__slider')
+    const scrollPanel = document.querySelector('.sidebar__panel');
 
-    let scrollToTop = scrollTop / scrollTargetHeight * 100
+    let scrollToTop = scrollPanel.scrollTop / scrollPanel.scrollHeight
 
-    console.log(scrollToTop)
-
-    scrollbarSlider.style.top = scrollToTop + 'px'
+    scrollbarSlider.style.top = scrollToTop * scrollPanel.offsetHeight + 'px'
   }
 
   const handleBack = () => {
     setState({...state, 'singleView': false})
-    props.updateData(props.data.default)
   }
 
   useEffect(() => {
-    props.updateData(props.data.default.filter((obj) => {
+    const scrollElem = document.querySelector('.sidebar__panel')
+    const scrollbar = document.querySelector('.scrollbar')
+
+    scrollInit(scrollElem, scrollbar)
+
+    console.log(getData().modified)
+  }, [getData().modified])
+
+  useEffect(() => {
+    updateData(getData().default.filter((obj) => {
       return obj.name.toLowerCase().indexOf(state.search) !== -1;
     }))
   }, [state.search])
@@ -74,19 +79,27 @@ export const Sidebar = (props) => {
 
       <div className="sidebar__wrapper">
 
-        <Search filterShow={state.filter.show} scroll={state.scroll} handleInput={HandleInputSearch} handleFilter={handleFilterButton}/>
+        <Search
+          filterShow={state.filter.show}
+          scroll={state.scroll}
+          handleInput={HandleInputSearch}
+          handleFilter={handleFilterButton}
+        />
 
         <div
           className="sidebar__panel"
-          ref={myRef}
+          ref={panelScrollRef}
           onScroll={handlePanelScroll}
         >
-          {!props.loading && state.singleView ? <SingleView elem={props.data.modified[0]} back={handleBack}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
+          {!props.loading && props.singleView ? <SingleView elem={getData().modified[0]} back={handleBack}/> :
+            <ListView
+              loading={props.loading}
+              list={getData().modified}
+            />
           }
 
-          <div className="scrollbar sidebar__scrollbar">
-            <div className="scrollbar__slider"></div>
-          </div>
+          <Scrollbar />
+
         </div>
 
       </div>
