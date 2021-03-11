@@ -1,9 +1,9 @@
 import React from 'react'
 import './ListView.scss'
-import {SearchView} from "./SearchView";
-import {useMap} from "../hooks/map.hook";
+import {SearchView} from "./SearchView"
 
 export const ListView = (props) => {
+  console.log(props)
   return (
     <div className="list-view">
       {!props.loading ?  props.list.length ? props.list.map((view, i) => (

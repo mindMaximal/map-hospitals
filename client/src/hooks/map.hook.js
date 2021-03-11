@@ -3,7 +3,7 @@ import {useContext, useEffect, useState} from "react";
 
 export const useMap = () => {
   const {mapState, setMapState} = useContext(MapContext)
-  const [state, setState] = useState({
+  const [dataState, setDataState] = useState({
     data: {
       default: [],
       modified: []
@@ -11,52 +11,63 @@ export const useMap = () => {
     singleView: false
   })
 
+  const data = useCallback()
+
   const updateData = (value) => {
-    setState({...state, 'data': {
-        default: state.data.default,
+    setDataState({...dataState, 'data': {
+        default: dataState.data.default,
         modified: value
       }})
   }
 
+  useEffect(() => {
+    console.log(dataState)
+  }, [dataState])
+
   const searchViewClick = (e, id) => {
-    let el = state.data.default.find(el => el.id === id)
+    let el = dataState.data.default.find(el => el.id === id)
     el.active = true
-    console.log('SearchView', el)
+
+    //console.log('SearchView', el)
 
     setMapState({
       ...mapState,
       'center': el.geo.split(', ')
     })
 
-    setState({
-      ...state,
+    setDataState({
+      ...dataState,
       'singleView': true,
       'data': {
-        default: state.data.default,
+        default: dataState.data.default,
         modified: [el]
       }
     })
   }
 
 
-  useEffect(() => {
-    console.log(state)
-  }, [state])
-
-  const setData = (data) => {
-    setState({
-      ...state,
+/*  const setData = (data) => {
+    console.log('Попытка устанвоить data:', data)
+    setData({
+      ...data,
       'data': data
     })
-  }
 
-  const getData = () => {
-    return state.data
-  }
+    console.log('setData',{
+      ...data,
+      'data': data
+    })
+
+  }*/
+
+  /*const getData = () => {
+    console.log('GetData',dataState)
+    return dataState.data
+  }*/
 
   const singleView = () => {
-    return state.singleView
+    return dataState.singleView
   }
 
-  return {updateData, searchViewClick, setData, getData, singleView}
+  return {updateData, searchViewClick, setDataState,  singleView, dataState}
 }

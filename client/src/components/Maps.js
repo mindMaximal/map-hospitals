@@ -7,7 +7,11 @@ import {useMap} from "../hooks/map.hook";
 
 export const Maps = (props) => {
   const {mapState} = useContext(MapContext)
-  const {updateData, getData} = useMap()
+  const {updateData, dataState} = useMap()
+
+  useEffect(() => {
+    console.log(dataState)
+  }, [dataState])
 
   const getPointData = (el) => {
 
@@ -46,7 +50,7 @@ export const Maps = (props) => {
               iconColor: '#26a69a'
             }}
           >
-            {getData().modified.map((obj, i) => (
+            {dataState.modified.map((obj, i) => (
               <Placemark
                 key={i}
                 geometry={obj.geo.split(', ')}

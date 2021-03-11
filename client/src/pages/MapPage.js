@@ -20,7 +20,7 @@ import {useMap} from "../hooks/map.hook";
 export const MapPage = () => {
 
   const {loading, error, request, clearError} = useHttp()
-  const {setData, getData} = useMap()
+  const {setDataState, dataState} = useMap()
 
   useEffect(() => {
     if (error) {
@@ -33,6 +33,7 @@ export const MapPage = () => {
     try {
       const fetched = await request('/api/map', 'POST')
 
+      console.log('Данные получены')
       //Delete
      fetched.data.map((el, i) => {
         el.id = i
@@ -43,12 +44,14 @@ export const MapPage = () => {
         el.staff = Math.floor((Math.random() * 10) + 1);
       })
 
-      setData({
-        default: fetched.data,
-        modified: fetched.data
-      })
+      setDataState({
+        ...dataState,
+        'data': {
+          default: fetched.data,
+          modified: fetched.data
+      }})
 
-      console.log(fetched)
+      console.log(dataState)
 
     } catch (e) {}
   }, [request])
@@ -82,10 +85,10 @@ export const MapPage = () => {
         }
 
         {
-          !loading &&
+          /*!loading &&
             <Maps
               loading={loading}
-            />
+            />*/
         }
 
         <Reports />

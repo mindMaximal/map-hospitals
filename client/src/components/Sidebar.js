@@ -8,7 +8,7 @@ import {useMap} from "../hooks/map.hook";
 
 export const Sidebar = (props) => {
   let panelScrollRef = React.createRef()
-  const {updateData, getData} = useMap()
+  const {updateData, dataState} = useMap()
 
   const [state, setState] = useState({
     scroll: false,
@@ -18,6 +18,10 @@ export const Sidebar = (props) => {
       show: false
     }
   })
+
+  useEffect(() => {
+    console.log('Sidebar',dataState)
+  }, [dataState])
 
   const handleFilterButton = (e) => {
     setState({...state, 'filter': {
@@ -65,14 +69,14 @@ export const Sidebar = (props) => {
 
     scrollInit(scrollElem, scrollbar)
 
-    console.log(getData().modified)
-  }, [getData().modified])
+    console.log(dataState)
+  }, [dataState.modified])
 
-  useEffect(() => {
-    updateData(getData().default.filter((obj) => {
+/*  useEffect(() => {
+    updateData(dataState.default.filter((obj) => {
       return obj.name.toLowerCase().indexOf(state.search) !== -1;
     }))
-  }, [state.search])
+  }, [state.search])*/
 
   return (
     <div className="sidebar">
@@ -91,12 +95,13 @@ export const Sidebar = (props) => {
           ref={panelScrollRef}
           onScroll={handlePanelScroll}
         >
-          {!props.loading && props.singleView ? <SingleView elem={getData().modified[0]} back={handleBack}/> :
+         {/* {!props.loading ? props.singleView ? <SingleView elem={dataState.modified[0]} back={handleBack}/> :
             <ListView
               loading={props.loading}
-              list={getData().modified}
-            />
-          }
+              list={dataState.modified}
+            /> :
+            <div>Данные загружаются</div>
+          }*/}
 
           <Scrollbar />
 
