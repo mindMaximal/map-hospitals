@@ -94,7 +94,7 @@ export const Sidebar = (props) => {
         <div
           className="sidebar__panel"
           ref={panelScrollRef}
-          onScroll={handlePanelScroll}
+          // fix onScroll={handlePanelScroll}
         >
           {!props.loading && props.singleView ? <SingleView elem={props.data.modified[0]} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
           }
