@@ -12,7 +12,6 @@ export const Sidebar = (props) => {
   const [state, setState] = useState({
     scroll: false,
     search: null,
-    singleView: false,
     filter: {
       show: false
     }
@@ -26,7 +25,7 @@ export const Sidebar = (props) => {
 
     props.updateData([el])
     setMapState({...mapState, 'center': el.geo.split(', ')})
-    setState({...state, 'singleView': true})
+    props.setSingleView(true)
   }
 
   const handleFilterButton = (e) => {
@@ -75,8 +74,8 @@ export const Sidebar = (props) => {
   }, [props.data.modified])
 
   const handleBack = () => {
-    setState({...state, 'singleView': false})
     props.updateData(props.data.default)
+    props.setSingleView(false)
   }
 
   useEffect(() => {
@@ -97,10 +96,10 @@ export const Sidebar = (props) => {
           ref={panelScrollRef}
           onScroll={handlePanelScroll}
         >
-          {!props.loading && state.singleView ? <SingleView elem={props.data.modified[0]} back={handleBack}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
+          {!props.loading && props.singleView ? <SingleView elem={props.data.modified[0]} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
           }
 
-          <Scrollbar />
+          {/*<Scrollbar />*/}
         </div>
 
       </div>

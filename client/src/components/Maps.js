@@ -5,15 +5,7 @@ import {AuthContext} from "../context/AuthContext";
 import {MapContext} from "../context/MapContext";
 
 export const Maps = (props) => {
-  const map = useContext(MapContext)
-
-  /*useEffect(() => {
-  const map = React.useRef(null);
-    if (map.current) {
-      map.current.setZoom(9, { duration: 300 });
-      console.log(map)
-    }
-  }, [zoom]);*/
+  const {mapState, setMapState} = useContext(MapContext)
 
   function createZoomControlLayout(ymaps) {
     // Функция по созданию layout'a целиком взята из песочницы яндекс карт
@@ -30,12 +22,7 @@ export const Maps = (props) => {
   };
 
   const getPointData = (el) => {
-
     return {
-      balloonContentBody: `
-        <div style='background: #ffffff'><b>Название: </b>${el.name}</div>
-        <div><b>Организация:</b> ${el.parent}</div>
-      `,
       clusterCaption: "placemark <strong>" + "</strong>"
     };
   };
@@ -47,6 +34,15 @@ export const Maps = (props) => {
     };
   };
 
+  const handlePlacemarkClick = (e, obj) => {
+    let el = props.data.default.find(el => el.id === obj.id)
+    el.active = true
+
+    props.updateData([el])
+    props.setSingleView(true)
+    setMapState({...mapState, 'center': el.geo.split(', ')})
+  }
+
   return (
     <div className="map">
 
@@ -54,9 +50,9 @@ export const Maps = (props) => {
         onApiAvaliable={ymaps => handleApiAvailable(ymaps)}
       >
         <Map
-          state={map.mapState}
+          state={mapState}
           className="y-map"
-          instanceRef={map}
+          instanceRef={mapState}
           //onLoad={ymaps => (map = ymaps)}
         >
           <Clusterer
@@ -76,6 +72,7 @@ export const Maps = (props) => {
                 properties={getPointData(obj)}
                 options={getPointOptions()}
                 modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+                onClick={e => handlePlacemarkClick(e, obj)}
               />
             ))}
           </Clusterer>

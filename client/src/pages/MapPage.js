@@ -25,6 +25,7 @@ export const MapPage = () => {
       modified: []
     }
   })
+  const [singleView, setSingleView] = useState(false)
 
   useEffect(() => {
     if (error) {
@@ -48,7 +49,8 @@ export const MapPage = () => {
       })
 
       setState({
-        data: {
+        ...state,
+        'data': {
           default: fetched.data,
           modified: fetched.data
         }
@@ -63,7 +65,8 @@ export const MapPage = () => {
   }, [fetchData])
 
   const updateData = (value) => {
-    setState({...state, 'data': {
+    setState({...state,
+      'data': {
         default: state.data.default,
         modified: value
       }})
@@ -87,11 +90,24 @@ export const MapPage = () => {
       }}>
 
         {
-          !loading && <Sidebar loading={loading} data={state.data} updateData={updateData}/>
+          !loading &&
+          <Sidebar
+            loading={loading}
+            data={state.data}
+            updateData={updateData}
+            singleView={singleView}
+            setSingleView={setSingleView}
+          />
         }
 
         {
-          !loading && <Maps loading={loading} data={state.data} />
+          !loading &&
+          <Maps
+            loading={loading}
+            data={state.data}
+            updateData={updateData}
+            setSingleView={setSingleView}
+          />
         }
 
         <Reports />

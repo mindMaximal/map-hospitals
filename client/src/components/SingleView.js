@@ -10,8 +10,6 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 
 export const SingleView = (props) => {
 
-  console.log(props.elem)
-
   return (
     <div className="single-view">
 
