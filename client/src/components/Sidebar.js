@@ -68,7 +68,7 @@ export const Sidebar = (props) => {
     const scrollElem = document.querySelector('.sidebar__panel')
     const scrollbar = document.querySelector('.scrollbar')
 
-    // fix scrollInit(scrollElem, scrollbar)
+    scrollInit(scrollElem, scrollbar)
 
     console.log(props.data)
   }, [props.data.modified])
@@ -94,12 +94,12 @@ export const Sidebar = (props) => {
         <div
           className="sidebar__panel"
           ref={panelScrollRef}
-          // fix onScroll={handlePanelScroll}
+          onScroll={handlePanelScroll}
         >
           {!props.loading && props.singleView ? <SingleView elem={props.data.modified[0]} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
           }
 
-          {/*<Scrollbar />*/}
+          <Scrollbar />
         </div>
 
       </div>
