@@ -69,8 +69,6 @@ export const Sidebar = (props) => {
     const scrollbar = document.querySelector('.scrollbar')
 
     scrollInit(scrollElem, scrollbar)
-
-    console.log(props.data)
   }, [props.data.modified])
 
   const handleBack = () => {
