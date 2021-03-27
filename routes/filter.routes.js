@@ -81,8 +81,6 @@ router.post(
             }
           }
 
-          console.log('Flag', flag, '\n')
-
           if (flag) {
             resData.push(el)
           }
