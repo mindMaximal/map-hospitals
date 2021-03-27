@@ -106,7 +106,7 @@ export const SingleView = (props) => {
               Год основания:
             </div>
 
-            {props.foundationYear || 'неизвестно'}
+            {props.elem.foundationYear || 'неизвестно'}
 
           </div>
 

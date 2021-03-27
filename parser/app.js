@@ -16,6 +16,8 @@ const getInfoList = async (data) => {
 
     let parentId = 0
 
+    let i = 0
+
     for (const org of data) {
 
       parentId++
@@ -76,8 +78,16 @@ const getInfoList = async (data) => {
           geo,
           address,
           parent,
-          parentId
+          parentId,
+          id: i,
+          pharmacy: Math.random() < 0.5,
+          firstAid: Math.random() < 0.5,
+          emergencyAssistance: Math.random() < 0.5,
+          staff: Math.floor((Math.random() * 10) + 1),
+          foundationYear: Math.floor(Math.random() * (2021 - 1997)) + 1997
         }
+
+        i++
 
         let isUnique = true
 

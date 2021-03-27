@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()
-let data = require('../parser/result/data.json');
+const dataFile = require('../parser/result/data.json');
 
 const configDB = {
   host: config.get('host'),
@@ -37,7 +37,7 @@ const initializeConnection = (config) => {
   return connection
 }
 
-// /api/map/
+// /api/map/filter
 router.post(
   '/',
   [],
@@ -57,13 +57,43 @@ router.post(
 
       })*/
       //Подмена для dev-mode
+      const resData = []
 
       try {
-        data = data.data
+        const data = dataFile.data
+
+        for (const el of data) {
+
+          let flag = true
+
+          for (const param of Object.keys(req.body)) {
+
+            if (param === 'foundationYearFrom' && req.body.foundationYearFrom !== null) {
+              if (el.foundationYear < req.body.foundationYearFrom) {
+                flag = false
+              }
+            } else if (param === 'foundationYearTo' && req.body.foundationYearTo !== null) {
+              if (el.foundationYear > req.body.foundationYearTo) {
+                flag = false
+              }
+            } else if (req.body[param] !== null && el[param] !== req.body[param]) {
+              flag = false
+            }
+          }
+
+          console.log('Flag', flag, '\n')
+
+          if (flag) {
+            resData.push(el)
+          }
+
+        }
 
       } catch (er) {
         console.log(er)
       }
+
+      const data = resData
 
       res.json({
         data

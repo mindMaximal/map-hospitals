@@ -38,16 +38,6 @@ export const MapPage = () => {
     try {
       const fetched = await request('/api/map', 'POST')
 
-      //Delete
-     fetched.data.map((el, i) => {
-        el.id = i
-        el.active = false
-        el.pharmacy = Math.random() < 0.5
-        el.firstAid = Math.random() < 0.5
-        el.emergencyAssistance = Math.random() < 0.5
-        el.staff = Math.floor((Math.random() * 10) + 1);
-      })
-
       setState({
         ...state,
         'data': {
@@ -64,10 +54,10 @@ export const MapPage = () => {
     fetchData()
   }, [fetchData])
 
-  const updateData = (value) => {
+  const updateData = (value, force = false) => {
     setState({...state,
       'data': {
-        default: state.data.default,
+        default: force ? value : state.data.default,
         modified: value
       }})
   }

@@ -39,7 +39,9 @@ export const Search = (props) => {
       </div>
 
       { props.filterShow ?
-        <SearchFilter />
+        <SearchFilter
+          updateData={props.updateData}
+        />
         : null
       }
 

@@ -89,7 +89,13 @@ export const Sidebar = (props) => {
 
       <div className="sidebar__wrapper">
 
-        <Search filterShow={state.filter.show} scroll={state.scroll} handleInput={HandleInputSearch} handleFilter={handleFilterButton}/>
+        <Search
+          filterShow={state.filter.show}
+          scroll={state.scroll}
+          handleInput={HandleInputSearch}
+          handleFilter={handleFilterButton}
+          updateData={props.updateData}
+        />
 
         <div
           className="sidebar__panel"
