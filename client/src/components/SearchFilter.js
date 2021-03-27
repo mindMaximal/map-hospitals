@@ -48,13 +48,11 @@ export const SearchFilter = (props) => {
       const fetched = await request('/api/map/filter', 'POST', body)
 
       props.updateData(fetched.data, true)
-      console.log(fetched)
 
     } catch (e) {}
   }, [request])
 
   useEffect(() => {
-    console.log('Отправлено', filters)
     fetchData(filters)
   }, [filters])
 
