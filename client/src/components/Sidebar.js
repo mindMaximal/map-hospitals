@@ -4,7 +4,7 @@ import './Sidebar.scss'
 import {MapContext} from "../context/MapContext"
 import {SingleView} from "./SingleView"
 import {Search} from "./Search"
-import {Scrollbar} from "./Scrollbar";
+import {Scrollbar} from "./Scrollbar"
 
 export const Sidebar = (props) => {
   let panelScrollRef = React.createRef()
@@ -84,8 +84,23 @@ export const Sidebar = (props) => {
     }))
   }, [state.search])
 
+  const handleToggleButton = (e) => {
+    e.target.classList.toggle('sidebar__toggle-button--active')
+
+    const sidebar = e.target.closest('.sidebar')
+
+    sidebar.classList.toggle('sidebar--hidden')
+
+  }
+
   return (
     <div className="sidebar">
+
+      <button
+        className="sidebar__toggle-button sidebar__toggle-button--a"
+        onClick={handleToggleButton}
+      >
+      </button>
 
       <div className="sidebar__wrapper">
 

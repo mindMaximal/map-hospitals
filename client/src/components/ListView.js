@@ -5,7 +5,7 @@ import {SearchView} from "./SearchView";
 export const ListView = (props) => {
   return (
     <div className="list-view">
-      {!props.loading ?  props.list.length ? props.list.map((view, i) => (
+      {!props.loading ?  props.list && props.list.length > 0 ? props.list.map((view, i) => (
         <SearchView
           key={i}
           name={view.name}

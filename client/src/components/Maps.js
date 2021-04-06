@@ -1,7 +1,6 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import './Maps.scss'
 import { YMaps, Map, Clusterer, Placemark, Button } from "react-yandex-maps"
-import {AuthContext} from "../context/AuthContext";
 import {MapContext} from "../context/MapContext";
 
 export const Maps = (props) => {
@@ -65,7 +64,7 @@ export const Maps = (props) => {
               iconColor: '#26a69a'
             }}
           >
-            {props.data.modified.map((obj, i) => (
+            {props.data && props.data.modified.length > 0 ? props.data.modified.map((obj, i) => (
               <Placemark
                 key={i}
                 geometry={obj.geo.split(', ')}
@@ -74,7 +73,7 @@ export const Maps = (props) => {
                 modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
                 onClick={e => handlePlacemarkClick(e, obj)}
               />
-            ))}
+            )) : null}
           </Clusterer>
 
         </Map>
