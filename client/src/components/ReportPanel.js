@@ -224,7 +224,6 @@ export const ReportPanel = (props) => {
         ]}
         bottomSheet={false}
         fixedFooter={false}
-        header="Modal Header"
         id="report-modal"
         open={false}
         options={{

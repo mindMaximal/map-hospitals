@@ -5,6 +5,7 @@ import {MapContext} from "../context/MapContext"
 import {SingleView} from "./SingleView"
 import {Search} from "./Search"
 import {Scrollbar} from "./Scrollbar"
+import {Preloader} from "react-materialize";
 
 export const Sidebar = (props) => {
   let panelScrollRef = React.createRef()
@@ -117,7 +118,17 @@ export const Sidebar = (props) => {
           ref={panelScrollRef}
           onScroll={handlePanelScroll}
         >
-          {!props.loading && props.singleView ? <SingleView elem={props.data.modified[0]} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
+          {
+            props.loading ?
+              <div className="sidebar__loader">
+                <Preloader
+                  active
+                  color="blue"
+                  flashing={false}
+                  size="small"
+                />
+              </div> :
+              props.singleView ? <SingleView elem={props.data.modified[0]} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
           }
 
           <Scrollbar />

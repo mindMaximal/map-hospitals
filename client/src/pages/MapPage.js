@@ -69,36 +69,26 @@ export const MapPage = () => {
     controls: [],
   });
 
-  if (loading) {
-    return <Loader />
-  }
-
   return (
     <div className="container--map">
       <MapContext.Provider value={{
         mapState, setMapState
       }}>
 
-        {
-          !loading &&
-          <Sidebar
-            loading={loading}
-            data={state.data}
-            updateData={updateData}
-            singleView={singleView}
-            setSingleView={setSingleView}
-          />
-        }
+        <Sidebar
+          loading={loading}
+          data={state.data}
+          updateData={updateData}
+          singleView={singleView}
+          setSingleView={setSingleView}
+        />
 
-        {
-          !loading &&
-          <Maps
-            loading={loading}
-            data={state.data}
-            updateData={updateData}
-            setSingleView={setSingleView}
-          />
-        }
+        <Maps
+          loading={loading}
+          data={state.data}
+          updateData={updateData}
+          setSingleView={setSingleView}
+        />
 
         <Reports />
 
