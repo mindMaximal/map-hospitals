@@ -70,6 +70,14 @@ body {
 	}
 }
 
+.flex {
+	display: flex;
+
+	&--between {
+		justify-content: space-between;
+	}
+}
+
 /*
 @include media-breakpoint-down(md) {
 }

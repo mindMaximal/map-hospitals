@@ -6,6 +6,8 @@ export const useHttp = (callback, deps) => {
 
   const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
 
+    setLoading(true)
+
     try {
 
       if (body) {
