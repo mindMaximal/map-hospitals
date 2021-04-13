@@ -30,19 +30,6 @@ export const Reports = (props) => {
         >
           Отчеты
         </Button>
-
-        <Button
-          node="button"
-          small
-          style={{
-            marginRight: '5px'
-          }}
-          waves="light"
-          onClick={handleReportButton}
-        >
-          Отчеты по запросу
-        </Button>
-
       </div>
 
       { reportState.show ?

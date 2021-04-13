@@ -61,6 +61,8 @@ export const SearchFilter = (props) => {
     <CardPanel className="search-filter white">
       <div className="search-filter__wrapper">
 
+        <h4 className="search-filter__title">Фильтры:</h4>
+
         <div className="search-filter__block">
           <Checkbox
             filledIn
