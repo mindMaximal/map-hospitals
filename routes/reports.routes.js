@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()
-const dataFile = require('../parser/result/data.json');
+let data = require('../parser/result/data.json');
 
 const configDB = {
   host: config.get('host'),
@@ -44,7 +44,7 @@ router.post(
   async (req, res) => {
     try {
 
-      console.log(req.body)
+      console.log('Request body', req.body)
 
       /*const connection = initializeConnection(configDB)
 
@@ -58,18 +58,42 @@ router.post(
       })*/
       //Подмена для dev-mode
 
-      try {
+      const responseData = []
 
+      try {
+        data = data.data.slice(0, 10)
+
+        for (const el of data) {
+          let newEl = {
+            name: el.name,
+            address: el.address,
+            parent: el.parent,
+            pharmacy: el.pharmacy ? 'есть' : 'отстуствует',
+            firstAid: el.firstAid ? 'есть' : 'отстуствует',
+            emergencyAssistance: el.emergencyAssistance ? 'есть' : 'отстуствует',
+            staff: el.staff
+          }
+
+          responseData.push(newEl)
+        }
 
       } catch (er) {
         console.log(er)
       }
 
-      setTimeout(() => {
-        res.json({
-          'answ': req.body
-        })
-      }, 5000)
+      res.json({
+        'title': req.body.title ? req.body.title : null,
+        'headers': [
+          'Названия',
+          'Адрес',
+          'Организация',
+          'Аптека',
+          'Первая помощь',
+          'Экстренная помощь',
+          'Укомплектованность'
+        ],
+        'objects': responseData
+      })
 
     } catch (e) {
       console.log(e)

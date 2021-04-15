@@ -14,6 +14,8 @@ import {Loader} from "../components/Loader";
 *    - Пофиксить пропадание при увелечении
 *    - scrollbar
 *
+*   https://geoportal.egisz.rosminzdrav.ru/
+*
 *  */
 
 export const MapPage = () => {

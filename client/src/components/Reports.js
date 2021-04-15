@@ -21,7 +21,6 @@ export const Reports = (props) => {
 
         <Button
           node="button"
-          small
           style={{
             marginRight: '5px'
           }}

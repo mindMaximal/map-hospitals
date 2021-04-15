@@ -1,0 +1,41 @@
+.report-view {
+
+	&__title {
+		font-size: 36px;
+		font-weight: bold;
+	}
+
+	&__modal {
+		width: 100%;
+		max-width: 80%;
+		max-height: 80%;
+
+		&.modal-fixed-footer {
+			height: 100%;
+		}
+
+		&.modal {
+
+			.report-view {
+
+				&__button {
+
+					&--footer {
+						margin-right: 10px;
+
+						&:last-of-type {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+
+		.modal-footer {
+			padding: 10px 24px;
+			height: auto;
+		}
+	}
+
+
+}
