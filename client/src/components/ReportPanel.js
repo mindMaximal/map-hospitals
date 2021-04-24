@@ -37,11 +37,22 @@ export const ReportPanel = (props) => {
     fetchData(state)
   }
 
-  const handlePreparedReportsButton = e => {
+  const handlePreparedReportsButton = (e) => {
     fetchData({
       ...state,
-      title: e.target.getAttribute('data-title')
+      title: e.target.getAttribute('data-title'),
+      params: e.target.getAttribute('params')
     })
+
+    clearState()
+  }
+
+  const clearState = () => {
+    setState({})
+    /*
+    * ToDo
+    *  - очистка полей формы
+    * */
   }
 
   useEffect(() => {
@@ -71,6 +82,12 @@ export const ReportPanel = (props) => {
                 waves="light"
                 className="report-panel__button modal-trigger"
                 onClick={handlePreparedReportsButton}
+                params={[
+                  'name',
+                  'post',
+                  'rates',
+                  'date'
+                ]}
                 href="#report-modal"
                 data-title="об укомплектованности мед. работниками"
               >
@@ -85,7 +102,7 @@ export const ReportPanel = (props) => {
                 href="#report-modal"
                 data-title="о ФАПах с возможностью оказания первой помощи"
               >
-                Отчет о ФАПах с возможностью оказания первой помощи
+                Отчет о медицинских пунктах с возможностью оказания первой медицинской помощи
               </Button>
 
               <Button
@@ -96,7 +113,18 @@ export const ReportPanel = (props) => {
                 href="#report-modal"
                 data-title="о ФАПах с аптеками"
               >
-                Отчет о ФАПах с аптеками
+                Отчет о медицинских пунктах с аптеками
+              </Button>
+
+              <Button
+                node="button"
+                waves="light"
+                className="report-panel__button modal-trigger"
+                onClick={handlePreparedReportsButton}
+                href="#report-modal"
+                data-title="о ФАПах с аптеками"
+              >
+                Отчёт о медицинских пунктах с просроченной реконструкцией
               </Button>
 
             </div>
