@@ -39,7 +39,7 @@ export const Maps = (props) => {
 
     props.updateData([el])
     props.setSingleView(true)
-    setMapState({...mapState, 'center': el.geo.split(', ')})
+    setMapState({...mapState, 'center': [el.latitude, el.longitude]})
   }
 
   return (
@@ -67,7 +67,7 @@ export const Maps = (props) => {
             {props.data && props.data.modified.length > 0 ? props.data.modified.map((obj, i) => (
               <Placemark
                 key={i}
-                geometry={obj.geo.split(', ')}
+                geometry={[obj.latitude, obj.longitude]}
                 properties={getPointData(obj)}
                 options={getPointOptions()}
                 modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}

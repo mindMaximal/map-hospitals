@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import './SingleView.scss'
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
+import getAddress from "../functions/getAddress";
+import {useHttp} from "../hooks/http.hook";
 
 /*
 *   ToDO
@@ -9,6 +11,32 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 * */
 
 export const SingleView = (props) => {
+
+  const [state, setState] = useState()
+
+  const {loading, error, request, clearError} = useHttp()
+
+  useEffect(() => {
+    if (error) {
+      console.log('Ошибка: ' + error)
+    }
+    clearError()
+  }, [clearError, error])
+
+  const fetchData = useCallback(async (body) => {
+    try {
+      console.log('body', body)
+
+      const fetched = await request('/api/reports', 'POST', body)
+
+      setData(fetched)
+
+    } catch (e) {}
+  }, [request])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   return (
     <div className="single-view">
@@ -26,12 +54,16 @@ export const SingleView = (props) => {
               <ArrowBack />
             </button>
 
-            {props.elem.name}
+            {props.elem.name_Med_punkt}
           </div>
 
-          <div className="single-view__type">
-            Фельдшерско-акушерский пункт
-          </div>
+          {
+            props.elem.type_Med_punkt &&
+            <div className="single-view__type">
+              {props.elem.type_Med_punkt}
+            </div>
+          }
+
 
           <div className="single-view__schedule">
             {props.elem.schedule || "График работы не указан"}
@@ -47,7 +79,7 @@ export const SingleView = (props) => {
               Адрес:
             </div>
 
-            {props.elem.address || "Адрес не указан"}
+            {getAddress(props.elem) || "Адрес не указан"}
           </div>
 
           <div className="single-view__elem">

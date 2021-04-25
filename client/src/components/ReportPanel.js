@@ -55,10 +55,6 @@ export const ReportPanel = (props) => {
     * */
   }
 
-  useEffect(() => {
-    console.log('loading', loading)
-  }, [loading])
-
   return (
     <div className="report-panel shadow">
 

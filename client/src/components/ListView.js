@@ -1,16 +1,19 @@
 import React from 'react'
 import './ListView.scss'
 import {SearchView} from "./SearchView";
+import getAddress from "../functions/getAddress";
+
 
 export const ListView = (props) => {
+
   return (
     <div className="list-view">
       {!props.loading ?  props.list && props.list.length > 0 ? props.list.map((view, i) => (
         <SearchView
           key={i}
-          name={view.name}
-          addres={view.address}
-          id={view.id}
+          name={view.name_Med_punkt}
+          addres={getAddress(view)}
+          id={view.id_Med_punkt}
           searchViewClick={props.searchViewClick}
         />
       )) :

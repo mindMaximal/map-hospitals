@@ -21,11 +21,11 @@ export const Sidebar = (props) => {
   const {mapState, setMapState} = useContext(MapContext)
 
   const searchViewClick = (e, id) => {
-    let el = props.data.default.find(el => el.id === id)
+    let el = props.data.default.find(el => el.id_Med_punkt === id)
     el.active = true
 
     props.updateData([el])
-    setMapState({...mapState, 'center': el.geo.split(', ')})
+    setMapState({...mapState, 'center': [el.latitude, el.longitude]})
     props.setSingleView(true)
   }
 

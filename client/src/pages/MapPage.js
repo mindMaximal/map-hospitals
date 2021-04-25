@@ -40,6 +40,8 @@ export const MapPage = () => {
     try {
       const fetched = await request('/api/map', 'POST')
 
+      console.log('fetched', fetched)
+
       setState({
         ...state,
         'data': {

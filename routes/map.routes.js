@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()
-let data = require('../parser/result/data.json');
+//let data = require('../parser/result/data.json');
 
 const configDB = {
   host: config.get('host'),
@@ -46,19 +46,29 @@ router.post(
 
       console.log(req.body)
 
-      /*const connection = initializeConnection(configDB)
+      const connection = initializeConnection(configDB)
 
-      connection.query('SELECT * FROM units', (err, rows, fields) => {
+      const query = 'SELECT `id_Med_punkt`, `name_Med_punkt`, `Street`, `Number_of_house`, `latitude`, `longitude`, `name_nas_punkt`, `name_rayon`, `name_obl`  FROM `med_punkt`\n' +
+        '    JOIN `nas_punkt`\n' +
+        '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +
+        '    JOIN `rayon`\n' +
+        '        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`\n' +
+        '    JOIN `obl`\n' +
+        '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`'
+
+      connection.query(query, (err, rows, fields) => {
         if (err) {
           throw err
         }
 
-        //res.json({data: rows})
+        console.log(rows)
 
-      })*/
+        res.json({data: rows})
+
+      })
       //Подмена для dev-mode
 
-      try {
+      /*try {
         data = data.data
 
       } catch (er) {
@@ -67,7 +77,7 @@ router.post(
 
       res.json({
         data
-      })
+      })*/
 
     } catch (e) {
       console.log(e)
