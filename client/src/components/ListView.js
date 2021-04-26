@@ -1,7 +1,7 @@
 import React from 'react'
 import './ListView.scss'
 import {SearchView} from "./SearchView";
-import getAddress from "../functions/getAddress";
+import getAddressFunction from "../functions/getAddress.function";
 
 
 export const ListView = (props) => {
@@ -12,7 +12,7 @@ export const ListView = (props) => {
         <SearchView
           key={i}
           name={view.name_Med_punkt}
-          addres={getAddress(view)}
+          addres={getAddressFunction(view)}
           id={view.id_Med_punkt}
           searchViewClick={props.searchViewClick}
         />

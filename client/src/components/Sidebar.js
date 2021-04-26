@@ -21,12 +21,19 @@ export const Sidebar = (props) => {
   const {mapState, setMapState} = useContext(MapContext)
 
   const searchViewClick = (e, id) => {
-    let el = props.data.default.find(el => el.id_Med_punkt === id)
+    const elActive = props.data.default.find(el => el.active === true)
+
+    if (elActive)
+      elActive.active = false
+
+    const el = props.data.default.find(el => el.id_Med_punkt === id)
     el.active = true
 
-    props.updateData([el])
     setMapState({...mapState, 'center': [el.latitude, el.longitude]})
-    props.setSingleView(true)
+    props.setSingleView({
+      flag: true,
+      id: el.id_Med_punkt
+    })
   }
 
   const handleFilterButton = (e) => {
@@ -75,13 +82,18 @@ export const Sidebar = (props) => {
   }, [props.data.modified])
 
   const handleBack = () => {
-    props.updateData(props.data.default)
-    props.setSingleView(false)
+    const el = props.data.default.find(el => el.active === true)
+    el.active = false
+
+    props.setSingleView({
+      flag: false,
+      id: null
+    })
   }
 
   useEffect(() => {
     props.updateData(props.data.default.filter((obj) => {
-      return obj.name.toLowerCase().indexOf(state.search) !== -1;
+      return obj.name_Med_punkt.toLowerCase().indexOf(state.search) !== -1;
     }))
   }, [state.search])
 
@@ -128,7 +140,7 @@ export const Sidebar = (props) => {
                   size="small"
                 />
               </div> :
-              props.singleView ? <SingleView elem={props.data.modified[0]} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
+              props.singleView.flag ? <SingleView id={props.data.default.find(el => el.id_Med_punkt === props.singleView.id).id_Med_punkt} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
           }
 
           <Scrollbar />

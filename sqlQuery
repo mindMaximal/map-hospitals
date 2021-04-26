@@ -15,6 +15,7 @@ SELECT * FROM `med_punkt`
     JOIN `obl`
     	ON `obl`.`idObl` = `rayon`.`Obl_idObl`
 
+//Map
 SELECT `id_Med_punkt`, `name_Med_punkt`, `Street`, `Number_of_house`, `latitude`, `longitude`, `name_nas_punkt`, `name_rayon`, `name_obl`  FROM `med_punkt`
     JOIN `nas_punkt`
         ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`
@@ -22,3 +23,13 @@ SELECT `id_Med_punkt`, `name_Med_punkt`, `Street`, `Number_of_house`, `latitude`
         ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`
     JOIN `obl`
         ON `obl`.`idObl` = `rayon`.`Obl_idObl`
+
+//Single
+SELECT * FROM `med_punkt`
+    JOIN `nas_punkt`
+        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`
+    JOIN `rayon`
+        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`
+    JOIN `obl`
+        ON `obl`.`idObl` = `rayon`.`Obl_idObl`
+    WHERE `id_Med_punkt` = 1

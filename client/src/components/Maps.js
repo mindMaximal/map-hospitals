@@ -26,20 +26,27 @@ export const Maps = (props) => {
     };
   };
 
-  const getPointOptions = () => {
+  const getPointOptions = (el) => {
     return {
       preset: 'islands#violetIcon',
-      iconColor: '#26a69a'
+      iconColor: el.active === true ? '#e20101' : '#26a69a'
     };
   };
 
-  const handlePlacemarkClick = (e, obj) => {
-    let el = props.data.default.find(el => el.id === obj.id)
+  const handlePlacemarkClick = (e, id) => {
+    const elActive = props.data.default.find(el => el.active === true)
+
+    if (elActive)
+      elActive.active = false
+
+    const el = props.data.default.find(el => el.id_Med_punkt === id)
     el.active = true
 
-    props.updateData([el])
-    props.setSingleView(true)
     setMapState({...mapState, 'center': [el.latitude, el.longitude]})
+    props.setSingleView({
+      flag: true,
+      id: el.id_Med_punkt
+    })
   }
 
   return (
@@ -64,14 +71,14 @@ export const Maps = (props) => {
               iconColor: '#26a69a'
             }}
           >
-            {props.data && props.data.modified.length > 0 ? props.data.modified.map((obj, i) => (
+            {props.data && props.data.modified.length > 0 ? props.data.modified.map((el, i) => (
               <Placemark
                 key={i}
-                geometry={[obj.latitude, obj.longitude]}
-                properties={getPointData(obj)}
-                options={getPointOptions()}
+                geometry={[el.latitude, el.longitude]}
+                properties={getPointData(el)}
+                options={getPointOptions(el)}
                 modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                onClick={e => handlePlacemarkClick(e, obj)}
+                onClick={e => handlePlacemarkClick(e, el.id_Med_punkt)}
               />
             )) : null}
           </Clusterer>

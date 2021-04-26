@@ -27,7 +27,10 @@ export const MapPage = () => {
       modified: []
     }
   })
-  const [singleView, setSingleView] = useState(false)
+  const [singleView, setSingleView] = useState({
+    flag: false,
+    id: null
+  })
 
   useEffect(() => {
     if (error) {

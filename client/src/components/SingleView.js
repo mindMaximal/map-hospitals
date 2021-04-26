@@ -1,8 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './SingleView.scss'
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
-import getAddress from "../functions/getAddress";
+import getAddressFunction from "../functions/getAddress.function";
 import {useHttp} from "../hooks/http.hook";
+import {Preloader} from "react-materialize";
 
 /*
 *   ToDO
@@ -12,7 +13,9 @@ import {useHttp} from "../hooks/http.hook";
 
 export const SingleView = (props) => {
 
-  const [state, setState] = useState()
+  const [state, setState] = useState({
+    el: null
+  })
 
   const {loading, error, request, clearError} = useHttp()
 
@@ -27,130 +30,153 @@ export const SingleView = (props) => {
     try {
       console.log('body', body)
 
-      const fetched = await request('/api/reports', 'POST', body)
+      const fetched = await request('/api/map/single', 'POST', body)
 
-      setData(fetched)
+      console.log('SingleView fetched', fetched)
+
+      setState({
+        el: fetched
+      })
 
     } catch (e) {}
   }, [request])
 
   useEffect(() => {
-    fetchData()
+    fetchData({
+      id: props.id
+    })
   }, [fetchData])
 
   return (
     <div className="single-view">
 
-      <div className="single-view__info">
+      {
+        loading ?
+          <div className="single-view__loader">
+            <Preloader
+              active
+              color="blue"
+              flashing={false}
+              size="small"
+            />
+          </div> :
+          state.el && <div className="single-view__wrapper">
 
-        <div className="single-view__block single-view__header">
+          <div className="single-view__info">
 
-          <div className="single-view__title">
+            <div className="single-view__block single-view__header">
 
-            <button
-              className="single-view__button single-view__button--back"
-              onClick={props.back}
-            >
-              <ArrowBack />
-            </button>
+              <div className="single-view__title">
 
-            {props.elem.name_Med_punkt}
+                <button
+                  className="single-view__button single-view__button--back"
+                  onClick={props.back}
+                >
+                  <ArrowBack />
+                </button>
+
+                {state.el.name_Med_punkt}
+              </div>
+
+              {
+                state.el.type_Med_punkt &&
+                <div className="single-view__type">
+                  {state.el.type_Med_punkt}
+                </div>
+              }
+
+
+              <div className="single-view__schedule">
+                {state.el.schedule || "График работы не указан"}
+              </div>
+
+            </div>
+
+            <div className="single-view__block">
+
+              <div className="single-view__elem single-view__address">
+
+                <div className="single-view__subtitle">
+                  Адрес:
+                </div>
+
+                {getAddressFunction(state.el) || "Адрес не указан"}
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle">
+                  Организация:
+                </div>
+
+                {state.el.parent}
+
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  Аптека:
+                </div>
+
+                {parseInt(state.el.Pharmacy) === 1 ? 'есть' : 'отстуствует'}
+
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  Первая помощь:
+                </div>
+
+                {parseInt(state.el.Access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
+
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  Экстренная помощь:
+                </div>
+
+                {parseInt(state.el.Availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
+
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  Укомплектованность фельдшерами:
+                </div>
+
+                {state.el.staff || 0}
+
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  Год основания:
+                </div>
+
+                {state.el.Founding_year || 'неизвестно'}
+
+              </div>
+
+            </div>
+
           </div>
 
-          {
-            props.elem.type_Med_punkt &&
-            <div className="single-view__type">
-              {props.elem.type_Med_punkt}
+          {state.el.photo &&
+            <div className="single-view__photo">
+              <img src={state.el.photo} alt="Photo"/>
             </div>
           }
 
-
-          <div className="single-view__schedule">
-            {props.elem.schedule || "График работы не указан"}
-          </div>
-
         </div>
-
-        <div className="single-view__block">
-
-          <div className="single-view__elem single-view__address">
-
-            <div className="single-view__subtitle">
-              Адрес:
-            </div>
-
-            {getAddress(props.elem) || "Адрес не указан"}
-          </div>
-
-          <div className="single-view__elem">
-
-            <div className="single-view__subtitle">
-              Организация:
-            </div>
-
-            {props.elem.parent}
-
-          </div>
-
-          <div className="single-view__elem">
-
-            <div className="single-view__subtitle single-view__subtitle--inline">
-              Аптека:
-            </div>
-
-            {props.elem.pharmacy ? 'есть' : 'отстуствует'}
-
-          </div>
-
-          <div className="single-view__elem">
-
-            <div className="single-view__subtitle single-view__subtitle--inline">
-              Первая помощь:
-            </div>
-
-            {props.elem.firstAid ? 'есть' : 'отстуствует'}
-
-          </div>
-
-          <div className="single-view__elem">
-
-            <div className="single-view__subtitle single-view__subtitle--inline">
-              Экстренная помощь:
-            </div>
-
-            {props.emergencyAssistance ? 'есть' : 'отстуствует'}
-
-          </div>
-
-          <div className="single-view__elem">
-
-            <div className="single-view__subtitle single-view__subtitle--inline">
-              Укомплектованность фельдшерами:
-            </div>
-
-            {props.elem.staff || 0}
-
-          </div>
-
-          <div className="single-view__elem">
-
-            <div className="single-view__subtitle single-view__subtitle--inline">
-              Год основания:
-            </div>
-
-            {props.elem.foundationYear || 'неизвестно'}
-
-          </div>
-
-        </div>
-
-      </div>
-
-      {props.elem.photo &&
-      <div className="single-view__photo">
-        <img src={props.elem.photo} alt="Photo"/>
-      </div>
       }
+
+
 
     </div>
   )
