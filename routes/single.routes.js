@@ -12,8 +12,6 @@ const configDB = {
   database: config.get('database')
 }
 
-
-
 // /api/map/single
 router.post(
   '/',

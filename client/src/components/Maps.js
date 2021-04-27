@@ -1,13 +1,12 @@
 import React, {useContext} from 'react'
 import './Maps.scss'
-import { YMaps, Map, Clusterer, Placemark, Button } from "react-yandex-maps"
+import { YMaps, Map, Clusterer, Placemark } from "react-yandex-maps"
 import {MapContext} from "../context/MapContext";
 
 export const Maps = (props) => {
   const {mapState, setMapState} = useContext(MapContext)
 
   function createZoomControlLayout(ymaps) {
-    // Функция по созданию layout'a целиком взята из песочницы яндекс карт
     // https://tech.yandex.com/maps/jsbox/2.1/zoom_layout
     const ZoomLayout = ymaps.templateLayoutFactory.createClass("<div id='zoom-in' class='btn'><i class='icon-plus'>1</i></div><br>")
 
@@ -20,7 +19,7 @@ export const Maps = (props) => {
     this.setState({ layout })
   };
 
-  const getPointData = (el) => {
+  const getPointData = () => {
     return {
       clusterCaption: "placemark <strong>" + "</strong>"
     };

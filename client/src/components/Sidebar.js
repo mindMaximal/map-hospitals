@@ -36,7 +36,7 @@ export const Sidebar = (props) => {
     })
   }
 
-  const handleFilterButton = (e) => {
+  const handleFilterButton = () => {
     setState({...state, 'filter': {
         ...state.filter,
         show: !state.filter.show
@@ -51,10 +51,18 @@ export const Sidebar = (props) => {
     const scrollHeight = elem.scrollHeight
     const viewHeight = elem.offsetHeight
 
-    scrollbar.querySelector('.scrollbar__slider').style.height = viewHeight * viewHeight / scrollHeight + 'px';
+    let scrollbarSliderHeight = viewHeight * viewHeight / scrollHeight
+
+    if (scrollbarSliderHeight === scrollHeight) {
+      scrollbar.style.display = 'none'
+    } else {
+      scrollbar.style.display = 'block'
+    }
+
+    scrollbar.querySelector('.scrollbar__slider').style.height = scrollbarSliderHeight + 'px';
   }
 
-  const handlePanelScroll = (e) => {
+  const handlePanelScroll = () => {
     const scrollTop = panelScrollRef.current.scrollTop
 
     if (scrollTop > 50) {
@@ -77,9 +85,14 @@ export const Sidebar = (props) => {
     const scrollbar = document.querySelector('.scrollbar')
 
     scrollInit(scrollElem, scrollbar)
+  }, [props.singleView, props.data])
 
-    console.log(props.data)
-  }, [props.data.modified])
+  window.addEventListener(`resize`, (e) => {
+    const scrollElem = document.querySelector('.sidebar__panel')
+    const scrollbar = document.querySelector('.scrollbar')
+
+    scrollInit(scrollElem, scrollbar)
+  }, false);
 
   const handleBack = () => {
     const el = props.data.default.find(el => el.active === true)
@@ -103,7 +116,6 @@ export const Sidebar = (props) => {
     const sidebar = e.target.closest('.sidebar')
 
     sidebar.classList.toggle('sidebar--hidden')
-
   }
 
   return (

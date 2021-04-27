@@ -15,7 +15,6 @@ export const Scrollbar = (props) => {
   const documentMouseMoveListener = (event, el) => {
     const offset = event.pageY
     el.style.top = offset + 'px'
-    console.log(offset)
   }
 
   const handleSliderDragEnd = (e) => {
@@ -23,7 +22,6 @@ export const Scrollbar = (props) => {
   }
 
   const handleSliderDragStart = (e) => {
-    console.log('Start', e)
     const el = e.target
 
     document.addEventListener('mousemove', documentMouseMoveListener(e, el), false)

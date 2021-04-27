@@ -3,8 +3,7 @@ import {Sidebar} from "../components/Sidebar"
 import {Maps} from "../components/Maps"
 import {useHttp} from "../hooks/http.hook"
 import {MapContext} from "../context/MapContext"
-import {Reports} from "../components/Reports";
-import {Loader} from "../components/Loader";
+import {Reports} from "../components/Reports"
 
 
 /*
