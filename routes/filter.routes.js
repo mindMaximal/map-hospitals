@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()
-const dataFile = require('../parser/result/data.json');
+const {initializeConnection} = require("../functions/initializeConnection.function")
 
 const configDB = {
   host: config.get('host'),
@@ -10,31 +10,6 @@ const configDB = {
   password: config.get('password'),
   port: config.get('portDB'),
   database: config.get('database')
-}
-
-const initializeConnection = (config) => {
-
-  const addDisconnectHandler = (connection) => {
-    connection.on("error", function (error) {
-      if (error instanceof Error) {
-        if (error.code === "PROTOCOL_CONNECTION_LOST") {
-          console.error(error.stack)
-          console.log("Lost connection. Reconnecting...")
-
-          initializeConnection(connection.config);
-        } else if (error.fatal) {
-          throw error
-        }
-      }
-    })
-  }
-
-  const connection = mysql.createConnection(config)
-
-  addDisconnectHandler(connection)
-
-  connection.connect()
-  return connection
 }
 
 // /api/map/filter
@@ -46,55 +21,57 @@ router.post(
 
       console.log(req.body)
 
-      /*const connection = initializeConnection(configDB)
+      const limiters = []
 
-      connection.query('SELECT * FROM units', (err, rows, fields) => {
+      for (const param of Object.keys(req.body)) {
+
+        if (param === 'foundationYearFrom' && req.body.foundationYearFrom !== null) {
+          limiters.push('`Founding_year` > ' + req.body.foundationYearFrom)
+        } else if (param === 'foundationYearTo' && req.body.foundationYearTo !== null) {
+          limiters.push('`Founding_year` < ' + req.body.foundationYearTo)
+        } else if (param === 'pharmacy' && req.body.pharmacy === true) {
+          limiters.push('`Pharmacy` = 1')
+        } else if (param === 'firstAid' && req.body.firstAid === true) {
+          limiters.push('`Access_to_primary_health_care` = 1')
+        } else if (param === 'emergencyAssistance' && req.body.emergencyAssistance === true) {
+          limiters.push('`Availability_of_emergency_mediical_care` = 1')
+        }
+      }
+
+      const connection = initializeConnection(configDB)
+
+      let query = 'SELECT `id_Med_punkt`, `name_Med_punkt`, `Street`, `Number_of_house`, `latitude`, `longitude`, `name_nas_punkt`, `name_rayon`, `name_obl`  FROM `med_punkt`\n' +
+        '    JOIN `nas_punkt`\n' +
+        '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +
+        '    JOIN `rayon`\n' +
+        '        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`\n' +
+        '    JOIN `obl`\n' +
+        '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`'
+
+      if (limiters.length !== 0) {
+        query += '\n WHERE'
+
+        for (let i = 0; i < limiters.length; i++) {
+          if (i === limiters.length - 1) {
+            query += limiters[i]
+          } else {
+            query += limiters[i] + ' AND '
+          }
+        }
+      }
+
+      console.log(query)
+
+      connection.query(query, (err, rows, fields) => {
         if (err) {
           throw err
         }
 
+
+
         //res.json({data: rows})
+        res.json({data: rows})
 
-      })*/
-      //Подмена для dev-mode
-      const resData = []
-
-      try {
-        const data = dataFile.data
-
-        for (const el of data) {
-
-          let flag = true
-
-          for (const param of Object.keys(req.body)) {
-
-            if (param === 'foundationYearFrom' && req.body.foundationYearFrom !== null) {
-              if (el.foundationYear < req.body.foundationYearFrom) {
-                flag = false
-              }
-            } else if (param === 'foundationYearTo' && req.body.foundationYearTo !== null) {
-              if (el.foundationYear > req.body.foundationYearTo) {
-                flag = false
-              }
-            } else if (req.body[param] !== null && el[param] !== req.body[param]) {
-              flag = false
-            }
-          }
-
-          if (flag) {
-            resData.push(el)
-          }
-
-        }
-
-      } catch (er) {
-        console.log(er)
-      }
-
-      const data = resData
-
-      res.json({
-        data
       })
 
     } catch (e) {
@@ -105,3 +82,32 @@ router.post(
 )
 
 module.exports = router
+
+
+/*
+
+ for (const row in rows) {
+    let flag = true
+
+    for (const param of Object.keys(req.body)) {
+
+      if (param === 'foundationYearFrom' && req.body.foundationYearFrom !== null) {
+        if (el.foundationYear < req.body.foundationYearFrom) {
+          flag = false
+        }
+      } else if (param === 'foundationYearTo' && req.body.foundationYearTo !== null) {
+        if (el.foundationYear > req.body.foundationYearTo) {
+          flag = false
+        }
+      } else if (req.body[param] !== null && el[param] !== req.body[param]) {
+        flag = false
+      }
+    }
+
+    if (flag) {
+      resData.push(el)
+    }
+  }
+
+
+ */

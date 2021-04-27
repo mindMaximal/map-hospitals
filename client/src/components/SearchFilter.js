@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './SearchFilter.scss'
-import {TextInput, Checkbox, CardPanel} from "react-materialize";
+import {TextInput, Checkbox, CardPanel, Button} from "react-materialize";
 import {useHttp} from "../hooks/http.hook";
 
 export const SearchFilter = (props) => {
@@ -58,7 +58,7 @@ export const SearchFilter = (props) => {
 
   return (
 
-    <CardPanel className="search-filter white">
+    <CardPanel className={'search-filter white ' + (props.visible ? 'search-filter--visible' : 'search-filter--hidden')}>
       <div className="search-filter__wrapper">
 
         <h4 className="search-filter__title">Фильтры:</h4>
@@ -66,6 +66,7 @@ export const SearchFilter = (props) => {
         <div className="search-filter__block">
           <Checkbox
             filledIn
+            className="search-filter__checkbox"
             id="search-filter__pharmacy"
             label="Аптека"
             value="pharmacy"
@@ -73,12 +74,16 @@ export const SearchFilter = (props) => {
           />
         </div>
 
+        <input type="checkbox" className="search-filter__checkbox"/>
+
         <div className="search-filter__block">
           <Checkbox
             filledIn
+            className="search-filter__checkbox"
             id="search-filter__first-aid"
             label="Первая помощь"
             value="firstAid"
+            checked={false}
             onClick={e => handleCheckBoxFilterClick(e)}
           />
         </div>
@@ -86,6 +91,7 @@ export const SearchFilter = (props) => {
         <div className="search-filter__block">
           <Checkbox
             filledIn
+            className="search-filter__checkbox"
             id="search-filter__emergency-assistance"
             label="Экстренная помощь"
             value="emergencyAssistance"
@@ -93,20 +99,22 @@ export const SearchFilter = (props) => {
           />
         </div>
 
-        <div className="search-filter__block">
+        {/*<div className="search-filter__block">
           <Checkbox
             filledIn
+            className"search-filter__checkbox
             id="search-filter__staffing"
             label="Укомплектованность фельдшерами"
             value="staffing"
             onClick={e => handleCheckBoxFilterClick(e)}
           />
-        </div>
+        </div>*/}
 
         <div className="search-filter__block">
           <TextInput
             id="search-filter__year-foundation-from"
             name="foundationYearFrom"
+            className="search-filter__textarea"
             type="number"
             label="Год основания (от)"
             onBlur={e => handleTextareaBlur(e)}
@@ -115,6 +123,7 @@ export const SearchFilter = (props) => {
           <TextInput
             id="search-filter__year-foundation-to"
             type="number"
+            className="search-filter__textarea"
             name="foundationYearTo"
             label="Год основания (до)"
             onBlur={e => handleTextareaBlur(e)}

@@ -38,12 +38,10 @@ export const Search = (props) => {
         </button>
       </div>
 
-      { props.filterShow ?
-        <SearchFilter
-          updateData={props.updateData}
-        />
-        : null
-      }
+      <SearchFilter
+        updateData={props.updateData}
+        visible={props.filterShow}
+      />
 
     </CardPanel>
   )

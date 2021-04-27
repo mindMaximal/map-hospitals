@@ -2,6 +2,7 @@
 	position: fixed;
 	top: 12px;
 	left: 365px;
+	min-width: 280px;
 
 	&__select {
 		margin-bottom: 10px;
@@ -17,9 +18,13 @@
 	}
 
 	&__title {
-		font-size: 16px;
+		font-size: 18px;
 		margin-top: 0;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
+	}
+
+	&--hidden {
+		display: none;
 	}
 }
 

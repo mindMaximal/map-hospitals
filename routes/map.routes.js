@@ -37,20 +37,7 @@ router.post(
         }
 
         res.json({data: rows})
-
       })
-      //Подмена для dev-mode
-
-      /*try {
-        data = data.data
-
-      } catch (er) {
-        console.log(er)
-      }
-
-      res.json({
-        data
-      })*/
 
     } catch (e) {
       console.log(e)
