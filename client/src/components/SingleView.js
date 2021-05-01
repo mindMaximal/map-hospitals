@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './SingleView.scss'
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
-import getAddressFunction from "../functions/getAddress.function";
+import getAddress from "../functions/getAddress";
 import {useHttp} from "../hooks/http.hook";
 import {Preloader} from "react-materialize";
 
@@ -100,7 +100,7 @@ export const SingleView = (props) => {
                   Адрес:
                 </div>
 
-                {getAddressFunction(state.el) || "Адрес не указан"}
+                {getAddress(state.el) || "Адрес не указан"}
               </div>
 
               <div className="single-view__elem">

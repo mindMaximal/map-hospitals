@@ -1,4 +1,4 @@
-const getAddressFunction = (view) => {
+const getAddress = (view) => {
 
   let str = ''
 
@@ -14,4 +14,4 @@ const getAddressFunction = (view) => {
   return str
 }
 
-export default getAddressFunction
+export default getAddress

@@ -1,13 +1,17 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './ReportPanel.scss'
-import {ProgressBar, Modal, CollapsibleItem, Collapsible, Select, Button, Checkbox, TextInput} from "react-materialize";
+import {CollapsibleItem, Collapsible, Button} from "react-materialize";
 import {useHttp} from "../hooks/http.hook";
 import {ReportView} from "./ReportView";
 import {ReportBuilder} from "./ReportBuilder";
+import getAddress from "../functions/getAddress";
 
 export const ReportPanel = (props) => {
 
-  const [state, setState] = useState()
+  const [state, setState] = useState({
+    columns: [],
+    params: []
+  })
   const [data, setData] = useState({
     headers: [],
     objects: []
@@ -28,20 +32,44 @@ export const ReportPanel = (props) => {
 
       const fetched = await request('/api/reports', 'POST', body)
 
+      console.log(fetched)
+
       setData(fetched)
 
     } catch (e) {}
   }, [request])
 
   const handleReportButton = e => {
+    setData({
+      ...state,
+      objects: []
+    })
+
+    const columns = []
+
+    const {target} = e
+    const parent = target.closest('.report-panel')
+
+
+    console.log('Columns', columns)
+
     fetchData(state)
   }
 
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+
   const handlePreparedReportsButton = (e) => {
+    setData({
+      ...state,
+      objects: []
+    })
+
     fetchData({
       ...state,
       title: e.target.getAttribute('data-title'),
-      params: e.target.getAttribute('params')
+      columns: e.target.getAttribute('columns') ?  e.target.getAttribute('columns').split(',') : []
     })
 
     clearState()
@@ -78,7 +106,7 @@ export const ReportPanel = (props) => {
                 waves="light"
                 className="report-panel__button modal-trigger"
                 onClick={handlePreparedReportsButton}
-                params={[
+                columns={[
                   'name',
                   'post',
                   'rates',
@@ -93,6 +121,13 @@ export const ReportPanel = (props) => {
               <Button
                 node="button"
                 waves="light"
+                columns={[
+                  'name',
+                  'post',
+                  'rates',
+                  'date',
+                  'address'
+                ]}
                 className="report-panel__button modal-trigger"
                 onClick={handlePreparedReportsButton}
                 href="#report-modal"
@@ -135,7 +170,8 @@ export const ReportPanel = (props) => {
           >
 
             <ReportBuilder
-              setParam={setState}
+              setParams={setState}
+              area={props.area}
               params={state}
               handleReportButton={handleReportButton}
             />

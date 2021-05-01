@@ -11,11 +11,18 @@
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 30px;
 
 		&:last-of-type {
 			margin-bottom: 0;
 			border-bottom: none;
 		}
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
 	}
 
 	&__collapsible {
@@ -60,6 +67,12 @@
 		max-width: 280px;
 	}
 
+	&__subtitle {
+		font-size: 16px;
+		padding: 0;
+		margin: 10px 0;
+	}
+
 	&__span {
 		display: block;
 	}
@@ -70,9 +83,12 @@
 
 	&__block {
 
-
 		&--half {
 			width: 48%;
+		}
+
+		[type="checkbox"]+span:not(.lever) {
+			line-height: 130%;
 		}
 	}
 }

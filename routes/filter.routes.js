@@ -2,7 +2,7 @@ const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()
-const {initializeConnection} = require("../functions/initializeConnection.function")
+const {initializeConnection} = require("../functions/initializeConnection")
 
 const configDB = {
   host: config.get('host'),
@@ -53,9 +53,9 @@ router.post(
 
         for (let i = 0; i < limiters.length; i++) {
           if (i === limiters.length - 1) {
-            query += limiters[i]
+            query += '`' + limiters[i] + '`'
           } else {
-            query += limiters[i] + ' AND '
+            query += '`' + limiters[i] + '`' + ' AND '
           }
         }
       }
@@ -67,11 +67,7 @@ router.post(
           throw err
         }
 
-
-
-        //res.json({data: rows})
         res.json({data: rows})
-
       })
 
     } catch (e) {
@@ -82,32 +78,3 @@ router.post(
 )
 
 module.exports = router
-
-
-/*
-
- for (const row in rows) {
-    let flag = true
-
-    for (const param of Object.keys(req.body)) {
-
-      if (param === 'foundationYearFrom' && req.body.foundationYearFrom !== null) {
-        if (el.foundationYear < req.body.foundationYearFrom) {
-          flag = false
-        }
-      } else if (param === 'foundationYearTo' && req.body.foundationYearTo !== null) {
-        if (el.foundationYear > req.body.foundationYearTo) {
-          flag = false
-        }
-      } else if (req.body[param] !== null && el[param] !== req.body[param]) {
-        flag = false
-      }
-    }
-
-    if (flag) {
-      resData.push(el)
-    }
-  }
-
-
- */

@@ -1,7 +1,7 @@
 const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
-const {initializeConnection} = require('../functions/initializeConnection.function')
+const {initializeConnection} = require('../functions/initializeConnection')
 const router = Router()
 
 const configDB = {

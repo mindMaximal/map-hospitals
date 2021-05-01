@@ -12,7 +12,7 @@ const configDB = {
   database: config.get('database')
 }
 
-// /api/map/single
+// /api/reports/area
 router.post(
   '/',
   [],
@@ -21,25 +21,16 @@ router.post(
 
       console.log(req.body)
 
-      const id = req.body.id
-
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT * FROM `med_punkt`\n' +
-        '    JOIN `nas_punkt`\n' +
-        '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +
-        '    JOIN `rayon`\n' +
-        '        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`\n' +
-        '    JOIN `obl`\n' +
-        '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`\n' +
-        '    WHERE `id_Med_punkt` = ' + id
+      const query = 'SELECT * FROM `rayon`'
 
       connection.query(query, (err, rows, fields) => {
         if (err) {
           throw err
         }
 
-        res.json(rows[0])
+        res.json(rows)
       })
 
     } catch (e) {

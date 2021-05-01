@@ -80,7 +80,12 @@ export const ReportView = (props) => {
                   <td
                     key={j}
                   >
-                    {obj[el]}
+                    {
+                      obj[el] == null ? 'Отстуствует' :
+                        obj[el] === 1 ? 'Есть' :
+                          obj[el] === 0 ? 'Нет' :
+                            obj[el]
+                    }
                   </td>
                 ))}
 
