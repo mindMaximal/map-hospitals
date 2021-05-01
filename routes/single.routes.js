@@ -35,6 +35,8 @@ router.post(
         '    WHERE `id_Med_punkt` = ' + id
 
       connection.query(query, (err, rows, fields) => {
+        connection.end()
+
         if (err) {
           throw err
         }

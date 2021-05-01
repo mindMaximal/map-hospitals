@@ -10,7 +10,7 @@ export const ReportPanel = (props) => {
 
   const [state, setState] = useState({
     columns: [],
-    params: []
+    conditions: []
   })
   const [data, setData] = useState({
     headers: [],
@@ -44,14 +44,6 @@ export const ReportPanel = (props) => {
       ...state,
       objects: []
     })
-
-    const columns = []
-
-    const {target} = e
-    const parent = target.closest('.report-panel')
-
-
-    console.log('Columns', columns)
 
     fetchData(state)
   }

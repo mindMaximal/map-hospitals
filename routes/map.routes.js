@@ -32,6 +32,8 @@ router.post(
         '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`'
 
       connection.query(query, (err, rows, fields) => {
+        connection.end()
+
         if (err) {
           throw err
         }

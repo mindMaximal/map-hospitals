@@ -97,20 +97,22 @@ router.post(
         }
       }
 
-      /*for (const param of Object.keys(req.body.params)) {
+      for (const param of req.body.conditions) {
 
-        if (param === 'foundationYearFrom' && req.body.foundationYearFrom !== null) {
-          limiters.push('`Founding_year` > ' + req.body.foundationYearFrom)
-        } else if (param === 'foundationYearTo' && req.body.foundationYearTo !== null) {
-          limiters.push('`Founding_year` < ' + req.body.foundationYearTo)
-        } else if (param === 'pharmacy' && req.body.pharmacy === true) {
-          limiters.push('`Pharmacy` = 1')
-        } else if (param === 'firstAid' && req.body.firstAid === true) {
-          limiters.push('`Access_to_primary_health_care` = 1')
-        } else if (param === 'emergencyAssistance' && req.body.emergencyAssistance === true) {
-          limiters.push('`Availability_of_emergency_mediical_care` = 1')
+        for (const mapping of mappings) {
+          if (param === mapping.fieldName) {
+            limiters.push('`' + mapping.queryName + '`' + ' = 1')
+          }
         }
-      }*/
+      }
+
+      if (req.body.hasOwnProperty('foundationYearFrom') && req.body.foundationYearFrom !== null) {
+        limiters.push('`Founding_year` > ' + req.body.foundationYearFrom)
+      } else if (req.body.hasOwnProperty('foundationYearTo') && req.body.foundationYearTo !== null) {
+        limiters.push('`Founding_year` < ' + req.body.foundationYearTo)
+      } else if (req.body.hasOwnProperty('area') && req.body.area !== null) {
+        limiters.push('`idrayon` = ' + req.body.area)
+      }
 
       if (headersQuery.length !== 0) {
 
@@ -134,13 +136,13 @@ router.post(
         '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`'
 
       if (limiters.length !== 0) {
-        query += '\n WHERE'
+        query += '\n WHERE '
 
         for (let i = 0; i < limiters.length; i++) {
           if (i === limiters.length - 1) {
-            query += '`' + limiters[i] + '`'
+            query += limiters[i]
           } else {
-            query += '`' + limiters[i] + '`' + ' AND '
+            query += limiters[i] + ' AND '
           }
         }
       }
@@ -148,8 +150,18 @@ router.post(
       console.log(query)
 
       connection.query(query, (err, rows, fields) => {
+        connection.end()
+
         if (err) {
           throw err
+        }
+
+        if (rows.length === 0) {
+          res.json({
+            objects: []
+          })
+
+          return
         }
 
         if (haveAddress) {

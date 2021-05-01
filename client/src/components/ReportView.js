@@ -56,7 +56,7 @@ export const ReportView = (props) => {
 
       { props.loading ? <ProgressBar /> :
 
-        props.data.objects.length === 0 ? 'Ошибка при формировании отчета, попробуйте снова' :
+        props.data.objects.length === 0 ? 'Элементов по данному запросов не найдено, пожалуйста, измените критерии поиска' :
 
         <Table>
           <thead>

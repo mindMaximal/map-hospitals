@@ -26,6 +26,8 @@ router.post(
       const query = 'SELECT * FROM `rayon`'
 
       connection.query(query, (err, rows, fields) => {
+        connection.end()
+
         if (err) {
           throw err
         }

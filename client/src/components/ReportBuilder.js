@@ -4,6 +4,40 @@ import {Select, Button, Checkbox, TextInput} from "react-materialize"
 
 export const ReportBuilder= (props) => {
 
+  const handleTextareaBlur = (e) => {
+    const { target } = e
+    const { value, name } = target
+
+    props.setParams({
+      ...props.params,
+      [name]: !isNaN(parseInt(value)) ? parseInt(value) : null
+    })
+  }
+
+  const handleReportParamClick = (e) => {
+    const { target } = e
+    const { value, checked } = target
+    const { conditions } = props.params
+
+    if (checked) {
+
+      if (!conditions.includes(value)) {
+        conditions.push(value)
+
+        props.setParams({
+          ...props.params,
+          conditions
+        })
+      }
+    } else {
+      const index = conditions.indexOf(value)
+
+      if (index > -1) {
+        conditions.splice(index, 1)
+      }
+    }
+  }
+
   const handleCheckBoxClick = (e) => {
     const { target } = e
     const { name, checked } = target
@@ -42,7 +76,7 @@ export const ReportBuilder= (props) => {
             className="report-panel__select"
             multiple={false}
             onChange={
-              e => props.setParam({
+              e => props.setParams({
                 ...props.params,
                 'area': e.target.value
               })
@@ -89,6 +123,7 @@ export const ReportBuilder= (props) => {
            <div className="report-panel__block report-panel__block--half">
              <Checkbox
                filledIn
+               onClick={handleReportParamClick}
                id="report-panel__pharmacy"
                label="Аптека"
                value="pharmacy"
@@ -98,6 +133,7 @@ export const ReportBuilder= (props) => {
            <div className="report-panel__block report-panel__block--half">
              <Checkbox
                filledIn
+               onClick={handleReportParamClick}
                id="report-panel__first-aid"
                label="Первая помощь"
                value="first-aid"
@@ -107,6 +143,7 @@ export const ReportBuilder= (props) => {
            <div className="report-panel__block report-panel__block--half">
              <Checkbox
                filledIn
+               onClick={handleReportParamClick}
                id="report-panel__emergency-assistance"
                label="Экстренная помощь"
                value="emergency-assistance"
@@ -116,6 +153,7 @@ export const ReportBuilder= (props) => {
            <div className="report-panel__block report-panel__block--half">
              <Checkbox
                filledIn
+               onClick={handleReportParamClick}
                id="report-panel__staffing"
                label="Укомплектованность фельдшерами"
                value="staffing"
@@ -129,7 +167,8 @@ export const ReportBuilder= (props) => {
               <TextInput
                 id="report-panel__year-foundation-from"
                 type="number"
-                s
+                onBlur={handleTextareaBlur}
+                name="foundationYearFrom"
                 label="Год основания (от)"
               />
             </div>
@@ -138,7 +177,8 @@ export const ReportBuilder= (props) => {
               <TextInput
                 id="report-panel__year-foundation-to"
                 type="number"
-                s
+                onBlur={handleTextareaBlur}
+                name="foundationYearTo"
                 label="Год основания (до)"
               />
             </div>

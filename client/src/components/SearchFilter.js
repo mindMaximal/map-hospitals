@@ -15,24 +15,24 @@ export const SearchFilter = (props) => {
     'foundationYearTo': null,
   })
 
-  const handleCheckBoxFilterClick = e => {
-    const el = e.target
-    const value = e.target.value
+  const handleCheckBoxFilterClick = (e) => {
+    const { target } = e
+    const { value, checked } = target
 
     setFilters({
       ...filters,
-      [value]: el.checked ? true : null
+      [value]: checked ? true : null
     })
 
   }
 
-  const handleTextareaBlur = e => {
-    const el = e.target
-    const name = e.target.name
+  const handleTextareaBlur = (e) => {
+    const { target } = e
+    const { name, value } = target
 
     setFilters({
       ...filters,
-      [name]: !isNaN(parseInt(el.value)) ? parseInt(el.value) : null
+      [name]: !isNaN(parseInt(value)) ? parseInt(value) : null
     })
   }
 
@@ -70,7 +70,7 @@ export const SearchFilter = (props) => {
             id="search-filter__pharmacy"
             label="Аптека"
             value="pharmacy"
-            onClick={e => handleCheckBoxFilterClick(e)}
+            onClick={handleCheckBoxFilterClick}
           />
         </div>
 
@@ -84,7 +84,7 @@ export const SearchFilter = (props) => {
             label="Первая помощь"
             value="firstAid"
             checked={false}
-            onClick={e => handleCheckBoxFilterClick(e)}
+            onClick={handleCheckBoxFilterClick}
           />
         </div>
 
@@ -95,7 +95,7 @@ export const SearchFilter = (props) => {
             id="search-filter__emergency-assistance"
             label="Экстренная помощь"
             value="emergencyAssistance"
-            onClick={e => handleCheckBoxFilterClick(e)}
+            onClick={handleCheckBoxFilterClick}
           />
         </div>
 
@@ -106,7 +106,7 @@ export const SearchFilter = (props) => {
             id="search-filter__staffing"
             label="Укомплектованность фельдшерами"
             value="staffing"
-            onClick={e => handleCheckBoxFilterClick(e)}
+            onClick={handleCheckBoxFilterClick}
           />
         </div>*/}
 
@@ -117,7 +117,7 @@ export const SearchFilter = (props) => {
             className="search-filter__textarea"
             type="number"
             label="Год основания (от)"
-            onBlur={e => handleTextareaBlur(e)}
+            onBlur={handleTextareaBlur}
           />
 
           <TextInput
@@ -126,7 +126,7 @@ export const SearchFilter = (props) => {
             className="search-filter__textarea"
             name="foundationYearTo"
             label="Год основания (до)"
-            onBlur={e => handleTextareaBlur(e)}
+            onBlur={handleTextareaBlur}
           />
         </div>
 

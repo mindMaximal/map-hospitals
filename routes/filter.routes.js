@@ -53,9 +53,9 @@ router.post(
 
         for (let i = 0; i < limiters.length; i++) {
           if (i === limiters.length - 1) {
-            query += '`' + limiters[i] + '`'
+            query += limiters[i]
           } else {
-            query += '`' + limiters[i] + '`' + ' AND '
+            query += limiters[i] + ' AND '
           }
         }
       }
@@ -63,6 +63,8 @@ router.post(
       console.log(query)
 
       connection.query(query, (err, rows, fields) => {
+        connection.end()
+
         if (err) {
           throw err
         }
