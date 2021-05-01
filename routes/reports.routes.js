@@ -22,9 +22,10 @@ router.post(
       console.log(req.body)
 
       const connection = initializeConnection(configDB)
-
+      const haveAddress = req.body.columns.length === 0 ? true : req.body.columns.includes('address')
       const limiters = []
       const headersQuery = []
+      let columns = ''
 
       const mappings = [
         {
@@ -64,37 +65,35 @@ router.post(
         },
         {
           columnName: 'Адрес',
-          queryName: 'name_Med_punkt',
+          queryName: [
+            'name_obl',
+            'name_rayon',
+            'name_nas_punkt',
+            'Street',
+            'Number_of_house'
+          ],
           fieldName: 'address'
         },
         {
-          columnName: 'Название',
-          queryName: [
-            'name_obl', 'name_rayon', 'name_nas_punkt', 'Street', 'Number_of_house'
-          ],
-          fieldName: 'name'
-        },
+          columnName: 'Адрес',
+          queryName: 'address',
+          fieldName: 'address_'
+        }
       ]
 
-      let haveAddress = req.body.columns.length === 0 ? true : req.body.columns.includes('address')
-
       for (const column of req.body.columns) {
-        if (column === 'name') {
-          headersQuery.push('name_Med_punkt')
-        } else if (column === 'type') {
-          headersQuery.push('type_Med_punkt')
-        } else if (column === 'phone') {
-          headersQuery.push('Phone_number')
-        } else if (column === 'pharmacy') {
-          headersQuery.push('Pharmacy')
-        } else if (column === 'foundingYear') {
-          headersQuery.push('Founding_year')
-        } else if (column === 'emergencyAssistance') {
-          headersQuery.push('Availability_of_emergency_mediical_care')
-        } else if (column === 'firstAid') {
-          headersQuery.push('Access_to_primary_health_care')
-        } else if (column === 'address') {
-          headersQuery.push('name_obl', 'name_rayon', 'name_nas_punkt', 'Street', 'Number_of_house')
+
+        for (const mapping of mappings) {
+          if (column === mapping.fieldName) {
+
+            if (Array.isArray(mapping.queryName)) {
+              for (const el of mapping.queryName) {
+                headersQuery.push(el)
+              }
+            } else {
+              headersQuery.push(mapping.queryName)
+            }
+          }
         }
       }
 
@@ -113,8 +112,6 @@ router.post(
         }
       }*/
 
-      let columns = ''
-
       if (headersQuery.length !== 0) {
 
         for (let i = 0; i < headersQuery.length; i++) {
@@ -127,6 +124,7 @@ router.post(
       } else {
         columns = '`name_Med_punkt`, `type_Med_punkt`, `Pharmacy`, `Founding_year`, `Access_to_primary_health_care`, `Availability_of_emergency_mediical_care`, `Phone_number`, `name_obl`, `name_rayon`, `name_nas_punkt`, `Street`, `Number_of_house`'
       }
+
       let query = 'SELECT ' + columns + ' FROM `med_punkt`\n' +
         '    JOIN `nas_punkt`\n' +
         '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +
@@ -169,25 +167,12 @@ router.post(
 
         const headers = []
 
-        for (const el of Object.keys(rows[0])) {
-          if (el === 'name_Med_punkt') {
-            headers.push('Название')
-          } else if (el === 'type_Med_punkt') {
-            headers.push('Тип')
-          } else if (el === 'Pharmacy') {
-            headers.push('Аптека')
-          } else if (el === 'Founding_year') {
-            headers.push('Год основания')
-          } else if (el === 'emergencyAssistance') {
-            headers.push('Экстренная помощь')
-          } else if (el === 'Availability_of_emergency_mediical_care') {
-            headers.push('Экстренная помощь')
-          } else if (el === 'Access_to_primary_health_care') {
-            headers.push('Первая помощь')
-          } else if (el === 'address') {
-            headers.push('Адрес')
-          } else {
-            headers.push('Column')
+        for (const key of Object.keys(rows[0])) {
+
+          for (const mapping of mappings) {
+            if (key === mapping.queryName) {
+              headers.push(mapping.columnName)
+            }
           }
         }
 
@@ -197,8 +182,6 @@ router.post(
           objects: rows
         })
       })
-
-
 
     } catch (e) {
       console.log(e)
