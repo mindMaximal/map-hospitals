@@ -1,10 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './ReportPanel.scss'
-import {CollapsibleItem, Collapsible, Button} from "react-materialize";
-import {useHttp} from "../hooks/http.hook";
-import {ReportView} from "./ReportView";
-import {ReportBuilder} from "./ReportBuilder";
-import getAddress from "../functions/getAddress";
+import {CollapsibleItem, Collapsible, Button, Select} from "react-materialize"
+import {useHttp} from "../hooks/http.hook"
+import {ReportView} from "./ReportView"
+import {ReportBuilder} from "./ReportBuilder"
 
 export const ReportPanel = (props) => {
 
@@ -53,6 +52,8 @@ export const ReportPanel = (props) => {
   }, [state])
 
   const handlePreparedReportsButton = (e) => {
+    const { target } = e
+
     setData({
       ...state,
       objects: []
@@ -60,15 +61,19 @@ export const ReportPanel = (props) => {
 
     fetchData({
       ...state,
-      title: e.target.getAttribute('data-title'),
-      columns: e.target.getAttribute('columns') ?  e.target.getAttribute('columns').split(',') : []
+      area: state.areaPrepared,
+      title: target.getAttribute('data-title'),
+      columns: target.getAttribute('columns') ?  target.getAttribute('columns').split(',') : []
     })
 
     clearState()
   }
 
   const clearState = () => {
-    setState({})
+    setState({
+      columns: [],
+      conditions: []
+    })
     /*
     * ToDo
     *  - очистка полей формы
@@ -88,10 +93,57 @@ export const ReportPanel = (props) => {
             expanded={false}
             header="Заготовленные отчеты"
             node="div"
-            className="report-panel__collapsible-item"
+            className="report-panel__collapsible-item report-panel__collapsible-item--prepared"
           >
 
             <div className="report-panel__wrapper">
+
+              <Select
+                id="report-area"
+                className="report-panel__select"
+                multiple={false}
+                onChange={
+                  e => setState({
+                    ...state,
+                    'areaPrepared': e.target.value
+                  })
+                }
+                options={{
+                  classes: '',
+                  dropdownOptions: {
+                    alignment: 'left',
+                    autoTrigger: true,
+                    closeOnClick: true,
+                    constrainWidth: true,
+                    coverTrigger: true,
+                    hover: false,
+                    inDuration: 150,
+                    onCloseEnd: null,
+                    onCloseStart: null,
+                    onOpenEnd: null,
+                    onOpenStart: null,
+                    outDuration: 250
+                  }
+                }}
+                value=""
+              >
+                <option
+                  disabled
+                  value=""
+                >
+                  Выберите район
+                </option>
+                {
+                  props.area.map((el, i) => (
+                    <option
+                      key={i}
+                      value={el.idrayon}
+                    >
+                      {el.name_rayon}
+                    </option>
+                  ))
+                }
+              </Select>
 
               <Button
                 node="button"
@@ -100,12 +152,10 @@ export const ReportPanel = (props) => {
                 onClick={handlePreparedReportsButton}
                 columns={[
                   'name',
-                  'post',
-                  'rates',
-                  'date'
+                  'phone'
                 ]}
                 href="#report-modal"
-                data-title="об укомплектованности мед. работниками"
+                data-title="Отчет об укомплектованности мед. работниками"
               >
                 Отчет об укомплектованности мед. работниками
               </Button>
@@ -115,17 +165,19 @@ export const ReportPanel = (props) => {
                 waves="light"
                 columns={[
                   'name',
-                  'post',
-                  'rates',
-                  'date',
-                  'address'
+                  'locality',
+                  'address',
+                  'phone',
+                  'foundingYear',
+                  'firstAid',
+                  'emergencyAssistance'
                 ]}
                 className="report-panel__button modal-trigger"
                 onClick={handlePreparedReportsButton}
                 href="#report-modal"
-                data-title="о ФАПах с возможностью оказания первой помощи"
+                data-title="Отчет о мед. пунктах с возможностью оказания медицинской помощи"
               >
-                Отчет о медицинских пунктах с возможностью оказания первой медицинской помощи
+                Отчет о мед. пунктах с возможностью оказания медицинской помощи
               </Button>
 
               <Button
@@ -133,8 +185,16 @@ export const ReportPanel = (props) => {
                 waves="light"
                 className="report-panel__button modal-trigger"
                 onClick={handlePreparedReportsButton}
+                columns={[
+                  'name',
+                  'locality',
+                  'address',
+                  'phone',
+                  'foundingYear',
+                  'pharmacy'
+                ]}
                 href="#report-modal"
-                data-title="о ФАПах с аптеками"
+                data-title="Отчет о медицинских пунктах с аптеками"
               >
                 Отчет о медицинских пунктах с аптеками
               </Button>
@@ -145,7 +205,7 @@ export const ReportPanel = (props) => {
                 className="report-panel__button modal-trigger"
                 onClick={handlePreparedReportsButton}
                 href="#report-modal"
-                data-title="о ФАПах с аптеками"
+                data-title="Отчёт о медицинских пунктах с просроченной реконструкцией"
               >
                 Отчёт о медицинских пунктах с просроченной реконструкцией
               </Button>

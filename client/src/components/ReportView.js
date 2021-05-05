@@ -51,7 +51,7 @@ export const ReportView = (props) => {
     >
 
       <div>
-        <h2 className="report-view__title">Отчет: {props.data && props.data.title}</h2>
+        <h2 className="report-view__title">{props.data && props.data.title ? props.data.title : 'Отчет'}</h2>
       </div>
 
       { props.loading ? <ProgressBar /> :

@@ -22,7 +22,10 @@ router.post(
       console.log(req.body)
 
       const connection = initializeConnection(configDB)
+
       const haveAddress = req.body.columns.length === 0 ? true : req.body.columns.includes('address')
+      const haveLocality = req.body.columns.length === 0 ? false : req.body.columns.includes('locality')
+
       const limiters = []
       const headersQuery = []
       let columns = ''
@@ -47,6 +50,11 @@ router.post(
           columnName: 'Аптека',
           queryName: 'Pharmacy',
           fieldName: 'pharmacy'
+        },
+        {
+          columnName: 'Населенный пункт',
+          queryName: 'name_nas_punkt',
+          fieldName: 'locality'
         },
         {
           columnName: 'Год основания',
@@ -149,7 +157,7 @@ router.post(
 
       console.log(query)
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err, rows) => {
         connection.end()
 
         if (err) {
@@ -169,7 +177,10 @@ router.post(
           for (const row of rows) {
             row.address = getAddress(row)
 
-            delete row.name_nas_punkt
+            if (!haveLocality) {
+              delete row.name_nas_punkt
+            }
+
             delete row.name_obl
             delete row.name_rayon
             delete row.Number_of_house

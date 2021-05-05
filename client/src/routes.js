@@ -17,6 +17,9 @@ export const useRoutes = isAuthenticated => {
                 <Route path="/">
                   <MapPage />
                 </Route>
+              <Route path="/pdf">
+                <Redirect to="/pdf"/>
+              </Route>
                 <Redirect to="/"/>
             </Switch>
         )

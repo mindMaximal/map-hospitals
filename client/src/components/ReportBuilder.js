@@ -163,7 +163,7 @@ export const ReportBuilder= (props) => {
          </div>
 
           <div className="report-panel__block flex flex--between">
-            <div className="report-panel__block--half">
+            <div className="report-panel__block--half report-panel__block--wrap">
               <TextInput
                 id="report-panel__year-foundation-from"
                 type="number"
@@ -173,7 +173,7 @@ export const ReportBuilder= (props) => {
               />
             </div>
 
-            <div className="report-panel__block--half">
+            <div className="report-panel__block--half report-panel__block--wrap">
               <TextInput
                 id="report-panel__year-foundation-to"
                 type="number"
