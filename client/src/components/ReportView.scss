@@ -4,6 +4,27 @@
 		font-size: 36px;
 		font-weight: bold;
 	}
+	
+	&__wrapper {
+		position: relative;
+	}
+
+	&__loader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(#ffffff, 0.8);
+		width: 100%;
+		height: 100%;
+	}
+
+	&__loader-message {
+		margin-top: 15px;
+	}
 
 	&__modal {
 		width: 100%;

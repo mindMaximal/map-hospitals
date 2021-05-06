@@ -18,6 +18,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
     "google-maps-react": "^2.0.6",
+    "html-pdf": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "react-router-dom": "^5.2.0",

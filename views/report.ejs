@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title %></title>
+    <meta charset="utf-8" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .document__title {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .header {
+            width: 100%;
+        }
+
+        .header__title {
+            margin: 0;
+            float: left;
+            max-width: 70%;
+            width: 100%;
+        }
+
+        .header__info {
+            float: right;
+            text-align: right;
+        }
+
+        .clearfix { clear: both; }
+
+        .table {
+            width: 100%;
+            display: table;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .table__wrapper {
+            margin-top: 40px;
+        }
+
+        tr {
+            border-bottom: 1px solid rgba(0,0,0,0.12);
+        }
+
+        td, th {
+            padding: 15px 5px;
+            display: table-cell;
+            text-align: left;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header__title">
+        <h1 class="document__title"><%=title %></h1>
+    </div>
+    <div class="header__info">
+        <p>Дата: <%=date %></p>
+    </div>
+</header>
+<div class="clearfix"></div>
+
+<div class="table__wrapper">
+
+    <Table class="table">
+        <thead>
+        <tr>
+            <% for(var i = 0; i < headers.length; i++) {%>
+                <th>
+                    <%=headers[i] %>
+                </th>
+            <%} %>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i = 0; i < data.length; i++) {%>
+            <tr>
+                <% for(var j = 0; j < data[i].length; j++) {%>
+                    <td>
+                        <% switch (data[i][j]) {
+                        case null: %>
+                        Отстуствует
+                        <% break;
+
+                        case 1: %>
+                        Есть
+                        <% break;
+
+                        case 0: %>
+                        Нет
+                        <% break;
+
+                        default: %>
+                        <%=data[i][j] %>
+                        <% break;
+
+                        } %>
+                    </td>
+                <%} %>
+            </tr>
+        <%} %>
+
+        </tbody>
+    </Table>
+
+</div>
+
+</body>
+<html>

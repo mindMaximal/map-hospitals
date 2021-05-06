@@ -1,4 +1,3 @@
-const mysql = require('mysql')
 const {Router} = require('express')
 const config = require('config')
 const router = Router()

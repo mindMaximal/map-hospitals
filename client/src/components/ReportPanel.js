@@ -27,7 +27,6 @@ export const ReportPanel = (props) => {
 
   const fetchData = useCallback(async (body) => {
     try {
-      console.log('body', body)
 
       const fetched = await request('/api/reports', 'POST', body)
 
@@ -47,10 +46,6 @@ export const ReportPanel = (props) => {
     fetchData(state)
   }
 
-  useEffect(() => {
-    console.log(state)
-  }, [state])
-
   const handlePreparedReportsButton = (e) => {
     const { target } = e
 
@@ -66,7 +61,7 @@ export const ReportPanel = (props) => {
       columns: target.getAttribute('columns') ?  target.getAttribute('columns').split(',') : []
     })
 
-    clearState()
+    //clearState()
   }
 
   const clearState = () => {

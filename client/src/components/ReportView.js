@@ -1,8 +1,35 @@
-import React from 'react'
+import React, {useCallback, useEffect} from 'react'
 import './ReportView.scss'
-import {ProgressBar, Table, Modal, Button} from "react-materialize"
+import {ProgressBar, Table, Modal, Button, Preloader} from "react-materialize"
+import {useArrayBuffer} from "../hooks/useArrayBuffer.hook";
 
 export const ReportView = (props) => {
+
+  const {loading, error, request, clearError} = useArrayBuffer()
+
+  useEffect(() => {
+    if (error) {
+      console.log('Ошибка: ' + error)
+    }
+    clearError()
+  }, [clearError, error])
+
+  const fetchData = useCallback(async (body) => {
+    try {
+      const fetched = await request('/api/reports/pdf', 'POST', body)
+
+      const a = window.document.createElement("a");
+      a.href = fetched
+      a.download = `report.${new Date().toLocaleDateString()}.pdf`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    } catch (e) {}
+  })
+
+  const handlePdfSaveClick = (e) => {
+    fetchData(props.data)
+  }
 
   return (
     <Modal
@@ -18,6 +45,7 @@ export const ReportView = (props) => {
           node="button"
           waves="light"
           className="report-view__button--footer"
+          onClick={handlePdfSaveClick}
         >
           Сохранить в PDF
         </Button>,
@@ -54,47 +82,65 @@ export const ReportView = (props) => {
         <h2 className="report-view__title">{props.data && props.data.title ? props.data.title : 'Отчет'}</h2>
       </div>
 
-      { props.loading ? <ProgressBar /> :
+      <div className="report-view__wrapper">
 
-        props.data.objects.length === 0 ? 'Элементов по данному запросов не найдено, пожалуйста, измените критерии поиска' :
+        { props.loading ? <ProgressBar /> :
 
-        <Table>
-          <thead>
-          <tr>
-            {props.data && props.data.headers.map((obj, i) => (
-              <th
-                key={i}
-              >
-                {obj}
-              </th>
-            ))}
+          props.data.objects.length === 0 ? 'Элементов по данному запросов не найдено, пожалуйста, измените критерии поиска' :
 
-          </tr>
-          </thead>
-          <tbody>
-            {props.data && props.data.objects.map((obj, i) => (
-              <tr
-                key={i}
-              >
-                {Object.keys(obj).map((el, j) => (
-                  <td
-                    key={j}
+            <Table>
+              <thead>
+              <tr>
+                {props.data && props.data.headers.map((obj, i) => (
+                  <th
+                    key={i}
                   >
-                    {
-                      obj[el] == null ? 'Отстуствует' :
-                        obj[el] === 1 ? 'Есть' :
-                          obj[el] === 0 ? 'Нет' :
-                            obj[el]
-                    }
-                  </td>
+                    {obj}
+                  </th>
                 ))}
 
               </tr>
-            ))}
-          </tbody>
-        </Table>
+              </thead>
+              <tbody>
+              {props.data && props.data.objects.map((obj, i) => (
+                <tr
+                  key={i}
+                >
+                  {Object.keys(obj).map((el, j) => (
+                    <td
+                      key={j}
+                    >
+                      {
+                        obj[el] == null ? 'Отстуствует' :
+                          obj[el] === 1 ? 'Есть' :
+                            obj[el] === 0 ? 'Нет' :
+                              obj[el]
+                      }
+                    </td>
+                  ))}
 
+                </tr>
+              ))}
+              </tbody>
+            </Table>
+
+        }
+
+      </div>
+
+      {
+        loading &&
+        <div className="report-view__loader">
+          <Preloader
+            active
+            color="blue"
+            flashing={false}
+            size="big"
+          />
+          <div className="report-view__loader-message">Отчет формируется ...</div>
+        </div>
       }
+
     </Modal>
   )
 }
