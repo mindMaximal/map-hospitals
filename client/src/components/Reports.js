@@ -68,6 +68,7 @@ export const Reports = (props) => {
       { reportState.show ?
         <ReportPanel
           area={state.area}
+          closeModal={handleReportButton}
         />
         : null
       }

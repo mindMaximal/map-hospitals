@@ -172,7 +172,7 @@ export const ReportPanel = (props) => {
                 href="#report-modal"
                 data-title="Отчет о мед. пунктах с возможностью оказания медицинской помощи"
               >
-                Отчет о мед. пунктах с возможностью оказания медицинской помощи
+                Отчет о мед. пунктах с возможностью оказания мед. помощи
               </Button>
 
               <Button
@@ -221,6 +221,7 @@ export const ReportPanel = (props) => {
               area={props.area}
               params={state}
               handleReportButton={handleReportButton}
+              closeModal={props.closeModal}
             />
 
           </CollapsibleItem>

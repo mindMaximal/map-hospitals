@@ -162,7 +162,7 @@ export const ReportBuilder= (props) => {
 
          </div>
 
-          <div className="report-panel__block flex flex--between">
+          <div className="report-panel__block flex flex--between report-panel__block--mobile-width">
             <div className="report-panel__block--half report-panel__block--wrap">
               <TextInput
                 id="report-panel__year-foundation-from"
@@ -292,11 +292,20 @@ export const ReportBuilder= (props) => {
         <Button
           node="button"
           waves="light"
-          className="modal-trigger"
+          className="modal-trigger report-panel__control"
           href="#report-modal"
           onClick={props.handleReportButton}
         >
           Сформировать отчет
+        </Button>
+
+        <Button
+          node="button"
+          waves="light"
+          className="red darken-3 report-panel__control report-panel__button--close"
+          onClick={props.closeModal}
+        >
+          Закрыть
         </Button>
 
       </div>

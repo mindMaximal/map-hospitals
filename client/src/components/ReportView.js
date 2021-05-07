@@ -109,6 +109,7 @@ export const ReportView = (props) => {
                   {Object.keys(obj).map((el, j) => (
                     <td
                       key={j}
+                      data-label={props.data.headers[j]}
                     >
                       {
                         obj[el] == null ? 'Отстуствует' :
