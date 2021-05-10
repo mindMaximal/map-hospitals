@@ -26,12 +26,6 @@ export const SearchView = (props) => {
 
       </div>
 
-      {props.photo &&
-        <div className="search-view__photo">
-          <img src={props.photo} alt="Photo"/>
-        </div>
-      }
-
     </div>
   )
 }

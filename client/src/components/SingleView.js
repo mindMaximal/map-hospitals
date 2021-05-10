@@ -4,6 +4,7 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import getAddress from "../functions/getAddress";
 import {useHttp} from "../hooks/http.hook";
 import {Preloader} from "react-materialize";
+import {Gallery} from "./Gallery";
 
 /*
 *   ToDO
@@ -165,13 +166,13 @@ export const SingleView = (props) => {
 
             </div>
 
+            <Gallery
+              photo={state.el.photo}
+              id={state.el.id_Med_punkt}
+            />
+
           </div>
 
-          {state.el.photo &&
-            <div className="single-view__photo">
-              <img src={state.el.photo} alt="Photo"/>
-            </div>
-          }
 
         </div>
       }

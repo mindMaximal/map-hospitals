@@ -33,3 +33,18 @@ SELECT * FROM `med_punkt`
     JOIN `obl`
         ON `obl`.`idObl` = `rayon`.`Obl_idObl`
     WHERE `id_Med_punkt` = 1
+
+//Photo
+SELECT `name` FROM `photo` WHERE
+	`photo_id_med_punkt` = 2
+
+	SELECT * FROM `med_punkt`
+        JOIN `nas_punkt`
+            ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`
+        JOIN `rayon`
+            ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`
+        JOIN `obl`
+            ON `obl`.`idObl` = `rayon`.`Obl_idObl`
+        JOIN `photo`
+        	ON `photo`.`photo_id_med_punkt` = `med_punkt`.`id_Med_punkt`
+        WHERE `id_Med_punkt` = 1
