@@ -1,0 +1,32 @@
+.page-header {
+
+	&__title {
+		font-size: 36px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	&__subtitle {
+		font-size: 18px;
+	}
+
+	&__controls {
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+	&__control {
+		margin-right: 10px;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	&__search-filter {
+		position: absolute;
+		right: 0;
+		left: auto;
+		top: 50px;
+	}
+}

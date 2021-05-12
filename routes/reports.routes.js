@@ -3,6 +3,7 @@ const config = require('config')
 const {initializeConnection} = require("../functions/initializeConnection")
 const {getAddress} = require("../functions/getAddress")
 const router = Router()
+const mappings = require("../mappings")
 
 const configDB = {
   host: config.get('host'),
@@ -30,65 +31,6 @@ router.post(
       const headersQuery = []
       let columns = ''
 
-      const mappings = [
-        {
-          columnName: 'Название',
-          queryName: 'name_Med_punkt',
-          fieldName: 'name'
-        },
-        {
-          columnName: 'Тип',
-          queryName: 'type_Med_punkt',
-          fieldName: 'type'
-        },
-        {
-          columnName: 'Номер телефона',
-          queryName: 'Phone_number',
-          fieldName: 'phone'
-        },
-        {
-          columnName: 'Аптека',
-          queryName: 'Pharmacy',
-          fieldName: 'pharmacy'
-        },
-        {
-          columnName: 'Населенный пункт',
-          queryName: 'name_nas_punkt',
-          fieldName: 'locality'
-        },
-        {
-          columnName: 'Год основания',
-          queryName: 'Founding_year',
-          fieldName: 'foundingYear'
-        },
-        {
-          columnName: 'Экстренная помощь',
-          queryName: 'Availability_of_emergency_mediical_care',
-          fieldName: 'emergencyAssistance'
-        },
-        {
-          columnName: 'Первая помощь',
-          queryName: 'Access_to_primary_health_care',
-          fieldName: 'firstAid'
-        },
-        {
-          columnName: 'Адрес',
-          queryName: [
-            'name_obl',
-            'name_rayon',
-            'name_nas_punkt',
-            'Street',
-            'Number_of_house'
-          ],
-          fieldName: 'address'
-        },
-        {
-          columnName: 'Адрес',
-          queryName: 'address',
-          fieldName: 'address_'
-        }
-      ]
-
       for (const column of req.body.columns) {
 
         for (const mapping of mappings) {
@@ -106,7 +48,6 @@ router.post(
       }
 
       for (const param of req.body.conditions) {
-
         for (const mapping of mappings) {
           if (param === mapping.fieldName) {
             limiters.push('`' + mapping.queryName + '`' + ' = 1')
@@ -166,7 +107,8 @@ router.post(
 
         if (rows.length === 0) {
           res.json({
-            objects: []
+            objects: [],
+            headers: []
           })
 
           return

@@ -48,3 +48,12 @@ SELECT `name` FROM `photo` WHERE
         JOIN `photo`
         	ON `photo`.`photo_id_med_punkt` = `med_punkt`.`id_Med_punkt`
         WHERE `id_Med_punkt` = 1
+
+//View
+SELECT `id_Med_punkt`, `name_Med_punkt`, `Street`, `Number_of_house`, `Phone_number`, `Founding_year`, `Availability_of_emergency_mediical_care`, `Access_to_primary_health_care`, `Pharmacy`, `name_nas_punkt`, `name_rayon`, `name_obl`  FROM `med_punkt`
+    JOIN `nas_punkt`
+        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`
+    JOIN `rayon`
+        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`
+    JOIN `obl`
+        ON `obl`.`idObl` = `rayon`.`Obl_idObl`

@@ -1,0 +1,45 @@
+.add-panel {
+
+	&__row {
+		display: flex;
+		width: 100%;
+	}
+
+	&__column {
+		width: 33%;
+		margin-right: 20px;
+	}
+
+	&__block {
+
+		&--height {
+			min-height: 36px;
+			margin-top: 10px;
+
+			label {
+				position: relative;
+			}
+		}
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	&__input[type=text]:not(.browser-default) {
+		margin-bottom: 0;
+	}
+
+	.input-field {
+		margin: 20px 0;
+	}
+
+	.input-field.col label {
+		left: 0;
+		color: #000000;
+	}
+
+	.select-wrapper {
+		margin-bottom: 10px;
+	}
+}

@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './SearchFilter.scss'
-import {TextInput, Checkbox, CardPanel, Button} from "react-materialize";
-import {useHttp} from "../hooks/http.hook";
+import {TextInput, Checkbox, CardPanel} from "react-materialize"
+import {useHttp} from "../hooks/http.hook"
 
 export const SearchFilter = (props) => {
   const {loading, error, request, clearError} = useHttp()
@@ -58,7 +58,7 @@ export const SearchFilter = (props) => {
 
   return (
 
-    <CardPanel className={'search-filter white ' + (props.visible ? 'search-filter--visible' : 'search-filter--hidden')}>
+    <CardPanel className={'search-filter white ' + props.className  + ' ' + (props.visible ? 'search-filter--visible' : 'search-filter--hidden')}>
       <div className="search-filter__wrapper">
 
         <h4 className="search-filter__title">Фильтры:</h4>

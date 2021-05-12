@@ -3,9 +3,10 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import {AdminPage} from './pages/AdminPage'
 import {MapPage} from "./pages/MapPage";
 import {AuthPage} from "./pages/AuthPage";
+import {ViewPage} from "./pages/ViewPage";
 
 export const useRoutes = isAuthenticated => {
-    if (isAuthenticated) {
+    if (isAuthenticated || true) {
         return (
             <Switch>
                 <Route path="/admin">
@@ -14,12 +15,12 @@ export const useRoutes = isAuthenticated => {
                 <Route path="/detail/:id">
                     <MapPage />
                 </Route>
+                <Route path="/view">
+                  <ViewPage />
+                </Route>
                 <Route path="/">
                   <MapPage />
                 </Route>
-              <Route path="/pdf">
-                <Redirect to="/pdf"/>
-              </Route>
                 <Redirect to="/"/>
             </Switch>
         )
@@ -30,10 +31,13 @@ export const useRoutes = isAuthenticated => {
           <Route path="/admin">
             <AuthPage />
           </Route>
-          <Route path="/">
+          <Route path="/detail/:id">
             <MapPage />
           </Route>
-          <Route path="/detail/:id">
+          <Route path="/view">
+            <ViewPage />
+          </Route>
+          <Route path="/">
             <MapPage />
           </Route>
           <Redirect to="/" />
