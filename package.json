@@ -8,7 +8,7 @@
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
     "client:install": "npm run install --prefix client",
-    "client:built": "npm run build --prefix client",
+    "client:build": "npm run build --prefix client",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Volkov Evgeniy <vamper.2012@gmail.com>",
