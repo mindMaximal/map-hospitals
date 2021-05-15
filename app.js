@@ -1,5 +1,6 @@
 const express = require('express')
 const config = require('config')
+const path = require('path')
 
 const app = express()
 
@@ -41,5 +42,6 @@ alias git='/home/c/cm74536/nodejs/bin/node'
 
 export PATH=$PATH:/home/c/cm74536/nodejs/bin/
 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCENwMwLKpJSa4ac3EG4JNocjMpMQuS/iyNYvovvkgclisGPrPKCMYU2SvisNuNK8z1vz/+IyEJAmFmCDBFmkz+qngKFj24p8U2EnBh/S3p7jXpeL/tAvgaxv+5nknfN2xXXHb/iI9Y54V8iJX+TmTCB9yijJsQ5KgUc3pbQic7G5bksM+4aqJGUieY1CUy2kzXwcemG8b1akcpkUWXwftfzjthjrdjIuXUgIi5u8xFZ8U9tenb5zpAlZfAmYZ7XeXbjFh0YC0met3sTL9FvyIFMjIUPAOFybanM91GA5g3YdTmZucJFR9nfCDfurqGNyreYDAfDpDkXOl5ERjU9iu9 rsa-key-20210515
 
  */
