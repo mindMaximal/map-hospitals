@@ -5,6 +5,16 @@
 	font-size: 14px;
 	padding: 10px 0;
 
+	&__block {
+		padding: 20px;
+		background-color: #ffffff;
+		margin-bottom: 10px;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
 	&__title {
 		font-weight: bold;
 		font-size: 20px;
@@ -34,6 +44,8 @@
 		&--back {
 			transform: rotate(180deg);
 			margin-right: 5px;
+			position: absolute;
+			top: 10px;
 
 			&:focus,
 			&:hover {
@@ -47,8 +59,9 @@
 	}
 
 	&__header {
-		padding: 20px;
+		padding: 40px 20px 20px 20px;
 		background-color: #ffffff;
+		position: relative;
 	}
 
 	&__schedule {
@@ -62,16 +75,6 @@
 			height: 15px;
 			fill: #8c8c8c;
 			transition: .3s;
-		}
-	}
-
-	&__block {
-		padding: 20px;
-		background-color: #ffffff;
-		margin-bottom: 10px;
-
-		&:last-of-type {
-			margin-bottom: 0;
 		}
 	}
 

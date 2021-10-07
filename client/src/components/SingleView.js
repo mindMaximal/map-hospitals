@@ -67,14 +67,14 @@ export const SingleView = (props) => {
 
             <div className="single-view__block single-view__header">
 
-              <div className="single-view__title">
+              <button
+                className="single-view__button single-view__button--back"
+                onClick={props.back}
+              >
+                <ArrowBack />
+              </button>
 
-                <button
-                  className="single-view__button single-view__button--back"
-                  onClick={props.back}
-                >
-                  <ArrowBack />
-                </button>
+              <div className="single-view__title">
 
                 {state.el.name_Med_punkt}
               </div>
