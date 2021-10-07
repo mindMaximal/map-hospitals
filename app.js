@@ -17,7 +17,6 @@ import apiReportsPDF from './routes/pdf.routes.js'
 app.use(express.json({extended: true}))
 
 // app.use('/api/auth', apiAuth)
-
 app.use('/api/map', apiMap)
 app.use('/api/map/filter', apiMapFilter)
 app.use('/api/map/single', apiMapSingle)
@@ -29,7 +28,13 @@ app.use('/api/reports/area', apiReportsArea)
 app.use('/api/reports/pdf', apiReportsPDF)
 
 if (process.env.NODE_ENV === 'production') {
+  console.log('Production mode')
   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+
+  app.use('/test', (req, res, next) => {
+    console.log('Test log')
+    res.status(200).send('Test ok!');
+  })
 
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))

@@ -19,8 +19,8 @@ router.post(
   async (req, res) => {
     try {
 
+      console.log('conne')
       const connection = initializeConnection(configDB)
-
       const query = 'SELECT `id_Med_punkt`, `name_Med_punkt`, `Street`, `Number_of_house`, `latitude`, `longitude`, `name_nas_punkt`, `name_rayon`, `name_obl`  FROM `med_punkt`\n' +
         '    JOIN `nas_punkt`\n' +
         '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +

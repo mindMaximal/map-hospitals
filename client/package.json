@@ -28,7 +28,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "/map",
+  "homepage": "/",
   "proxy": "http://localhost:5000/",
   "browserslist": {
     "production": [
