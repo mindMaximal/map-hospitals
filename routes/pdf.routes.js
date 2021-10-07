@@ -1,9 +1,11 @@
-const {Router} = require('express')
+import {Router} from 'express'
+import ejs from 'ejs'
+import path from 'path'
+import htmlPdf from 'html-pdf'
+import fs from 'fs'
+
 const router = Router()
-const ejs = require('ejs')
-const path = require("path")
-const htmlPdf = require('html-pdf')
-const fs = require('fs')
+const __dirname = path.resolve()
 
 // /api/reports/pdf
 router.post(
@@ -16,8 +18,6 @@ router.post(
       month = (month < 10 ? '0' + month : month);
       let day = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
       date = day + '.' + month + '.' + date.getFullYear();
-
-      console.log(req.body)
 
       const receivedData = []
 
@@ -37,12 +37,12 @@ router.post(
       const pdfOptions = {
         format: 'A4',
         orientation: 'landscape',
-        border: '10px'
+        border: '10px',
       }
 
       const fileName = 'report'
-      const renderFile = path.join(__dirname, '..', './views/', fileName + '.ejs')
-      const outputFile = path.join(__dirname, '..', './pdf/', fileName + '.pdf')
+      const renderFile = path.resolve(__dirname, 'views', fileName + '.ejs')
+      const outputFile = path.join(__dirname, 'pdf', fileName + '.pdf')
 
       ejs.renderFile(renderFile, options, (err, html) => {
 
@@ -56,9 +56,6 @@ router.post(
           if (err) {
             res.status(500).json({message: 'Ошибка конвертации ' + err})
           }
-
-          res.setHeader('Content-Type', 'application/pdf')
-          res.setHeader('Content-Transfer-Encoding', 'Content-Transfer-Encoding')
 
           fs.readFile(outputFile, (err, data) => {
             if (err)
@@ -84,4 +81,4 @@ router.post(
   }
 )
 
-module.exports = router
+export default router

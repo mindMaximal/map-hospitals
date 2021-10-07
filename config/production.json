@@ -1,9 +1,16 @@
 {
   "port": 80,
   "jwtSecret": "keyMapHospitals",
-  "host": "127.0.0.1",
-  "user": "admin",
-  "portDB": 3308,
-  "password": "admin",
-  "database": "map"
+  "host": "176.57.210.144",
+  "user": "cm74536_map",
+  "portDB": 3306,
+  "password": "3aWSLy7k",
+  "database": "cm74536_map"
 }
+
+/*
+cm74536_map
+pZ491S7a
+
+db_pass: 3aWSLy7k
+*/

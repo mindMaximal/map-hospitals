@@ -1,6 +1,6 @@
-const mysql = require('mysql')
+import mysql from 'mysql'
 
-const initializeConnection = (config) => {
+export const initializeConnection = (config) => {
 
   const addDisconnectHandler = (connection) => {
     connection.on("error", function (error) {
@@ -24,7 +24,3 @@ const initializeConnection = (config) => {
   connection.connect()
   return connection
 }
-
-module.exports = {
-  initializeConnection
-};

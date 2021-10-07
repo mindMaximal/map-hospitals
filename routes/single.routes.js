@@ -1,7 +1,8 @@
-const {Router} = require('express')
-const config = require('config')
+import {Router} from 'express'
+import config from 'config'
+import {initializeConnection} from '../functions/initializeConnection.js'
+
 const router = Router()
-const {initializeConnection} = require('../functions/initializeConnection')
 
 const configDB = {
   host: config.get('host'),
@@ -17,8 +18,6 @@ router.post(
   [],
   async (req, res) => {
     try {
-
-      console.log(req.body)
 
       const id = req.body.id
 
@@ -50,4 +49,4 @@ router.post(
   }
 )
 
-module.exports = router
+export default router

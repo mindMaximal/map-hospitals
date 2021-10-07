@@ -70,4 +70,4 @@ const mappings = [
   }
 ]
 
-module.exports = mappings
+export default mappings

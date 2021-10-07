@@ -1,6 +1,7 @@
-const {Router} = require('express')
-const config = require('config')
-const {initializeConnection} = require('../functions/initializeConnection')
+import {Router} from 'express'
+import config from 'config'
+import {initializeConnection} from '../functions/initializeConnection.js'
+
 const router = Router()
 
 const configDB = {
@@ -17,8 +18,6 @@ router.post(
   [],
   async (req, res) => {
     try {
-
-      console.log(req.body)
 
       const connection = initializeConnection(configDB)
 
@@ -47,16 +46,4 @@ router.post(
   }
 )
 
-module.exports = router
-
-/*
-router.post(
-  '/',
-  async (req, res) => {
-    try {
-
-    } catch (e) {
-      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-    }
-  }
-)*/
+export default router

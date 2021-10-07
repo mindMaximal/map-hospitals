@@ -14,6 +14,4 @@ const getAddress = (view) => {
   return str
 }
 
-module.exports = {
-  getAddress
-};
+export {getAddress}

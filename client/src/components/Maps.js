@@ -1,23 +1,10 @@
 import React, {useContext} from 'react'
 import './Maps.scss'
 import { YMaps, Map, Clusterer, Placemark } from "react-yandex-maps"
-import {MapContext} from "../context/MapContext";
+import {MapContext} from "../context/MapContext"
 
 export const Maps = (props) => {
   const {mapState, setMapState} = useContext(MapContext)
-
-  function createZoomControlLayout(ymaps) {
-    // https://tech.yandex.com/maps/jsbox/2.1/zoom_layout
-    const ZoomLayout = ymaps.templateLayoutFactory.createClass("<div id='zoom-in' class='btn'><i class='icon-plus'>1</i></div><br>")
-
-    return ZoomLayout
-  }
-
-  const handleApiAvailable = ymaps => {
-    console.log(ymaps)
-    const layout = createZoomControlLayout(ymaps)
-    this.setState({ layout })
-  };
 
   const getPointData = () => {
     return {
@@ -51,14 +38,11 @@ export const Maps = (props) => {
   return (
     <div className="map">
 
-      <YMaps
-        onApiAvaliable={ymaps => handleApiAvailable(ymaps)}
-      >
+      <YMaps>
         <Map
           state={mapState}
           className="y-map"
           instanceRef={mapState}
-          //onLoad={ymaps => (map = ymaps)}
         >
           <Clusterer
             options={{

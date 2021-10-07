@@ -1,9 +1,10 @@
-const {Router} = require('express')
-const config = require('config')
-const {initializeConnection} = require('../functions/initializeConnection')
-const {normalizeData} = require("../functions/normalizeData")
+import {Router} from 'express'
+import config from 'config'
+import {initializeConnection} from '../functions/initializeConnection.js'
+import {normalizeData} from "../functions/normalizeData.js"
+import mappings from "../mappings.js"
+
 const router = Router()
-const mappings = require("../mappings")
 
 const configDB = {
   host: config.get('host'),
@@ -19,9 +20,6 @@ router.post(
   [],
   async (req, res) => {
     try {
-
-      console.log(req.body)
-
       const connection = initializeConnection(configDB)
 
       const query = 'SELECT `name_Med_punkt`, `Phone_number`, `Founding_year`, `Availability_of_emergency_mediical_care`, `Access_to_primary_health_care`, `Pharmacy`, `name_nas_punkt`, `name_rayon`, `name_obl`, `Street`, `Number_of_house`, `id_Med_punkt`  FROM `med_punkt`\n' +
@@ -74,16 +72,4 @@ router.post(
   }
 )
 
-module.exports = router
-
-/*
-router.post(
-  '/',
-  async (req, res) => {
-    try {
-
-    } catch (e) {
-      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
-    }
-  }
-)*/
+export default router

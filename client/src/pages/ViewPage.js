@@ -4,7 +4,7 @@ import './TablePage.scss'
 import {PageHeader} from "../components/PageHeader"
 import {TableView} from "../components/TableView"
 import {ContextMenu} from "../components/ContextMenu"
-import {ProgressBar} from "react-materialize";
+import {ProgressBar} from "react-materialize"
 
 export const ViewPage = () => {
 

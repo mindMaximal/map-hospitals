@@ -1,5 +1,5 @@
-const mappings = require("../mappings")
-const {getAddress} = require("../functions/getAddress")
+import mappings from "../mappings.js"
+import {getAddress} from "../functions/getAddress.js"
 
 const normalizeData = (rows, haveAddress = false) => {
   for (const row of rows) {
@@ -29,6 +29,4 @@ const normalizeData = (rows, haveAddress = false) => {
   }
 }
 
-module.exports = {
-  normalizeData
-}
+export {normalizeData}

@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from 'react'
 import './ReportView.scss'
 import {ProgressBar, Table, Modal, Button, Preloader} from "react-materialize"
-import {useArrayBuffer} from "../hooks/useArrayBuffer.hook";
+import {useArrayBuffer} from "../hooks/arrayBuffer.hook"
 
 export const ReportView = (props) => {
 

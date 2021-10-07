@@ -1,22 +1,32 @@
-const express = require('express')
-const config = require('config')
-const path = require('path')
+import express from 'express'
+import config from 'config'
+import path from 'path'
 
 const app = express()
+const __dirname = path.resolve()
+
+// import apiAuth from'./routes/auth.routes.js'
+import apiMap from './routes/map.routes.js'
+import apiMapFilter from './routes/filter.routes.js'
+import apiMapSingle from './routes/single.routes.js'
+import apiView from './routes/view.routes.js'
+import apiReports from './routes/reports.routes.js'
+import apiReportsArea from './routes/area.routes.js'
+import apiReportsPDF from './routes/pdf.routes.js'
 
 app.use(express.json({extended: true}))
 
-app.use('/api/auth', require('./routes/auth.routes'))
+// app.use('/api/auth', apiAuth)
 
-app.use('/api/map', require('./routes/map.routes'))
-app.use('/api/map/filter', require('./routes/filter.routes'))
-app.use('/api/map/single', require('./routes/single.routes'))
+app.use('/api/map', apiMap)
+app.use('/api/map/filter', apiMapFilter)
+app.use('/api/map/single', apiMapSingle)
 
-app.use('/api/view', require('./routes/view.routes'))
+app.use('/api/view', apiView)
 
-app.use('/api/reports', require('./routes/reports.routes'))
-app.use('/api/reports/area', require('./routes/area.routes'))
-app.use('/api/reports/pdf', require('./routes/pdf.routes'))
+app.use('/api/reports', apiReports)
+app.use('/api/reports/area', apiReportsArea)
+app.use('/api/reports/pdf', apiReportsPDF)
 
 if (process.env.NODE_ENV === 'production') {
   app.use('/', express.static(path.join(__dirname, 'client', 'build')))

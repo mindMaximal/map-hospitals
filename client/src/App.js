@@ -5,7 +5,6 @@ import {useAuth} from "./hooks/auth.hook"
 import {AuthContext} from "./context/AuthContext"
 import './scss/main.scss'
 
-
 function App() {
 
   const {token, login, logout, userId} = useAuth()

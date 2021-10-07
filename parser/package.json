@@ -2,10 +2,11 @@
   "name": "parser",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "type": "module",
+  "main": "yandexParser.js",
   "scripts": {
     "parse": "node functions/jsonParse.js",
-    "start": "node app.js",
+    "start": "node yandexParser.js",
     "db": "node db.js"
   },
   "author": "Evgeniy Volkov <vamper.2012@gmail.com>",
@@ -19,6 +20,7 @@
     "cherio": "^1.0.0-rc.2",
     "config": "^3.3.2",
     "mysql": "^2.18.1",
+    "node-fetch": "^3.0.0",
     "puppeteer": "^5.4.1",
     "transliteration": "^2.2.0"
   }

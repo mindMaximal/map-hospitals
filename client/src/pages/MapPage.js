@@ -5,18 +5,6 @@ import {useHttp} from "../hooks/http.hook"
 import {MapContext} from "../context/MapContext"
 import {Reports} from "../components/Reports"
 
-
-/*
-*   ToDo:
-*    - Отчеты
-*    - Поиск по фильтрам
-*    - Пофиксить пропадание при увелечении
-*    - scrollbar
-*
-*   https://geoportal.egisz.rosminzdrav.ru/
-*
-*  */
-
 export const MapPage = () => {
 
   const {loading, error, request, clearError} = useHttp()
@@ -41,8 +29,6 @@ export const MapPage = () => {
   const fetchData = useCallback(async () => {
     try {
       const fetched = await request('/api/map', 'POST')
-
-      console.log('fetched', fetched)
 
       setState({
         ...state,

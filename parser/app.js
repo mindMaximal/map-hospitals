@@ -1,127 +1,59 @@
-const cherio = require('cherio')
-const data = require('./data/data.json')
-const fs = require('fs')
-const PuppeteerHandler =  require('./functions/puppeteer')
+import fetch from 'node-fetch'
+import fs from "fs";
 
-const p = new PuppeteerHandler()
-const SPACE = '%20'
+const url = 'https://geoportal.egisz.rosminzdrav.ru/list/mo?369p=0&369p_constr=0&buildings=%7B%22type%22:%22active%22,%22subType%22:%22all%22,%22stage%22:null,%22date%22:null%7D&district=%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD&equipments=&limit=100000&offset=0&positionsMO=%7B%22selected%22:null,%22from%22:null,%22to%22:null%7D&profile=&subject=%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&types='
+const subStrShort = 'фап'
+const subStrLong = 'фельд'
 
-const getInfoList = async (data) => {
-  try {
+fetch(url)
+  .then(res => res.json())
+  .then(json => {
 
-    let success = []
-    let errors = []
-    let parents = []
-    let similar = 0
+    const elements = []
 
-    let parentId = 0
+    console.log('Количество объектов', json.data.length)
 
-    let i = 0
+    for (let i = 0; i < json.data.length; i++) {
+      const el = json.data[i]
 
-    for (const org of data) {
+      elements.push(el)
 
-      parentId++
+      if (el.subMo) {
 
-      const parent = org.name
+        for (let j = 0; j < el.subMo.length; j++) {
+          elements.push(el.subMo[j])
 
-      const parentObj = {
-        name: parent,
-        id: parentId
+          if (el.subMo[j].subMo)
+            console.log(el.subMo[j].subMo)
+        }
+
       }
 
-      parents.push(parentObj)
+    }
 
-      for (const page of org.data) {
+    json = null
+    console.log('Общее количество объектов', elements.length)
+    
+    const results = []
 
-        console.log('Обработка страницы: ', page)
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i]
+      let name = el.name.trim().toLowerCase()
 
-        //let name = page.replace(/.\.\s/g, '')
-        let name = page.replace(/\s/g, SPACE),
-            url = `https://yandex.ru/maps/?mode=search&text=${name}`,
-            pageContent = await p.getPageContent(url)
-
-        if (pageContent === null) {
-          console.log('Ошибка на странице: ' + page + ' вторая попытка поиска информации')
-
-          name = page.replace(/.\.\s/g, '').replace(/\s/g, SPACE)
-
-          url = `https://yandex.ru/maps/?mode=search&text=${name}`
-
-          pageContent = await p.getPageContent(url)
-
-          if (pageContent === null) {
-            console.log(`   - Вторая попытка не дала результата\r\n\   - ${url}\r\n`)
-
-            const error = {
-              name: page,
-              url,
-              parent,
-              parentId
-            }
-
-            errors.push(error)
-
-            break
-          }
-          console.log('\t - Вторая попытка оказалось удачной')
-        }
-
-        const $ = cherio.load(pageContent)
-
-        const nameYandex = $('.card-title-view__title-link').text()
-        const geo = $('.card-share-view__text').text()
-        const address = $('.business-contacts-view__address-link').text()
-
-        const obj = {
-          name: page,
-          nameYandex,
-          geo,
-          address,
-          parent,
-          parentId,
-          id: i,
-          pharmacy: Math.random() < 0.5,
-          firstAid: Math.random() < 0.5,
-          emergencyAssistance: Math.random() < 0.5,
-          staff: Math.floor((Math.random() * 10) + 1),
-          foundationYear: Math.floor(Math.random() * (2021 - 1997)) + 1997
-        }
-
-        i++
-
-        let isUnique = true
-
-        for (const obj_ of success) {
-          if (obj.geo == obj_.geo) isUnique = false
-        }
-
-        if (isUnique) {
-          console.log(obj)
-          success.push(obj)
-        } else similar++
+      if (name.includes(subStrShort) || name.includes(subStrLong)) {
+        results.push(el)
       }
     }
 
-    return {
-      data: success,
-      errors: errors,
-      parents: parents,
-      similar: similar
-    }
+    console.log('Количество подходящих объектов', results.length)
 
-  } catch (e) {
-    throw e
-  } finally {
-    p.closeBrowser()
-  }
-}
+    fs.writeFile("result/dataGeoPortal.json", JSON.stringify(results,  null, '\t'), (e) => {
+      if(e) throw e; // если возникла ошибка
+      console.log("Запись файла завершена.");
+    });
+  })
 
-getInfoList(data).then((res) => {
-  fs.writeFile("result/data.json", JSON.stringify(res,  null, '\t'), (e) => {
-    if(e) throw e; // если возникла ошибка
-    console.log("Запись файла завершена.");
-  });
-
-}).catch(e => {
-  console.log('Ошибка: ', e)
-})
+/*
+*    https://geoportal.egisz.rosminzdrav.ru/map/object?id=14861957
+*
+* */

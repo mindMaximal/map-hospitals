@@ -1,8 +1,9 @@
-const {Router} = require('express')
-const bcrypt = require('bcrypt')
-const {check, validationResult} = require('express-validator')
-const jwt = require('jsonwebtoken')
-const config = require('config')
+import {Router} from 'express'
+import bcrypt from 'bcrypt'
+import {check, validationResult} from 'express-validator'
+import jwt from 'jsonwebtoken'
+import config from 'config'
+
 const router = Router()
 
 // https://www.youtube.com/watch?v=ivDjWYcKDZI&ab_channel=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BB%D0%B5%D0%BD%D0%9C%D0%B8%D0%BD%D0%B8%D0%BD
@@ -46,8 +47,6 @@ router.post(
         try {
             const errors = validationResult(req)
 
-            console.log(req.body)
-
             if (!errors.isEmpty()) {
                 return res.status(400).json({
                     errors: errors.array(),
@@ -80,4 +79,4 @@ router.post(
         }
 })
 
-module.exports = router
+export default router
