@@ -29,7 +29,12 @@ export const Sidebar = (props) => {
     const el = props.data.default.find(el => el.id_Med_punkt === id)
     el.active = true
 
-    setMapState({...mapState, 'center': [el.latitude, el.longitude]})
+    setMapState({
+      ...mapState,
+      zoom: 12,
+      'center': [el.latitude, el.longitude]}
+    )
+
     props.setSingleView({
       flag: true,
       id: el.id_Med_punkt
@@ -152,7 +157,16 @@ export const Sidebar = (props) => {
                   size="small"
                 />
               </div> :
-              props.singleView.flag ? <SingleView id={props.data.default.find(el => el.id_Med_punkt === props.singleView.id).id_Med_punkt} back={(e) => handleBack(e)}/> : <ListView loading={props.loading} list={props.data.modified} searchViewClick={searchViewClick}/>
+              props.singleView.flag ?
+                <SingleView
+                  id={props.data.default.find(el => el.id_Med_punkt === props.singleView.id).id_Med_punkt}
+                  back={(e) => handleBack(e)}
+                /> :
+                <ListView
+                  loading={props.loading}
+                  list={props.data.modified}
+                  searchViewClick={searchViewClick}
+                />
           }
 
           <Scrollbar />

@@ -28,7 +28,12 @@ export const Maps = (props) => {
     const el = props.data.default.find(el => el.id_Med_punkt === id)
     el.active = true
 
-    setMapState({...mapState, 'center': [el.latitude, el.longitude]})
+    setMapState({
+      ...mapState,
+      zoom: 12,
+      'center': [el.latitude, el.longitude]
+    })
+
     props.setSingleView({
       flag: true,
       id: el.id_Med_punkt
@@ -49,9 +54,11 @@ export const Maps = (props) => {
               preset: 'islands#darkGreenClusterIcons',
               groupByCoordinates: false,
               clusterDisableClickZoom: false,
-              clusterHideIconOnBalloonOpen: false,
-              geoObjectHideIconOnBalloonOpen: false,
-              iconColor: '#26a69a'
+              clusterHideIconOnBalloonOpen: true,
+              geoObjectHideIconOnBalloonOpen: true,
+              iconColor: '#26a69a',
+              minClusterSize: 2,
+              viewportMargin: 128
             }}
           >
             {props.data && props.data.modified.length > 0 ? props.data.modified.map((el, i) => (

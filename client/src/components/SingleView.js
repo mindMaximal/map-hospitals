@@ -29,11 +29,7 @@ export const SingleView = (props) => {
 
   const fetchData = useCallback(async (body) => {
     try {
-      console.log('body', body)
-
       const fetched = await request('/api/map/single', 'POST', body)
-
-      console.log('SingleView fetched', fetched)
 
       setState({
         el: fetched
@@ -46,7 +42,7 @@ export const SingleView = (props) => {
     fetchData({
       id: props.id
     })
-  }, [fetchData])
+  }, [props.id])
 
   return (
     <div className="single-view">
