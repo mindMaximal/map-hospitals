@@ -14,7 +14,10 @@ import apiReports from './routes/reports.routes.js'
 import apiReportsArea from './routes/area.routes.js'
 import apiReportsPDF from './routes/pdf.routes.js'
 
-app.use(express.json({extended: true}))
+app.use(express.json({
+  extended: true,
+  limit: '50mb'
+}))
 
 // app.use('/api/auth', apiAuth)
 app.use('/api/map', apiMap)
