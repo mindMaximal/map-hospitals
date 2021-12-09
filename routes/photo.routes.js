@@ -24,7 +24,7 @@ router.post(
       const connection = initializeConnection(configDB)
 
       const query = 'SELECT `name` FROM `photo` WHERE\n' +
-        '\t`photo_id_med_punkt` = ' + id
+        '\t`photo_id` = ' + id
 
       connection.query(query, (err, rows) => {
         connection.end()

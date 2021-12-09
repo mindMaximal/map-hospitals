@@ -23,14 +23,15 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT * FROM `med_punkt`\n' +
-        '    JOIN `nas_punkt`\n' +
-        '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +
-        '    JOIN `rayon`\n' +
-        '        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`\n' +
-        '    JOIN `obl`\n' +
-        '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`\n' +
-        '    WHERE `id_Med_punkt` = ' + id
+      const query = 'SELECT `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`phone`, `medical_center`.`latitude`, `medical_center`.`longitude`, `medical_center`.`pharmacy`, \n' +
+        '`medical_center`.`founding_year`, `medical_center`.`availability_of_emergency_mediical_care`, `medical_center`.`access_to_primary_health_care` , `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`  FROM `medical_center`\n' +
+        '    JOIN `locality`\n' +
+        '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
+        '    JOIN `district`\n' +
+        '        ON `district`.`id` = `locality`.`id`\n' +
+        '    JOIN `region`\n' +
+        '        ON `region`.`id` = `district`.`region_id`\n' +
+        '    WHERE `medical_center`.`id` = ' + id
 
       connection.query(query, (err, rows, fields) => {
         connection.end()

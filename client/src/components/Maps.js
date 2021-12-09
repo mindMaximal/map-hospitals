@@ -25,7 +25,7 @@ export const Maps = (props) => {
     if (elActive)
       elActive.active = false
 
-    const el = props.data.default.find(el => el.id_Med_punkt === id)
+    const el = props.data.default.find(el => el.id === id)
     el.active = true
 
     setMapState({
@@ -36,7 +36,7 @@ export const Maps = (props) => {
 
     props.setSingleView({
       flag: true,
-      id: el.id_Med_punkt
+      id: el.id
     })
   }
 
@@ -68,7 +68,7 @@ export const Maps = (props) => {
                 properties={getPointData(el)}
                 options={getPointOptions(el)}
                 modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                onClick={e => handlePlacemarkClick(e, el.id_Med_punkt)}
+                onClick={e => handlePlacemarkClick(e, el.id)}
               />
             )) : null}
           </Clusterer>

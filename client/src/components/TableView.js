@@ -58,7 +58,7 @@ export const TableView = (props) => {
             <td
               key={j}
               data-label={props.headers[j]}
-              onContextMenu={(e) => handleTableContextMenu(e, obj.id_Med_punkt)}
+              onContextMenu={(e) => handleTableContextMenu(e, obj.id)}
             >
               {
                 obj[el]

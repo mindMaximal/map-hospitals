@@ -40,8 +40,8 @@ try {
 
   let connection = initializeConnection(configDB)
 
-  const querySubjects = `SELECT * FROM \`obl\``
-  const queryDistircts = `SELECT * FROM \`rayon\``
+  const querySubjects = `SELECT * FROM \`region\``
+  const queryDistircts = `SELECT * FROM \`district\``
 
   let subjectsDB = null
   let distirctsDB = null
@@ -62,13 +62,13 @@ try {
       for (let j = 0; j < rows.length; j++) {
         const row = rows[j]
 
-        if (row.name_obl.toLowerCase() === el.toLowerCase()) {
+        if (row.region_name.toLowerCase() === el.toLowerCase()) {
           flag = false
         }
       }
 
       if (flag) {
-        const queryAdd = `INSERT INTO \`obl\` (\`idObl\`, \`name_obl\`) VALUES (NULL, '${el}');`
+        const queryAdd = `INSERT INTO \`region\` (\`id\`, \`region_name\`) VALUES (NULL, '${el}');`
 
         connection.query(queryAdd, (err, rows, fields) => {
           if (err) {
@@ -100,13 +100,13 @@ try {
       for (let j = 0; j < rows.length; j++) {
         const row = rows[j]
 
-        if (row.name_rayon.toLowerCase() === el.toLowerCase()) {
+        if (row.district_name.toLowerCase() === el.toLowerCase()) {
           flag = false
         }
       }
 
       if (flag) {
-        const queryAdd = `INSERT INTO \`rayon\` (\`idrayon\`, \`Obl_idObl\`, \`name_rayon\`) VALUES (NULL, '1', '${el}');`
+        const queryAdd = `INSERT INTO \`district\` (\`id\`, \`region_id\`, \`district_name\`) VALUES (NULL, '1', '${el}');`
 
         connection.query(queryAdd, (err, rows, fields) => {
           if (err) {
@@ -123,7 +123,7 @@ try {
 
     const el = data[i]
 
-    const query = `INSERT INTO \`med_punkt\` (\`id_Med_punkt\`, \`nas_punkt_id_nas_punkt\`, \`med_uch_idmed_uch\`, \`Medperc_idMedperc\`, \`type_Med_punkt\`, \`name_Med_punkt\`, \`Street\`, \`Number_of_house\`, \`Phone_number\`, \`latitude\`, \`longitude\`, \`Pharmacy\`, \`Photo\`, \`Founding_year\`, \`Availability_of_emergency_mediical_care\`, \`Access_to_primary_health_care\`) 
+    const query = `INSERT INTO \`medical_center\` (\`id\`, \`locality_id\`, \`med_uch_idmed_uch\`, \`Medperc_idMedperc\`, \`type_medical_center\`, \`name\`, \`street\`, \`number_of_house\`, \`Phone_number\`, \`latitude\`, \`longitude\`, \`Pharmacy\`, \`Photo\`, \`Founding_year\`, \`Availability_of_emergency_mediical_care\`, \`Access_to_primary_health_care\`) 
                    VALUES (NULL, '2', '1', '1', '${el.types ? el.types.name : 'NULL'}', '${el.name}', '${el.street}', '${el.house}', NULL, '${el.lat}', '${el.lon}', NULL, NULL, NULL, NULL, NULL);`
 
     connection.query(query, (err, rows, fields) => {

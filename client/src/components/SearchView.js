@@ -2,6 +2,7 @@ import React from 'react'
 import './SearchView.scss'
 
 export const SearchView = (props) => {
+
   return (
     <div
       className="search-view"

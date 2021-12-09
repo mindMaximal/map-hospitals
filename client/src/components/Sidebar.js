@@ -26,7 +26,7 @@ export const Sidebar = (props) => {
     if (elActive)
       elActive.active = false
 
-    const el = props.data.default.find(el => el.id_Med_punkt === id)
+    const el = props.data.default.find(el => el.id === id)
     el.active = true
 
     setMapState({
@@ -37,7 +37,7 @@ export const Sidebar = (props) => {
 
     props.setSingleView({
       flag: true,
-      id: el.id_Med_punkt
+      id: el.id
     })
   }
 
@@ -111,7 +111,7 @@ export const Sidebar = (props) => {
 
   useEffect(() => {
     props.updateData(props.data.default.filter((obj) => {
-      return obj.name_Med_punkt.toLowerCase().indexOf(state.search) !== -1;
+      return obj.name.toLowerCase().indexOf(state.search) !== -1;
     }))
   }, [state.search])
 
@@ -159,7 +159,7 @@ export const Sidebar = (props) => {
               </div> :
               props.singleView.flag ?
                 <SingleView
-                  id={props.data.default.find(el => el.id_Med_punkt === props.singleView.id).id_Med_punkt}
+                  id={props.data.default.find(el => el.id === props.singleView.id).id}
                   back={(e) => handleBack(e)}
                 /> :
                 <ListView

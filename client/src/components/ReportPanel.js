@@ -132,9 +132,9 @@ export const ReportPanel = (props) => {
                   props.area.map((el, i) => (
                     <option
                       key={i}
-                      value={el.idrayon}
+                      value={el.id}
                     >
-                      {el.name_rayon}
+                      {el.district_name}
                     </option>
                   ))
                 }

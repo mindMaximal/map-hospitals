@@ -14,6 +14,7 @@ const configDB = {
   database: config.get('database')
 }
 
+
 // /api/view/
 router.post(
   '/',
@@ -22,13 +23,13 @@ router.post(
     try {
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `name_Med_punkt`, `Phone_number`, `Founding_year`, `Availability_of_emergency_mediical_care`, `Access_to_primary_health_care`, `Pharmacy`, `name_nas_punkt`, `name_rayon`, `name_obl`, `Street`, `Number_of_house`, `id_Med_punkt`  FROM `med_punkt`\n' +
-        '    JOIN `nas_punkt`\n' +
-        '        ON `med_punkt`.`nas_punkt_id_nas_punkt` = `nas_punkt`.`id_nas_punkt`\n' +
-        '    JOIN `rayon`\n' +
-        '        ON `rayon`.`idrayon` = `nas_punkt`.`id_nas_punkt`\n' +
-        '    JOIN `obl`\n' +
-        '        ON `obl`.`idObl` = `rayon`.`Obl_idObl`'
+        const query = 'SELECT `medical_center`.`name`, `phone`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`  FROM `medical_center`\n' +
+        '    JOIN `locality`\n' +
+        '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
+        '    JOIN `district`\n' +
+        '        ON `district`.`id` = `locality`.`id`\n' +
+        '    JOIN `region`\n' +
+        '        ON `region`.`id` = `district`.`region_id`'
 
       connection.query(query, (err, rows, fields) => {
         connection.end()

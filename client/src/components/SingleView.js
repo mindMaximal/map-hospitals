@@ -35,6 +35,8 @@ export const SingleView = (props) => {
         el: fetched
       })
 
+      console.log('Single view el', fetched)
+
     } catch (e) {}
   }, [request])
 
@@ -71,14 +73,13 @@ export const SingleView = (props) => {
               </button>
 
               <div className="single-view__title">
-
-                {state.el.name_Med_punkt}
+                {state.el.name}
               </div>
 
               {
-                state.el.type_Med_punkt &&
+                state.el.type &&
                 <div className="single-view__type">
-                  {state.el.type_Med_punkt}
+                  {state.el.type}
                 </div>
               }
 
@@ -116,7 +117,7 @@ export const SingleView = (props) => {
                   Аптека:
                 </div>
 
-                {parseInt(state.el.Pharmacy) === 1 ? 'есть' : 'отстуствует'}
+                {parseInt(state.el.pharmacy) === 1 ? 'есть' : 'отстуствует'}
 
               </div>
 
@@ -126,7 +127,7 @@ export const SingleView = (props) => {
                   Первая помощь:
                 </div>
 
-                {parseInt(state.el.Access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
+                {parseInt(state.el.access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
 
               </div>
 
@@ -136,7 +137,7 @@ export const SingleView = (props) => {
                   Экстренная помощь:
                 </div>
 
-                {parseInt(state.el.Availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
+                {parseInt(state.el.availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
 
               </div>
 
@@ -156,7 +157,7 @@ export const SingleView = (props) => {
                   Год основания:
                 </div>
 
-                {state.el.Founding_year || 'неизвестно'}
+                {state.el.founding_year || 'неизвестно'}
 
               </div>
 
@@ -164,7 +165,7 @@ export const SingleView = (props) => {
 
             <Gallery
               photo={state.el.photo}
-              id={state.el.id_Med_punkt}
+              id={state.el.id}
             />
 
           </div>

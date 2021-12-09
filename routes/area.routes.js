@@ -21,7 +21,7 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT * FROM `rayon`'
+      const query = 'SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`'
 
       connection.query(query, (err, rows, fields) => {
         connection.end()

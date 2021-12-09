@@ -7,9 +7,9 @@ const normalizeData = (rows, haveAddress = false) => {
     if (haveAddress) {
       row.address = getAddress(row)
 
-      delete row.name_obl
-      delete row.Number_of_house
-      delete row.Street
+      delete row.region_name
+      delete row.number_of_house
+      delete row.street
     }
 
     for (const key of Object.keys(row)) {

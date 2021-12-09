@@ -11,9 +11,9 @@ export const ListView = (props) => {
       {!props.loading ?  props.list && props.list.length > 0 ? props.list.map((view, i) => (
         <SearchView
           key={i}
-          name={view.name_Med_punkt}
+          name={view.name}
           addres={getAddress(view)}
-          id={view.id_Med_punkt}
+          id={view.id}
           searchViewClick={props.searchViewClick}
         />
       )) :

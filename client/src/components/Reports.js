@@ -34,7 +34,7 @@ export const Reports = (props) => {
 
       const fetched = await request('/api/reports/area', 'POST', body)
 
-      console.log(fetched)
+      console.log('Area fetched:', fetched)
 
       setState({
         ...state,
