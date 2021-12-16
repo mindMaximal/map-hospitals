@@ -5,7 +5,9 @@ import {MapContext} from "../context/MapContext"
 import {SingleView} from "./SingleView"
 import {Search} from "./Search"
 import {Scrollbar} from "./Scrollbar"
-import {Skeleton} from "./Skeleton";
+import {Skeleton} from "./Skeleton"
+import { Scrollbars } from 'react-custom-scrollbars'
+import CustomScrollbars from "./CustomScrollbar";
 
 export const Sidebar = (props) => {
   let panelScrollRef = React.createRef()
@@ -52,21 +54,6 @@ export const Sidebar = (props) => {
     setState({...state, 'search': e.target.value.trim().toLowerCase()})
   }
 
-  const scrollInit = (elem, scrollbar) => {
-    const scrollHeight = elem.scrollHeight
-    const viewHeight = elem.offsetHeight
-
-    let scrollbarSliderHeight = viewHeight * viewHeight / scrollHeight
-
-    if (scrollbarSliderHeight === scrollHeight) {
-      scrollbar.style.display = 'none'
-    } else {
-      scrollbar.style.display = 'block'
-    }
-
-    scrollbar.querySelector('.scrollbar__slider').style.height = scrollbarSliderHeight + 'px';
-  }
-
   const handlePanelScroll = () => {
     const scrollTop = panelScrollRef.current.scrollTop
 
@@ -75,29 +62,7 @@ export const Sidebar = (props) => {
     } else {
       setState({...state, 'scroll': false})
     }
-
-    const scrollbar = document.querySelector('.scrollbar');
-    const scrollbarSlider = scrollbar.querySelector('.scrollbar__slider')
-    const scrollPanel = document.querySelector('.sidebar__panel');
-
-    let scrollToTop = scrollPanel.scrollTop / scrollPanel.scrollHeight
-
-    scrollbarSlider.style.top = scrollToTop * scrollPanel.offsetHeight + 'px'
   }
-
-  useEffect(() => {
-    const scrollElem = document.querySelector('.sidebar__panel')
-    const scrollbar = document.querySelector('.scrollbar')
-
-    scrollInit(scrollElem, scrollbar)
-  }, [props.singleView, props.data])
-
-  window.addEventListener(`resize`, () => {
-    const scrollElem = document.querySelector('.sidebar__panel')
-    const scrollbar = document.querySelector('.scrollbar')
-
-    scrollInit(scrollElem, scrollbar)
-  }, false);
 
   const handleBack = () => {
     const el = props.data.default.find(el => el.active === true)
@@ -132,7 +97,8 @@ export const Sidebar = (props) => {
       >
       </button>
 
-      <div className="sidebar__wrapper">
+
+        <div className="sidebar__wrapper">
 
         <Search
           filterShow={state.filter.show}
@@ -145,7 +111,6 @@ export const Sidebar = (props) => {
         <div
           className="sidebar__panel"
           ref={panelScrollRef}
-          onScroll={handlePanelScroll}
         >
           {
             props.loading ?
@@ -165,14 +130,18 @@ export const Sidebar = (props) => {
                   id={props.data.default.find(el => el.id === props.singleView.id).id}
                   back={(e) => handleBack(e)}
                 /> :
+                <CustomScrollbars
+                  onScroll={handlePanelScroll}
+                >
                 <ListView
                   loading={props.loading}
                   list={props.data.modified}
                   searchViewClick={searchViewClick}
                 />
+                </CustomScrollbars>
           }
 
-          <Scrollbar />
+          {/*<Scrollbar />*/}
         </div>
 
       </div>

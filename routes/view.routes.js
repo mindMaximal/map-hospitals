@@ -27,7 +27,7 @@ router.post(
         '    JOIN `locality`\n' +
         '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
         '    JOIN `district`\n' +
-        '        ON `district`.`id` = `locality`.`id`\n' +
+        '        ON `locality`.`district_id` = `district`.`id`\n' +
         '    JOIN `region`\n' +
         '        ON `region`.`id` = `district`.`region_id`'
 

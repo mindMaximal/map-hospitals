@@ -78,6 +78,53 @@ body {
 	}
 }
 
+.track-vertical {
+	top: 0;
+	bottom: 0;
+	right: 0;
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 0.111);
+
+	.thumb-vertical {
+		position: relative;
+		display: block;
+		width: 100%;
+		cursor: pointer;
+		border-radius: inherit;
+		background-color: rgba(123, 154, 255, 0.418); // changed the color
+	}
+
+}
+
+.track-horizontal {
+	position: absolute;
+	height: 6px;
+	right: 2px;
+	bottom: 2px;
+	left: 2px;
+	border-radius: 3px;
+
+	.thumb-horizontal {
+		position: relative;
+		display: block;
+		height: 100%;
+		cursor: pointer;
+		border-radius: inherit;
+		background-color: rgba(125, 149, 255, 0.993); // changed the color
+	}
+}
+
+.view {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: scroll;
+	margin-right: -15px;
+	margin-bottom: -17px; // changed from -15px  (default) to -17px (native scrollbar had a portion visible)
+}
+
 /*
 @include media-breakpoint-down(md) {
 }

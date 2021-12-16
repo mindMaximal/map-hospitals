@@ -59,7 +59,7 @@ router.post(
       } else if (req.body.hasOwnProperty('foundationYearTo') && req.body.foundationYearTo !== null) {
         limiters.push('`founding_year` < ' + req.body.foundationYearTo)
       } else if (req.body.hasOwnProperty('area') && req.body.area !== null) {
-        limiters.push('`id` = ' + req.body.area)
+        limiters.push('`locality`.`district_id` = ' + req.body.area)
       }
 
       if (headersQuery.length !== 0) {
@@ -72,16 +72,16 @@ router.post(
           }
         }
       } else {
-        columns = '`medical_center`.`name`, `type`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
+        columns = '`medical_center`.`name`, `type`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
       }
 
       let query = 'SELECT ' + columns + ' FROM `medical_center`\n' +
-        '    JOIN `locality`\n' +
+        '    LEFT JOIN `locality`\n' +
         '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
-        '    JOIN `district`\n' +
-        '        ON `district`.`id` = `locality`.`id`\n' +
-        '    JOIN `region`\n' +
-        '        ON `region`.`id` = `district`.`region_id`'
+        '    LEFT JOIN `district`\n' +
+        '        ON `locality`.`district_id` = `district`.`id`\n' +
+        '    LEFT JOIN `region`\n' +
+        '        ON `district`.`region_id` = `region`.`id`'
 
       if (limiters.length !== 0) {
         query += '\n WHERE '
@@ -94,6 +94,8 @@ router.post(
           }
         }
       }
+
+      console.log(query)
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -117,7 +119,7 @@ router.post(
             row.address = getAddress(row)
 
             if (!haveLocality) {
-              delete row.name_locality
+              delete row.locality_name
             }
 
             delete row.region_name
@@ -132,8 +134,6 @@ router.post(
         for (const key of Object.keys(rows[0])) {
 
           for (const mapping of mappings) {
-            console.log('Mapping', mapping.queryName)
-            console.log('key', key, '\r\n')
             if (key === mapping.queryName || key === mapping.fullQueryName) {
               headers.push(mapping.columnName)
             }
