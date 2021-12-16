@@ -35,12 +35,12 @@ router.post(
         for (const mapping of mappings) {
           if (column === mapping.fieldName) {
 
-            if (Array.isArray(mapping.queryName)) {
-              for (const el of mapping.queryName) {
+            if (Array.isArray(mapping.fullQueryName)) {
+              for (const el of mapping.fullQueryName) {
                 headersQuery.push(el)
               }
             } else {
-              headersQuery.push(mapping.queryName)
+              headersQuery.push(mapping.fullQueryName)
             }
           }
         }
@@ -49,7 +49,7 @@ router.post(
       for (const param of req.body.conditions) {
         for (const mapping of mappings) {
           if (param === mapping.fieldName) {
-            limiters.push('`' + mapping.queryName + '`' + ' = 1')
+            limiters.push('`' + mapping.fullQueryName + '`' + ' = 1')
           }
         }
       }
@@ -72,7 +72,7 @@ router.post(
           }
         }
       } else {
-        columns = '`medical_center`.`name`, `type`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
+        columns = '`medical_center`.`name`, `type`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
       }
 
       let query = 'SELECT ' + columns + ' FROM `medical_center`\n' +
@@ -132,7 +132,9 @@ router.post(
         for (const key of Object.keys(rows[0])) {
 
           for (const mapping of mappings) {
-            if (key === mapping.queryName) {
+            console.log('Mapping', mapping.queryName)
+            console.log('key', key, '\r\n')
+            if (key === mapping.queryName || key === mapping.fullQueryName) {
               headers.push(mapping.columnName)
             }
           }

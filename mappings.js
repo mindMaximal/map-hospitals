@@ -1,60 +1,64 @@
 const mappings = [
   {
     columnName: 'Название',
-    queryName: 'medical_center`.`name',
+    fullQueryName: 'medical_center`.`name',
+    queryName: 'name',
     fieldName: 'name'
   },
   {
     columnName: 'Тип',
-    queryName: 'type',
+    fullQueryName: 'type',
     fieldName: 'type'
   },
   {
     columnName: 'Номер телефона',
-    queryName: 'phone',
+    fullQueryName: 'phone',
     fieldName: 'phone'
   },
   {
     columnName: 'Аптека',
-    queryName: 'pharmacy',
+    fullQueryName: 'pharmacy',
     fieldName: 'pharmacy',
     binary: true
   },
   {
     columnName: 'Населенный пункт',
-    queryName: 'locality`.`name',
+    fullQueryName: 'locality`.`name` AS `locality_name',
+    queryName: 'locality_name',
     fieldName: 'locality'
   },
   {
     columnName: 'Год основания',
-    queryName: 'founding_year',
+    fullQueryName: 'founding_year',
     fieldName: 'foundingYear'
   },
   {
     columnName: 'Экстренная помощь',
-    queryName: 'availability_of_emergency_mediical_care',
+    fullQueryName: 'availability_of_emergency_mediical_care',
     fieldName: 'emergencyAssistance',
     binary: true
   },
   {
     columnName: 'Первая помощь',
-    queryName: 'access_to_primary_health_care',
+    fullQueryName: 'access_to_primary_health_care',
     fieldName: 'firstAid',
     binary: true
   },
   {
     columnName: 'Район',
-    queryName: 'district`.`name',
+    fullQueryName: 'district`.`name` AS `district_name',
+    queryName: 'district_name',
     fieldName: 'area'
   },
   {
     columnName: 'id',
-    queryName: 'medical_center`.`id',
+    fullQueryName: 'medical_center`.`id',
+    queryName: 'id',
     fieldName: 'id'
   },
   {
     columnName: 'Адрес',
-    queryName: [
+    fullQueryName: [
       'region`.`name',
       'district`.`name',
       'locality`.`name',
@@ -65,7 +69,7 @@ const mappings = [
   },
   {
     columnName: 'Адрес',
-    queryName: 'address',
+    fullQueryName: 'address',
     fieldName: 'address_'
   }
 ]

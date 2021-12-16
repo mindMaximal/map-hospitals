@@ -31,7 +31,7 @@ router.post(
         '    JOIN `region`\n' +
         '        ON `region`.`id` = `district`.`region_id`'
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err, rows) => {
         connection.end()
 
         if (err) {
@@ -54,7 +54,7 @@ router.post(
         for (const key of Object.keys(rows[0])) {
 
           for (const mapping of mappings) {
-            if (key === mapping.queryName) {
+            if (key === mapping.fullQueryName) {
               headers.push(mapping.columnName)
             }
           }

@@ -1,5 +1,4 @@
 import mappings from "../mappings.js"
-import {getAddress} from "../functions/getAddress.js"
 
 const normalizeData = (rows, haveAddress = false) => {
   for (const row of rows) {
@@ -19,7 +18,7 @@ const normalizeData = (rows, haveAddress = false) => {
       }
 
       for (const mapping of mappings) {
-        if (key === mapping.queryName && mapping.binary) {
+        if (key === mapping.fullQueryName && mapping.binary) {
           row[key] = row[key] === 1 ? 'Есть' : 'Нет'
         }
       }

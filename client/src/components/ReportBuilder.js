@@ -2,7 +2,7 @@ import React from 'react'
 import './ReportPanel.scss'
 import {Select, Button, Checkbox, TextInput} from "react-materialize"
 
-export const ReportBuilder= (props) => {
+export const ReportBuilder = (props) => {
 
   const handleTextareaBlur = (e) => {
     const { target } = e

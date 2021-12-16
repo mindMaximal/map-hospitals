@@ -1,6 +1,0 @@
-'SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name` FROM `medical_center` JOIN `locality` ON `medical_center`.`locality_id` = `locality`.`id` JOIN `district` ON `district`.`id` = `locality`.`id` JOIN `region` ON `region`.`id` = `district`.`region_id`'
-
-'SELECT *, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name` FROM `medical_center` JOIN `locality` ON `medical_center`.`locality_id` = `locality`.`id` JOIN `district` ON `district`.`id` = `locality`.`id` JOIN `region` ON `region`.`id` = `district`.`region_id` WHERE `medical_center`.`id` = ' + id
-
-`medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`phone`, `medical_center`.`latitude`, `medical_center`.`longitude`, `medical_center`.`pharmacy`,
-`medical_center`.`founding_year`, `medical_center`.`availability_of_emergency_mediical_care`, `medical_center`.`access_to_primary_health_care`,

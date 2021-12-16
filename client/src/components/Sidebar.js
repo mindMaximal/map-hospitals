@@ -5,7 +5,7 @@ import {MapContext} from "../context/MapContext"
 import {SingleView} from "./SingleView"
 import {Search} from "./Search"
 import {Scrollbar} from "./Scrollbar"
-import {Preloader} from "react-materialize";
+import {Skeleton} from "./Skeleton";
 
 export const Sidebar = (props) => {
   let panelScrollRef = React.createRef()
@@ -92,7 +92,7 @@ export const Sidebar = (props) => {
     scrollInit(scrollElem, scrollbar)
   }, [props.singleView, props.data])
 
-  window.addEventListener(`resize`, (e) => {
+  window.addEventListener(`resize`, () => {
     const scrollElem = document.querySelector('.sidebar__panel')
     const scrollbar = document.querySelector('.scrollbar')
 
@@ -150,12 +150,15 @@ export const Sidebar = (props) => {
           {
             props.loading ?
               <div className="sidebar__loader">
-                <Preloader
-                  active
-                  color="blue"
-                  flashing={false}
-                  size="small"
-                />
+
+                <Skeleton />
+
+                <Skeleton />
+
+                <Skeleton />
+
+                <Skeleton />
+
               </div> :
               props.singleView.flag ?
                 <SingleView
