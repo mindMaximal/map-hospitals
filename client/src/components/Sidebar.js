@@ -4,9 +4,7 @@ import './Sidebar.scss'
 import {MapContext} from "../context/MapContext"
 import {SingleView} from "./SingleView"
 import {Search} from "./Search"
-import {Scrollbar} from "./Scrollbar"
 import {Skeleton} from "./Skeleton"
-import { Scrollbars } from 'react-custom-scrollbars'
 import CustomScrollbars from "./CustomScrollbar";
 
 export const Sidebar = (props) => {
