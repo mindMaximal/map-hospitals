@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import {useHttp} from "../hooks/http.hook"
-import './TablePage.scss'
+import './ViewPage.scss'
 import {PageHeader} from "../components/PageHeader"
 import {TableView} from "../components/TableView"
 import {ContextMenu} from "../components/ContextMenu"
