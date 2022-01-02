@@ -47,6 +47,8 @@ export const SearchFilter = (props) => {
     try {
       const fetched = await request('/api/map/filter', 'POST', body)
 
+      console.log(fetched)
+
       props.updateData(fetched.data, true)
 
     } catch (e) {}
@@ -58,76 +60,67 @@ export const SearchFilter = (props) => {
 
   return (
 
-    <CardPanel className={'search-filter white ' + props.className  + ' ' + (props.visible ? 'search-filter--visible' : 'search-filter--hidden')}>
+    <CardPanel className={`search-filter white ${props.className} ${(props.visible ? 'search-filter--visible' : 'search-filter--hidden')} ${props.style}`}>
       <div className="search-filter__wrapper">
 
         <h4 className="search-filter__title">Фильтры:</h4>
 
-        <div className="search-filter__block">
-          <Checkbox
-            filledIn
-            className="search-filter__checkbox"
-            id="search-filter__pharmacy"
-            label="Аптека"
-            value="pharmacy"
-            onClick={handleCheckBoxFilterClick}
-          />
-        </div>
+        <div className="search-filter__flex">
 
-        <input type="checkbox" className="search-filter__checkbox"/>
+          <div className="search-filter__block">
+            <Checkbox
+              filledIn
+              className="search-filter__checkbox"
+              id="search-filter__pharmacy"
+              label="Аптека"
+              value="pharmacy"
+              onClick={handleCheckBoxFilterClick}
+            />
+          </div>
 
-        <div className="search-filter__block">
-          <Checkbox
-            filledIn
-            className="search-filter__checkbox"
-            id="search-filter__first-aid"
-            label="Первая помощь"
-            value="firstAid"
-            checked={false}
-            onClick={handleCheckBoxFilterClick}
-          />
-        </div>
+          <div className="search-filter__block">
+            <Checkbox
+              filledIn
+              className="search-filter__checkbox"
+              id="search-filter__first-aid"
+              label="Первая помощь"
+              value="firstAid"
+              checked={false}
+              onClick={handleCheckBoxFilterClick}
+            />
+          </div>
 
-        <div className="search-filter__block">
-          <Checkbox
-            filledIn
-            className="search-filter__checkbox"
-            id="search-filter__emergency-assistance"
-            label="Экстренная помощь"
-            value="emergencyAssistance"
-            onClick={handleCheckBoxFilterClick}
-          />
-        </div>
+          <div className="search-filter__block">
+            <Checkbox
+              filledIn
+              className="search-filter__checkbox"
+              id="search-filter__emergency-assistance"
+              label="Экстренная помощь"
+              value="emergencyAssistance"
+              onClick={handleCheckBoxFilterClick}
+            />
+          </div>
 
-        {/*<div className="search-filter__block">
-          <Checkbox
-            filledIn
-            className"search-filter__checkbox
-            id="search-filter__staffing"
-            label="Укомплектованность фельдшерами"
-            value="staffing"
-            onClick={handleCheckBoxFilterClick}
-          />
-        </div>*/}
+          <div className="search-filter__block search-filter__block--years">
+            <TextInput
+              id="search-filter__year-foundation-from"
+              name="foundationYearFrom"
+              className="search-filter__textarea"
+              type="number"
+              label="Год основания (от)"
+              onBlur={handleTextareaBlur}
+            />
 
-        <div className="search-filter__block">
-          <TextInput
-            id="search-filter__year-foundation-from"
-            name="foundationYearFrom"
-            className="search-filter__textarea"
-            type="number"
-            label="Год основания (от)"
-            onBlur={handleTextareaBlur}
-          />
+            <TextInput
+              id="search-filter__year-foundation-to"
+              type="number"
+              className="search-filter__textarea"
+              name="foundationYearTo"
+              label="Год основания (до)"
+              onBlur={handleTextareaBlur}
+            />
+          </div>
 
-          <TextInput
-            id="search-filter__year-foundation-to"
-            type="number"
-            className="search-filter__textarea"
-            name="foundationYearTo"
-            label="Год основания (до)"
-            onBlur={handleTextareaBlur}
-          />
         </div>
 
       </div>

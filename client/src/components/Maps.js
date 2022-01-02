@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import './Maps.scss'
 import { YMaps, Map, Clusterer, Placemark } from "react-yandex-maps"
 import {MapContext} from "../context/MapContext"
@@ -67,7 +67,7 @@ export const Maps = (props) => {
                   clusterHideIconOnBalloonOpen: true,
                   geoObjectHideIconOnBalloonOpen: true,
                   iconColor: '#26a69a',
-                  minClusterSize: 2,
+                  minClusterSize: props.data.modified.length > 10 ? 2 : 10,
                   viewportMargin: 128
                 }}
               >

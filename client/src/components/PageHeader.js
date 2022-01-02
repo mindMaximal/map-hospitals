@@ -2,11 +2,14 @@ import {Button, TextInput} from "react-materialize"
 import magnifer from "../img/magnifier.svg"
 import {ReactComponent as Filter} from "../img/filter.svg"
 import {SearchFilter} from "./SearchFilter"
-import React from "react"
+import React, {useState} from "react"
 import './PageHeader.scss'
+import {Link} from "react-router-dom";
 
 
 export const PageHeader = (props) => {
+
+  const [filtersVisible, setFiltersVisible] = useState(false)
 
   return (
     <header className={'page-header ' + props.className}>
@@ -20,6 +23,19 @@ export const PageHeader = (props) => {
       </h4>
 
       <div className="page-header__controls">
+
+        <Link
+          to="/"
+          className="page-header__control"
+        >
+          <Button
+            node="button"
+            waves="light"
+            className="blue darken-4"
+          >
+            Карта
+          </Button>
+        </Link>
 
         <Button
           node="button"
@@ -63,7 +79,7 @@ export const PageHeader = (props) => {
             id="view-search__input"
             inputClassName="view__text-input"
             label="Поиск мед. пунктов"
-            onChange={null}
+            onChange={() => console.log('test')}
           />
 
         </div>
@@ -78,19 +94,20 @@ export const PageHeader = (props) => {
 
           <button
             className="search__button search__button--filter"
-            onClick={null}
+            onClick={() => setFiltersVisible(!filtersVisible)}
           >
             <Filter />
           </button>
         </div>
 
-        <SearchFilter
-          className="page-header__search-filter"
-          updateData={null}
-          visible={null}
-        />
-
       </div>
+
+      <SearchFilter
+        className="page-header__search-filter"
+        updateData={props.updateData}
+        visible={filtersVisible}
+        style="inline"
+      />
 
     </header>
   )

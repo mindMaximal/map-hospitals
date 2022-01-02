@@ -34,11 +34,20 @@ export const ViewPage = () => {
     } catch (e) {}
   }, [request])
 
+  const updateData = (data) => {
+    setState({
+      ...state,
+      data: data
+    })
+  }
+
+  useEffect(() => {
+    console.log('upd state', state)
+  }, [state])
 
   useEffect(() => {
     fetchData()
   }, [fetchData])
-
 
   return (
     <div className="view">
@@ -47,6 +56,8 @@ export const ViewPage = () => {
 
          <PageHeader
             className="view__header"
+            headers={state.headers}
+            updateData={updateData}
          />
 
       </div>

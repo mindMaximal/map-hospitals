@@ -1,4 +1,5 @@
 import mappings from "../mappings.js"
+import {getAddress} from "./getAddress.js";
 
 const normalizeData = (rows, haveAddress = false) => {
   for (const row of rows) {
@@ -7,6 +8,8 @@ const normalizeData = (rows, haveAddress = false) => {
       row.address = getAddress(row)
 
       delete row.region_name
+      delete row.locality_name
+      delete row.district_name
       delete row.number_of_house
       delete row.street
     }

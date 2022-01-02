@@ -114,17 +114,6 @@ body {
 	}
 }
 
-.view {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	overflow: scroll;
-	margin-right: -15px;
-	margin-bottom: -17px; // changed from -15px  (default) to -17px (native scrollbar had a portion visible)
-}
-
 /*
 @include media-breakpoint-down(md) {
 }

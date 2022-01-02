@@ -54,7 +54,7 @@ router.post(
         for (const key of Object.keys(rows[0])) {
 
           for (const mapping of mappings) {
-            if (key === mapping.fullQueryName) {
+            if (key === mapping.queryName || key === mapping.fullQueryName) {
               headers.push(mapping.columnName)
             }
           }

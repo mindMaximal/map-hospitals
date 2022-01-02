@@ -6,9 +6,7 @@ import {AddPanel} from "./AddPanel"
 export const ContextMenu = (props) => {
 
   const handleAddClick = (e) => {
-
-
-
+    console.log(e)
   }
 
   return (

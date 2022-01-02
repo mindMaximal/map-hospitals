@@ -55,15 +55,16 @@ export const TableView = (props) => {
           className='table-view__row'
         >
           {Object.keys(obj).map((el, j) => (
-            <td
-              key={j}
-              data-label={props.headers[j]}
-              onContextMenu={(e) => handleTableContextMenu(e, obj.id)}
-            >
-              {
-                obj[el]
-              }
-            </td>
+            props.headers[j] === 'id' ? null :
+              <td
+                key={j}
+                data-label={props.headers[j]}
+                onContextMenu={(e) => handleTableContextMenu(e, obj.id)}
+              >
+                {
+                  obj[el]
+                }
+              </td>
           ))}
 
         </tr>
