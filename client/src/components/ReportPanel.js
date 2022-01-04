@@ -76,7 +76,16 @@ export const ReportPanel = (props) => {
   }
 
   return (
-    <div className="report-panel shadow">
+    <div className={`report-panel shadow ${props.className}`}>
+
+      {props.hide &&
+        <button
+          className="report-panel__close"
+          onClick={props.hide}
+        >
+          &#10006;
+        </button>
+      }
 
       <div className="report-panel__wrapper">
 

@@ -1,16 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './SingleView.scss'
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
-import getAddress from "../functions/getAddress";
-import {useHttp} from "../hooks/http.hook";
-import {Preloader} from "react-materialize";
-import {Gallery} from "./Gallery";
-
-/*
-*   ToDO
-*    - Фикс скролла ненужного
-*
-* */
+import getAddress from "../functions/getAddress"
+import {useHttp} from "../hooks/http.hook"
+import {Preloader} from "react-materialize"
+import {Gallery} from "./Gallery"
 
 export const SingleView = (props) => {
 
@@ -103,11 +97,11 @@ export const SingleView = (props) => {
 
               <div className="single-view__elem">
 
-                <div className="single-view__subtitle">
+                <div className="single-view__subtitle single-view__subtitle--inline">
                   Организация:
                 </div>
 
-                {state.el.parent}
+                {state.el.parent || 'Неизвестно'}
 
               </div>
 
@@ -163,10 +157,10 @@ export const SingleView = (props) => {
 
             </div>
 
+            {/* ToDo: починить галерею
             <Gallery
-              photo={state.el.photo}
               id={state.el.id}
-            />
+            />*/}
 
           </div>
 

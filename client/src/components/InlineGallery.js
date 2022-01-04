@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import './Gallery.scss'
-import {Carousel} from "react-materialize";
-import {useHttp} from "../hooks/http.hook";
-export const Gallery = (props) => {
+import './InlineGallery.scss'
+import {useHttp} from "../hooks/http.hook"
+
+export const InlineGallery = (props) => {
 
   const [state, setState] = useState({
     data: [],
@@ -56,26 +56,16 @@ export const Gallery = (props) => {
   }
 
   return (
-    <div>
+    <div className="inline-gallery">
       {
         state.data.length > 0 &&
         <div>
-          <Carousel
-            carouselId="Carousel"
-            className="white-text center gallery"
-            options={{
-              fullWidth: false,
-              shift: 0,
-              numVisible: 5,
-              indicators: false,
-              padding: 10,
-              dist: 0
-            }}
-          >
+          <div className="inline-gallery__wrapper">
+
             {
               state.data.map((el, i) => (
                 <div
-                  className="gallery__slide"
+                  className="inline-gallery__slide"
                   key={i}
                 >
                   <img
@@ -87,8 +77,7 @@ export const Gallery = (props) => {
               ))
             }
 
-
-          </Carousel>
+          </div>
 
           {
             state.visible ?

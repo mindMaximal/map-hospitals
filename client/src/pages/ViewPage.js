@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState, Component} from 'react'
+import React, {useCallback, useEffect, useState, Component, useRef} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import './ViewPage.scss'
 import {PageHeader} from "../components/PageHeader"
@@ -6,6 +6,7 @@ import {TableView} from "../components/TableView"
 import {ContextMenu} from "../components/ContextMenu"
 import {ProgressBar} from "react-materialize"
 import { Scrollbars } from 'react-custom-scrollbars'
+import {ReportPanel} from "../components/ReportPanel";
 
 export const ViewPage = () => {
 
@@ -19,6 +20,8 @@ export const ViewPage = () => {
   const [headers, setHeaders] = useState([])
 
   const [search, setSearch] = useState(null)
+
+  const [visibleReports, setVisibleReports] = useState(false)
 
   useEffect(() => {
     if (error) {
@@ -74,6 +77,16 @@ export const ViewPage = () => {
     }
   }, [search])
 
+  const reportViewRef = useRef()
+
+  const handleReportsViewClick = (e) => {
+    const { target } = e
+
+    if (reportViewRef.current === target) {
+      setVisibleReports(!visibleReports)
+    }
+  }
+
   return (
     <div className="view">
 
@@ -85,6 +98,7 @@ export const ViewPage = () => {
             className="view__header"
             handleSearch={handleInputSearch}
             updateData={updateData}
+            showReports={() => setVisibleReports(!visibleReports)}
           />
 
         </div>
@@ -105,6 +119,22 @@ export const ViewPage = () => {
         </div>
 
       </CustomScrollbars>
+
+      { visibleReports &&
+        <div
+          className="view__reports"
+          ref={reportViewRef}
+          onClick={handleReportsViewClick}
+        >
+
+          <ReportPanel
+            area={[]}
+            className="view__report-panel"
+            hide={() => setVisibleReports(false)}
+          />
+
+        </div>
+      }
 
     </div>
   )

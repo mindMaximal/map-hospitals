@@ -25,6 +25,15 @@
 		flex-wrap: wrap;
 	}
 
+	&__close {
+		position: absolute;
+		top: 24px;
+		right: 25px;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
 	&__collapsible {
 		padding: 0;
 		margin: 0;

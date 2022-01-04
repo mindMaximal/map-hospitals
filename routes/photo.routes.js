@@ -12,7 +12,7 @@ const configDB = {
   database: config.get('database')
 }
 
-// /api/map/single/photo
+// /api/map/single/images
 router.post(
   '/',
   [],
@@ -23,7 +23,7 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `name` FROM `photo` WHERE\n' +
+      const query = 'SELECT `name` FROM `images` WHERE\n' +
         '\t`photo_id` = ' + id
 
       connection.query(query, (err, rows) => {

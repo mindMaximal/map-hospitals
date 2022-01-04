@@ -65,6 +65,7 @@ export const PageHeader = (props) => {
           node="button"
           waves="light"
           className="page-header__control"
+          onClick={props.showReports}
         >
           Отчеты
         </Button>

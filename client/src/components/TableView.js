@@ -1,6 +1,7 @@
 import {Table} from "react-materialize"
 import "./TableView.scss"
 import React from "react"
+import {Link} from "react-router-dom";
 
 export const TableView = (props) => {
 
@@ -62,7 +63,7 @@ export const TableView = (props) => {
                 onContextMenu={(e) => handleTableContextMenu(e, obj.id)}
               >
                 {
-                  obj[el]
+                  props.headers[j] === 'Название' ? <Link to={`/detail/${obj.id}`}>{obj[el]}</Link> : obj[el]
                 }
               </td>
           ))}

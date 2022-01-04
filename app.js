@@ -10,6 +10,7 @@ import apiMap from './routes/map.routes.js'
 import apiMapFilter from './routes/filter.routes.js'
 import apiMapSingle from './routes/single.routes.js'
 import apiView from './routes/view.routes.js'
+import apiDetail from './routes/detail.routes.js'
 import apiReports from './routes/reports.routes.js'
 import apiReportsArea from './routes/area.routes.js'
 import apiReportsPDF from './routes/pdf.routes.js'
@@ -25,6 +26,8 @@ app.use('/api/map/filter', apiMapFilter)
 app.use('/api/map/single', apiMapSingle)
 
 app.use('/api/view', apiView)
+
+app.use('/api/detail', apiDetail)
 
 app.use('/api/reports', apiReports)
 app.use('/api/reports/area', apiReportsArea)
