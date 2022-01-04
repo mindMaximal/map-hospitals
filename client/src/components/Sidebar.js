@@ -131,11 +131,11 @@ export const Sidebar = (props) => {
                 <CustomScrollbars
                   onScroll={handlePanelScroll}
                 >
-                <ListView
-                  loading={props.loading}
-                  list={props.data.modified}
-                  searchViewClick={searchViewClick}
-                />
+                  <ListView
+                    loading={props.loading}
+                    list={props.data.modified}
+                    searchViewClick={searchViewClick}
+                  />
                 </CustomScrollbars>
           }
 

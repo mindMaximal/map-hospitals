@@ -1,10 +1,11 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState, Component} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import './ViewPage.scss'
 import {PageHeader} from "../components/PageHeader"
 import {TableView} from "../components/TableView"
 import {ContextMenu} from "../components/ContextMenu"
 import {ProgressBar} from "react-materialize"
+import { Scrollbars } from 'react-custom-scrollbars'
 
 export const ViewPage = () => {
 
@@ -76,31 +77,46 @@ export const ViewPage = () => {
   return (
     <div className="view">
 
-      <div className="container view__container">
+      <CustomScrollbars>
 
-         <PageHeader
+        <div className="container view__container">
+
+          <PageHeader
             className="view__header"
             handleSearch={handleInputSearch}
             updateData={updateData}
-         />
+          />
 
-      </div>
+        </div>
 
-      <div className="container table-container">
+        <div className="container table-container">
 
-        {
-          loading ? <ProgressBar/> :
-            state.modified.length === 0 ? 'Элементов не найдено, пожалуйста, измените критерии поиска' :
-              <TableView
-                data={state.modified}
-                headers={headers}
-              />
+          {
+            loading ? <ProgressBar/> :
+              state.modified.length === 0 ? 'Элементов не найдено, пожалуйста, измените критерии поиска' :
+                <TableView
+                  data={state.modified}
+                  headers={headers}
+                />
 
-        }
-        <ContextMenu />
+          }
+          <ContextMenu />
 
-      </div>
+        </div>
+
+      </CustomScrollbars>
 
     </div>
   )
+}
+
+class CustomScrollbars extends Component {
+  render() {
+    return (
+      <Scrollbars
+        renderView={props => <div {...props} className="view__scroll-view"/>}>
+        {this.props.children}
+      </Scrollbars>
+    );
+  }
 }
