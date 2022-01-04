@@ -79,7 +79,7 @@ export const PageHeader = (props) => {
             id="view-search__input"
             inputClassName="view__text-input"
             label="Поиск мед. пунктов"
-            onChange={() => console.log('test')}
+            onChange={props.handleSearch}
           />
 
         </div>
@@ -107,6 +107,7 @@ export const PageHeader = (props) => {
         updateData={props.updateData}
         visible={filtersVisible}
         style="inline"
+        source="table"
       />
 
     </header>

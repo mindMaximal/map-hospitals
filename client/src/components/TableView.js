@@ -1,6 +1,6 @@
-import {Button, Table} from "react-materialize"
+import {Table} from "react-materialize"
 import "./TableView.scss"
-import React, {useEffect} from "react";
+import React from "react"
 
 export const TableView = (props) => {
 
@@ -49,7 +49,7 @@ export const TableView = (props) => {
       </tr>
       </thead>
       <tbody>
-      {props.data && props.headers && props.headers.length > 0 && props.data.map((obj, i) => (
+      {props.data && props.data.length > 0 && props.data.map((obj, i) => (
         <tr
           key={i}
           className='table-view__row'

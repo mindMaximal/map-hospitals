@@ -43,11 +43,17 @@ export const SearchFilter = (props) => {
     clearError()
   }, [clearError, error])
 
-  const fetchData = useCallback(async (body) => {
+  const fetchDataFilter = useCallback(async (body) => {
     try {
-      const fetched = await request('/api/map/filter', 'POST', body)
 
-      console.log(fetched)
+      if (props.source === 'table') {
+        body = {
+          ...body,
+          source: 'table'
+        }
+      }
+
+      const fetched = await request('/api/map/filter', 'POST', body)
 
       props.updateData(fetched.data, true)
 
@@ -55,7 +61,7 @@ export const SearchFilter = (props) => {
   }, [request])
 
   useEffect(() => {
-    fetchData(filters)
+    fetchDataFilter(filters)
   }, [filters])
 
   return (

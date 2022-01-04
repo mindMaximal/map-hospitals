@@ -11,9 +11,13 @@ export const ViewPage = () => {
   const {loading, error, request, clearError} = useHttp()
 
   const [state, setState] = useState({
-    data: [],
-    headers: []
+    modified: [],
+    default: []
   })
+
+  const [headers, setHeaders] = useState([])
+
+  const [search, setSearch] = useState(null)
 
   useEffect(() => {
     if (error) {
@@ -28,26 +32,46 @@ export const ViewPage = () => {
 
       setState({
         ...state,
-        data: fetched.data,
-        headers: fetched.headers
+        modified: fetched.data,
+        default: fetched.data
       })
+
+      setHeaders(fetched.headers)
+
     } catch (e) {}
   }, [request])
 
-  const updateData = (data) => {
+  const updateData = (value, force = false) => {
+
     setState({
       ...state,
-      data: data
-    })
+      default: force ? value : state.default,
+      modified: value})
   }
 
-  useEffect(() => {
-    console.log('upd state', state)
-  }, [state])
+  const handleInputSearch = (e) => {
+    setSearch(e.target.value.trim().toLowerCase())
+  }
 
   useEffect(() => {
     fetchData()
   }, [fetchData])
+
+  useEffect(() => {
+    if (search && search.length > 0) {
+
+      updateData(state.default.filter((obj) => {
+        return obj.name.toLowerCase().indexOf(search) !== -1;
+      }))
+
+    } else {
+
+      updateData(
+        state.default
+      )
+
+    }
+  }, [search])
 
   return (
     <div className="view">
@@ -56,7 +80,7 @@ export const ViewPage = () => {
 
          <PageHeader
             className="view__header"
-            headers={state.headers}
+            handleSearch={handleInputSearch}
             updateData={updateData}
          />
 
@@ -66,10 +90,10 @@ export const ViewPage = () => {
 
         {
           loading ? <ProgressBar/> :
-            state.data.length === 0 ? 'Элементов не найдено, пожалуйста, измените критерии поиска' :
+            state.modified.length === 0 ? 'Элементов не найдено, пожалуйста, измените критерии поиска' :
               <TableView
-                data={state.data}
-                headers={state.headers}
+                data={state.modified}
+                headers={headers}
               />
 
         }
