@@ -40,7 +40,7 @@ export const Skeleton = () => {
 
 }
 
-const Box = (props) => {
+export const Box = (props) => {
 
   const style = {
     width: (props.width || 100) + '%'

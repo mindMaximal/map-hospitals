@@ -6,13 +6,18 @@ import getAddress from "../functions/getAddress";
 import {InlineGallery} from "../components/InlineGallery"
 import {Map, Placemark, YMaps} from "react-yandex-maps"
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
+import { Scrollbars } from 'react-custom-scrollbars'
+import {Button, Modal, Preloader} from "react-materialize"
+import {Box} from "../components/Skeleton"
 
 export const DetailPage = () => {
+  // ToDo: 404 на несуществующий
   const {loading, error, request, clearError} = useHttp()
 
   const history = useHistory()
 
   const [data, setData] = useState({})
+  const [deletedData, setDeletedData] = useState(false)
 
   let { id } = useParams()
 
@@ -48,122 +53,343 @@ export const DetailPage = () => {
     };
   };
 
+  const fetchDelete = useCallback(async (body) => {
+    try {
+      const fetched = await request(`/api/detail/delete`, 'POST', body)
+      // ToDo: Добавить проверку авторизации токена 2:40:18 на удаление!
+
+      console.log('Deleted fetch', fetched)
+      setDeletedData(true)
+
+      setTimeout(() => {
+        history.push('/view')
+      }, 5000)
+    } catch (e) {}
+  }, [request])
+
+  const handleDeleteModalButton = (id) => {
+    fetchDelete({id})
+  }
+
   return (
     <div className="detail">
 
-        <div className="container">
+      <Scrollbars>
 
-          <div className="detail__back">
-            <button
-              className="detail__back-button"
-              onClick={() => history.goBack()}
+        <div className="detail__wrapper">
+
+          <div className="container">
+
+            <div className="detail__controls">
+
+              <div className="detail__back">
+                <button
+                  className="detail__back-button"
+                  onClick={() => history.goBack()}
+                >
+                  <span><ArrowBack /></span> Назад
+                </button>
+              </div>
+
+              <div className="details_buttons">
+
+                <Button
+                  className="detail__button"
+                  node="button"
+                  waves="light"
+                  disabled={loading}
+                  //onClick={handleReportButton}
+                  >
+                  Изменить
+                </Button>
+
+                <Button
+                  className="modal-trigger red darken-3 detail__button"
+                  href="#modal-delete"
+                  node="button"
+                  waves="light"
+                  disabled={loading}
+                >
+                  Удалить
+                </Button>
+
+              </div>
+
+            </div>
+
+            { loading ?
+              <div>
+                <Box width={15}/>
+              </div> :
+              <>
+                <div>
+                  Медицинский пункт:
+                </div>
+              </>
+            }
+
+            <h1 className="detail__title">
+              { loading ?
+                <div className="detail__title--replace">
+                  <Box width={100} />
+                  <Box width={87} />
+                </div> :
+                data.name || 'Мед.пункт'
+              }
+            </h1>
+
+            <div className="detail__block">
+
+              { loading ?
+                <div>
+                  <Box width={50}/>
+                </div> :
+                <>
+                  <div className="detail__elem">
+                    Адрес:
+                  </div>
+
+                  {getAddress(data) || 'Неизвестно'}
+                </>
+              }
+
+            </div>
+
+            <div className="detail__map">
+
+              { loading ?
+                <div className="detail__preloader">
+                  <Preloader
+                    active
+                    color="blue"
+                    flashing={false}
+                    size="small"
+                  />
+                </div> :
+
+                <YMaps>
+                  <Map
+                    state={{
+                      zoom: 12,
+                      'center': [data.latitude, data.longitude]
+                    }}
+                    className="detail__y-map"
+                  >
+
+                    <Placemark
+                      geometry={[data.latitude, data.longitude]}
+                      properties={getPointData(data)}
+                      options={getPointOptions(data)}
+                      modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+                    />
+
+                  </Map>
+
+                </YMaps>
+
+              }
+
+            </div>
+
+            <div className="detail__info">
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={30}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Организация:
+                    </div>
+
+                    {data.parent || 'Неизвестно'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={32}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Тип:
+                    </div>
+
+                    {data.type || 'Неизвестно'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={23}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Телефон:
+                    </div>
+
+                    {data.phone || 'Неизвестно'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={20}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Аптека:
+                    </div>
+
+                    {parseInt(data.pharmacy) === 1 ? 'есть' : 'отстуствует'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={25}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Первая помощь:
+                    </div>
+
+                    {parseInt(data.access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={18}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Экстренная помощь:
+                    </div>
+
+                    {parseInt(data.availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={31}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Укомплектованность фельдшерами:
+                    </div>
+
+                    {data.staff || 0}
+                  </>
+                }
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="container">
+
+            <InlineGallery
+              className="detail__gallery"
+              loading={loading}
+              id={id}
+            />
+
+          </div>
+
+        </div>
+
+      </Scrollbars>
+
+      <Modal
+        actions={
+          deletedData ?
+            [
+              <Button
+              node="button"
+              waves="green"
+              onClick={async () => { history.push('/view')}}
             >
-              <span><ArrowBack /></span> Назад
-            </button>
-          </div>
-
+              Закрыть
+            </Button>
+            ] :
+            [
+            <Button
+              className="modal-trigger red darken-3"
+              node="button"
+              waves="light"
+              style={{
+                marginRight: '5px'
+              }}
+              disabled={loading}
+              onClick={() => handleDeleteModalButton(data.id)}
+            >
+              Да
+            </Button>,
+            <Button
+              modal="close"
+              node="button"
+              waves="green"
+              disabled={loading}
+            >
+              Нет
+            </Button>
+          ]
+        }
+        bottomSheet={false}
+        fixedFooter={false}
+        header={deletedData ? "Мед. пункт был удален" : "Вы действительно хотите удалить этот мед. пункт?"}
+        id="modal-delete"
+        open={false}
+        options={{
+          dismissible: true,
+          endingTop: '30%',
+          opacity: 0.5,
+          outDuration: 250,
+          preventScrolling: true,
+          startingTop: '20%'
+        }}
+      >
+        <div>
+          {deletedData ?
+            <div>
+              Мед. пункт <strong>{data.name}</strong> удален!<br/> Через 5 секунд вы будете перенаправлены на страницу "Таблица"
+            </div> :
           <div>
-            Медицинский пункт:
+            Будет удален следующий мед. пункт: <br/> <strong>{data.name}</strong>
           </div>
-
-          <h1 className="detail__title">
-            {data.name || 'Мед.пункт'}
-          </h1>
-
-          <div className="detail__block">
-
-            <div className="detail__elem">
-              Адрес:
-            </div>
-
-            {getAddress(data) || 'Неизвестно'}
-
-          </div>
-
-          <InlineGallery
-            className="detail__gallery"
-            id={id}
-          />
-
-          <div className="detail__block">
-
-            <div className="detail__elem">
-              Организация:
-            </div>
-
-            {data.parent || 'Неизвестно'}
-
-          </div>
-
-          <div className="detail__block">
-
-            <div className="detail__elem">
-              Аптека:
-            </div>
-
-            {parseInt(data.pharmacy) === 1 ? 'есть' : 'отстуствует'}
-
-          </div>
-
-          <div className="detail__block">
-
-            <div className="detail__elem">
-              Первая помощь:
-            </div>
-
-            {parseInt(data.access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
-
-          </div>
-
-          <div className="detail__block">
-
-            <div className="detail__elem">
-              Экстренная помощь:
-            </div>
-
-            {parseInt(data.availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
-
-          </div>
-
-          <div className="detail__block">
-
-            <div className="detail__elem">
-              Укомплектованность фельдшерами:
-            </div>
-
-            {data.staff || 0}
-
-          </div>
-
+          }
         </div>
-
-        <div className="container">
-
-          <div className="detail__map">
-
-            <YMaps>
-              <Map
-                state={{
-                  zoom: 12,
-                  'center': [data.latitude, data.longitude]
-                }}
-                className="detail__y-map"
-              >
-
-                <Placemark
-                  geometry={[data.latitude, data.longitude]}
-                  properties={getPointData(data)}
-                  options={getPointOptions(data)}
-                  modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                />
-
-              </Map>
-
-            </YMaps>
-
-          </div>
-
-        </div>
+      </Modal>
 
     </div>
   )

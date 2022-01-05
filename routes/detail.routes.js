@@ -27,7 +27,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `medical_center`.`name`, `medical_center`.`latitude`, `medical_center`.`longitude`, `phone`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`  FROM `medical_center`\n' +
+      const query = 'SELECT `medical_center`.`name`, `medical_center`.`type`, `medical_center`.`latitude`, `medical_center`.`longitude`, `phone`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`  FROM `medical_center`\n' +
         '    JOIN `locality`\n' +
         '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
         '    JOIN `district`\n' +
@@ -84,6 +84,33 @@ router.get(
     }
   }
 )
+// api/detail/delete
+router.post(
+  '/delete',
+  [],
+  async (req, res) => {
+    try {
+      // ToDo: каскадное удаление фото при удаление мед пункта
 
+      const connection = initializeConnection(configDB)
+
+      const query = 'DELETE FROM `medical_center` WHERE `medical_center`.`id` = ' + req.body.id
+
+      connection.query(query, (err, rows) => {
+        connection.end()
+
+        if (err) {
+          throw err
+        }
+
+        res.json(rows)
+      })
+
+    } catch (e) {
+      console.log(e)
+      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
+  }
+)
 
 export default router

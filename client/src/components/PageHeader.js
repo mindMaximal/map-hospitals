@@ -41,6 +41,7 @@ export const PageHeader = (props) => {
           node="button"
           waves="light"
           className="page-header__control"
+          disabled
         >
           Изменение населения
         </Button>
@@ -49,6 +50,7 @@ export const PageHeader = (props) => {
           node="button"
           waves="light"
           className="page-header__control"
+          disabled
         >
           Реконструкции
         </Button>
@@ -57,6 +59,7 @@ export const PageHeader = (props) => {
           node="button"
           waves="light"
           className="page-header__control"
+          disabled
         >
           Укомплектованность
         </Button>

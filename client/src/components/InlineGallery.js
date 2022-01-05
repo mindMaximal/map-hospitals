@@ -10,7 +10,7 @@ export const InlineGallery = (props) => {
     src: null
   })
 
-  const {error, request, clearError} = useHttp()
+  const {loading, error, request, clearError} = useHttp()
 
   useEffect(() => {
     if (error) {
@@ -38,6 +38,7 @@ export const InlineGallery = (props) => {
   }, [fetchData])
 
   const handleSlideImageClick = (e) => {
+    console.log(e)
     const { target } = e
 
     setState({
@@ -56,13 +57,20 @@ export const InlineGallery = (props) => {
   }
 
   return (
-    <div className="inline-gallery">
+    <div className={`inline-gallery ${props.className}`}>
       {
         state.data.length > 0 &&
         <div>
           <div className="inline-gallery__wrapper">
 
-            {
+            { loading || props.loading ?
+              <>
+
+                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+              </> :
               state.data.map((el, i) => (
                 <div
                   className="inline-gallery__slide"
@@ -77,6 +85,12 @@ export const InlineGallery = (props) => {
               ))
             }
 
+            <div
+              className="inline-gallery__slide inline-gallery__slide--add"
+            >
+              +
+            </div>
+
           </div>
 
           {
@@ -90,6 +104,7 @@ export const InlineGallery = (props) => {
                   src={state.src}
                   alt="Photo"
                   className="gallery-view__img"
+                  onClick={handleSlideImageClick}
                 />
 
               </div> :

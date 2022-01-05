@@ -1,4 +1,4 @@
-.detail {
+.edit {
 	height: 100vh;
 
 	&__wrapper {
@@ -36,6 +36,9 @@
 
 	&__info {
 		margin: 20px 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 
 	&__preloader {
@@ -77,6 +80,8 @@
 
 	&__block {
 		margin: 5px 0;
+		max-width: 48%;
+		width: 100%;
 	}
 
 	&__back-button {
