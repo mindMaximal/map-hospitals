@@ -49,8 +49,8 @@ export const EditPage = () => {
     return {
       preset: 'islands#violetIcon',
       iconColor: el.active === true ? '#e20101' : '#26a69a'
-    };
-  };
+    }
+  }
 
   const fetchDelete = useCallback(async (body) => {
     try {
@@ -68,6 +68,16 @@ export const EditPage = () => {
 
   const handleDeleteModalButton = (id) => {
     fetchDelete({id})
+  }
+
+  const handleInputChange = (e) => {
+    setData({...data, [e.target.name]: e.target.value})
+  }
+
+  const handleSwitchChange = (e) => {
+    console.log(e.target.value)
+    const value = e.target.value === 'on' ? 1 : 0
+    setData({...data, [e.target.name]: value})
   }
 
   return (
@@ -120,7 +130,9 @@ export const EditPage = () => {
               <TextInput
                 id="input-name"
                 label="Название"
+                name="name"
                 value={data.name}
+                onChange={handleInputChange}
                 disabled={loading}
               />
             </h1>
@@ -200,6 +212,8 @@ export const EditPage = () => {
                   label="Улица:"
                   value={data.street}
                   disabled={loading}
+                  onChange={handleInputChange}
+                  name="street"
                 />
 
               </div>
@@ -211,6 +225,8 @@ export const EditPage = () => {
                   label="Номер дома:"
                   value={data.number_of_house}
                   disabled={loading}
+                  name="number_of_house"
+                  onChange={handleInputChange}
                 />
 
               </div>
@@ -283,6 +299,8 @@ export const EditPage = () => {
                   label="Тип:"
                   value={data.type}
                   disabled={loading}
+                  name="type"
+                  onChange={handleInputChange}
                   />
 
               </div>
@@ -294,6 +312,8 @@ export const EditPage = () => {
                   label="Телефон:"
                   value={data.phone}
                   disabled={loading}
+                  name="phone"
+                  onChange={handleInputChange}
                 />
 
               </div>
@@ -326,6 +346,8 @@ export const EditPage = () => {
                   onLabel="Есть"
                   disabled={loading}
                   //checked={parseInt(data.access_to_primary_health_care) === 1}
+                  name="access_to_primary_health_care"
+                  onChange={handleSwitchChange}
                 />
 
               </div>

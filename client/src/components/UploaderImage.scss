@@ -1,0 +1,37 @@
+.uploader {
+	border: 1px dashed rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	color: rgba(0, 0, 0, 0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .3s;
+
+	&:after {
+		display: none;
+	}
+
+	&:focus,
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	input {
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		top: 0;
+		cursor: pointer;
+	}
+
+	&--loading {
+		cursor: wait;
+		background-color: rgba(0, 0, 0, 0.1);
+
+		input {
+			pointer-events: none;
+		}
+	}
+}

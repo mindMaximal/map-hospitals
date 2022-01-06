@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import './InlineGallery.scss'
 import {useHttp} from "../hooks/http.hook"
+import {UploaderImage} from "./UploaderImage";
 
 export const InlineGallery = (props) => {
 
@@ -9,6 +10,8 @@ export const InlineGallery = (props) => {
     visible: false,
     src: null
   })
+
+  const [uploadedFiles, setUploadedFiles] = useState(['fap2314.jpg'])
 
   const {loading, error, request, clearError} = useHttp()
 
@@ -63,6 +66,21 @@ export const InlineGallery = (props) => {
         <div>
           <div className="inline-gallery__wrapper">
 
+            <UploaderImage
+              className="inline-gallery__slide"
+            />
+
+            {
+              uploadedFiles.length > 0 && uploadedFiles.map((el, i) => (
+                <GalleryItem
+                  className="inline-gallery__slide"
+                  onClick={handleSlideImageClick}
+                  img={el}
+                  key={i}
+                />
+              ))
+            }
+
             { loading || props.loading ?
               <>
 
@@ -72,24 +90,14 @@ export const InlineGallery = (props) => {
                 <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
               </> :
               state.data.map((el, i) => (
-                <div
+                <GalleryItem
                   className="inline-gallery__slide"
+                  onClick={handleSlideImageClick}
+                  img={el.name}
                   key={i}
-                >
-                  <img
-                    alt="Photo"
-                    src={'../attached/images/' + el.name}
-                    onClick={handleSlideImageClick}
-                  />
-                </div>
+                />
               ))
             }
-
-            <div
-              className="inline-gallery__slide inline-gallery__slide--add"
-            >
-              +
-            </div>
 
           </div>
 
@@ -115,5 +123,21 @@ export const InlineGallery = (props) => {
       }
     </div>
 
+  )
+}
+
+const GalleryItem = (props) => {
+
+  return (
+    <div
+      className={`${props.className}`}
+      key={props.key}
+    >
+      <img
+        alt="Photo"
+        src={'../attached/images/' + props.img}
+        onClick={props.onClick}
+      />
+    </div>
   )
 }

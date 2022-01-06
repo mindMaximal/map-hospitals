@@ -4,6 +4,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+
+		&:after {
+			content: "";
+			flex: auto;
+		}
 	}
 
 	&__slide {
@@ -13,6 +18,7 @@
 		overflow: hidden;
 		cursor: pointer;
 		position: relative;
+		margin-bottom: 20px;
 
 		img {
 			position: absolute;
@@ -77,10 +83,6 @@
 												rgba(#fff, 0)
 				);
 				animation: shine 2s infinite;
-			}
-
-			&--add {
-
 			}
 
 			@keyframes shine {

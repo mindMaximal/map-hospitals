@@ -3,7 +3,7 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {MapPage} from "./pages/MapPage"
 import {ViewPage} from "./pages/ViewPage"
 import {DetailPage} from "./pages/DetailPage"
-import {EditPage} from "./pages/EditPage";
+import {EditPage} from "./pages/EditPage"
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
