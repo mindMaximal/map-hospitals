@@ -98,7 +98,7 @@ export const DetailPage = () => {
                   node="button"
                   waves="light"
                   disabled={loading}
-                  //onClick={handleReportButton}
+                  onClick={() => history.push(`/edit/${data.id}`)}
                   >
                   Изменить
                 </Button>

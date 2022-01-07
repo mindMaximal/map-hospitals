@@ -8,6 +8,7 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import { Scrollbars } from 'react-custom-scrollbars'
 import {Button, Modal, Preloader, RadioGroup, Select, Switch, TextInput} from "react-materialize"
 import {Box} from "../components/Skeleton"
+import {SelectArea} from "../components/SelectArea";
 
 export const EditPage = () => {
   // ToDo: 404 на несуществующий
@@ -17,6 +18,7 @@ export const EditPage = () => {
 
   const [data, setData] = useState({})
   const [deletedData, setDeletedData] = useState(false)
+  const [changed, setChanged] = useState(false)
 
   let { id } = useParams()
 
@@ -72,12 +74,16 @@ export const EditPage = () => {
 
   const handleInputChange = (e) => {
     setData({...data, [e.target.name]: e.target.value})
+    setChanged(true)
   }
 
   const handleSwitchChange = (e) => {
-    console.log(e.target.value)
-    const value = e.target.value === 'on' ? 1 : 0
-    setData({...data, [e.target.name]: value})
+    setData({...data, [e.target.name]: e.target.checked ? 1 : 0})
+    setChanged(true)
+  }
+
+  const handleInputBlur = (e) => {
+    setData({...data, [e.target.name]: e.target.value.trim()})
   }
 
   return (
@@ -94,7 +100,7 @@ export const EditPage = () => {
               <div className="edit__back">
                 <button
                   className="edit__back-button"
-                  onClick={() => history.goBack()}
+                  onClick={() => changed ?  : history.goBack()}
                 >
                   <span><ArrowBack /></span> Назад
                 </button>
@@ -109,7 +115,7 @@ export const EditPage = () => {
                   disabled={loading}
                   //onClick={handleReportButton}
                 >
-                  Изменить
+                  Сохранить
                 </Button>
 
                 <Button
@@ -133,6 +139,7 @@ export const EditPage = () => {
                 name="name"
                 value={data.name}
                 onChange={handleInputChange}
+                onBlur={handleInputBlur}
                 disabled={loading}
               />
             </h1>
@@ -141,67 +148,37 @@ export const EditPage = () => {
 
               <div className="edit__block">
 
-                <Select
+                <SelectArea
+                  disabled={loading}
+                  value={data.region_id}
                   id="select-region"
                   label="Регион:"
-                  options={{}}
-                  value="1"
-                  disabled={loading}
-                >
-                  <option value="1">
-                    Option 1
-                  </option>
-                  <option value="2">
-                    Option 2
-                  </option>
-                  <option value="3">
-                    Option 3
-                  </option>
-                </Select>
+                  query="region"
+                />
 
               </div>
 
               <div className="edit__block">
 
-                <Select
+                <SelectArea
+                  disabled={loading}
+                  value={data.district_id}
                   id="select-district"
                   label="Район:"
-                  options={{}}
-                  value="1"
-                  disabled={loading}
-                >
-                  <option value="1">
-                    Option 1
-                  </option>
-                  <option value="2">
-                    Option 2
-                  </option>
-                  <option value="3">
-                    Option 3
-                  </option>
-                </Select>
+                  query="district"
+                />
 
               </div>
 
               <div className="edit__block">
 
-                <Select
+                <SelectArea
+                  disabled={loading}
+                  value={data.locality_id}
                   id="select-locality"
                   label="Населенный пункт:"
-                  options={{}}
-                  value="1"
-                  disabled={loading}
-                >
-                  <option value="1">
-                    Option 1
-                  </option>
-                  <option value="2">
-                    Option 2
-                  </option>
-                  <option value="3">
-                    Option 3
-                  </option>
-                </Select>
+                  query="locality"
+                />
 
               </div>
 
@@ -213,6 +190,7 @@ export const EditPage = () => {
                   value={data.street}
                   disabled={loading}
                   onChange={handleInputChange}
+                  onBlur={handleInputBlur}
                   name="street"
                 />
 
@@ -227,6 +205,7 @@ export const EditPage = () => {
                   disabled={loading}
                   name="number_of_house"
                   onChange={handleInputChange}
+                  onBlur={handleInputBlur}
                 />
 
               </div>
@@ -246,6 +225,7 @@ export const EditPage = () => {
                 </div> :
 
                 <YMaps>
+
                   <Map
                     state={{
                       zoom: 12,
@@ -263,6 +243,43 @@ export const EditPage = () => {
 
                   </Map>
 
+                  <div className="edit__coordinates">
+
+                    <div>
+
+                      <div className="edit__coordinate">
+
+                        <TextInput
+                          id="input-type"
+                          label="Широта:"
+                          value={data.latitude}
+                          disabled={loading}
+                          name="latitude"
+                          onChange={handleInputChange}
+                          onBlur={handleInputBlur}
+                          onBlur={handleInputBlur}
+                        />
+
+                      </div>
+
+                      <div className="edit__coordinate">
+
+                        <TextInput
+                          id="input-type"
+                          label="Долгота:"
+                          value={data.longitude}
+                          disabled={loading}
+                          name="longitude"
+                          onChange={handleInputChange}
+                          onBlur={handleInputBlur}
+                        />
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
                 </YMaps>
 
               }
@@ -272,23 +289,14 @@ export const EditPage = () => {
             <div className="edit__info">
 
               <div className="edit__block">
-                <Select
-                  id="select-organization"
-                  label="Организация:"
-                  options={{}}
-                  value="1"
+
+                <SelectArea
                   disabled={loading}
-                >
-                  <option value="1">
-                    Option 1
-                  </option>
-                  <option value="2">
-                    Option 2
-                  </option>
-                  <option value="3">
-                    Option 3
-                  </option>
-                </Select>
+                  value={data.facility_id}
+                  id="select-facility"
+                  label="Организация:"
+                  query="facility"
+                />
 
               </div>
 
@@ -301,6 +309,7 @@ export const EditPage = () => {
                   disabled={loading}
                   name="type"
                   onChange={handleInputChange}
+                  onBlur={handleInputBlur}
                   />
 
               </div>
@@ -314,6 +323,21 @@ export const EditPage = () => {
                   disabled={loading}
                   name="phone"
                   onChange={handleInputChange}
+                  onBlur={handleInputBlur}
+                />
+
+              </div>
+
+              <div className="edit__block">
+
+                <TextInput
+                  id="input-type"
+                  label="Укомплектованность фельдшерами:"
+                  value={data.staff}
+                  disabled={loading}
+                  name="staff"
+                  onChange={handleInputChange}
+                  onBlur={handleInputBlur}
                 />
 
               </div>
@@ -329,7 +353,9 @@ export const EditPage = () => {
                   offLabel="Нет"
                   onLabel="Есть"
                   disabled={loading}
-                  //checked={parseInt(data.pharmacy) === 1}
+                  checked={parseInt(data.pharmacy) === 1}
+                  name="pharmacy"
+                  onChange={handleSwitchChange}
                 />
 
               </div>
@@ -345,7 +371,7 @@ export const EditPage = () => {
                   offLabel="Нет"
                   onLabel="Есть"
                   disabled={loading}
-                  //checked={parseInt(data.access_to_primary_health_care) === 1}
+                  checked={parseInt(data.access_to_primary_health_care) === 1}
                   name="access_to_primary_health_care"
                   onChange={handleSwitchChange}
                 />
@@ -363,25 +389,10 @@ export const EditPage = () => {
                   offLabel="Нет"
                   onLabel="Есть"
                   disabled={loading}
-                  //checked={parseInt(parseInt(data.availability_of_emergency_mediical_care) === 1}
+                  checked={parseInt(data.availability_of_emergency_mediical_care) === 1}
+                  name="availability_of_emergency_mediical_care"
+                  onChange={handleSwitchChange}
                 />
-
-              </div>
-
-              <div className="edit__block">
-
-                { loading ?
-                  <div>
-                    <Box width={31}/>
-                  </div> :
-                  <>
-                    <div className="edit__elem">
-                      Укомплектованность фельдшерами:
-                    </div>
-
-                    {data.staff || 0}
-                  </>
-                }
 
               </div>
 
@@ -461,6 +472,60 @@ export const EditPage = () => {
               Будет удален следующий мед. пункт: <br/> <strong>{data.name}</strong>
             </div>
           }
+        </div>
+      </Modal>
+
+      <Modal
+        actions={
+          deletedData ?
+            [
+              <Button
+                node="button"
+                waves="green"
+                onClick={async () => { history.goBack()}}
+              >
+                Закрыть
+              </Button>
+            ] :
+            [
+              <Button
+                className="modal-trigger red darken-3"
+                node="button"
+                waves="light"
+                style={{
+                  marginRight: '5px'
+                }}
+                disabled={loading}
+                onClick={() => handleDeleteModalButton(data.id)}
+              >
+                Да
+              </Button>,
+              <Button
+                modal="close"
+                node="button"
+                waves="green"
+                disabled={loading}
+              >
+                Нет
+              </Button>
+            ]
+        }
+        bottomSheet={false}
+        fixedFooter={false}
+        header="Вы хотите выйти, не сохранив изменения?"
+        id="modal-update"
+        open={false}
+        options={{
+          dismissible: true,
+          endingTop: '30%',
+          opacity: 0.5,
+          outDuration: 250,
+          preventScrolling: true,
+          startingTop: '20%'
+        }}
+      >
+        <div>
+          Данные не сохранены
         </div>
       </Modal>
 
