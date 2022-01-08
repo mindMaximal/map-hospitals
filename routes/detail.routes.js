@@ -68,7 +68,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT * FROM `photo` WHERE `medical_center_id` = ' + req.params.id
+      const query = 'SELECT * FROM `photo` WHERE `medical_center_id` = ' + req.params.id + ' ORDER BY `photo`.`id` DESC'
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -93,6 +93,7 @@ router.post(
   async (req, res) => {
     try {
       // ToDo: каскадное удаление фото при удаление мед пункта
+      // ToDo: удаление файлов фотографий
 
       const connection = initializeConnection(configDB)
 

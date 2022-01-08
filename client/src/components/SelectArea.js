@@ -34,7 +34,7 @@ export const SelectArea = (props) => {
 
   return (
     <div
-      className={`regions ${props.className}`}
+      className={`select-area ${props.className}`}
     >
       {!loading &&
         <Select

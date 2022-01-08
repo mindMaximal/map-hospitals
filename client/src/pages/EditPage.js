@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState, useRef} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import {useHistory, useParams} from "react-router-dom"
 import './EditPage.scss'
@@ -15,6 +15,7 @@ export const EditPage = () => {
   const {loading, error, request, clearError} = useHttp()
 
   const history = useHistory()
+  const modalUpdateRef = useRef()
 
   const [data, setData] = useState({})
   const [deletedData, setDeletedData] = useState(false)
@@ -59,7 +60,6 @@ export const EditPage = () => {
       const fetched = await request(`/api/detail/delete`, 'POST', body)
       // ToDo: Добавить проверку авторизации токена 2:40:18 на удаление!
 
-      console.log('Deleted fetch', fetched)
       setDeletedData(true)
 
       setTimeout(() => {
@@ -73,17 +73,24 @@ export const EditPage = () => {
   }
 
   const handleInputChange = (e) => {
-    setData({...data, [e.target.name]: e.target.value})
     setChanged(true)
+    setData({...data, [e.target.name]: e.target.value})
   }
 
   const handleSwitchChange = (e) => {
-    setData({...data, [e.target.name]: e.target.checked ? 1 : 0})
     setChanged(true)
+    setData({...data, [e.target.name]: e.target.checked ? 1 : 0})
   }
 
   const handleInputBlur = (e) => {
     setData({...data, [e.target.name]: e.target.value.trim()})
+  }
+
+  const handleBackButtonClick = (e) => {
+    if (!changed) {
+      e.preventDefault()
+      history.goBack()
+    }
   }
 
   return (
@@ -99,8 +106,9 @@ export const EditPage = () => {
 
               <div className="edit__back">
                 <button
-                  className="edit__back-button"
-                  onClick={() => changed ?  : history.goBack()}
+                  className="edit__back-button modal-trigger"
+                  href="#modal-update"
+                  onClick={handleBackButtonClick}
                 >
                   <span><ArrowBack /></span> Назад
                 </button>
@@ -406,6 +414,7 @@ export const EditPage = () => {
               className="edit__gallery"
               loading={loading}
               id={id}
+              edit={true}
             />
 
           </div>
@@ -476,40 +485,40 @@ export const EditPage = () => {
       </Modal>
 
       <Modal
-        actions={
-          deletedData ?
-            [
-              <Button
-                node="button"
-                waves="green"
-                onClick={async () => { history.goBack()}}
-              >
-                Закрыть
-              </Button>
-            ] :
-            [
-              <Button
-                className="modal-trigger red darken-3"
-                node="button"
-                waves="light"
-                style={{
-                  marginRight: '5px'
-                }}
-                disabled={loading}
-                onClick={() => handleDeleteModalButton(data.id)}
-              >
-                Да
-              </Button>,
-              <Button
-                modal="close"
-                node="button"
-                waves="green"
-                disabled={loading}
-              >
-                Нет
-              </Button>
-            ]
-        }
+        ref={modalUpdateRef}
+        actions={[
+          <Button
+            className="modal-trigger red darken-3"
+            node="button"
+            waves="light"
+            style={{
+              marginRight: '5px'
+            }}
+            disabled={loading}
+            onClick={async () => { history.goBack()}}
+          >
+            Да
+          </Button>,
+          <Button
+            modal="close"
+            node="button"
+            waves="green"
+            disabled={loading}
+            style={{
+              marginRight: '5px'
+            }}
+          >
+            Нет
+          </Button>,
+          <Button
+            node="button"
+            waves="green"
+            disabled={loading || true}
+            onClick={() => {}}
+          >
+            Сохранить и выйти
+          </Button>
+        ]}
         bottomSheet={false}
         fixedFooter={false}
         header="Вы хотите выйти, не сохранив изменения?"
@@ -525,7 +534,7 @@ export const EditPage = () => {
         }}
       >
         <div>
-          Данные не сохранены
+          Измененные данные не будут сохранены!
         </div>
       </Modal>
 

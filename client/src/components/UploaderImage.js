@@ -1,4 +1,4 @@
-import {Icon, Preloader} from "react-materialize";
+import {Icon, Preloader, Toast} from "react-materialize";
 import React, {useCallback, useEffect} from "react";
 import './UploaderImage.scss'
 import {useHttp} from "../hooks/http.hook";
@@ -17,11 +17,12 @@ export const UploaderImage = (props) => {
       formData.append('filedata', files.item(i))
     }
 
-    for (var value of formData.values()) {
-      console.log(value);
-    }
+    formData.append('id', props.id)
 
     fetchData(formData)
+
+    e.target.type = 'text'
+    e.target.type = 'file'
   }
 
   useEffect(() => {
@@ -33,9 +34,6 @@ export const UploaderImage = (props) => {
 
   const fetchData = useCallback(async (data) => {
     try {
-      for (var value of data.values()) {
-        console.log(value);
-      }
       const fetched = await request(
         `/api/upload/images/`,
         'POST',
@@ -45,13 +43,19 @@ export const UploaderImage = (props) => {
       )
       // ToDo: проверка авторизации по токену
 
-      console.log(fetched)
+      if (!fetched.image) {
+        // ToDo: обработка ошибок
+        console.log('Ошибка')
+      }
+
+      props.setImages(fetched.image)
+
     } catch (e) {}
   }, [request])
 
   return (
     <div
-      className={`uploader ${loading || true ? 'uploader--loading' : ''} ${props.className}`}
+      className={`uploader ${loading ? 'uploader--loading' : ''} ${props.className}`}
     >
       <form className="uploader__form">
         <input
@@ -59,7 +63,7 @@ export const UploaderImage = (props) => {
           onChange={handleInputFile}
         />
         {
-          loading || true ?
+          loading ?
             <Preloader
               color="blue"
               flashing={false}

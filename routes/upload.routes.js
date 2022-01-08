@@ -2,6 +2,7 @@ import {Router} from 'express'
 import config from 'config'
 import multer from 'multer'
 import {initializeConnection} from '../functions/initializeConnection.js'
+import fs from 'fs'
 
 const router = Router()
 
@@ -43,6 +44,15 @@ const configDB = {
   database: config.get('database')
 }
 
+const deleteFile = (filename) => {
+  try {
+    fs.unlinkSync('./client/public/attached/images/' + filename)
+    console.log('Файл удален:', filename)
+  } catch (e) {
+    console.log('Ошибка удаления файла', e)
+  }
+}
+
 // /api/upload/images
 router.post(
   '/images',
@@ -50,28 +60,68 @@ router.post(
   async (req, res) => {
     try {
 
+      if(!req.file)
+        res.status(500).json({message: 'Неверный формат файла'})
+
       const connection = initializeConnection(configDB)
 
-      const filedata = req.file
+      try {
+        connection.query('INSERT INTO `photo` (`id`, `medical_center_id`, `name`) VALUES (?, ?, ?)', [null, req.body.id, req.file.filename], (err, rows, fields) => {
+          connection.end()
 
-      console.log(filedata)
+          if (err) {
+            deleteFile(req.file.filename)
+            throw err
+          }
 
-      if(!filedata)
-        res.status(500).json({message: 'Неверный формат файла'})
-      else
-        res.status(200).send({message: 'Файл загружен'})
+          res.status(200).send({
+            message: 'Файл загружен',
+            image: {
+              id: rows.insertId,
+              medical_center_id: parseInt(req.body.id),
+              name: req.file.filename
+            }
+          })
+        })
+      } catch (sqlErrors) {
+        deleteFile(req.file.filename)
+        console.log('SQL Errors', sqlErrors)
+      }
 
-      /*const query = 'SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`'
+    } catch (e) {
+      deleteFile(req.file.filename)
+      console.log(e)
+      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
+  }
+)
 
-      connection.query(query, (err, rows, fields) => {
-        connection.end()
+// /api/upload/images/delete
+router.post(
+  '/images/delete',
+  [],
+  async (req, res) => {
+    try {
 
-        if (err) {
-          throw err
-        }
+      const connection = initializeConnection(configDB)
 
-        res.json(rows)
-      })*/
+      try {
+        connection.query('DELETE FROM `photo` WHERE `photo`.`id` = ?', [req.body.id], (err, rows, fields) => {
+          connection.end()
+
+          if (err) {
+            throw err
+          }
+
+          deleteFile(req.body.name)
+
+          res.status(200).send({
+            message: 'Файл удален'
+          })
+        })
+      } catch (sqlErrors) {
+        console.log('SQL Errors', sqlErrors)
+      }
 
     } catch (e) {
       console.log(e)
