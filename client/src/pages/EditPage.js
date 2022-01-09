@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState, useRef} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import {useHistory, useParams} from "react-router-dom"
 import './EditPage.scss'
@@ -6,18 +6,32 @@ import {InlineGallery} from "../components/InlineGallery"
 import {Map, Placemark, YMaps} from "react-yandex-maps"
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import { Scrollbars } from 'react-custom-scrollbars'
-import {Button, Modal, Preloader, RadioGroup, Select, Switch, TextInput} from "react-materialize"
-import {Box} from "../components/Skeleton"
-import {SelectArea} from "../components/SelectArea";
+import {Button, Modal, Preloader, Switch, TextInput} from "react-materialize"
+import {SelectArea} from "../components/SelectArea"
 
 export const EditPage = () => {
   // ToDo: 404 на несуществующий
   const {loading, error, request, clearError} = useHttp()
 
   const history = useHistory()
-  const modalUpdateRef = useRef()
 
-  const [data, setData] = useState({})
+  const [data, setData] = useState({
+    name: '',
+    region_id: 0,
+    district_id: 0,
+    locality_id: 0,
+    street: '',
+    number_of_house: '',
+    latitude: 0,
+    longitude: 0,
+    facility_id: 0,
+    type: '',
+    phone: '',
+    staff: 0,
+    pharmacy: 0,
+    access_to_primary_health_care: 0,
+    availability_of_emergency_mediical_care: 0
+  })
   const [deletedData, setDeletedData] = useState(false)
   const [changed, setChanged] = useState(false)
 
@@ -40,7 +54,6 @@ export const EditPage = () => {
   useEffect(() => {
     fetchData()
   }, [fetchData])
-
 
   const getPointData = () => {
     return {
@@ -73,13 +86,25 @@ export const EditPage = () => {
   }
 
   const handleInputChange = (e) => {
-    setChanged(true)
+    if (!changed)
+      setChanged(true)
+
     setData({...data, [e.target.name]: e.target.value})
   }
 
   const handleSwitchChange = (e) => {
-    setChanged(true)
+    if (!changed)
+      setChanged(true)
+
     setData({...data, [e.target.name]: e.target.checked ? 1 : 0})
+  }
+
+  const handleSelectChange = (e) => {
+    if (!changed)
+      setChanged(true)
+
+    console.log('name', e.target.name, 'value', typeof(e.target.value))
+    setData({...data, [e.target.name]: parseInt(e.target.value)})
   }
 
   const handleInputBlur = (e) => {
@@ -145,7 +170,7 @@ export const EditPage = () => {
                 id="input-name"
                 label="Название"
                 name="name"
-                value={data.name}
+                value={(data.name || '').toString()}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
                 disabled={loading}
@@ -157,9 +182,10 @@ export const EditPage = () => {
               <div className="edit__block">
 
                 <SelectArea
+                  name="region_id"
+                  onChange={handleSelectChange}
                   disabled={loading}
                   value={data.region_id}
-                  id="select-region"
                   label="Регион:"
                   query="region"
                 />
@@ -169,9 +195,10 @@ export const EditPage = () => {
               <div className="edit__block">
 
                 <SelectArea
+                  name="district_id"
+                  onChange={handleSelectChange}
                   disabled={loading}
                   value={data.district_id}
-                  id="select-district"
                   label="Район:"
                   query="district"
                 />
@@ -181,9 +208,10 @@ export const EditPage = () => {
               <div className="edit__block">
 
                 <SelectArea
+                  name="locality_id"
+                  onChange={handleSelectChange}
                   disabled={loading}
                   value={data.locality_id}
-                  id="select-locality"
                   label="Населенный пункт:"
                   query="locality"
                 />
@@ -195,7 +223,7 @@ export const EditPage = () => {
                 <TextInput
                   id="input-type"
                   label="Улица:"
-                  value={data.street}
+                  value={(data.street || '').toString()}
                   disabled={loading}
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
@@ -209,11 +237,24 @@ export const EditPage = () => {
                 <TextInput
                   id="input-type"
                   label="Номер дома:"
-                  value={data.number_of_house}
+                  value={(data.number_of_house || '').toString()}
                   disabled={loading}
                   name="number_of_house"
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
+                />
+
+              </div>
+
+              <div className="edit__block">
+
+                <SelectArea
+                  name="facility_id"
+                  onChange={handleSelectChange}
+                  disabled={loading}
+                  value={data.facility_id}
+                  label="Организация:"
+                  query="facility"
                 />
 
               </div>
@@ -260,7 +301,7 @@ export const EditPage = () => {
                         <TextInput
                           id="input-type"
                           label="Широта:"
-                          value={data.latitude}
+                          value={(data.latitude || '').toString()}
                           disabled={loading}
                           name="latitude"
                           onChange={handleInputChange}
@@ -275,7 +316,7 @@ export const EditPage = () => {
                         <TextInput
                           id="input-type"
                           label="Долгота:"
-                          value={data.longitude}
+                          value={(data.longitude || '').toString()}
                           disabled={loading}
                           name="longitude"
                           onChange={handleInputChange}
@@ -298,26 +339,14 @@ export const EditPage = () => {
 
               <div className="edit__block">
 
-                <SelectArea
-                  disabled={loading}
-                  value={data.facility_id}
-                  id="select-facility"
-                  label="Организация:"
-                  query="facility"
-                />
-
-              </div>
-
-              <div className="edit__block">
-
                   <TextInput
-                  id="input-type"
-                  label="Тип:"
-                  value={data.type}
-                  disabled={loading}
-                  name="type"
-                  onChange={handleInputChange}
-                  onBlur={handleInputBlur}
+                    id="input-type"
+                    label="Тип:"
+                    value={(data.type || '').toString()}
+                    disabled={loading}
+                    name="type"
+                    onChange={handleInputChange}
+                    onBlur={handleInputBlur}
                   />
 
               </div>
@@ -327,7 +356,7 @@ export const EditPage = () => {
                 <TextInput
                   id="input-phone"
                   label="Телефон:"
-                  value={data.phone}
+                  value={(data.phone || '').toString()}
                   disabled={loading}
                   name="phone"
                   onChange={handleInputChange}
@@ -341,7 +370,7 @@ export const EditPage = () => {
                 <TextInput
                   id="input-type"
                   label="Укомплектованность фельдшерами:"
-                  value={data.staff}
+                  value={(data.staff || '').toString()}
                   disabled={loading}
                   name="staff"
                   onChange={handleInputChange}
@@ -485,7 +514,6 @@ export const EditPage = () => {
       </Modal>
 
       <Modal
-        ref={modalUpdateRef}
         actions={[
           <Button
             className="modal-trigger red darken-3"

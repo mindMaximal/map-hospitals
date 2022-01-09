@@ -6,6 +6,7 @@ import {useHttp} from "../hooks/http.hook"
 export const SelectArea = (props) => {
 
   const [state, setState] = useState([])
+  const [value, setValue] = useState(3)
 
   const {loading, error, request, clearError} = useHttp()
 
@@ -22,13 +23,16 @@ export const SelectArea = (props) => {
       // ToDo: проверка авторизации по токену
 
       setState(fetched)
-
     } catch (e) {}
-  }, [request])
+  }, [request, props.query, props.value])
 
   useEffect(() => {
     fetchData()
   }, [fetchData])
+
+  useEffect(() => {
+    setValue(props.value)
+  }, [props.value])
 
   //ToDo: баг с выбором населенного пункта: дефолтное значение не выбирается
 
@@ -36,17 +40,17 @@ export const SelectArea = (props) => {
     <div
       className={`select-area ${props.className}`}
     >
-      {!loading &&
-        <Select
-          id={props.id}
+      {<Select
+          name={props.name}
+          onChange={props.onChange}
           label={props.label || "Название"}
           options={props.options || {}}
-          value={props.value}
+          value={value.toString()}
           disabled={loading || props.loading || !(state.length > 0)}
         >
-          {state && state.length > 0 ? state.map((el, i) => (
-            <option value={el.id} key={i}>
-              {el[`${props.query}_name`]} {el.id === props.value ? '!': null}
+          {props.value !== 0 && !loading && state && state.length > 0 ? state.map((el, i) => (
+            <option value={el.id.toString()} key={i}>
+              {el[`${props.query}_name`]}
             </option>
           )) : null}
         </Select>

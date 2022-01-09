@@ -3,8 +3,9 @@ import './SingleView.scss'
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import getAddress from "../functions/getAddress"
 import {useHttp} from "../hooks/http.hook"
-import {Preloader} from "react-materialize"
+import {Button, Preloader} from "react-materialize"
 import {Gallery} from "./Gallery"
+import {Link} from "react-router-dom";
 
 export const SingleView = (props) => {
 
@@ -162,8 +163,25 @@ export const SingleView = (props) => {
               id={state.el.id}
             />*/}
 
-          </div>
+            <div className="single-view__block">
 
+              <Link to={`/edit/${state.el.id}`}>
+                <Button
+                  node="button"
+                  style={{
+                    marginRight: '5px'
+                  }}
+                  waves="light"
+                >
+                  Изменить
+                </Button>
+              </Link>
+
+
+
+            </div>
+
+          </div>
 
         </div>
       }
