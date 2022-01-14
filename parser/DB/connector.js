@@ -2,7 +2,7 @@ import mysql from 'mysql'
 import data  from '../result/dataGeoPortal.json'
 import locations  from '../result/locationsGeoPortal.json'
 
-// --experimental-json-modules
+// node --experimental-json-modules connector.js
 export const initializeConnection = (config) => {
 
   const addDisconnectHandler = (connection) => {
@@ -38,10 +38,11 @@ const configDB = {
 
 try {
 
-  let connection = initializeConnection(configDB)
+  //let connection = initializeConnection(configDB)
+  let connection = mysql.createPool(configDB)
 
-  const querySubjects = `SELECT * FROM \`region\``
-  const queryDistircts = `SELECT * FROM \`district\``
+  const querySubjects = 'SELECT `id`, `name` AS `region_name` FROM `region`'
+  const queryDistircts = 'SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`'
 
   let subjectsDB = null
   let distirctsDB = null
@@ -49,7 +50,7 @@ try {
   const subjectsGeo = locations.subjects
   const districtsGeo = locations.districts
 
- /* connection.query(querySubjects, (err, rows, fields) => {
+  connection.query(querySubjects, (err, rows, fields) => {
 
     if (err) {
       throw err
@@ -68,7 +69,7 @@ try {
       }
 
       if (flag) {
-        const queryAdd = `INSERT INTO \`region\` (\`id\`, \`region_name\`) VALUES (NULL, '${el}');`
+        const queryAdd = `INSERT INTO \`region\` (\`id\`, \`name\`) VALUES (NULL, '${el}');`
 
         connection.query(queryAdd, (err, rows, fields) => {
           if (err) {
@@ -81,17 +82,12 @@ try {
     }
   })
 
-  connection.end()
-  connection = initializeConnection(configDB)
-
   connection.query(queryDistircts, (err, rows, fields) => {
 
     if (err) {
       throw err
     }
 
-    connection.end()
-    connection = initializeConnection(configDB)
 
     for (let i = 0; i < districtsGeo.length; i++) {
       const el = districtsGeo[i]
@@ -106,7 +102,7 @@ try {
       }
 
       if (flag) {
-        const queryAdd = `INSERT INTO \`district\` (\`id\`, \`region_id\`, \`district_name\`) VALUES (NULL, '1', '${el}');`
+        const queryAdd = `INSERT INTO \`district\` (\`id\`, \`region_id\`, \`name\`) VALUES (NULL, '1', '${el}');`
 
         connection.query(queryAdd, (err, rows, fields) => {
           if (err) {
@@ -117,24 +113,58 @@ try {
         console.log('Добавлен район', el)
       }
     }
+  })
+
+  /*connection.query('TRUNCATE `map`.`medical_center`', (err, rows, fields) => {
+    if (err) {
+      throw err
+    }
   })*/
 
-/*  for (let i = 0; i < data.length; i++) {
+  let districts = []
 
-    const el = data[i]
+  connection.query(queryDistircts, (err, rows, fields) => {
+    if (err) {
+      throw err
+    }
+    districts = rows
 
-    const query = `INSERT INTO \`medical_center\` (\`id\`, \`locality_id\`, \`med_uch_idmed_uch\`, \`Medperc_idMedperc\`, \`type_medical_center\`, \`name\`, \`street\`, \`number_of_house\`, \`Phone_number\`, \`latitude\`, \`longitude\`, \`Pharmacy\`, \`Photo\`, \`Founding_year\`, \`Availability_of_emergency_mediical_care\`, \`Access_to_primary_health_care\`) 
-                   VALUES (NULL, '2', '1', '1', '${el.types ? el.types.name : 'NULL'}', '${el.name}', '${el.street}', '${el.house}', NULL, '${el.lat}', '${el.lon}', NULL, NULL, NULL, NULL, NULL);`
 
-    connection.query(query, (err, rows, fields) => {
+    for (let i = 0; i < data.length; i++) {
 
-      if (err) {
-        throw err
+      const el = data[i]
+
+      let localityId = null
+
+      for (let j = 0; j < districts.length; j++) {
+        if (districts[j].district_name.toLowerCase().trim() === el.district.toLowerCase().trim()) {
+          console.log(el.district)
+          // Ошибка locality и district
+          localityId = districts[j].id
+        }
       }
-    })
-  }*/
 
-  connection.end()
+
+      const query = 'INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`)' +
+        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
+
+
+      connection.query(query, [null, localityId, '1', el.types ? el.types.name : null, el.name, el.street, el.house, null, el.lat, el.lon, null, el.foundationYear, null, null, null], (err, rows, fields) => {
+
+        if (err) {
+          console.log(err)
+          throw err
+        }
+      })
+    }
+  })
+
+
+  pool.end(function(err) {
+    if (err) {
+      return console.log(err.message)
+    }
+  })
 
 } catch (e) {
   console.log('Что-то пошло не так', e)

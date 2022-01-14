@@ -1,7 +1,7 @@
-const mysql = require('mysql')
-const config = require('config')
-const data = require('./result/info.json')
-const parents = require('./result/parents.json')
+import mysql from 'mysql'
+import config from 'config'
+import data from './result/info.json'
+import parents from './result/parents.json'
 
 const configDB = {
   host: config.get('host'),
