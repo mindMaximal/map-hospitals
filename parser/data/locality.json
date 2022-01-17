@@ -143,3136 +143,6 @@
         "population": 547
       },
       {
-        "name": "Бодайбинский",
-        "objects": [
-          {
-            "name": "Апрельск",
-            "type": "посёлок",
-            "population": 96
-          },
-          {
-            "name": "Артёмовский",
-            "type": "посёлок рабочий",
-            "population": 1539
-          },
-          {
-            "name": "Балахнинский",
-            "type": "посёлок рабочий",
-            "population": 1300
-          },
-          {
-            "name": "Бодайбо",
-            "type": "город",
-            "population": 15340
-          },
-          {
-            "name": "Большой Патом",
-            "type": "село",
-            "population": 54
-          },
-          {
-            "name": "Васильевский",
-            "type": "посёлок",
-            "population": 154
-          },
-          {
-            "name": "Кропоткин",
-            "type": "посёлок рабочий",
-            "population": 1335
-          },
-          {
-            "name": "Кяхтинский",
-            "type": "посёлок",
-            "population": 24
-          },
-          {
-            "name": "Мамакан",
-            "type": "посёлок рабочий",
-            "population": 2068
-          },
-          {
-            "name": "Маракан",
-            "type": "посёлок",
-            "population": 389
-          },
-          {
-            "name": "Нерпо",
-            "type": "село",
-            "population": 18
-          },
-          {
-            "name": "Перевоз",
-            "type": "посёлок",
-            "population": 869
-          },
-          {
-            "name": "Светлый",
-            "type": "посёлок",
-            "population": 41
-          }
-        ]
-      },
-      {
-        "name": "Братский",
-        "objects": [
-          {
-            "name": "Александровка",
-            "type": "село",
-            "population": 594
-          },
-          {
-            "name": "Анчирикова",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "Бада",
-            "type": "деревня",
-            "population": 238
-          },
-          {
-            "name": "Бамбуй",
-            "type": "посёлок",
-            "population": 19
-          },
-          {
-            "name": "Барчим",
-            "type": "деревня",
-            "population": 187
-          },
-          {
-            "name": "Большеокинское",
-            "type": "село",
-            "population": 1105
-          },
-          {
-            "name": "Боровской",
-            "type": "посёлок",
-            "population": 478
-          },
-          {
-            "name": "Булак",
-            "type": "деревня",
-            "population": 9
-          },
-          {
-            "name": "Бурнинская Вихоря",
-            "type": "посёлок",
-            "population": 312
-          },
-          {
-            "name": "Вихоревка",
-            "type": "город",
-            "population": 22520
-          },
-          {
-            "name": "Воробьёво",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "Добчур",
-            "type": "посёлок",
-            "population": 1069
-          },
-          {
-            "name": "Дубынино",
-            "type": "село",
-            "population": 258
-          },
-          {
-            "name": "Зарбь",
-            "type": "село",
-            "population": 224
-          },
-          {
-            "name": "Зяба",
-            "type": "посёлок",
-            "population": 497
-          },
-          {
-            "name": "Илир",
-            "type": "село",
-            "population": 1158
-          },
-          {
-            "name": "Калтук",
-            "type": "село",
-            "population": 1789
-          },
-          {
-            "name": "Карай",
-            "type": "деревня",
-            "population": 64
-          },
-          {
-            "name": "Карахун",
-            "type": "посёлок",
-            "population": 648
-          },
-          {
-            "name": "Кардой",
-            "type": "деревня",
-            "population": 366
-          },
-          {
-            "name": "Кежемский",
-            "type": "посёлок",
-            "population": 1651
-          },
-          {
-            "name": "Ключи-Булак",
-            "type": "село",
-            "population": 1387
-          },
-          {
-            "name": "Кобляково",
-            "type": "село",
-            "population": 788
-          },
-          {
-            "name": "Кобь",
-            "type": "село",
-            "population": 467
-          },
-          {
-            "name": "Куватка",
-            "type": "деревня",
-            "population": 825
-          },
-          {
-            "name": "Кузнецовка",
-            "type": "село",
-            "population": 1113
-          },
-          {
-            "name": "Кумейка",
-            "type": "деревня",
-            "population": 440
-          },
-          {
-            "name": "Леонова",
-            "type": "деревня",
-            "population": 474
-          },
-          {
-            "name": "Луговой",
-            "type": "посёлок",
-            "population": 103
-          },
-          {
-            "name": "Мамырь",
-            "type": "посёлок",
-            "population": 567
-          },
-          {
-            "name": "Наратай",
-            "type": "посёлок",
-            "population": 450
-          },
-          {
-            "name": "Новодолоново",
-            "type": "посёлок",
-            "population": 504
-          },
-          {
-            "name": "Новое Приречье",
-            "type": "деревня",
-            "population": 335
-          },
-          {
-            "name": "Озёрный",
-            "type": "посёлок",
-            "population": 681
-          },
-          {
-            "name": "Октябрьск",
-            "type": "посёлок",
-            "population": 164
-          },
-          {
-            "name": "Пашенный",
-            "type": "посёлок",
-            "population": 19
-          },
-          {
-            "name": "Первомайский",
-            "type": "посёлок",
-            "population": 4
-          },
-          {
-            "name": "Подъвыездный",
-            "type": "посёлок",
-            "population": 10
-          },
-          {
-            "name": "Покосное",
-            "type": "село",
-            "population": 2998
-          },
-          {
-            "name": "Прибойный",
-            "type": "посёлок",
-            "population": 674
-          },
-          {
-            "name": "Прибрежный",
-            "type": "посёлок",
-            "population": 2555
-          },
-          {
-            "name": "Придорожный",
-            "type": "посёлок",
-            "population": 2
-          },
-          {
-            "name": "Сахорово",
-            "type": "посёлок",
-            "population": 289
-          },
-          {
-            "name": "Сосновый",
-            "type": "посёлок",
-            "population": 294
-          },
-          {
-            "name": "Тангуй",
-            "type": "село",
-            "population": 1883
-          },
-          {
-            "name": "Тарма",
-            "type": "посёлок",
-            "population": 1039
-          },
-          {
-            "name": "Туковский",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Турма",
-            "type": "посёлок",
-            "population": 2019
-          },
-          {
-            "name": "Тынкобь",
-            "type": "посёлок",
-            "population": 220
-          },
-          {
-            "name": "Тэмь",
-            "type": "село",
-            "population": 666
-          },
-          {
-            "name": "Харанжино",
-            "type": "посёлок",
-            "population": 1298
-          },
-          {
-            "name": "Хахарей",
-            "type": "село",
-            "population": 1
-          },
-          {
-            "name": "Хвойный",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Худобок",
-            "type": "деревня",
-            "population": 439
-          },
-          {
-            "name": "Черемшанка",
-            "type": "посёлок",
-            "population": 3
-          },
-          {
-            "name": "Чистый",
-            "type": "посёлок",
-            "population": 27
-          },
-          {
-            "name": "Чистяково",
-            "type": "посёлок",
-            "population": 76
-          },
-          {
-            "name": "Шумилово",
-            "type": "посёлок",
-            "population": 649
-          },
-          {
-            "name": "Южный",
-            "type": "посёлок",
-            "population": 209
-          }
-        ]
-      },
-      {
-        "name": "Жигаловский",
-        "objects": [
-          {
-            "name": "Байдоново",
-            "type": "село",
-            "population": 35
-          },
-          {
-            "name": "Балахня",
-            "type": "деревня",
-            "population": 1
-          },
-          {
-            "name": "Балыхта",
-            "type": "деревня",
-            "population": 1
-          },
-          {
-            "name": "Бачай",
-            "type": "деревня",
-            "population": 25
-          },
-          {
-            "name": "Бутырина",
-            "type": "деревня",
-            "population": 33
-          },
-          {
-            "name": "Воробьёва",
-            "type": "деревня",
-            "population": 123
-          },
-          {
-            "name": "Головновка",
-            "type": "деревня",
-            "population": 195
-          },
-          {
-            "name": "Головское",
-            "type": "деревня",
-            "population": 6
-          },
-          {
-            "name": "Грехова",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "Грузновка",
-            "type": "деревня",
-            "population": 17
-          },
-          {
-            "name": "Дальняя Закора",
-            "type": "село",
-            "population": 347
-          },
-          {
-            "name": "Жигалово",
-            "type": "посёлок рабочий",
-            "population": 5369
-          },
-          {
-            "name": "Заплескина",
-            "type": "деревня",
-            "population": 23
-          },
-          {
-            "name": "Захарова",
-            "type": "деревня",
-            "population": 1
-          },
-          {
-            "name": "Знаменка",
-            "type": "село",
-            "population": 587
-          },
-          {
-            "name": "Игжиновка",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "Кайдакан",
-            "type": "деревня",
-            "population": 34
-          },
-          {
-            "name": "Качень",
-            "type": "село",
-            "population": 88
-          },
-          {
-            "name": "Келора",
-            "type": "деревня",
-            "population": 4
-          },
-          {
-            "name": "Коношаново",
-            "type": "село",
-            "population": 60
-          },
-          {
-            "name": "Константиновка",
-            "type": "деревня",
-            "population": 177
-          },
-          {
-            "name": "Кузнецовка",
-            "type": "деревня",
-            "population": 96
-          },
-          {
-            "name": "Лукиново",
-            "type": "село",
-            "population": 119
-          },
-          {
-            "name": "Молодёжный",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Нижняя Слобода",
-            "type": "деревня",
-            "population": 151
-          },
-          {
-            "name": "Орловка",
-            "type": "деревня",
-            "population": 39
-          },
-          {
-            "name": "Петрово",
-            "type": "село",
-            "population": 198
-          },
-          {
-            "name": "Пономарёва",
-            "type": "деревня",
-            "population": 108
-          },
-          {
-            "name": "Пуляевщина",
-            "type": "деревня",
-            "population": 3
-          },
-          {
-            "name": "Рудовка",
-            "type": "село",
-            "population": 323
-          },
-          {
-            "name": "Тимошино",
-            "type": "село",
-            "population": 157
-          },
-          {
-            "name": "Тутура",
-            "type": "село",
-            "population": 239
-          },
-          {
-            "name": "Тыпта",
-            "type": "деревня",
-            "population": 80
-          },
-          {
-            "name": "Усть-Илга",
-            "type": "село",
-            "population": 195
-          },
-          {
-            "name": "Чикан",
-            "type": "село",
-            "population": 384
-          },
-          {
-            "name": "Чичек",
-            "type": "деревня",
-            "population": 11
-          },
-          {
-            "name": "Якимовка",
-            "type": "деревня",
-            "population": 91
-          }
-        ]
-      },
-      {
-        "name": "Заларинский",
-        "objects": [
-          {
-            "name": "Бабагай",
-            "type": "село",
-            "population": 467
-          },
-          {
-            "name": "Багантуй",
-            "type": "деревня",
-            "population": 29
-          },
-          {
-            "name": "Бажир",
-            "type": "село",
-            "population": 485
-          },
-          {
-            "name": "Бахвалово",
-            "type": "участок",
-            "population": 1
-          },
-          {
-            "name": "Березкина",
-            "type": "деревня",
-            "population": 170
-          },
-          {
-            "name": "Благодатный",
-            "type": "участок",
-            "population": 196
-          },
-          {
-            "name": "Блок-Пост Халярты",
-            "type": "блок-пост",
-            "population": 11
-          },
-          {
-            "name": "Большая Заимка",
-            "type": "деревня",
-            "population": 297
-          },
-          {
-            "name": "Большой Карлук",
-            "type": "деревня",
-            "population": 17
-          },
-          {
-            "name": "Бухарова",
-            "type": "деревня",
-            "population": 37
-          },
-          {
-            "name": "Веренка",
-            "type": "село",
-            "population": 769
-          },
-          {
-            "name": "Верхний",
-            "type": "участок",
-            "population": 49
-          },
-          {
-            "name": "Владимир",
-            "type": "село",
-            "population": 899
-          },
-          {
-            "name": "Горячий Ключ",
-            "type": "деревня",
-            "population": 19
-          },
-          {
-            "name": "Дагник",
-            "type": "участок",
-            "population": 65
-          },
-          {
-            "name": "Делюр",
-            "type": "посёлок ж.д. станции",
-            "population": 49
-          },
-          {
-            "name": "Дмитриевка",
-            "type": "деревня",
-            "population": 84
-          },
-          {
-            "name": "Жизневка",
-            "type": "участок",
-            "population": 100
-          },
-          {
-            "name": "Заблагар",
-            "type": "деревня",
-            "population": 253
-          },
-          {
-            "name": "Залари",
-            "type": "посёлок рабочий",
-            "population": 9600
-          },
-          {
-            "name": "Замазчикова",
-            "type": "заимка",
-            "population": 99
-          },
-          {
-            "name": "Илганское",
-            "type": "село",
-            "population": 207
-          },
-          {
-            "name": "Исаковка",
-            "type": "деревня",
-            "population": 15
-          },
-          {
-            "name": "Каратаева",
-            "type": "деревня",
-            "population": 33
-          },
-          {
-            "name": "Кирхай",
-            "type": "участок",
-            "population": 72
-          },
-          {
-            "name": "Корсунгай",
-            "type": "деревня",
-            "population": 150
-          },
-          {
-            "name": "Красное Поле",
-            "type": "деревня",
-            "population": 237
-          },
-          {
-            "name": "Ленденева",
-            "type": "деревня",
-            "population": 17
-          },
-          {
-            "name": "Мамуркова",
-            "type": "заимка",
-            "population": 43
-          },
-          {
-            "name": "Мариинск",
-            "type": "участок",
-            "population": 225
-          },
-          {
-            "name": "Мейеровка",
-            "type": "участок",
-            "population": 193
-          },
-          {
-            "name": "Минеева",
-            "type": "деревня",
-            "population": 195
-          },
-          {
-            "name": "Моисеевка",
-            "type": "село",
-            "population": 624
-          },
-          {
-            "name": "Мойган",
-            "type": "село",
-            "population": 524
-          },
-          {
-            "name": "Московская",
-            "type": "деревня",
-            "population": 65
-          },
-          {
-            "name": "Мостовка",
-            "type": "участок",
-            "population": 45
-          },
-          {
-            "name": "Муруй",
-            "type": "деревня",
-            "population": 141
-          },
-          {
-            "name": "Мягчинский",
-            "type": "участок",
-            "population": 22
-          },
-          {
-            "name": "Николаевский",
-            "type": "участок",
-            "population": 130
-          },
-          {
-            "name": "Новометелкина",
-            "type": "деревня",
-            "population": 21
-          },
-          {
-            "name": "Новочеремхово",
-            "type": "село",
-            "population": 329
-          },
-          {
-            "name": "Окинские Сачки",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Первое Мая",
-            "type": "участок",
-            "population": 26
-          },
-          {
-            "name": "Пихтинский",
-            "type": "участок",
-            "population": 113
-          },
-          {
-            "name": "Правый Сарам",
-            "type": "участок",
-            "population": 0
-          },
-          {
-            "name": "Ремезовский",
-            "type": "участок",
-            "population": 72
-          },
-          {
-            "name": "Романенкина",
-            "type": "деревня",
-            "population": 275
-          },
-          {
-            "name": "Романова",
-            "type": "деревня",
-            "population": 228
-          },
-          {
-            "name": "Семёновское",
-            "type": "село",
-            "population": 570
-          },
-          {
-            "name": "Сенная Падь",
-            "type": "деревня",
-            "population": 111
-          },
-          {
-            "name": "Сорты",
-            "type": "деревня",
-            "population": 611
-          },
-          {
-            "name": "Среднепихтинский",
-            "type": "участок",
-            "population": 96
-          },
-          {
-            "name": "Тагна",
-            "type": "деревня",
-            "population": 575
-          },
-          {
-            "name": "Таёжный",
-            "type": "участок",
-            "population": 12
-          },
-          {
-            "name": "Троицк",
-            "type": "село",
-            "population": 914
-          },
-          {
-            "name": "Тунгуй",
-            "type": "деревня",
-            "population": 135
-          },
-          {
-            "name": "Тыреть 1-я",
-            "type": "посёлок рабочий",
-            "population": 3855
-          },
-          {
-            "name": "Тыреть 2-я",
-            "type": "деревня",
-            "population": 285
-          },
-          {
-            "name": "Халты",
-            "type": "участок",
-            "population": 201
-          },
-          {
-            "name": "Ханжиново",
-            "type": "село",
-            "population": 1129
-          },
-          {
-            "name": "Харагун",
-            "type": "деревня",
-            "population": 2
-          },
-          {
-            "name": "Холмогой",
-            "type": "село",
-            "population": 673
-          },
-          {
-            "name": "Хор-Бутырина",
-            "type": "участок",
-            "population": 8
-          },
-          {
-            "name": "Хор-Тагна",
-            "type": "село",
-            "population": 660
-          },
-          {
-            "name": "Хотхор",
-            "type": "деревня",
-            "population": 65
-          },
-          {
-            "name": "Чаданова",
-            "type": "деревня",
-            "population": 101
-          },
-          {
-            "name": "Черемшанка",
-            "type": "село",
-            "population": 309
-          },
-          {
-            "name": "Шабалина",
-            "type": "заимка",
-            "population": 33
-          },
-          {
-            "name": "Шарагул-Сачки",
-            "type": "участок",
-            "population": 0
-          },
-          {
-            "name": "Щеглаева",
-            "type": "деревня",
-            "population": 5
-          },
-          {
-            "name": "Щербакова",
-            "type": "заимка",
-            "population": 181
-          }
-        ]
-      },
-      {
-        "name": "Зиминский",
-        "objects": [
-          {
-            "name": "Баргадай",
-            "type": "село",
-            "population": 368
-          },
-          {
-            "name": "Басалаевка",
-            "type": "село",
-            "population": 276
-          },
-          {
-            "name": "Батама",
-            "type": "село",
-            "population": 982
-          },
-          {
-            "name": "Большеворонежский",
-            "type": "посёлок",
-            "population": 210
-          },
-          {
-            "name": "Большелихачевский",
-            "type": "участок",
-            "population": 13
-          },
-          {
-            "name": "Большерастягаевский",
-            "type": "участок",
-            "population": 29
-          },
-          {
-            "name": "Боровое",
-            "type": "участок",
-            "population": 126
-          },
-          {
-            "name": "Буринская Дача",
-            "type": "участок",
-            "population": 250
-          },
-          {
-            "name": "Буря",
-            "type": "село",
-            "population": 218
-          },
-          {
-            "name": "Верхнеокинский",
-            "type": "участок",
-            "population": 239
-          },
-          {
-            "name": "Верхний Щельбей",
-            "type": "деревня",
-            "population": 23
-          },
-          {
-            "name": "Верхняя Зима",
-            "type": "деревня",
-            "population": 63
-          },
-          {
-            "name": "Глинки",
-            "type": "село",
-            "population": 268
-          },
-          {
-            "name": "Зулумай",
-            "type": "посёлок",
-            "population": 302
-          },
-          {
-            "name": "Игнай",
-            "type": "деревня",
-            "population": 28
-          },
-          {
-            "name": "Кимильтей",
-            "type": "село",
-            "population": 1854
-          },
-          {
-            "name": "Кундулун",
-            "type": "село",
-            "population": 111
-          },
-          {
-            "name": "Кустова",
-            "type": "деревня",
-            "population": 64
-          },
-          {
-            "name": "Левый Сарам",
-            "type": "участок",
-            "population": 10
-          },
-          {
-            "name": "Масляногорск",
-            "type": "село",
-            "population": 508
-          },
-          {
-            "name": "Мольта",
-            "type": "участок",
-            "population": 37
-          },
-          {
-            "name": "Мордино",
-            "type": "деревня",
-            "population": 313
-          },
-          {
-            "name": "Нагишкина",
-            "type": "деревня",
-            "population": 72
-          },
-          {
-            "name": "Нижнечиркина",
-            "type": "деревня",
-            "population": 61
-          },
-          {
-            "name": "Нижний Хазан",
-            "type": "деревня",
-            "population": 26
-          },
-          {
-            "name": "Новолетники",
-            "type": "село",
-            "population": 403
-          },
-          {
-            "name": "Новоникольск",
-            "type": "деревня",
-            "population": 62
-          },
-          {
-            "name": "Норы",
-            "type": "деревня",
-            "population": 341
-          },
-          {
-            "name": "Ока-2",
-            "type": "блокпост",
-            "population": 46
-          },
-          {
-            "name": "Осиповский",
-            "type": "посёлок",
-            "population": 85
-          },
-          {
-            "name": "Перевоз",
-            "type": "посёлок ж.д. станции",
-            "population": 114
-          },
-          {
-            "name": "Перевоз",
-            "type": "село",
-            "population": 435
-          },
-          {
-            "name": "Подгорная",
-            "type": "деревня",
-            "population": 7
-          },
-          {
-            "name": "Покровка",
-            "type": "село",
-            "population": 618
-          },
-          {
-            "name": "Полковникова",
-            "type": "заимка",
-            "population": 7
-          },
-          {
-            "name": "Самара",
-            "type": "село",
-            "population": 508
-          },
-          {
-            "name": "Сологубово",
-            "type": "село",
-            "population": 150
-          },
-          {
-            "name": "Стибутовский",
-            "type": "участок",
-            "population": 79
-          },
-          {
-            "name": "Трактовый",
-            "type": "участок",
-            "population": 88
-          },
-          {
-            "name": "Урункуй",
-            "type": "участок",
-            "population": 121
-          },
-          {
-            "name": "Услон",
-            "type": "село",
-            "population": 722
-          },
-          {
-            "name": "Успенский 1-й",
-            "type": "посёлок",
-            "population": 28
-          },
-          {
-            "name": "Успенский 3-й",
-            "type": "посёлок",
-            "population": 101
-          },
-          {
-            "name": "Ухтуй",
-            "type": "село",
-            "population": 724
-          },
-          {
-            "name": "Феофановский",
-            "type": "участок",
-            "population": 28
-          },
-          {
-            "name": "Филипповск",
-            "type": "село",
-            "population": 306
-          },
-          {
-            "name": "Харайгун",
-            "type": "село",
-            "population": 333
-          },
-          {
-            "name": "Холы",
-            "type": "участок",
-            "population": 20
-          },
-          {
-            "name": "Центральный Хазан",
-            "type": "посёлок",
-            "population": 1339
-          },
-          {
-            "name": "Челяба",
-            "type": "деревня",
-            "population": 31
-          },
-          {
-            "name": "Черемшанка",
-            "type": "деревня",
-            "population": 256
-          }
-        ]
-      },
-      {
-        "name": "Иркутский",
-        "objects": [
-          {
-            "name": "Ангара",
-            "type": "деревня",
-            "population": 33
-          },
-          {
-            "name": "Ангарские Хутора",
-            "type": "посёлок",
-            "population": 31
-          },
-          {
-            "name": "Баруй",
-            "type": "деревня",
-            "population": 271
-          },
-          {
-            "name": "Берёзка",
-            "type": "посёлок",
-            "population": 2
-          },
-          {
-            "name": "Большая Речка",
-            "type": "посёлок рабочий",
-            "population": 2627
-          },
-          {
-            "name": "Большие Коты",
-            "type": "посёлок",
-            "population": 59
-          },
-          {
-            "name": "Большое Голоустное",
-            "type": "посёлок",
-            "population": 583
-          },
-          {
-            "name": "Бургаз",
-            "type": "деревня",
-            "population": 263
-          },
-          {
-            "name": "Бурдаковка",
-            "type": "деревня",
-            "population": 410
-          },
-          {
-            "name": "Бурдугуз",
-            "type": "посёлок",
-            "population": 126
-          },
-          {
-            "name": "Бутырки",
-            "type": "деревня",
-            "population": 587
-          },
-          {
-            "name": "Бутырки",
-            "type": "посёлок",
-            "population": 6
-          },
-          {
-            "name": "Бухун",
-            "type": "посёлок",
-            "population": 81
-          },
-          {
-            "name": "Быкова",
-            "type": "деревня",
-            "population": 260
-          },
-          {
-            "name": "Вдовина",
-            "type": "заимка",
-            "population": 75
-          },
-          {
-            "name": "Верхний Кет",
-            "type": "деревня",
-            "population": 54
-          },
-          {
-            "name": "Галки",
-            "type": "деревня",
-            "population": 560
-          },
-          {
-            "name": "Глазунова",
-            "type": "заимка",
-            "population": 124
-          },
-          {
-            "name": "Горный",
-            "type": "посёлок",
-            "population": 394
-          },
-          {
-            "name": "Горохово",
-            "type": "село",
-            "population": 736
-          },
-          {
-            "name": "Горячий Ключ",
-            "type": "посёлок",
-            "population": 864
-          },
-          {
-            "name": "Горяшина",
-            "type": "деревня",
-            "population": 419
-          },
-          {
-            "name": "Грановщина",
-            "type": "деревня",
-            "population": 1279
-          },
-          {
-            "name": "Дзержинск",
-            "type": "посёлок",
-            "population": 2277
-          },
-          {
-            "name": "Добролёт",
-            "type": "посёлок",
-            "population": 33
-          },
-          {
-            "name": "Дорожный",
-            "type": "посёлок",
-            "population": 21
-          },
-          {
-            "name": "Егоровщина",
-            "type": "деревня",
-            "population": 382
-          },
-          {
-            "name": "Еловка",
-            "type": "село",
-            "population": 200
-          },
-          {
-            "name": "Жердовка",
-            "type": "деревня",
-            "population": 284
-          },
-          {
-            "name": "Зорино-Быково",
-            "type": "деревня",
-            "population": 226
-          },
-          {
-            "name": "Зыкова",
-            "type": "деревня",
-            "population": 167
-          },
-          {
-            "name": "Карлук",
-            "type": "деревня",
-            "population": 2572
-          },
-          {
-            "name": "Каштак",
-            "type": "деревня",
-            "population": 55
-          },
-          {
-            "name": "Коты",
-            "type": "деревня",
-            "population": 577
-          },
-          {
-            "name": "Куда",
-            "type": "деревня",
-            "population": 2399
-          },
-          {
-            "name": "Кыцигировка",
-            "type": "деревня",
-            "population": 476
-          },
-          {
-            "name": "Лебединка",
-            "type": "посёлок",
-            "population": 39
-          },
-          {
-            "name": "Листвянка",
-            "type": "посёлок рабочий",
-            "population": 1882
-          },
-          {
-            "name": "Лыловщина",
-            "type": "деревня",
-            "population": 387
-          },
-          {
-            "name": "Максимовщина",
-            "type": "село",
-            "population": 1682
-          },
-          {
-            "name": "Максимовщина",
-            "type": "деревня",
-            "population": 251
-          },
-          {
-            "name": "Малая Еланка",
-            "type": "деревня",
-            "population": 774
-          },
-          {
-            "name": "Малая Топка",
-            "type": "посёлок",
-            "population": 1864
-          },
-          {
-            "name": "Малое Голоустное",
-            "type": "село",
-            "population": 1262
-          },
-          {
-            "name": "Мамоны",
-            "type": "село",
-            "population": 3154
-          },
-          {
-            "name": "Маркова",
-            "type": "посёлок рабочий",
-            "population": 9894
-          },
-          {
-            "name": "Мишонкова",
-            "type": "деревня",
-            "population": 96
-          },
-          {
-            "name": "Молодёжный",
-            "type": "посёлок",
-            "population": 6640
-          },
-          {
-            "name": "Московщина",
-            "type": "деревня",
-            "population": 863
-          },
-          {
-            "name": "Нижний Кочергат",
-            "type": "посёлок",
-            "population": 19
-          },
-          {
-            "name": "Никола",
-            "type": "посёлок",
-            "population": 119
-          },
-          {
-            "name": "икольск",
-            "type": "село",
-            "population": 1079
-          },
-          {
-            "name": "Новая Разводная",
-            "type": "посёлок",
-            "population": 1313
-          },
-          {
-            "name": "Новогрудинина",
-            "type": "деревня",
-            "population": 141
-          },
-          {
-            "name": "Новолисиха",
-            "type": "деревня",
-            "population": 528
-          },
-          {
-            "name": "ёк",
-            "type": "село",
-            "population": 3678
-          },
-          {
-            "name": "Падь Мельничная",
-            "type": "посёлок",
-            "population": 1139
-          },
-          {
-            "name": "Парфёновка",
-            "type": "посёлок",
-            "population": 59
-          },
-          {
-            "name": "Патроны",
-            "type": "посёлок",
-            "population": 468
-          },
-          {
-            "name": "Первомайский",
-            "type": "посёлок",
-            "population": 243
-          },
-          {
-            "name": "ивовариха",
-            "type": "село",
-            "population": 3506
-          },
-          {
-            "name": "Плишкино",
-            "type": "посёлок",
-            "population": 2023
-          },
-          {
-            "name": "Позднякова",
-            "type": "деревня",
-            "population": 305
-          },
-          {
-            "name": "Поливаниха",
-            "type": "заимка",
-            "population": 33
-          },
-          {
-            "name": "Ревякина",
-            "type": "деревня",
-            "population": 691
-          },
-          {
-            "name": "Рязановщина",
-            "type": "деревня",
-            "population": 160
-          },
-          {
-            "name": "Сайгуты",
-            "type": "деревня",
-            "population": 271
-          },
-          {
-            "name": "моленщина",
-            "type": "село",
-            "population": 3214
-          },
-          {
-            "name": "Сосновый Бор",
-            "type": "деревня",
-            "population": 1778
-          },
-          {
-            "name": "Степановка",
-            "type": "деревня",
-            "population": 200
-          },
-          {
-            "name": "Столбова",
-            "type": "деревня",
-            "population": 459
-          },
-          {
-            "name": "Тайтура",
-            "type": "деревня",
-            "population": 87
-          },
-          {
-            "name": "Талька",
-            "type": "деревня",
-            "population": 223
-          },
-          {
-            "name": "Тальцы",
-            "type": "посёлок",
-            "population": 9
-          },
-          {
-            "name": "Тихонова Падь",
-            "type": "деревня",
-            "population": 227
-          },
-          {
-            "name": "Турская",
-            "type": "деревня",
-            "population": 214
-          },
-          {
-            "name": "рик",
-            "type": "село",
-            "population": 2079
-          },
-          {
-            "name": "Усть-Балей",
-            "type": "посёлок",
-            "population": 306
-          },
-          {
-            "name": "Усть-Куда",
-            "type": "деревня",
-            "population": 2010
-          },
-          {
-            "name": "Хайрюзовка",
-            "type": "деревня",
-            "population": 8
-          },
-          {
-            "name": "омутово",
-            "type": "село",
-            "population": 7528
-          },
-          {
-            "name": "Худякова",
-            "type": "деревня",
-            "population": 530
-          },
-          {
-            "name": "Черёмушка",
-            "type": "деревня",
-            "population": 494
-          },
-          {
-            "name": "Черемшанка",
-            "type": "посёлок",
-            "population": 6
-          },
-          {
-            "name": "Ширяева",
-            "type": "деревня",
-            "population": 933
-          }
-        ]
-      },
-      {
-        "name": "Казачинско-Ленский",
-        "objects": [
-          {
-            "name": "Верхнемартыново",
-            "type": "село",
-            "population": 89
-          },
-          {
-            "name": "Вершина Ханды",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "рмаки",
-            "type": "село",
-            "population": 43
-          },
-          {
-            "name": "азачинское",
-            "type": "село",
-            "population": 2624
-          },
-          {
-            "name": "арам",
-            "type": "село",
-            "population": 352
-          },
-          {
-            "name": "Карнаухова",
-            "type": "деревня",
-            "population": 39
-          },
-          {
-            "name": "Ключи",
-            "type": "деревня",
-            "population": 1054
-          },
-          {
-            "name": "Конец Луг",
-            "type": "деревня",
-            "population": 55
-          },
-          {
-            "name": "Коротково",
-            "type": "деревня",
-            "population": 1
-          },
-          {
-            "name": "Кунерма",
-            "type": "посёлок рабочий",
-            "population": 59
-          },
-          {
-            "name": "утима",
-            "type": "село",
-            "population": 21
-          },
-          {
-            "name": "Магистральный",
-            "type": "посёлок рабочий",
-            "population": 7067
-          },
-          {
-            "name": "Мостовая",
-            "type": "деревня",
-            "population": 19
-          },
-          {
-            "name": "Небель",
-            "type": "посёлок",
-            "population": 299
-          },
-          {
-            "name": "Нижнемартыново",
-            "type": "деревня",
-            "population": 32
-          },
-          {
-            "name": "Новосёлово",
-            "type": "село",
-            "population": 34
-          },
-          {
-            "name": "Окунайский",
-            "type": "посёлок",
-            "population": 945
-          },
-          {
-            "name": "Осиново",
-            "type": "село",
-            "population": 2
-          },
-          {
-            "name": "Поперечная",
-            "type": "деревня",
-            "population": 3
-          },
-          {
-            "name": "Седанкина",
-            "type": "деревня",
-            "population": 167
-          },
-          {
-            "name": "Тарасово",
-            "type": "село",
-            "population": 110
-          },
-          {
-            "name": "Улькан",
-            "type": "посёлок рабочий",
-            "population": 5412
-          },
-          {
-            "name": "Юхта",
-            "type": "деревня",
-            "population": 187
-          }
-        ]
-      },
-      {
-        "name": "Катангский района",
-        "objects": [
-          {
-            "name": "Бур",
-            "type": "село",
-            "population": 122
-          },
-          {
-            "name": "Верхне-Калинина",
-            "type": "деревня",
-            "population": 35
-          },
-          {
-            "name": "рбогачён",
-            "type": "село",
-            "population": 1965
-          },
-          {
-            "name": "Ерема",
-            "type": "село",
-            "population": 53
-          },
-          {
-            "name": "Ика",
-            "type": "село",
-            "population": 52
-          },
-          {
-            "name": "Инаригда",
-            "type": "участок",
-            "population": 12
-          },
-          {
-            "name": "Мога",
-            "type": "деревня",
-            "population": 5
-          },
-          {
-            "name": "Наканно",
-            "type": "село",
-            "population": 74
-          },
-          {
-            "name": "Непа",
-            "type": "село",
-            "population": 297
-          },
-          {
-            "name": "Оськино",
-            "type": "село",
-            "population": 46
-          },
-          {
-            "name": "Подволошино",
-            "type": "село",
-            "population": 467
-          },
-          {
-            "name": "Преображенка",
-            "type": "село",
-            "population": 440
-          },
-          {
-            "name": "Тетея",
-            "type": "деревня",
-            "population": 37
-          },
-          {
-            "name": "Токма",
-            "type": "село",
-            "population": 75
-          },
-          {
-            "name": "Хамакар",
-            "type": "село",
-            "population": 99
-          }
-        ]
-      },
-      {
-        "name": "Качугский",
-        "objects": [
-          {
-            "name": "Алексеевка",
-            "type": "деревня",
-            "population": 22
-          },
-          {
-            "name": "Анга",
-            "type": "село",
-            "population": 863
-          },
-          {
-            "name": "Аргун",
-            "type": "деревня",
-            "population": 345
-          },
-          {
-            "name": "Ацикяк",
-            "type": "деревня",
-            "population": 95
-          },
-          {
-            "name": "Белоусово",
-            "type": "село",
-            "population": 110
-          },
-          {
-            "name": "Бирюлька",
-            "type": "село",
-            "population": 606
-          },
-          {
-            "name": "Болото",
-            "type": "деревня",
-            "population": 116
-          },
-          {
-            "name": "Большая Тарель",
-            "type": "село",
-            "population": 198
-          },
-          {
-            "name": "Большедворова",
-            "type": "деревня",
-            "population": 16
-          },
-          {
-            "name": "Большие Голы",
-            "type": "деревня",
-            "population": 157
-          },
-          {
-            "name": "Большой Косогол",
-            "type": "деревня",
-            "population": 107
-          },
-          {
-            "name": "Большой Улун",
-            "type": "деревня",
-            "population": 14
-          },
-          {
-            "name": "Босогол",
-            "type": "деревня",
-            "population": 99
-          },
-          {
-            "name": "Буредай",
-            "type": "деревня",
-            "population": 2
-          },
-          {
-            "name": "Бутаково",
-            "type": "село",
-            "population": 512
-          },
-          {
-            "name": "Верхоленск",
-            "type": "село",
-            "population": 537
-          },
-          {
-            "name": "Вершина Тутуры",
-            "type": "село",
-            "population": 183
-          },
-          {
-            "name": "Гогон",
-            "type": "деревня",
-            "population": 12
-          },
-          {
-            "name": "Дурутуй",
-            "type": "деревня",
-            "population": 3
-          },
-          {
-            "name": "Житова",
-            "type": "деревня",
-            "population": 21
-          },
-          {
-            "name": "Загулан",
-            "type": "деревня",
-            "population": 4
-          },
-          {
-            "name": "алог",
-            "type": "село",
-            "population": 191
-          },
-          {
-            "name": "аречное",
-            "type": "село",
-            "population": 228
-          },
-          {
-            "name": "Зуева",
-            "type": "деревня",
-            "population": 184
-          },
-          {
-            "name": "Исеть",
-            "type": "деревня",
-            "population": 242
-          },
-          {
-            "name": "Ихинагуй",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Карлук",
-            "type": "село",
-            "population": 218
-          },
-          {
-            "name": "Картухай",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "Качуг",
-            "type": "посёлок рабочий",
-            "population": 7011
-          },
-          {
-            "name": "Кистенева",
-            "type": "деревня",
-            "population": 36
-          },
-          {
-            "name": "озлово",
-            "type": "село",
-            "population": 2
-          },
-          {
-            "name": "Копцыгай",
-            "type": "деревня",
-            "population": 28
-          },
-          {
-            "name": "Копылова",
-            "type": "деревня",
-            "population": 170
-          },
-          {
-            "name": "Корсукова",
-            "type": "деревня",
-            "population": 187
-          },
-          {
-            "name": "Краснояр",
-            "type": "деревня",
-            "population": 585
-          },
-          {
-            "name": "Кузнецы",
-            "type": "деревня",
-            "population": 7
-          },
-          {
-            "name": "Кукуй",
-            "type": "деревня",
-            "population": 129
-          },
-          {
-            "name": "Куницына",
-            "type": "деревня",
-            "population": 2
-          },
-          {
-            "name": "Лесной",
-            "type": "посёлок",
-            "population": 26
-          },
-          {
-            "name": "Литвинова",
-            "type": "деревня",
-            "population": 188
-          },
-          {
-            "name": "Магдан",
-            "type": "деревня",
-            "population": 58
-          },
-          {
-            "name": "Макрушина",
-            "type": "деревня",
-            "population": 15
-          },
-          {
-            "name": "Малая Тарель",
-            "type": "деревня",
-            "population": 135
-          },
-          {
-            "name": "Малые Голы",
-            "type": "деревня",
-            "population": 151
-          },
-          {
-            "name": "анзурка",
-            "type": "село",
-            "population": 856
-          },
-          {
-            "name": "ыс",
-            "type": "село",
-            "population": 33
-          },
-          {
-            "name": "икилей",
-            "type": "село",
-            "population": 292
-          },
-          {
-            "name": "Новохарбатова",
-            "type": "деревня",
-            "population": 210
-          },
-          {
-            "name": "Обхой",
-            "type": "деревня",
-            "population": 29
-          },
-          {
-            "name": "Подкаменка",
-            "type": "деревня",
-            "population": 33
-          },
-          {
-            "name": "Полоскова",
-            "type": "деревня",
-            "population": 122
-          },
-          {
-            "name": "Ремизова",
-            "type": "деревня",
-            "population": 56
-          },
-          {
-            "name": "Рыкова",
-            "type": "деревня",
-            "population": 200
-          },
-          {
-            "name": "Сутай",
-            "type": "деревня",
-            "population": 48
-          },
-          {
-            "name": "Суханай-Байбет",
-            "type": "деревня",
-            "population": 9
-          },
-          {
-            "name": "Тальма",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Тарай",
-            "type": "деревня",
-            "population": 14
-          },
-          {
-            "name": "Тимирязева",
-            "type": "деревня",
-            "population": 133
-          },
-          {
-            "name": "Толмачева",
-            "type": "деревня",
-            "population": 54
-          },
-          {
-            "name": "Тырка",
-            "type": "деревня",
-            "population": 16
-          },
-          {
-            "name": "Тюменцева",
-            "type": "деревня",
-            "population": 24
-          },
-          {
-            "name": "Усть-Тальма",
-            "type": "деревня",
-            "population": 47
-          },
-          {
-            "name": "Хабардина",
-            "type": "деревня",
-            "population": 6
-          },
-          {
-            "name": "Хальск",
-            "type": "деревня",
-            "population": 81
-          },
-          {
-            "name": "арбатово",
-            "type": "село",
-            "population": 460
-          },
-          {
-            "name": "Хобанова",
-            "type": "деревня",
-            "population": 9
-          },
-          {
-            "name": "Чанчур",
-            "type": "деревня",
-            "population": 1
-          },
-          {
-            "name": "Челпанова",
-            "type": "деревня",
-            "population": 64
-          },
-          {
-            "name": "Чемякина",
-            "type": "деревня",
-            "population": 16
-          },
-          {
-            "name": "Чептыхой",
-            "type": "деревня",
-            "population": 76
-          },
-          {
-            "name": "Чинонга",
-            "type": "деревня",
-            "population": 29
-          },
-          {
-            "name": "Шевыкан",
-            "type": "деревня",
-            "population": 4
-          },
-          {
-            "name": "Шеина",
-            "type": "деревня",
-            "population": 215
-          },
-          {
-            "name": "Шеметова",
-            "type": "деревня",
-            "population": 159
-          },
-          {
-            "name": "Шишкина",
-            "type": "деревня",
-            "population": 80
-          },
-          {
-            "name": "Щапова",
-            "type": "деревня",
-            "population": 180
-          },
-          {
-            "name": "Юшина",
-            "type": "деревня",
-            "population": 0
-          }
-        ]
-      },
-      {
-        "name": "Киренский",
-        "objects": [
-          {
-            "name": "Алексеевка",
-            "type": "деревня",
-            "population": 4
-          },
-          {
-            "name": "Алексеевск",
-            "type": "посёлок рабочий",
-            "population": 2529
-          },
-          {
-            "name": "лымовка",
-            "type": "село",
-            "population": 305
-          },
-          {
-            "name": "Балышева",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "анщиково",
-            "type": "село",
-            "population": 67
-          },
-          {
-            "name": "Бор",
-            "type": "деревня",
-            "population": 7
-          },
-          {
-            "name": "Бубновка",
-            "type": "посёлок",
-            "population": 569
-          },
-          {
-            "name": "Верхнекарелина",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Верхолугск",
-            "type": "деревня",
-            "population": 1
-          },
-          {
-            "name": "Визирный",
-            "type": "посёлок",
-            "population": 128
-          },
-          {
-            "name": "Вишнякова",
-            "type": "деревня",
-            "population": 50
-          },
-          {
-            "name": "Воронежский",
-            "type": "посёлок",
-            "population": 156
-          },
-          {
-            "name": "Дарьина",
-            "type": "деревня",
-            "population": 5
-          },
-          {
-            "name": "Заборье",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "меиново",
-            "type": "село",
-            "population": 92
-          },
-          {
-            "name": "Золотой",
-            "type": "посёлок",
-            "population": 9
-          },
-          {
-            "name": "Ичера",
-            "type": "деревня",
-            "population": 6
-          },
-          {
-            "name": "Киренск",
-            "type": "город",
-            "population": 12640
-          },
-          {
-            "name": "Коммуна",
-            "type": "деревня",
-            "population": 139
-          },
-          {
-            "name": "Кондрашина",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Коршуново",
-            "type": "село",
-            "population": 153
-          },
-          {
-            "name": "расноярово",
-            "type": "село",
-            "population": 41
-          },
-          {
-            "name": "Кривая Лука",
-            "type": "село",
-            "population": 388
-          },
-          {
-            "name": "Кривошапкино",
-            "type": "село",
-            "population": 404
-          },
-          {
-            "name": "Макарово",
-            "type": "село",
-            "population": 721
-          },
-          {
-            "name": "Мироново",
-            "type": "село",
-            "population": 54
-          },
-          {
-            "name": "Мутина",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Небель",
-            "type": "посёлок",
-            "population": 138
-          },
-          {
-            "name": "Никольск",
-            "type": "деревня",
-            "population": 118
-          },
-          {
-            "name": "Никулина",
-            "type": "деревня",
-            "population": 149
-          },
-          {
-            "name": "Орлова",
-            "type": "деревня",
-            "population": 35
-          },
-          {
-            "name": "Пашня",
-            "type": "посёлок",
-            "population": 16
-          },
-          {
-            "name": "Петропавловское",
-            "type": "село",
-            "population": 366
-          },
-          {
-            "name": "Подъельник",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Салтыкова",
-            "type": "деревня",
-            "population": 81
-          },
-          {
-            "name": "Сидорова",
-            "type": "деревня",
-            "population": 205
-          },
-          {
-            "name": "Скобельская",
-            "type": "деревня",
-            "population": 3
-          },
-          {
-            "name": "Сполошино",
-            "type": "село",
-            "population": 24
-          },
-          {
-            "name": "Старая Деревня",
-            "type": "деревня",
-            "population": 11
-          },
-          {
-            "name": "Улькан",
-            "type": "село",
-            "population": 0
-          },
-          {
-            "name": "Усть-Киренга",
-            "type": "село",
-            "population": 57
-          },
-          {
-            "name": "Хабарова",
-            "type": "деревня",
-            "population": 39
-          },
-          {
-            "name": "Частых",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Чечуйск",
-            "type": "село",
-            "population": 121
-          },
-          {
-            "name": "Юбилейный",
-            "type": "посёлок",
-            "population": 471
-          }
-        ]
-      },
-      {
-        "name": "Куйтунский",
-        "objects": [
-          {
-            "name": "Александро-Невская Станица",
-            "type": "деревня",
-            "population": 218
-          },
-          {
-            "name": "лександро-Невский Завод",
-            "type": "село",
-            "population": 29
-          },
-          {
-            "name": "лкин",
-            "type": "село",
-            "population": 268
-          },
-          {
-            "name": "мур",
-            "type": "село",
-            "population": 298
-          },
-          {
-            "name": "ндрюшино",
-            "type": "село",
-            "population": 668
-          },
-          {
-            "name": "Апраксина",
-            "type": "деревня",
-            "population": 90
-          },
-          {
-            "name": "Аршан",
-            "type": "деревня",
-            "population": 101
-          },
-          {
-            "name": "Ахтинский",
-            "type": "посёлок",
-            "population": 137
-          },
-          {
-            "name": "арлук",
-            "type": "село",
-            "population": 1112
-          },
-          {
-            "name": "Берёзовский",
-            "type": "посёлок",
-            "population": 199
-          },
-          {
-            "name": "Большой Кашелак",
-            "type": "село",
-            "population": 269
-          },
-          {
-            "name": "Броды",
-            "type": "село",
-            "population": 113
-          },
-          {
-            "name": "Бузулук",
-            "type": "посёлок",
-            "population": 52
-          },
-          {
-            "name": "Бурук",
-            "type": "село",
-            "population": 369
-          },
-          {
-            "name": "Еланский",
-            "type": "посёлок",
-            "population": 219
-          },
-          {
-            "name": "Заваль",
-            "type": "село",
-            "population": 5
-          },
-          {
-            "name": "Зобинский",
-            "type": "посёлок",
-            "population": 9
-          },
-          {
-            "name": "Ивановский",
-            "type": "участок",
-            "population": 5
-          },
-          {
-            "name": "Игнино",
-            "type": "посёлок",
-            "population": 563
-          },
-          {
-            "name": "Или",
-            "type": "село",
-            "population": 143
-          },
-          {
-            "name": "Каразей",
-            "type": "село",
-            "population": 1181
-          },
-          {
-            "name": "Каранцай",
-            "type": "село",
-            "population": 266
-          },
-          {
-            "name": "Карымск",
-            "type": "село",
-            "population": 1809
-          },
-          {
-            "name": "Кимильтей",
-            "type": "посёлок ж.д. станции",
-            "population": 156
-          },
-          {
-            "name": "Ключи",
-            "type": "село",
-            "population": 208
-          },
-          {
-            "name": "Красный Яр",
-            "type": "деревня",
-            "population": 330
-          },
-          {
-            "name": "Куйтун",
-            "type": "посёлок рабочий",
-            "population": 10097
-          },
-          {
-            "name": "Кундуй",
-            "type": "село",
-            "population": 932
-          },
-          {
-            "name": "Ленинский",
-            "type": "посёлок",
-            "population": 314
-          },
-          {
-            "name": "Лермонтовский",
-            "type": "посёлок",
-            "population": 597
-          },
-          {
-            "name": "Листвянка",
-            "type": "деревня",
-            "population": 158
-          },
-          {
-            "name": "Майский",
-            "type": "посёлок",
-            "population": 216
-          },
-          {
-            "name": "Малая Кочерма",
-            "type": "село",
-            "population": 138
-          },
-          {
-            "name": "Малой",
-            "type": "участок",
-            "population": 23
-          },
-          {
-            "name": "Меньчукова",
-            "type": "деревня",
-            "population": 5
-          },
-          {
-            "name": "Мингатуй",
-            "type": "посёлок ж.д. станции",
-            "population": 132
-          },
-          {
-            "name": "Мингатуй",
-            "type": "село",
-            "population": 187
-          },
-          {
-            "name": "Наратай",
-            "type": "посёлок",
-            "population": 253
-          },
-          {
-            "name": "Новая Када",
-            "type": "деревня",
-            "population": 218
-          },
-          {
-            "name": "Новая Тельба",
-            "type": "посёлок",
-            "population": 175
-          },
-          {
-            "name": "Новокадинский",
-            "type": "посёлок",
-            "population": 2
-          },
-          {
-            "name": "Новые Броды",
-            "type": "посёлок",
-            "population": 2
-          },
-          {
-            "name": "Окинский",
-            "type": "посёлок",
-            "population": 107
-          },
-          {
-            "name": "Октябрьский",
-            "type": "посёлок",
-            "population": 97
-          },
-          {
-            "name": "Панагино",
-            "type": "посёлок",
-            "population": 292
-          },
-          {
-            "name": "Полтава",
-            "type": "деревня",
-            "population": 14
-          },
-          {
-            "name": "Ромоданова",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Садовый",
-            "type": "посёлок",
-            "population": 139
-          },
-          {
-            "name": "Сосновский",
-            "type": "посёлок",
-            "population": 174
-          },
-          {
-            "name": "Станица 3-я",
-            "type": "деревня",
-            "population": 269
-          },
-          {
-            "name": "Степной",
-            "type": "посёлок",
-            "population": 64
-          },
-          {
-            "name": "Сулкет",
-            "type": "село",
-            "population": 211
-          },
-          {
-            "name": "Таган",
-            "type": "деревня",
-            "population": 15
-          },
-          {
-            "name": "Тихорут",
-            "type": "село",
-            "population": 136
-          },
-          {
-            "name": "Тобино",
-            "type": "деревня",
-            "population": 106
-          },
-          {
-            "name": "Тулюшка",
-            "type": "посёлок ж.д. станции",
-            "population": 1259
-          },
-          {
-            "name": "Тулюшка",
-            "type": "село",
-            "population": 311
-          },
-          {
-            "name": "Усть-Када",
-            "type": "село",
-            "population": 422
-          },
-          {
-            "name": "Уховский",
-            "type": "посёлок",
-            "population": 1160
-          },
-          {
-            "name": "Уян",
-            "type": "село",
-            "population": 1121
-          },
-          {
-            "name": "Хаихта",
-            "type": "село",
-            "population": 175
-          },
-          {
-            "name": "Ханхатуй",
-            "type": "деревня",
-            "population": 10
-          },
-          {
-            "name": "Харик",
-            "type": "посёлок",
-            "population": 1812
-          },
-          {
-            "name": "Харик",
-            "type": "село",
-            "population": 748
-          },
-          {
-            "name": "Харчев",
-            "type": "деревня",
-            "population": 115
-          },
-          {
-            "name": "Чеботариха",
-            "type": "село",
-            "population": 779
-          },
-          {
-            "name": "Широкие Кочки",
-            "type": "деревня",
-            "population": 54
-          }
-        ]
-      },
-      {
-        "name": "Мамско-Чуйский",
-        "objects": [
-          {
-            "name": "Большой Северный",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Витимский",
-            "type": "посёлок рабочий",
-            "population": 457
-          },
-          {
-            "name": "Воронцовка",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Заря",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Колотовка",
-            "type": "посёлок",
-            "population": 165
-          },
-          {
-            "name": "Луговский",
-            "type": "посёлок рабочий",
-            "population": 503
-          },
-          {
-            "name": "Мама",
-            "type": "посёлок рабочий",
-            "population": 3630
-          },
-          {
-            "name": "Мусковит",
-            "type": "посёлок",
-            "population": 151
-          },
-          {
-            "name": "Рысья",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Садки",
-            "type": "деревня",
-            "population": 0
-          },
-          {
-            "name": "Слюдянка",
-            "type": "посёлок",
-            "population": 11
-          },
-          {
-            "name": "Тетеринск",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Чайка",
-            "type": "участок",
-            "population": 0
-          },
-          {
-            "name": "Чуя",
-            "type": "село",
-            "population": 33
-          }
-        ]
-      },
-      {
-        "name": "Нижнеилимский",
-        "objects": [
-          {
-            "name": "Березняки",
-            "type": "посёлок",
-            "population": 1149
-          },
-          {
-            "name": "Брусничный",
-            "type": "посёлок",
-            "population": 490
-          },
-          {
-            "name": "Видим",
-            "type": "посёлок рабочий",
-            "population": 1236
-          },
-          {
-            "name": "Дальний",
-            "type": "посёлок",
-            "population": 627
-          },
-          {
-            "name": "Железногорск-Илимский",
-            "type": "город",
-            "population": 26079
-          },
-          {
-            "name": "Заморский",
-            "type": "посёлок",
-            "population": 416
-          },
-          {
-            "name": "Заярск",
-            "type": "посёлок",
-            "population": 51
-          },
-          {
-            "name": "Игирма",
-            "type": "посёлок",
-            "population": 834
-          },
-          {
-            "name": "Каймоновский",
-            "type": "посёлок",
-            "population": 432
-          },
-          {
-            "name": "Карстовая",
-            "type": "деревня",
-            "population": 14
-          },
-          {
-            "name": "Коршуновский",
-            "type": "посёлок",
-            "population": 872
-          },
-          {
-            "name": "Мерзлотная",
-            "type": "посёлок при станции",
-            "population": 31
-          },
-          {
-            "name": "Миндей 1",
-            "type": "посёлок",
-            "population": 0
-          },
-          {
-            "name": "Миндей 2",
-            "type": "посёлок",
-            "population": 6
-          },
-          {
-            "name": "Новая Игирма",
-            "type": "посёлок рабочий",
-            "population": 10161
-          },
-          {
-            "name": "Новоилимск",
-            "type": "посёлок",
-            "population": 863
-          },
-          {
-            "name": "Радищев",
-            "type": "посёлок рабочий",
-            "population": 1140
-          },
-          {
-            "name": "Речушка",
-            "type": "посёлок",
-            "population": 1194
-          },
-          {
-            "name": "Рудногорск",
-            "type": "посёлок рабочий",
-            "population": 3620
-          },
-          {
-            "name": "Селезнёво",
-            "type": "посёлок при станции",
-            "population": 2
-          },
-          {
-            "name": "Селезнёвский",
-            "type": "посёлок",
-            "population": 49
-          },
-          {
-            "name": "Семигорск",
-            "type": "посёлок",
-            "population": 849
-          },
-          {
-            "name": "Сохатый",
-            "type": "участок",
-            "population": 1
-          },
-          {
-            "name": "Соцгородок",
-            "type": "посёлок",
-            "population": 644
-          },
-          {
-            "name": "Суворовский",
-            "type": "посёлок",
-            "population": 458
-          },
-          {
-            "name": "Хребтовая",
-            "type": "посёлок рабочий",
-            "population": 1502
-          },
-          {
-            "name": "Чёрная",
-            "type": "посёлок при станции",
-            "population": 17
-          },
-          {
-            "name": "Чистополянский",
-            "type": "посёлок",
-            "population": 545
-          },
-          {
-            "name": "Шестаково",
-            "type": "посёлок рабочий",
-            "population": 772
-          },
-          {
-            "name": "Янгель",
-            "type": "посёлок рабочий",
-            "population": 1042
-          }
-        ]
-      },
-      {
-        "name": "Нижнеудинский",
-        "objects": [
-          {
-            "name": "Абалаково",
-            "type": "село",
-            "population": 114
-          },
-          {
-            "name": "Алгашет",
-            "type": "посёлок",
-            "population": 34
-          },
-          {
-            "name": "Алзамай",
-            "type": "город",
-            "population": 6730
-          },
-          {
-            "name": "Алыгджер",
-            "type": "село",
-            "population": 508
-          },
-          {
-            "name": "Атагай",
-            "type": "посёлок рабочий",
-            "population": 1740
-          },
-          {
-            "name": "Большеверстовск",
-            "type": "деревня",
-            "population": 119
-          },
-          {
-            "name": "Боровинок",
-            "type": "село",
-            "population": 92
-          },
-          {
-            "name": "Бородинск",
-            "type": "деревня",
-            "population": 81
-          },
-          {
-            "name": "Буракова",
-            "type": "посёлок",
-            "population": 54
-          },
-          {
-            "name": "Варяг",
-            "type": "участок",
-            "population": 1
-          },
-          {
-            "name": "Верхний Хингуй",
-            "type": "деревня",
-            "population": 67
-          },
-          {
-            "name": "Верхняя Гутара",
-            "type": "село",
-            "population": 403
-          },
-          {
-            "name": "Вершина",
-            "type": "посёлок",
-            "population": 553
-          },
-          {
-            "name": "Виленск",
-            "type": "деревня",
-            "population": 72
-          },
-          {
-            "name": "Водопадный",
-            "type": "посёлок",
-            "population": 204
-          },
-          {
-            "name": "Вознесенский",
-            "type": "посёлок",
-            "population": 650
-          },
-          {
-            "name": "Волчий Брод",
-            "type": "деревня",
-            "population": 29
-          },
-          {
-            "name": "Гродинск",
-            "type": "деревня",
-            "population": 37
-          },
-          {
-            "name": "Даур",
-            "type": "село",
-            "population": 346
-          },
-          {
-            "name": "Загорье",
-            "type": "участок",
-            "population": 68
-          },
-          {
-            "name": "Замзор",
-            "type": "посёлок",
-            "population": 1118
-          },
-          {
-            "name": "Заречье",
-            "type": "деревня",
-            "population": 366
-          },
-          {
-            "name": "Зенцова",
-            "type": "деревня",
-            "population": 164
-          },
-          {
-            "name": "Игнит",
-            "type": "участок",
-            "population": 3
-          },
-          {
-            "name": "Иргей",
-            "type": "село",
-            "population": 282
-          }
-        ]
-      },
-      {
         "name": "Кадуй",
         "type": "деревня",
         "population": 100
@@ -3586,6 +456,3187 @@
         "name": "Яга",
         "type": "участок",
         "population": 4
+      }
+    ]
+  },
+  {
+    "name": "Бодайбинский",
+    "objects": [
+      {
+        "name": "Апрельск",
+        "type": "посёлок",
+        "population": 96
+      },
+      {
+        "name": "Артёмовский",
+        "type": "посёлок рабочий",
+        "population": 1539
+      },
+      {
+        "name": "Балахнинский",
+        "type": "посёлок рабочий",
+        "population": 1300
+      },
+      {
+        "name": "Бодайбо",
+        "type": "город",
+        "population": 15340
+      },
+      {
+        "name": "Большой Патом",
+        "type": "село",
+        "population": 54
+      },
+      {
+        "name": "Васильевский",
+        "type": "посёлок",
+        "population": 154
+      },
+      {
+        "name": "Кропоткин",
+        "type": "посёлок рабочий",
+        "population": 1335
+      },
+      {
+        "name": "Кяхтинский",
+        "type": "посёлок",
+        "population": 24
+      },
+      {
+        "name": "Мамакан",
+        "type": "посёлок рабочий",
+        "population": 2068
+      },
+      {
+        "name": "Маракан",
+        "type": "посёлок",
+        "population": 389
+      },
+      {
+        "name": "Нерпо",
+        "type": "село",
+        "population": 18
+      },
+      {
+        "name": "Перевоз",
+        "type": "посёлок",
+        "population": 869
+      },
+      {
+        "name": "Светлый",
+        "type": "посёлок",
+        "population": 41
+      }
+    ]
+  },
+  {
+    "name": "Братский",
+    "objects": [
+      {
+        "name": "Александровка",
+        "type": "село",
+        "population": 594
+      },
+      {
+        "name": "Анчирикова",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "Бада",
+        "type": "деревня",
+        "population": 238
+      },
+      {
+        "name": "Бамбуй",
+        "type": "посёлок",
+        "population": 19
+      },
+      {
+        "name": "Барчим",
+        "type": "деревня",
+        "population": 187
+      },
+      {
+        "name": "Большеокинское",
+        "type": "село",
+        "population": 1105
+      },
+      {
+        "name": "Боровской",
+        "type": "посёлок",
+        "population": 478
+      },
+      {
+        "name": "Булак",
+        "type": "деревня",
+        "population": 9
+      },
+      {
+        "name": "Бурнинская Вихоря",
+        "type": "посёлок",
+        "population": 312
+      },
+      {
+        "name": "Вихоревка",
+        "type": "город",
+        "population": 22520
+      },
+      {
+        "name": "Воробьёво",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "Добчур",
+        "type": "посёлок",
+        "population": 1069
+      },
+      {
+        "name": "Дубынино",
+        "type": "село",
+        "population": 258
+      },
+      {
+        "name": "Зарбь",
+        "type": "село",
+        "population": 224
+      },
+      {
+        "name": "Зяба",
+        "type": "посёлок",
+        "population": 497
+      },
+      {
+        "name": "Илир",
+        "type": "село",
+        "population": 1158
+      },
+      {
+        "name": "Калтук",
+        "type": "село",
+        "population": 1789
+      },
+      {
+        "name": "Карай",
+        "type": "деревня",
+        "population": 64
+      },
+      {
+        "name": "Карахун",
+        "type": "посёлок",
+        "population": 648
+      },
+      {
+        "name": "Кардой",
+        "type": "деревня",
+        "population": 366
+      },
+      {
+        "name": "Кежемский",
+        "type": "посёлок",
+        "population": 1651
+      },
+      {
+        "name": "Ключи-Булак",
+        "type": "село",
+        "population": 1387
+      },
+      {
+        "name": "Кобляково",
+        "type": "село",
+        "population": 788
+      },
+      {
+        "name": "Кобь",
+        "type": "село",
+        "population": 467
+      },
+      {
+        "name": "Куватка",
+        "type": "деревня",
+        "population": 825
+      },
+      {
+        "name": "Кузнецовка",
+        "type": "село",
+        "population": 1113
+      },
+      {
+        "name": "Кумейка",
+        "type": "деревня",
+        "population": 440
+      },
+      {
+        "name": "Леонова",
+        "type": "деревня",
+        "population": 474
+      },
+      {
+        "name": "Луговой",
+        "type": "посёлок",
+        "population": 103
+      },
+      {
+        "name": "Мамырь",
+        "type": "посёлок",
+        "population": 567
+      },
+      {
+        "name": "Наратай",
+        "type": "посёлок",
+        "population": 450
+      },
+      {
+        "name": "Новодолоново",
+        "type": "посёлок",
+        "population": 504
+      },
+      {
+        "name": "Новое Приречье",
+        "type": "деревня",
+        "population": 335
+      },
+      {
+        "name": "Озёрный",
+        "type": "посёлок",
+        "population": 681
+      },
+      {
+        "name": "Октябрьск",
+        "type": "посёлок",
+        "population": 164
+      },
+      {
+        "name": "Пашенный",
+        "type": "посёлок",
+        "population": 19
+      },
+      {
+        "name": "Первомайский",
+        "type": "посёлок",
+        "population": 4
+      },
+      {
+        "name": "Подъвыездный",
+        "type": "посёлок",
+        "population": 10
+      },
+      {
+        "name": "Покосное",
+        "type": "село",
+        "population": 2998
+      },
+      {
+        "name": "Прибойный",
+        "type": "посёлок",
+        "population": 674
+      },
+      {
+        "name": "Прибрежный",
+        "type": "посёлок",
+        "population": 2555
+      },
+      {
+        "name": "Придорожный",
+        "type": "посёлок",
+        "population": 2
+      },
+      {
+        "name": "Сахорово",
+        "type": "посёлок",
+        "population": 289
+      },
+      {
+        "name": "Сосновый",
+        "type": "посёлок",
+        "population": 294
+      },
+      {
+        "name": "Тангуй",
+        "type": "село",
+        "population": 1883
+      },
+      {
+        "name": "Тарма",
+        "type": "посёлок",
+        "population": 1039
+      },
+      {
+        "name": "Туковский",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Турма",
+        "type": "посёлок",
+        "population": 2019
+      },
+      {
+        "name": "Тынкобь",
+        "type": "посёлок",
+        "population": 220
+      },
+      {
+        "name": "Тэмь",
+        "type": "село",
+        "population": 666
+      },
+      {
+        "name": "Харанжино",
+        "type": "посёлок",
+        "population": 1298
+      },
+      {
+        "name": "Хахарей",
+        "type": "село",
+        "population": 1
+      },
+      {
+        "name": "Хвойный",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Худобок",
+        "type": "деревня",
+        "population": 439
+      },
+      {
+        "name": "Черемшанка",
+        "type": "посёлок",
+        "population": 3
+      },
+      {
+        "name": "Чистый",
+        "type": "посёлок",
+        "population": 27
+      },
+      {
+        "name": "Чистяково",
+        "type": "посёлок",
+        "population": 76
+      },
+      {
+        "name": "Шумилово",
+        "type": "посёлок",
+        "population": 649
+      },
+      {
+        "name": "Южный",
+        "type": "посёлок",
+        "population": 209
+      }
+    ]
+  },
+  {
+    "name": "Город",
+    "objects": [
+      {
+        "name": "Иркутск",
+        "type": "город",
+        "population": 587891
+      },
+      {
+        "name": "Братск",
+        "type": "город",
+        "population": 246319
+      },
+      {
+        "name": "Зима",
+        "type": "город",
+        "population": 32508
+      },
+      {
+        "name": "Саянск",
+        "type": "город",
+        "population": 40800
+      },
+      {
+        "name": "Свирск",
+        "type": "город",
+        "population": 13650
+      },
+      {
+        "name": "Тулун",
+        "type": "город",
+        "population": 44611
+      },
+      {
+        "name": "Усолье-Сибирское",
+        "type": "город",
+        "population": 83327
+      },
+      {
+        "name": "Усть-Илимск",
+        "type": "город",
+        "population": 86610
+      },
+      {
+        "name": "Черемхово",
+        "type": "город",
+        "population": 52647
+
+      }
+    ]
+  },
+  {
+    "name": "Жигаловский",
+    "objects": [
+      {
+        "name": "Байдоново",
+        "type": "село",
+        "population": 35
+      },
+      {
+        "name": "Балахня",
+        "type": "деревня",
+        "population": 1
+      },
+      {
+        "name": "Балыхта",
+        "type": "деревня",
+        "population": 1
+      },
+      {
+        "name": "Бачай",
+        "type": "деревня",
+        "population": 25
+      },
+      {
+        "name": "Бутырина",
+        "type": "деревня",
+        "population": 33
+      },
+      {
+        "name": "Воробьёва",
+        "type": "деревня",
+        "population": 123
+      },
+      {
+        "name": "Головновка",
+        "type": "деревня",
+        "population": 195
+      },
+      {
+        "name": "Головское",
+        "type": "деревня",
+        "population": 6
+      },
+      {
+        "name": "Грехова",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "Грузновка",
+        "type": "деревня",
+        "population": 17
+      },
+      {
+        "name": "Дальняя Закора",
+        "type": "село",
+        "population": 347
+      },
+      {
+        "name": "Жигалово",
+        "type": "посёлок рабочий",
+        "population": 5369
+      },
+      {
+        "name": "Заплескина",
+        "type": "деревня",
+        "population": 23
+      },
+      {
+        "name": "Захарова",
+        "type": "деревня",
+        "population": 1
+      },
+      {
+        "name": "Знаменка",
+        "type": "село",
+        "population": 587
+      },
+      {
+        "name": "Игжиновка",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "Кайдакан",
+        "type": "деревня",
+        "population": 34
+      },
+      {
+        "name": "Качень",
+        "type": "село",
+        "population": 88
+      },
+      {
+        "name": "Келора",
+        "type": "деревня",
+        "population": 4
+      },
+      {
+        "name": "Коношаново",
+        "type": "село",
+        "population": 60
+      },
+      {
+        "name": "Константиновка",
+        "type": "деревня",
+        "population": 177
+      },
+      {
+        "name": "Кузнецовка",
+        "type": "деревня",
+        "population": 96
+      },
+      {
+        "name": "Лукиново",
+        "type": "село",
+        "population": 119
+      },
+      {
+        "name": "Молодёжный",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Нижняя Слобода",
+        "type": "деревня",
+        "population": 151
+      },
+      {
+        "name": "Орловка",
+        "type": "деревня",
+        "population": 39
+      },
+      {
+        "name": "Петрово",
+        "type": "село",
+        "population": 198
+      },
+      {
+        "name": "Пономарёва",
+        "type": "деревня",
+        "population": 108
+      },
+      {
+        "name": "Пуляевщина",
+        "type": "деревня",
+        "population": 3
+      },
+      {
+        "name": "Рудовка",
+        "type": "село",
+        "population": 323
+      },
+      {
+        "name": "Тимошино",
+        "type": "село",
+        "population": 157
+      },
+      {
+        "name": "Тутура",
+        "type": "село",
+        "population": 239
+      },
+      {
+        "name": "Тыпта",
+        "type": "деревня",
+        "population": 80
+      },
+      {
+        "name": "Усть-Илга",
+        "type": "село",
+        "population": 195
+      },
+      {
+        "name": "Чикан",
+        "type": "село",
+        "population": 384
+      },
+      {
+        "name": "Чичек",
+        "type": "деревня",
+        "population": 11
+      },
+      {
+        "name": "Якимовка",
+        "type": "деревня",
+        "population": 91
+      }
+    ]
+  },
+  {
+    "name": "Заларинский",
+    "objects": [
+      {
+        "name": "Бабагай",
+        "type": "село",
+        "population": 467
+      },
+      {
+        "name": "Багантуй",
+        "type": "деревня",
+        "population": 29
+      },
+      {
+        "name": "Бажир",
+        "type": "село",
+        "population": 485
+      },
+      {
+        "name": "Бахвалово",
+        "type": "участок",
+        "population": 1
+      },
+      {
+        "name": "Березкина",
+        "type": "деревня",
+        "population": 170
+      },
+      {
+        "name": "Благодатный",
+        "type": "участок",
+        "population": 196
+      },
+      {
+        "name": "Блок-Пост Халярты",
+        "type": "блок-пост",
+        "population": 11
+      },
+      {
+        "name": "Большая Заимка",
+        "type": "деревня",
+        "population": 297
+      },
+      {
+        "name": "Большой Карлук",
+        "type": "деревня",
+        "population": 17
+      },
+      {
+        "name": "Бухарова",
+        "type": "деревня",
+        "population": 37
+      },
+      {
+        "name": "Веренка",
+        "type": "село",
+        "population": 769
+      },
+      {
+        "name": "Верхний",
+        "type": "участок",
+        "population": 49
+      },
+      {
+        "name": "Владимир",
+        "type": "село",
+        "population": 899
+      },
+      {
+        "name": "Горячий Ключ",
+        "type": "деревня",
+        "population": 19
+      },
+      {
+        "name": "Дагник",
+        "type": "участок",
+        "population": 65
+      },
+      {
+        "name": "Делюр",
+        "type": "посёлок ж.д. станции",
+        "population": 49
+      },
+      {
+        "name": "Дмитриевка",
+        "type": "деревня",
+        "population": 84
+      },
+      {
+        "name": "Жизневка",
+        "type": "участок",
+        "population": 100
+      },
+      {
+        "name": "Заблагар",
+        "type": "деревня",
+        "population": 253
+      },
+      {
+        "name": "Залари",
+        "type": "посёлок рабочий",
+        "population": 9600
+      },
+      {
+        "name": "Замазчикова",
+        "type": "заимка",
+        "population": 99
+      },
+      {
+        "name": "Илганское",
+        "type": "село",
+        "population": 207
+      },
+      {
+        "name": "Исаковка",
+        "type": "деревня",
+        "population": 15
+      },
+      {
+        "name": "Каратаева",
+        "type": "деревня",
+        "population": 33
+      },
+      {
+        "name": "Кирхай",
+        "type": "участок",
+        "population": 72
+      },
+      {
+        "name": "Корсунгай",
+        "type": "деревня",
+        "population": 150
+      },
+      {
+        "name": "Красное Поле",
+        "type": "деревня",
+        "population": 237
+      },
+      {
+        "name": "Ленденева",
+        "type": "деревня",
+        "population": 17
+      },
+      {
+        "name": "Мамуркова",
+        "type": "заимка",
+        "population": 43
+      },
+      {
+        "name": "Мариинск",
+        "type": "участок",
+        "population": 225
+      },
+      {
+        "name": "Мейеровка",
+        "type": "участок",
+        "population": 193
+      },
+      {
+        "name": "Минеева",
+        "type": "деревня",
+        "population": 195
+      },
+      {
+        "name": "Моисеевка",
+        "type": "село",
+        "population": 624
+      },
+      {
+        "name": "Мойган",
+        "type": "село",
+        "population": 524
+      },
+      {
+        "name": "Московская",
+        "type": "деревня",
+        "population": 65
+      },
+      {
+        "name": "Мостовка",
+        "type": "участок",
+        "population": 45
+      },
+      {
+        "name": "Муруй",
+        "type": "деревня",
+        "population": 141
+      },
+      {
+        "name": "Мягчинский",
+        "type": "участок",
+        "population": 22
+      },
+      {
+        "name": "Николаевский",
+        "type": "участок",
+        "population": 130
+      },
+      {
+        "name": "Новометелкина",
+        "type": "деревня",
+        "population": 21
+      },
+      {
+        "name": "Новочеремхово",
+        "type": "село",
+        "population": 329
+      },
+      {
+        "name": "Окинские Сачки",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Первое Мая",
+        "type": "участок",
+        "population": 26
+      },
+      {
+        "name": "Пихтинский",
+        "type": "участок",
+        "population": 113
+      },
+      {
+        "name": "Правый Сарам",
+        "type": "участок",
+        "population": 0
+      },
+      {
+        "name": "Ремезовский",
+        "type": "участок",
+        "population": 72
+      },
+      {
+        "name": "Романенкина",
+        "type": "деревня",
+        "population": 275
+      },
+      {
+        "name": "Романова",
+        "type": "деревня",
+        "population": 228
+      },
+      {
+        "name": "Семёновское",
+        "type": "село",
+        "population": 570
+      },
+      {
+        "name": "Сенная Падь",
+        "type": "деревня",
+        "population": 111
+      },
+      {
+        "name": "Сорты",
+        "type": "деревня",
+        "population": 611
+      },
+      {
+        "name": "Среднепихтинский",
+        "type": "участок",
+        "population": 96
+      },
+      {
+        "name": "Тагна",
+        "type": "деревня",
+        "population": 575
+      },
+      {
+        "name": "Таёжный",
+        "type": "участок",
+        "population": 12
+      },
+      {
+        "name": "Троицк",
+        "type": "село",
+        "population": 914
+      },
+      {
+        "name": "Тунгуй",
+        "type": "деревня",
+        "population": 135
+      },
+      {
+        "name": "Тыреть 1-я",
+        "type": "посёлок рабочий",
+        "population": 3855
+      },
+      {
+        "name": "Тыреть 2-я",
+        "type": "деревня",
+        "population": 285
+      },
+      {
+        "name": "Халты",
+        "type": "участок",
+        "population": 201
+      },
+      {
+        "name": "Ханжиново",
+        "type": "село",
+        "population": 1129
+      },
+      {
+        "name": "Харагун",
+        "type": "деревня",
+        "population": 2
+      },
+      {
+        "name": "Холмогой",
+        "type": "село",
+        "population": 673
+      },
+      {
+        "name": "Хор-Бутырина",
+        "type": "участок",
+        "population": 8
+      },
+      {
+        "name": "Хор-Тагна",
+        "type": "село",
+        "population": 660
+      },
+      {
+        "name": "Хотхор",
+        "type": "деревня",
+        "population": 65
+      },
+      {
+        "name": "Чаданова",
+        "type": "деревня",
+        "population": 101
+      },
+      {
+        "name": "Черемшанка",
+        "type": "село",
+        "population": 309
+      },
+      {
+        "name": "Шабалина",
+        "type": "заимка",
+        "population": 33
+      },
+      {
+        "name": "Шарагул-Сачки",
+        "type": "участок",
+        "population": 0
+      },
+      {
+        "name": "Щеглаева",
+        "type": "деревня",
+        "population": 5
+      },
+      {
+        "name": "Щербакова",
+        "type": "заимка",
+        "population": 181
+      }
+    ]
+  },
+  {
+    "name": "Зиминский",
+    "objects": [
+      {
+        "name": "Баргадай",
+        "type": "село",
+        "population": 368
+      },
+      {
+        "name": "Басалаевка",
+        "type": "село",
+        "population": 276
+      },
+      {
+        "name": "Батама",
+        "type": "село",
+        "population": 982
+      },
+      {
+        "name": "Большеворонежский",
+        "type": "посёлок",
+        "population": 210
+      },
+      {
+        "name": "Большелихачевский",
+        "type": "участок",
+        "population": 13
+      },
+      {
+        "name": "Большерастягаевский",
+        "type": "участок",
+        "population": 29
+      },
+      {
+        "name": "Боровое",
+        "type": "участок",
+        "population": 126
+      },
+      {
+        "name": "Буринская Дача",
+        "type": "участок",
+        "population": 250
+      },
+      {
+        "name": "Буря",
+        "type": "село",
+        "population": 218
+      },
+      {
+        "name": "Верхнеокинский",
+        "type": "участок",
+        "population": 239
+      },
+      {
+        "name": "Верхний Щельбей",
+        "type": "деревня",
+        "population": 23
+      },
+      {
+        "name": "Верхняя Зима",
+        "type": "деревня",
+        "population": 63
+      },
+      {
+        "name": "Глинки",
+        "type": "село",
+        "population": 268
+      },
+      {
+        "name": "Зулумай",
+        "type": "посёлок",
+        "population": 302
+      },
+      {
+        "name": "Игнай",
+        "type": "деревня",
+        "population": 28
+      },
+      {
+        "name": "Кимильтей",
+        "type": "село",
+        "population": 1854
+      },
+      {
+        "name": "Кундулун",
+        "type": "село",
+        "population": 111
+      },
+      {
+        "name": "Кустова",
+        "type": "деревня",
+        "population": 64
+      },
+      {
+        "name": "Левый Сарам",
+        "type": "участок",
+        "population": 10
+      },
+      {
+        "name": "Масляногорск",
+        "type": "село",
+        "population": 508
+      },
+      {
+        "name": "Мольта",
+        "type": "участок",
+        "population": 37
+      },
+      {
+        "name": "Мордино",
+        "type": "деревня",
+        "population": 313
+      },
+      {
+        "name": "Нагишкина",
+        "type": "деревня",
+        "population": 72
+      },
+      {
+        "name": "Нижнечиркина",
+        "type": "деревня",
+        "population": 61
+      },
+      {
+        "name": "Нижний Хазан",
+        "type": "деревня",
+        "population": 26
+      },
+      {
+        "name": "Новолетники",
+        "type": "село",
+        "population": 403
+      },
+      {
+        "name": "Новоникольск",
+        "type": "деревня",
+        "population": 62
+      },
+      {
+        "name": "Норы",
+        "type": "деревня",
+        "population": 341
+      },
+      {
+        "name": "Ока-2",
+        "type": "блокпост",
+        "population": 46
+      },
+      {
+        "name": "Осиповский",
+        "type": "посёлок",
+        "population": 85
+      },
+      {
+        "name": "Перевоз",
+        "type": "посёлок ж.д. станции",
+        "population": 114
+      },
+      {
+        "name": "Перевоз",
+        "type": "село",
+        "population": 435
+      },
+      {
+        "name": "Подгорная",
+        "type": "деревня",
+        "population": 7
+      },
+      {
+        "name": "Покровка",
+        "type": "село",
+        "population": 618
+      },
+      {
+        "name": "Полковникова",
+        "type": "заимка",
+        "population": 7
+      },
+      {
+        "name": "Самара",
+        "type": "село",
+        "population": 508
+      },
+      {
+        "name": "Сологубово",
+        "type": "село",
+        "population": 150
+      },
+      {
+        "name": "Стибутовский",
+        "type": "участок",
+        "population": 79
+      },
+      {
+        "name": "Трактовый",
+        "type": "участок",
+        "population": 88
+      },
+      {
+        "name": "Урункуй",
+        "type": "участок",
+        "population": 121
+      },
+      {
+        "name": "Услон",
+        "type": "село",
+        "population": 722
+      },
+      {
+        "name": "Успенский 1-й",
+        "type": "посёлок",
+        "population": 28
+      },
+      {
+        "name": "Успенский 3-й",
+        "type": "посёлок",
+        "population": 101
+      },
+      {
+        "name": "Ухтуй",
+        "type": "село",
+        "population": 724
+      },
+      {
+        "name": "Феофановский",
+        "type": "участок",
+        "population": 28
+      },
+      {
+        "name": "Филипповск",
+        "type": "село",
+        "population": 306
+      },
+      {
+        "name": "Харайгун",
+        "type": "село",
+        "population": 333
+      },
+      {
+        "name": "Холы",
+        "type": "участок",
+        "population": 20
+      },
+      {
+        "name": "Центральный Хазан",
+        "type": "посёлок",
+        "population": 1339
+      },
+      {
+        "name": "Челяба",
+        "type": "деревня",
+        "population": 31
+      },
+      {
+        "name": "Черемшанка",
+        "type": "деревня",
+        "population": 256
+      }
+    ]
+  },
+  {
+    "name": "Иркутский",
+    "objects": [
+      {
+        "name": "Ангара",
+        "type": "деревня",
+        "population": 33
+      },
+      {
+        "name": "Ангарские Хутора",
+        "type": "посёлок",
+        "population": 31
+      },
+      {
+        "name": "Баруй",
+        "type": "деревня",
+        "population": 271
+      },
+      {
+        "name": "Берёзка",
+        "type": "посёлок",
+        "population": 2
+      },
+      {
+        "name": "Большая Речка",
+        "type": "посёлок рабочий",
+        "population": 2627
+      },
+      {
+        "name": "Большие Коты",
+        "type": "посёлок",
+        "population": 59
+      },
+      {
+        "name": "Большое Голоустное",
+        "type": "посёлок",
+        "population": 583
+      },
+      {
+        "name": "Бургаз",
+        "type": "деревня",
+        "population": 263
+      },
+      {
+        "name": "Бурдаковка",
+        "type": "деревня",
+        "population": 410
+      },
+      {
+        "name": "Бурдугуз",
+        "type": "посёлок",
+        "population": 126
+      },
+      {
+        "name": "Бутырки",
+        "type": "деревня",
+        "population": 587
+      },
+      {
+        "name": "Бутырки",
+        "type": "посёлок",
+        "population": 6
+      },
+      {
+        "name": "Бухун",
+        "type": "посёлок",
+        "population": 81
+      },
+      {
+        "name": "Быкова",
+        "type": "деревня",
+        "population": 260
+      },
+      {
+        "name": "Вдовина",
+        "type": "заимка",
+        "population": 75
+      },
+      {
+        "name": "Верхний Кет",
+        "type": "деревня",
+        "population": 54
+      },
+      {
+        "name": "Галки",
+        "type": "деревня",
+        "population": 560
+      },
+      {
+        "name": "Глазунова",
+        "type": "заимка",
+        "population": 124
+      },
+      {
+        "name": "Горный",
+        "type": "посёлок",
+        "population": 394
+      },
+      {
+        "name": "Горохово",
+        "type": "село",
+        "population": 736
+      },
+      {
+        "name": "Горячий Ключ",
+        "type": "посёлок",
+        "population": 864
+      },
+      {
+        "name": "Горяшина",
+        "type": "деревня",
+        "population": 419
+      },
+      {
+        "name": "Грановщина",
+        "type": "деревня",
+        "population": 1279
+      },
+      {
+        "name": "Дзержинск",
+        "type": "посёлок",
+        "population": 2277
+      },
+      {
+        "name": "Добролёт",
+        "type": "посёлок",
+        "population": 33
+      },
+      {
+        "name": "Дорожный",
+        "type": "посёлок",
+        "population": 21
+      },
+      {
+        "name": "Егоровщина",
+        "type": "деревня",
+        "population": 382
+      },
+      {
+        "name": "Еловка",
+        "type": "село",
+        "population": 200
+      },
+      {
+        "name": "Жердовка",
+        "type": "деревня",
+        "population": 284
+      },
+      {
+        "name": "Зорино-Быково",
+        "type": "деревня",
+        "population": 226
+      },
+      {
+        "name": "Зыкова",
+        "type": "деревня",
+        "population": 167
+      },
+      {
+        "name": "Карлук",
+        "type": "деревня",
+        "population": 2572
+      },
+      {
+        "name": "Каштак",
+        "type": "деревня",
+        "population": 55
+      },
+      {
+        "name": "Коты",
+        "type": "деревня",
+        "population": 577
+      },
+      {
+        "name": "Куда",
+        "type": "деревня",
+        "population": 2399
+      },
+      {
+        "name": "Кыцигировка",
+        "type": "деревня",
+        "population": 476
+      },
+      {
+        "name": "Лебединка",
+        "type": "посёлок",
+        "population": 39
+      },
+      {
+        "name": "Листвянка",
+        "type": "посёлок рабочий",
+        "population": 1882
+      },
+      {
+        "name": "Лыловщина",
+        "type": "деревня",
+        "population": 387
+      },
+      {
+        "name": "Максимовщина",
+        "type": "село",
+        "population": 1682
+      },
+      {
+        "name": "Максимовщина",
+        "type": "деревня",
+        "population": 251
+      },
+      {
+        "name": "Малая Еланка",
+        "type": "деревня",
+        "population": 774
+      },
+      {
+        "name": "Малая Топка",
+        "type": "посёлок",
+        "population": 1864
+      },
+      {
+        "name": "Малое Голоустное",
+        "type": "село",
+        "population": 1262
+      },
+      {
+        "name": "Мамоны",
+        "type": "село",
+        "population": 3154
+      },
+      {
+        "name": "Маркова",
+        "type": "посёлок рабочий",
+        "population": 9894
+      },
+      {
+        "name": "Мишонкова",
+        "type": "деревня",
+        "population": 96
+      },
+      {
+        "name": "Молодёжный",
+        "type": "посёлок",
+        "population": 6640
+      },
+      {
+        "name": "Московщина",
+        "type": "деревня",
+        "population": 863
+      },
+      {
+        "name": "Нижний Кочергат",
+        "type": "посёлок",
+        "population": 19
+      },
+      {
+        "name": "Никола",
+        "type": "посёлок",
+        "population": 119
+      },
+      {
+        "name": "икольск",
+        "type": "село",
+        "population": 1079
+      },
+      {
+        "name": "Новая Разводная",
+        "type": "посёлок",
+        "population": 1313
+      },
+      {
+        "name": "Новогрудинина",
+        "type": "деревня",
+        "population": 141
+      },
+      {
+        "name": "Новолисиха",
+        "type": "деревня",
+        "population": 528
+      },
+      {
+        "name": "Оёк",
+        "type": "село",
+        "population": 3678
+      },
+      {
+        "name": "Падь Мельничная",
+        "type": "посёлок",
+        "population": 1139
+      },
+      {
+        "name": "Парфёновка",
+        "type": "посёлок",
+        "population": 59
+      },
+      {
+        "name": "Патроны",
+        "type": "посёлок",
+        "population": 468
+      },
+      {
+        "name": "Первомайский",
+        "type": "посёлок",
+        "population": 243
+      },
+      {
+        "name": "ивовариха",
+        "type": "село",
+        "population": 3506
+      },
+      {
+        "name": "Плишкино",
+        "type": "посёлок",
+        "population": 2023
+      },
+      {
+        "name": "Позднякова",
+        "type": "деревня",
+        "population": 305
+      },
+      {
+        "name": "Поливаниха",
+        "type": "заимка",
+        "population": 33
+      },
+      {
+        "name": "Ревякина",
+        "type": "деревня",
+        "population": 691
+      },
+      {
+        "name": "Рязановщина",
+        "type": "деревня",
+        "population": 160
+      },
+      {
+        "name": "Сайгуты",
+        "type": "деревня",
+        "population": 271
+      },
+      {
+        "name": "моленщина",
+        "type": "село",
+        "population": 3214
+      },
+      {
+        "name": "Сосновый Бор",
+        "type": "деревня",
+        "population": 1778
+      },
+      {
+        "name": "Степановка",
+        "type": "деревня",
+        "population": 200
+      },
+      {
+        "name": "Столбова",
+        "type": "деревня",
+        "population": 459
+      },
+      {
+        "name": "Тайтура",
+        "type": "деревня",
+        "population": 87
+      },
+      {
+        "name": "Талька",
+        "type": "деревня",
+        "population": 223
+      },
+      {
+        "name": "Тальцы",
+        "type": "посёлок",
+        "population": 9
+      },
+      {
+        "name": "Тихонова Падь",
+        "type": "деревня",
+        "population": 227
+      },
+      {
+        "name": "Турская",
+        "type": "деревня",
+        "population": 214
+      },
+      {
+        "name": "рик",
+        "type": "село",
+        "population": 2079
+      },
+      {
+        "name": "Усть-Балей",
+        "type": "посёлок",
+        "population": 306
+      },
+      {
+        "name": "Усть-Куда",
+        "type": "деревня",
+        "population": 2010
+      },
+      {
+        "name": "Хайрюзовка",
+        "type": "деревня",
+        "population": 8
+      },
+      {
+        "name": "омутово",
+        "type": "село",
+        "population": 7528
+      },
+      {
+        "name": "Худякова",
+        "type": "деревня",
+        "population": 530
+      },
+      {
+        "name": "Черёмушка",
+        "type": "деревня",
+        "population": 494
+      },
+      {
+        "name": "Черемшанка",
+        "type": "посёлок",
+        "population": 6
+      },
+      {
+        "name": "Ширяева",
+        "type": "деревня",
+        "population": 933
+      }
+    ]
+  },
+  {
+    "name": "Казачинско-Ленский",
+    "objects": [
+      {
+        "name": "Верхнемартыново",
+        "type": "село",
+        "population": 89
+      },
+      {
+        "name": "Вершина Ханды",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "рмаки",
+        "type": "село",
+        "population": 43
+      },
+      {
+        "name": "азачинское",
+        "type": "село",
+        "population": 2624
+      },
+      {
+        "name": "арам",
+        "type": "село",
+        "population": 352
+      },
+      {
+        "name": "Карнаухова",
+        "type": "деревня",
+        "population": 39
+      },
+      {
+        "name": "Ключи",
+        "type": "деревня",
+        "population": 1054
+      },
+      {
+        "name": "Конец Луг",
+        "type": "деревня",
+        "population": 55
+      },
+      {
+        "name": "Коротково",
+        "type": "деревня",
+        "population": 1
+      },
+      {
+        "name": "Кунерма",
+        "type": "посёлок рабочий",
+        "population": 59
+      },
+      {
+        "name": "утима",
+        "type": "село",
+        "population": 21
+      },
+      {
+        "name": "Магистральный",
+        "type": "посёлок рабочий",
+        "population": 7067
+      },
+      {
+        "name": "Мостовая",
+        "type": "деревня",
+        "population": 19
+      },
+      {
+        "name": "Небель",
+        "type": "посёлок",
+        "population": 299
+      },
+      {
+        "name": "Нижнемартыново",
+        "type": "деревня",
+        "population": 32
+      },
+      {
+        "name": "Новосёлово",
+        "type": "село",
+        "population": 34
+      },
+      {
+        "name": "Окунайский",
+        "type": "посёлок",
+        "population": 945
+      },
+      {
+        "name": "Осиново",
+        "type": "село",
+        "population": 2
+      },
+      {
+        "name": "Поперечная",
+        "type": "деревня",
+        "population": 3
+      },
+      {
+        "name": "Седанкина",
+        "type": "деревня",
+        "population": 167
+      },
+      {
+        "name": "Тарасово",
+        "type": "село",
+        "population": 110
+      },
+      {
+        "name": "Улькан",
+        "type": "посёлок рабочий",
+        "population": 5412
+      },
+      {
+        "name": "Юхта",
+        "type": "деревня",
+        "population": 187
+      }
+    ]
+  },
+  {
+    "name": "Катангский",
+    "objects": [
+      {
+        "name": "Бур",
+        "type": "село",
+        "population": 122
+      },
+      {
+        "name": "Верхне-Калинина",
+        "type": "деревня",
+        "population": 35
+      },
+      {
+        "name": "рбогачён",
+        "type": "село",
+        "population": 1965
+      },
+      {
+        "name": "Ерема",
+        "type": "село",
+        "population": 53
+      },
+      {
+        "name": "Ика",
+        "type": "село",
+        "population": 52
+      },
+      {
+        "name": "Инаригда",
+        "type": "участок",
+        "population": 12
+      },
+      {
+        "name": "Мога",
+        "type": "деревня",
+        "population": 5
+      },
+      {
+        "name": "Наканно",
+        "type": "село",
+        "population": 74
+      },
+      {
+        "name": "Непа",
+        "type": "село",
+        "population": 297
+      },
+      {
+        "name": "Оськино",
+        "type": "село",
+        "population": 46
+      },
+      {
+        "name": "Подволошино",
+        "type": "село",
+        "population": 467
+      },
+      {
+        "name": "Преображенка",
+        "type": "село",
+        "population": 440
+      },
+      {
+        "name": "Тетея",
+        "type": "деревня",
+        "population": 37
+      },
+      {
+        "name": "Токма",
+        "type": "село",
+        "population": 75
+      },
+      {
+        "name": "Хамакар",
+        "type": "село",
+        "population": 99
+      }
+    ]
+  },
+  {
+    "name": "Качугский",
+    "objects": [
+      {
+        "name": "Алексеевка",
+        "type": "деревня",
+        "population": 22
+      },
+      {
+        "name": "Анга",
+        "type": "село",
+        "population": 863
+      },
+      {
+        "name": "Аргун",
+        "type": "деревня",
+        "population": 345
+      },
+      {
+        "name": "Ацикяк",
+        "type": "деревня",
+        "population": 95
+      },
+      {
+        "name": "Белоусово",
+        "type": "село",
+        "population": 110
+      },
+      {
+        "name": "Бирюлька",
+        "type": "село",
+        "population": 606
+      },
+      {
+        "name": "Болото",
+        "type": "деревня",
+        "population": 116
+      },
+      {
+        "name": "Большая Тарель",
+        "type": "село",
+        "population": 198
+      },
+      {
+        "name": "Большедворова",
+        "type": "деревня",
+        "population": 16
+      },
+      {
+        "name": "Большие Голы",
+        "type": "деревня",
+        "population": 157
+      },
+      {
+        "name": "Большой Косогол",
+        "type": "деревня",
+        "population": 107
+      },
+      {
+        "name": "Большой Улун",
+        "type": "деревня",
+        "population": 14
+      },
+      {
+        "name": "Босогол",
+        "type": "деревня",
+        "population": 99
+      },
+      {
+        "name": "Буредай",
+        "type": "деревня",
+        "population": 2
+      },
+      {
+        "name": "Бутаково",
+        "type": "село",
+        "population": 512
+      },
+      {
+        "name": "Верхоленск",
+        "type": "село",
+        "population": 537
+      },
+      {
+        "name": "Вершина Тутуры",
+        "type": "село",
+        "population": 183
+      },
+      {
+        "name": "Гогон",
+        "type": "деревня",
+        "population": 12
+      },
+      {
+        "name": "Дурутуй",
+        "type": "деревня",
+        "population": 3
+      },
+      {
+        "name": "Житова",
+        "type": "деревня",
+        "population": 21
+      },
+      {
+        "name": "Загулан",
+        "type": "деревня",
+        "population": 4
+      },
+      {
+        "name": "алог",
+        "type": "село",
+        "population": 191
+      },
+      {
+        "name": "аречное",
+        "type": "село",
+        "population": 228
+      },
+      {
+        "name": "Зуева",
+        "type": "деревня",
+        "population": 184
+      },
+      {
+        "name": "Исеть",
+        "type": "деревня",
+        "population": 242
+      },
+      {
+        "name": "Ихинагуй",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Карлук",
+        "type": "село",
+        "population": 218
+      },
+      {
+        "name": "Картухай",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "Качуг",
+        "type": "посёлок рабочий",
+        "population": 7011
+      },
+      {
+        "name": "Кистенева",
+        "type": "деревня",
+        "population": 36
+      },
+      {
+        "name": "озлово",
+        "type": "село",
+        "population": 2
+      },
+      {
+        "name": "Копцыгай",
+        "type": "деревня",
+        "population": 28
+      },
+      {
+        "name": "Копылова",
+        "type": "деревня",
+        "population": 170
+      },
+      {
+        "name": "Корсукова",
+        "type": "деревня",
+        "population": 187
+      },
+      {
+        "name": "Краснояр",
+        "type": "деревня",
+        "population": 585
+      },
+      {
+        "name": "Кузнецы",
+        "type": "деревня",
+        "population": 7
+      },
+      {
+        "name": "Кукуй",
+        "type": "деревня",
+        "population": 129
+      },
+      {
+        "name": "Куницына",
+        "type": "деревня",
+        "population": 2
+      },
+      {
+        "name": "Лесной",
+        "type": "посёлок",
+        "population": 26
+      },
+      {
+        "name": "Литвинова",
+        "type": "деревня",
+        "population": 188
+      },
+      {
+        "name": "Магдан",
+        "type": "деревня",
+        "population": 58
+      },
+      {
+        "name": "Макрушина",
+        "type": "деревня",
+        "population": 15
+      },
+      {
+        "name": "Малая Тарель",
+        "type": "деревня",
+        "population": 135
+      },
+      {
+        "name": "Малые Голы",
+        "type": "деревня",
+        "population": 151
+      },
+      {
+        "name": "анзурка",
+        "type": "село",
+        "population": 856
+      },
+      {
+        "name": "ыс",
+        "type": "село",
+        "population": 33
+      },
+      {
+        "name": "икилей",
+        "type": "село",
+        "population": 292
+      },
+      {
+        "name": "Новохарбатова",
+        "type": "деревня",
+        "population": 210
+      },
+      {
+        "name": "Обхой",
+        "type": "деревня",
+        "population": 29
+      },
+      {
+        "name": "Подкаменка",
+        "type": "деревня",
+        "population": 33
+      },
+      {
+        "name": "Полоскова",
+        "type": "деревня",
+        "population": 122
+      },
+      {
+        "name": "Ремизова",
+        "type": "деревня",
+        "population": 56
+      },
+      {
+        "name": "Рыкова",
+        "type": "деревня",
+        "population": 200
+      },
+      {
+        "name": "Сутай",
+        "type": "деревня",
+        "population": 48
+      },
+      {
+        "name": "Суханай-Байбет",
+        "type": "деревня",
+        "population": 9
+      },
+      {
+        "name": "Тальма",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Тарай",
+        "type": "деревня",
+        "population": 14
+      },
+      {
+        "name": "Тимирязева",
+        "type": "деревня",
+        "population": 133
+      },
+      {
+        "name": "Толмачева",
+        "type": "деревня",
+        "population": 54
+      },
+      {
+        "name": "Тырка",
+        "type": "деревня",
+        "population": 16
+      },
+      {
+        "name": "Тюменцева",
+        "type": "деревня",
+        "population": 24
+      },
+      {
+        "name": "Усть-Тальма",
+        "type": "деревня",
+        "population": 47
+      },
+      {
+        "name": "Хабардина",
+        "type": "деревня",
+        "population": 6
+      },
+      {
+        "name": "Хальск",
+        "type": "деревня",
+        "population": 81
+      },
+      {
+        "name": "арбатово",
+        "type": "село",
+        "population": 460
+      },
+      {
+        "name": "Хобанова",
+        "type": "деревня",
+        "population": 9
+      },
+      {
+        "name": "Чанчур",
+        "type": "деревня",
+        "population": 1
+      },
+      {
+        "name": "Челпанова",
+        "type": "деревня",
+        "population": 64
+      },
+      {
+        "name": "Чемякина",
+        "type": "деревня",
+        "population": 16
+      },
+      {
+        "name": "Чептыхой",
+        "type": "деревня",
+        "population": 76
+      },
+      {
+        "name": "Чинонга",
+        "type": "деревня",
+        "population": 29
+      },
+      {
+        "name": "Шевыкан",
+        "type": "деревня",
+        "population": 4
+      },
+      {
+        "name": "Шеина",
+        "type": "деревня",
+        "population": 215
+      },
+      {
+        "name": "Шеметова",
+        "type": "деревня",
+        "population": 159
+      },
+      {
+        "name": "Шишкина",
+        "type": "деревня",
+        "population": 80
+      },
+      {
+        "name": "Щапова",
+        "type": "деревня",
+        "population": 180
+      },
+      {
+        "name": "Юшина",
+        "type": "деревня",
+        "population": 0
+      }
+    ]
+  },
+  {
+    "name": "Киренский",
+    "objects": [
+      {
+        "name": "Алексеевка",
+        "type": "деревня",
+        "population": 4
+      },
+      {
+        "name": "Алексеевск",
+        "type": "посёлок рабочий",
+        "population": 2529
+      },
+      {
+        "name": "лымовка",
+        "type": "село",
+        "population": 305
+      },
+      {
+        "name": "Балышева",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "анщиково",
+        "type": "село",
+        "population": 67
+      },
+      {
+        "name": "Бор",
+        "type": "деревня",
+        "population": 7
+      },
+      {
+        "name": "Бубновка",
+        "type": "посёлок",
+        "population": 569
+      },
+      {
+        "name": "Верхнекарелина",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Верхолугск",
+        "type": "деревня",
+        "population": 1
+      },
+      {
+        "name": "Визирный",
+        "type": "посёлок",
+        "population": 128
+      },
+      {
+        "name": "Вишнякова",
+        "type": "деревня",
+        "population": 50
+      },
+      {
+        "name": "Воронежский",
+        "type": "посёлок",
+        "population": 156
+      },
+      {
+        "name": "Дарьина",
+        "type": "деревня",
+        "population": 5
+      },
+      {
+        "name": "Заборье",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "меиново",
+        "type": "село",
+        "population": 92
+      },
+      {
+        "name": "Золотой",
+        "type": "посёлок",
+        "population": 9
+      },
+      {
+        "name": "Ичера",
+        "type": "деревня",
+        "population": 6
+      },
+      {
+        "name": "Киренск",
+        "type": "город",
+        "population": 12640
+      },
+      {
+        "name": "Коммуна",
+        "type": "деревня",
+        "population": 139
+      },
+      {
+        "name": "Кондрашина",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Коршуново",
+        "type": "село",
+        "population": 153
+      },
+      {
+        "name": "расноярово",
+        "type": "село",
+        "population": 41
+      },
+      {
+        "name": "Кривая Лука",
+        "type": "село",
+        "population": 388
+      },
+      {
+        "name": "Кривошапкино",
+        "type": "село",
+        "population": 404
+      },
+      {
+        "name": "Макарово",
+        "type": "село",
+        "population": 721
+      },
+      {
+        "name": "Мироново",
+        "type": "село",
+        "population": 54
+      },
+      {
+        "name": "Мутина",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Небель",
+        "type": "посёлок",
+        "population": 138
+      },
+      {
+        "name": "Никольск",
+        "type": "деревня",
+        "population": 118
+      },
+      {
+        "name": "Никулина",
+        "type": "деревня",
+        "population": 149
+      },
+      {
+        "name": "Орлова",
+        "type": "деревня",
+        "population": 35
+      },
+      {
+        "name": "Пашня",
+        "type": "посёлок",
+        "population": 16
+      },
+      {
+        "name": "Петропавловское",
+        "type": "село",
+        "population": 366
+      },
+      {
+        "name": "Подъельник",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Салтыкова",
+        "type": "деревня",
+        "population": 81
+      },
+      {
+        "name": "Сидорова",
+        "type": "деревня",
+        "population": 205
+      },
+      {
+        "name": "Скобельская",
+        "type": "деревня",
+        "population": 3
+      },
+      {
+        "name": "Сполошино",
+        "type": "село",
+        "population": 24
+      },
+      {
+        "name": "Старая Деревня",
+        "type": "деревня",
+        "population": 11
+      },
+      {
+        "name": "Улькан",
+        "type": "село",
+        "population": 0
+      },
+      {
+        "name": "Усть-Киренга",
+        "type": "село",
+        "population": 57
+      },
+      {
+        "name": "Хабарова",
+        "type": "деревня",
+        "population": 39
+      },
+      {
+        "name": "Частых",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Чечуйск",
+        "type": "село",
+        "population": 121
+      },
+      {
+        "name": "Юбилейный",
+        "type": "посёлок",
+        "population": 471
+      }
+    ]
+  },
+  {
+    "name": "Куйтунский",
+    "objects": [
+      {
+        "name": "Александро-Невская Станица",
+        "type": "деревня",
+        "population": 218
+      },
+      {
+        "name": "лександро-Невский Завод",
+        "type": "село",
+        "population": 29
+      },
+      {
+        "name": "лкин",
+        "type": "село",
+        "population": 268
+      },
+      {
+        "name": "мур",
+        "type": "село",
+        "population": 298
+      },
+      {
+        "name": "ндрюшино",
+        "type": "село",
+        "population": 668
+      },
+      {
+        "name": "Апраксина",
+        "type": "деревня",
+        "population": 90
+      },
+      {
+        "name": "Аршан",
+        "type": "деревня",
+        "population": 101
+      },
+      {
+        "name": "Ахтинский",
+        "type": "посёлок",
+        "population": 137
+      },
+      {
+        "name": "арлук",
+        "type": "село",
+        "population": 1112
+      },
+      {
+        "name": "Берёзовский",
+        "type": "посёлок",
+        "population": 199
+      },
+      {
+        "name": "Большой Кашелак",
+        "type": "село",
+        "population": 269
+      },
+      {
+        "name": "Броды",
+        "type": "село",
+        "population": 113
+      },
+      {
+        "name": "Бузулук",
+        "type": "посёлок",
+        "population": 52
+      },
+      {
+        "name": "Бурук",
+        "type": "село",
+        "population": 369
+      },
+      {
+        "name": "Еланский",
+        "type": "посёлок",
+        "population": 219
+      },
+      {
+        "name": "Заваль",
+        "type": "село",
+        "population": 5
+      },
+      {
+        "name": "Зобинский",
+        "type": "посёлок",
+        "population": 9
+      },
+      {
+        "name": "Ивановский",
+        "type": "участок",
+        "population": 5
+      },
+      {
+        "name": "Игнино",
+        "type": "посёлок",
+        "population": 563
+      },
+      {
+        "name": "Или",
+        "type": "село",
+        "population": 143
+      },
+      {
+        "name": "Каразей",
+        "type": "село",
+        "population": 1181
+      },
+      {
+        "name": "Каранцай",
+        "type": "село",
+        "population": 266
+      },
+      {
+        "name": "Карымск",
+        "type": "село",
+        "population": 1809
+      },
+      {
+        "name": "Кимильтей",
+        "type": "посёлок ж.д. станции",
+        "population": 156
+      },
+      {
+        "name": "Ключи",
+        "type": "село",
+        "population": 208
+      },
+      {
+        "name": "Красный Яр",
+        "type": "деревня",
+        "population": 330
+      },
+      {
+        "name": "Куйтун",
+        "type": "посёлок рабочий",
+        "population": 10097
+      },
+      {
+        "name": "Кундуй",
+        "type": "село",
+        "population": 932
+      },
+      {
+        "name": "Ленинский",
+        "type": "посёлок",
+        "population": 314
+      },
+      {
+        "name": "Лермонтовский",
+        "type": "посёлок",
+        "population": 597
+      },
+      {
+        "name": "Листвянка",
+        "type": "деревня",
+        "population": 158
+      },
+      {
+        "name": "Майский",
+        "type": "посёлок",
+        "population": 216
+      },
+      {
+        "name": "Малая Кочерма",
+        "type": "село",
+        "population": 138
+      },
+      {
+        "name": "Малой",
+        "type": "участок",
+        "population": 23
+      },
+      {
+        "name": "Меньчукова",
+        "type": "деревня",
+        "population": 5
+      },
+      {
+        "name": "Мингатуй",
+        "type": "посёлок ж.д. станции",
+        "population": 132
+      },
+      {
+        "name": "Мингатуй",
+        "type": "село",
+        "population": 187
+      },
+      {
+        "name": "Наратай",
+        "type": "посёлок",
+        "population": 253
+      },
+      {
+        "name": "Новая Када",
+        "type": "деревня",
+        "population": 218
+      },
+      {
+        "name": "Новая Тельба",
+        "type": "посёлок",
+        "population": 175
+      },
+      {
+        "name": "Новокадинский",
+        "type": "посёлок",
+        "population": 2
+      },
+      {
+        "name": "Новые Броды",
+        "type": "посёлок",
+        "population": 2
+      },
+      {
+        "name": "Окинский",
+        "type": "посёлок",
+        "population": 107
+      },
+      {
+        "name": "Октябрьский",
+        "type": "посёлок",
+        "population": 97
+      },
+      {
+        "name": "Панагино",
+        "type": "посёлок",
+        "population": 292
+      },
+      {
+        "name": "Полтава",
+        "type": "деревня",
+        "population": 14
+      },
+      {
+        "name": "Ромоданова",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Садовый",
+        "type": "посёлок",
+        "population": 139
+      },
+      {
+        "name": "Сосновский",
+        "type": "посёлок",
+        "population": 174
+      },
+      {
+        "name": "Станица 3-я",
+        "type": "деревня",
+        "population": 269
+      },
+      {
+        "name": "Степной",
+        "type": "посёлок",
+        "population": 64
+      },
+      {
+        "name": "Сулкет",
+        "type": "село",
+        "population": 211
+      },
+      {
+        "name": "Таган",
+        "type": "деревня",
+        "population": 15
+      },
+      {
+        "name": "Тихорут",
+        "type": "село",
+        "population": 136
+      },
+      {
+        "name": "Тобино",
+        "type": "деревня",
+        "population": 106
+      },
+      {
+        "name": "Тулюшка",
+        "type": "посёлок ж.д. станции",
+        "population": 1259
+      },
+      {
+        "name": "Тулюшка",
+        "type": "село",
+        "population": 311
+      },
+      {
+        "name": "Усть-Када",
+        "type": "село",
+        "population": 422
+      },
+      {
+        "name": "Уховский",
+        "type": "посёлок",
+        "population": 1160
+      },
+      {
+        "name": "Уян",
+        "type": "село",
+        "population": 1121
+      },
+      {
+        "name": "Хаихта",
+        "type": "село",
+        "population": 175
+      },
+      {
+        "name": "Ханхатуй",
+        "type": "деревня",
+        "population": 10
+      },
+      {
+        "name": "Харик",
+        "type": "посёлок",
+        "population": 1812
+      },
+      {
+        "name": "Харик",
+        "type": "село",
+        "population": 748
+      },
+      {
+        "name": "Харчев",
+        "type": "деревня",
+        "population": 115
+      },
+      {
+        "name": "Чеботариха",
+        "type": "село",
+        "population": 779
+      },
+      {
+        "name": "Широкие Кочки",
+        "type": "деревня",
+        "population": 54
+      }
+    ]
+  },
+  {
+    "name": "Мамско-Чуйский",
+    "objects": [
+      {
+        "name": "Большой Северный",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Витимский",
+        "type": "посёлок рабочий",
+        "population": 457
+      },
+      {
+        "name": "Воронцовка",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Заря",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Колотовка",
+        "type": "посёлок",
+        "population": 165
+      },
+      {
+        "name": "Луговский",
+        "type": "посёлок рабочий",
+        "population": 503
+      },
+      {
+        "name": "Мама",
+        "type": "посёлок рабочий",
+        "population": 3630
+      },
+      {
+        "name": "Мусковит",
+        "type": "посёлок",
+        "population": 151
+      },
+      {
+        "name": "Рысья",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Садки",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Слюдянка",
+        "type": "посёлок",
+        "population": 11
+      },
+      {
+        "name": "Тетеринск",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Чайка",
+        "type": "участок",
+        "population": 0
+      },
+      {
+        "name": "Чуя",
+        "type": "село",
+        "population": 33
+      }
+    ]
+  },
+  {
+    "name": "Нижнеилимский",
+    "objects": [
+      {
+        "name": "Березняки",
+        "type": "посёлок",
+        "population": 1149
+      },
+      {
+        "name": "Брусничный",
+        "type": "посёлок",
+        "population": 490
+      },
+      {
+        "name": "Видим",
+        "type": "посёлок рабочий",
+        "population": 1236
+      },
+      {
+        "name": "Дальний",
+        "type": "посёлок",
+        "population": 627
+      },
+      {
+        "name": "Железногорск-Илимский",
+        "type": "город",
+        "population": 26079
+      },
+      {
+        "name": "Заморский",
+        "type": "посёлок",
+        "population": 416
+      },
+      {
+        "name": "Заярск",
+        "type": "посёлок",
+        "population": 51
+      },
+      {
+        "name": "Игирма",
+        "type": "посёлок",
+        "population": 834
+      },
+      {
+        "name": "Каймоновский",
+        "type": "посёлок",
+        "population": 432
+      },
+      {
+        "name": "Карстовая",
+        "type": "деревня",
+        "population": 14
+      },
+      {
+        "name": "Коршуновский",
+        "type": "посёлок",
+        "population": 872
+      },
+      {
+        "name": "Мерзлотная",
+        "type": "посёлок при станции",
+        "population": 31
+      },
+      {
+        "name": "Миндей 1",
+        "type": "посёлок",
+        "population": 0
+      },
+      {
+        "name": "Миндей 2",
+        "type": "посёлок",
+        "population": 6
+      },
+      {
+        "name": "Новая Игирма",
+        "type": "посёлок рабочий",
+        "population": 10161
+      },
+      {
+        "name": "Новоилимск",
+        "type": "посёлок",
+        "population": 863
+      },
+      {
+        "name": "Радищев",
+        "type": "посёлок рабочий",
+        "population": 1140
+      },
+      {
+        "name": "Речушка",
+        "type": "посёлок",
+        "population": 1194
+      },
+      {
+        "name": "Рудногорск",
+        "type": "посёлок рабочий",
+        "population": 3620
+      },
+      {
+        "name": "Селезнёво",
+        "type": "посёлок при станции",
+        "population": 2
+      },
+      {
+        "name": "Селезнёвский",
+        "type": "посёлок",
+        "population": 49
+      },
+      {
+        "name": "Семигорск",
+        "type": "посёлок",
+        "population": 849
+      },
+      {
+        "name": "Сохатый",
+        "type": "участок",
+        "population": 1
+      },
+      {
+        "name": "Соцгородок",
+        "type": "посёлок",
+        "population": 644
+      },
+      {
+        "name": "Суворовский",
+        "type": "посёлок",
+        "population": 458
+      },
+      {
+        "name": "Хребтовая",
+        "type": "посёлок рабочий",
+        "population": 1502
+      },
+      {
+        "name": "Чёрная",
+        "type": "посёлок при станции",
+        "population": 17
+      },
+      {
+        "name": "Чистополянский",
+        "type": "посёлок",
+        "population": 545
+      },
+      {
+        "name": "Шестаково",
+        "type": "посёлок рабочий",
+        "population": 772
+      },
+      {
+        "name": "Янгель",
+        "type": "посёлок рабочий",
+        "population": 1042
+      }
+    ]
+  },
+  {
+    "name": "Нижнеудинский",
+    "objects": [
+      {
+        "name": "Абалаково",
+        "type": "село",
+        "population": 114
+      },
+      {
+        "name": "Алгашет",
+        "type": "посёлок",
+        "population": 34
+      },
+      {
+        "name": "Алзамай",
+        "type": "город",
+        "population": 6730
+      },
+      {
+        "name": "Алыгджер",
+        "type": "село",
+        "population": 508
+      },
+      {
+        "name": "Атагай",
+        "type": "посёлок рабочий",
+        "population": 1740
+      },
+      {
+        "name": "Большеверстовск",
+        "type": "деревня",
+        "population": 119
+      },
+      {
+        "name": "Боровинок",
+        "type": "село",
+        "population": 92
+      },
+      {
+        "name": "Бородинск",
+        "type": "деревня",
+        "population": 81
+      },
+      {
+        "name": "Буракова",
+        "type": "посёлок",
+        "population": 54
+      },
+      {
+        "name": "Варяг",
+        "type": "участок",
+        "population": 1
+      },
+      {
+        "name": "Верхний Хингуй",
+        "type": "деревня",
+        "population": 67
+      },
+      {
+        "name": "Верхняя Гутара",
+        "type": "село",
+        "population": 403
+      },
+      {
+        "name": "Вершина",
+        "type": "посёлок",
+        "population": 553
+      },
+      {
+        "name": "Виленск",
+        "type": "деревня",
+        "population": 72
+      },
+      {
+        "name": "Водопадный",
+        "type": "посёлок",
+        "population": 204
+      },
+      {
+        "name": "Вознесенский",
+        "type": "посёлок",
+        "population": 650
+      },
+      {
+        "name": "Волчий Брод",
+        "type": "деревня",
+        "population": 29
+      },
+      {
+        "name": "Гродинск",
+        "type": "деревня",
+        "population": 37
+      },
+      {
+        "name": "Даур",
+        "type": "село",
+        "population": 346
+      },
+      {
+        "name": "Загорье",
+        "type": "участок",
+        "population": 68
+      },
+      {
+        "name": "Замзор",
+        "type": "посёлок",
+        "population": 1118
+      },
+      {
+        "name": "Заречье",
+        "type": "деревня",
+        "population": 366
+      },
+      {
+        "name": "Зенцова",
+        "type": "деревня",
+        "population": 164
+      },
+      {
+        "name": "Игнит",
+        "type": "участок",
+        "population": 3
+      },
+      {
+        "name": "Иргей",
+        "type": "село",
+        "population": 282
       }
     ]
   },
@@ -5150,7 +5201,7 @@
     ]
   },
   {
-    "name": "Усть-Кутский района",
+    "name": "Усть-Кутский",
     "objects": [
       {
         "name": "Бобровка",

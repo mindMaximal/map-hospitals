@@ -12,6 +12,8 @@ const configDB = {
   database: config.get('database')
 }
 
+// ToDo: выбор гоорода от района
+
 // api/address/region
 router.get(
   '/region',
@@ -21,7 +23,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `region`.`id`, `region`.`name` AS `region_name`  FROM `region`'
+      const query = 'SELECT `region`.`id`, `region`.`name` AS `region_name`  FROM `region` ORDER BY `region_name`'
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -49,7 +51,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `district`.`id`, `district`.`name` AS `district_name`  FROM `district`'
+      const query = 'SELECT `district`.`id`, `district`.`name` AS `district_name`  FROM `district` ORDER BY `district_name`'
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -77,7 +79,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `locality`.`id`, `locality`.`name` AS `locality_name`  FROM `locality`'
+      const query = 'SELECT `locality`.`id`, `locality`.`name` AS `locality_name`  FROM `locality` ORDER BY `locality_name`'
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -105,7 +107,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `medical_facility`.`id`, `medical_facility`.`name` AS `facility_name`  FROM `medical_facility`'
+      const query = 'SELECT `medical_facility`.`id`, `medical_facility`.`name` AS `facility_name` FROM `medical_facility` ORDER BY `facility_name`'
 
       connection.query(query, (err, rows) => {
         connection.end()
