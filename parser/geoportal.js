@@ -33,6 +33,7 @@ for (let i = start; i < stop; i++) {
           const results = JSON.parse(data)
 
           console.log(json.name)
+          console.log(results.length)
 
           if (results.find(el => el.id === json.id)) {
 
