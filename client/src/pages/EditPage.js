@@ -46,6 +46,9 @@ export const EditPage = () => {
     try {
       const fetched = await request(`/api/detail/${id}`, 'GET', null)
       // ToDo: Добавить проверку авторизации токена 2:40:18
+      if (fetched.length === 0) {
+        history.push('/error')
+      }
 
       setData(fetched[0])
     } catch (e) {}
