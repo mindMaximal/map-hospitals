@@ -27,3 +27,26 @@
 		margin: 80px auto 80px auto;
 	}
 }
+
+@media only screen and (max-width: 1280px) {
+	.view {
+
+		&__container,
+		.table-container {
+			width: 90%;
+		}
+	}
+}
+
+@media only screen and (max-width: 425px) {
+	.view {
+
+		&__header {
+			margin-top: 40px;
+		}
+
+		.table-container {
+			margin: 40px auto;
+		}
+	}
+}

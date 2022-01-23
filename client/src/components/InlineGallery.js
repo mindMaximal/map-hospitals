@@ -84,68 +84,66 @@ export const InlineGallery = (props) => {
 
   return (
     <div className={`inline-gallery ${props.className}`}>
-      {
-        state.data.length > 0 &&
-        <div>
-          <div className="inline-gallery__wrapper">
 
-            {props.edit &&
-              <UploaderImage
-                className="inline-gallery__slide"
-                id={props.id}
-                setImages={addImg}
-              />
-            }
+      <div>
+        <div className="inline-gallery__wrapper">
 
-            { loading || props.loading ?
-              <>
+          {props.edit &&
+          <UploaderImage
+            className="inline-gallery__slide"
+            id={props.id}
+            setImages={addImg}
+          />
+          }
 
-                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
-                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
-                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
-                <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
-              </> :
-              state.data.map((el, i) => (
-                props.edit ?
-                  <GalleryEditItem
-                    className="inline-gallery__slide"
-                    onClick={handleSlideImageClick}
-                    setDeletedImg={setDeletedImg}
-                    img={el.name}
-                    id={el.id}
-                    key={i}
-                  />
-                  :
-                  <GalleryItem
-                    className="inline-gallery__slide"
-                    onClick={handleSlideImageClick}
-                    img={el.name}
-                    key={i}
-                  />
-              ))
-            }
+          { loading || props.loading ?
+            <>
 
-          </div>
-
-          {
-            state.visible ?
-              <div
-                className="gallery-view"
-                onClick={handleGalleryViewClick}
-              >
-
-                <img
-                  src={state.src}
-                  alt="Photo"
-                  className="gallery-view__img"
+              <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+              <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+              <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+              <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
+            </> :
+            state.data.map((el, i) => (
+              props.edit ?
+                <GalleryEditItem
+                  className="inline-gallery__slide"
+                  onClick={handleSlideImageClick}
+                  setDeletedImg={setDeletedImg}
+                  img={el.name}
+                  id={el.id}
+                  key={i}
                 />
-
-              </div> :
-              null
+                :
+                <GalleryItem
+                  className="inline-gallery__slide"
+                  onClick={handleSlideImageClick}
+                  img={el.name}
+                  key={i}
+                />
+            ))
           }
 
         </div>
-      }
+
+        {
+          state.visible ?
+            <div
+              className="gallery-view"
+              onClick={handleGalleryViewClick}
+            >
+
+              <img
+                src={state.src}
+                alt="Photo"
+                className="gallery-view__img"
+              />
+
+            </div> :
+            null
+        }
+
+      </div>
 
       <ModalDelete
         deletedImg={deletedImg}

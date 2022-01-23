@@ -12,7 +12,7 @@ const path = './result/dataGeoPortalFullParse.json'
 const subStrShort = 'фап'
 const subStrLong = 'фельд'
 
-const start = 16180000
+const start = 16235953
 const stop = 16700000
 //            10000000
 //            16180000

@@ -379,7 +379,7 @@ export const EditPage = () => {
 
               </div>
 
-              <div className="edit__block">
+              <div className="edit__block edit__block--small">
 
                 <div className="edit__elem">
                   Аптека:
@@ -397,7 +397,7 @@ export const EditPage = () => {
 
               </div>
 
-              <div className="edit__block">
+              <div className="edit__block edit__block--small">
                 <div className="edit__elem">
 
                   Первая помощь:
@@ -415,7 +415,7 @@ export const EditPage = () => {
 
               </div>
 
-              <div className="edit__block">
+              <div className="edit__block edit__block--small">
 
                 <div className="edit__elem">
                   Экстренная помощь:
