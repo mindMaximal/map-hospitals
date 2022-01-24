@@ -163,7 +163,7 @@
         "population": 81
       },
       {
-        "name": "аменка",
+        "name": "Каменка",
         "type": "село",
         "population": 252
       },
@@ -173,12 +173,12 @@
         "population": 595
       },
       {
-        "name": "атарбей",
+        "name": "Катарбей",
         "type": "село",
         "population": 456
       },
       {
-        "name": "атарма",
+        "name": "Катарма",
         "type": "село",
         "population": 43
       },
@@ -243,7 +243,7 @@
         "population": 101
       },
       {
-        "name": "ельница",
+        "name": "Мельница",
         "type": "село",
         "population": 1420
       },
@@ -308,7 +308,7 @@
         "population": 280
       },
       {
-        "name": "орог",
+        "name": "Порог",
         "type": "село",
         "population": 552
       },
@@ -328,7 +328,7 @@
         "population": 429
       },
       {
-        "name": "олонцы",
+        "name": "Солонцы",
         "type": "село",
         "population": 316
       },
@@ -398,7 +398,7 @@
         "population": 229
       },
       {
-        "name": "удоеланское",
+        "name": "Худоеланское",
         "type": "село",
         "population": 1880
       },
@@ -413,7 +413,7 @@
         "population": 71
       },
       {
-        "name": "ехово",
+        "name": "Чехово",
         "type": "село",
         "population": 199
       },
@@ -1949,7 +1949,7 @@
         "population": 119
       },
       {
-        "name": "икольск",
+        "name": "Никольск",
         "type": "село",
         "population": 1079
       },
@@ -1994,7 +1994,7 @@
         "population": 243
       },
       {
-        "name": "ивовариха",
+        "name": "Пивовариха",
         "type": "село",
         "population": 3506
       },
@@ -2029,7 +2029,7 @@
         "population": 271
       },
       {
-        "name": "моленщина",
+        "name": "Смоленщина",
         "type": "село",
         "population": 3214
       },
@@ -2074,7 +2074,7 @@
         "population": 214
       },
       {
-        "name": "рик",
+        "name": "Урик",
         "type": "село",
         "population": 2079
       },
@@ -2094,7 +2094,7 @@
         "population": 8
       },
       {
-        "name": "омутово",
+        "name": "Хомутово",
         "type": "село",
         "population": 7528
       },
@@ -2134,17 +2134,17 @@
         "population": 10
       },
       {
-        "name": "рмаки",
+        "name": "Ермаки",
         "type": "село",
         "population": 43
       },
       {
-        "name": "азачинское",
+        "name": "Казачинское",
         "type": "село",
         "population": 2624
       },
       {
-        "name": "арам",
+        "name": "Карам",
         "type": "село",
         "population": 352
       },
@@ -2174,7 +2174,7 @@
         "population": 59
       },
       {
-        "name": "утима",
+        "name": "Кутима",
         "type": "село",
         "population": 21
       },
@@ -2254,7 +2254,7 @@
         "population": 35
       },
       {
-        "name": "рбогачён",
+        "name": "Ербогачён",
         "type": "село",
         "population": 1965
       },
@@ -2429,12 +2429,12 @@
         "population": 4
       },
       {
-        "name": "алог",
+        "name": "Залог",
         "type": "село",
         "population": 191
       },
       {
-        "name": "аречное",
+        "name": "Заречное",
         "type": "село",
         "population": 228
       },
@@ -2474,7 +2474,7 @@
         "population": 36
       },
       {
-        "name": "озлово",
+        "name": "Козлово",
         "type": "село",
         "population": 2
       },
@@ -2544,17 +2544,17 @@
         "population": 151
       },
       {
-        "name": "анзурка",
+        "name": "Манзурка",
         "type": "село",
         "population": 856
       },
       {
-        "name": "ыс",
+        "name": "Мыс",
         "type": "село",
         "population": 33
       },
       {
-        "name": "икилей",
+        "name": "Никилей",
         "type": "село",
         "population": 292
       },
@@ -2644,7 +2644,7 @@
         "population": 81
       },
       {
-        "name": "арбатово",
+        "name": "Харбатово",
         "type": "село",
         "population": 460
       },
@@ -2724,7 +2724,7 @@
         "population": 2529
       },
       {
-        "name": "лымовка",
+        "name": "Алымовка",
         "type": "село",
         "population": 305
       },
@@ -2734,7 +2734,7 @@
         "population": 10
       },
       {
-        "name": "анщиково",
+        "name": "Банщиково",
         "type": "село",
         "population": 67
       },
@@ -2784,7 +2784,7 @@
         "population": 10
       },
       {
-        "name": "меиново",
+        "name": "Змеиново",
         "type": "село",
         "population": 92
       },
@@ -2819,7 +2819,7 @@
         "population": 153
       },
       {
-        "name": "расноярово",
+        "name": "Красноярово",
         "type": "село",
         "population": 41
       },
@@ -2949,22 +2949,22 @@
         "population": 218
       },
       {
-        "name": "лександро-Невский Завод",
+        "name": "Александро-Невский Завод",
         "type": "село",
         "population": 29
       },
       {
-        "name": "лкин",
+        "name": "Алкин",
         "type": "село",
         "population": 268
       },
       {
-        "name": "мур",
+        "name": "Амур",
         "type": "село",
         "population": 298
       },
       {
-        "name": "ндрюшино",
+        "name": "Андрюшино",
         "type": "село",
         "population": 668
       },
@@ -2984,7 +2984,7 @@
         "population": 137
       },
       {
-        "name": "арлук",
+        "name": "Барлук",
         "type": "село",
         "population": 1112
       },
@@ -5974,7 +5974,7 @@
         "population": 453
       },
       {
-        "name": "унбуй",
+        "name": "Бунбуй",
         "type": "село",
         "population": 405
       },
@@ -6169,7 +6169,7 @@
         "population": 5015
       },
       {
-        "name": "веденщина",
+        "name": "Введенщина",
         "type": "село",
         "population": 1275
       },

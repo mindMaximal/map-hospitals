@@ -4,8 +4,7 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import getAddress from "../functions/getAddress"
 import {useHttp} from "../hooks/http.hook"
 import {Button, Preloader} from "react-materialize"
-import {Gallery} from "./Gallery"
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"
 
 export const SingleView = (props) => {
 
@@ -165,7 +164,10 @@ export const SingleView = (props) => {
 
             <div className="single-view__block">
 
-              <Link to={`/edit/${state.el.id}`}>
+              <Link
+                to={`/detail/${state.el.id}`}
+                target="_blank"
+              >
                 <Button
                   node="button"
                   style={{
@@ -173,7 +175,7 @@ export const SingleView = (props) => {
                   }}
                   waves="light"
                 >
-                  Изменить
+                  Подробнее
                 </Button>
               </Link>
 

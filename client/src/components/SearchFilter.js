@@ -2,17 +2,19 @@ import React, {useCallback, useEffect, useState} from 'react'
 import './SearchFilter.scss'
 import {TextInput, Checkbox, CardPanel} from "react-materialize"
 import {useHttp} from "../hooks/http.hook"
+import {SelectArea} from "./SelectArea";
 
 export const SearchFilter = (props) => {
   const {loading, error, request, clearError} = useHttp()
 
   const [filters, setFilters] = useState({
-    'pharmacy': null,
-    'firstAid': null,
-    'emergencyAssistance': null,
-    'staffing': null,
-    'foundationYearFrom': null,
-    'foundationYearTo': null,
+    pharmacy: null,
+    firstAid: null,
+    emergencyAssistance: null,
+    staffing: null,
+    foundationYearFrom: null,
+    foundationYearTo: null,
+    district_id: null
   })
 
   const handleCheckBoxFilterClick = (e) => {
@@ -33,6 +35,17 @@ export const SearchFilter = (props) => {
     setFilters({
       ...filters,
       [name]: !isNaN(parseInt(value)) ? parseInt(value) : null
+    })
+  }
+
+  const handleSelectChange = (e) => {
+    const { target } = e
+    const { name } = target
+    const value = parseInt(target.value)
+
+    setFilters({
+      ...filters,
+      [name]: !isNaN(value) ? value !== 0 ? value : null : null
     })
   }
 
@@ -124,6 +137,17 @@ export const SearchFilter = (props) => {
               name="foundationYearTo"
               label="Год основания (до)"
               onBlur={handleTextareaBlur}
+            />
+          </div>
+
+          <div className="search-filter__block">
+            <SelectArea
+              empty={true}
+              name="district_id"
+              onChange={handleSelectChange}
+              disabled={loading}
+              label="Район:"
+              query="district"
             />
           </div>
 

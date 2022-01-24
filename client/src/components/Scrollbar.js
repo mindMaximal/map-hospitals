@@ -1,13 +1,6 @@
 import React from 'react'
 import './Scrollbar.scss'
 
-/*
-*   ToDo
-*    - Передвигаемый слайдер
-*    - Убирается если окно не скролится
-*
-* */
-
 export const Scrollbar = (props) => {
 
   let startDrag = 0

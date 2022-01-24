@@ -14,8 +14,6 @@ export const InlineGallery = (props) => {
     src: null
   })
 
-  // ToDo: очистка file input после загрузки фото
-
   const [deletedImg, setDeletedImg] = useState({
     id: null,
     src: null

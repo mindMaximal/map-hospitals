@@ -6,7 +6,7 @@ import {useHttp} from "../hooks/http.hook"
 export const SelectArea = (props) => {
 
   const [state, setState] = useState([])
-  const [value, setValue] = useState(3)
+  const [value, setValue] = useState(0)
 
   const {loading, error, request, clearError} = useHttp()
 
@@ -22,6 +22,10 @@ export const SelectArea = (props) => {
       const fetched = await request(`/api/address/${props.query}`, 'GET', null)
       // ToDo: проверка авторизации по токену
 
+      if (props.empty) {
+        fetched.unshift({id: 0, [`${props.query}_name`]: 'Выберите'})
+      }
+      
       setState(fetched)
     } catch (e) {}
   }, [request, props.query, props.value])
@@ -31,7 +35,10 @@ export const SelectArea = (props) => {
   }, [fetchData])
 
   useEffect(() => {
-    setValue(props.value)
+    if (props.value) {
+      setValue(props.value)
+    }
+
   }, [props.value])
 
   //ToDo: баг с выбором населенного пункта: дефолтное значение не выбирается

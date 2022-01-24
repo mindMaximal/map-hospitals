@@ -34,6 +34,8 @@ router.post(
           limiters.push('`access_to_primary_health_care` = 1')
         } else if (param === 'emergencyAssistance' && req.body.emergencyAssistance === true) {
           limiters.push('`availability_of_emergency_mediical_care` = 1')
+        } else if (param === 'district_id' && req.body.district_id !== null) {
+          limiters.push('`district_id` = ' + req.body.district_id)
         }
       }
 
@@ -71,6 +73,8 @@ router.post(
         }
       }
 
+      console.log(query)
+
       connection.query(query, (err, rows, fields) => {
         connection.end()
 
@@ -93,3 +97,37 @@ router.post(
 )
 
 export default router
+
+/*
+
+SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`  FROM `medical_center`
+    JOIN `locality`
+        ON `medical_center`.`locality_id` = `locality`.`id`
+    JOIN `district`
+        ON `locality`.`district_id` = `district`.`id`
+    JOIN `region`
+        ON `region`.`id` = `district`.`region_id`
+ WHERE`founding_year` > 1990
+
+
+ SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population_adult`, `population_child`  FROM `medical_center`
+    JOIN `locality`
+        ON `medical_center`.`locality_id` = `locality`.`id`
+    JOIN `district`
+        ON `locality`.`district_id` = `district`.`id`
+    JOIN `region`
+        ON `region`.`id` = `district`.`region_id`
+    JOIN `population`
+    	ON `locality`.`id` = `population`.`locality_id`
+
+
+SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population_adult`, `population_child`  FROM `medical_center`
+    JOIN `locality`
+        ON `medical_center`.`locality_id` = `locality`.`id`
+    JOIN `district`
+        ON `locality`.`district_id` = `district`.`id`
+    JOIN `region`
+        ON `region`.`id` = `district`.`region_id`
+    JOIN `population`
+    	ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)
+ */
