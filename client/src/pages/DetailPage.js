@@ -224,7 +224,7 @@ export const DetailPage = () => {
                       Тип:
                     </div>
 
-                    {data.type || 'Неизвестно'}
+                    {data.type_name || 'Неизвестно'}
                   </>
                 }
 

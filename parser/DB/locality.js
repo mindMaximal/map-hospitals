@@ -39,18 +39,10 @@ const configDB = {
 
 try {
 
-  for (let i = 0; i < data.length; i++) {
-
-    const el = data[i]
-
-    //console.log(el)
-  }
-
-
   let connection = initializeConnection(configDB)
   //let connection = mysql.createPool(configDB)
 
-  connection.query('SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`', (err, rows, fields) => {
+  connection.query('SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`', (err, rows) => {
 
     if (err) {
       console.log(err)
@@ -83,7 +75,7 @@ try {
             countLocality++
 
             localityItems.push([null, districtId, name])
-            population.push([null, countLocality, populationCount, null, '2010'])
+            population.push([null, countLocality, populationCount, 0, '2010'])
 
           }
 
@@ -92,7 +84,7 @@ try {
 
     }
 
-    connection.query('INSERT INTO `locality` (`id`, `district_id`, `name`) VALUES ?;', [localityItems], (err, rows, fields) => {
+    connection.query('INSERT INTO `locality` (`id`, `district_id`, `name`) VALUES ?;', [localityItems], (err, rows) => {
 
       if (err) {
         console.log(err)
@@ -102,7 +94,7 @@ try {
       console.log('count', count, 'data length', data.length)
       console.log(rows)
 
-      connection.query('INSERT INTO `population` (`id`, `locality_id`, `population_adult`, `population_child`, `year`) VALUES ?;', [population], (err, rows, fields) => {
+      connection.query('INSERT INTO `population` (`id`, `locality_id`, `population_adult`, `population_child`, `year`) VALUES ?;', [population], (err) => {
 
         if (err) {
           console.log(err)

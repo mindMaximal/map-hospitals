@@ -74,7 +74,7 @@ export const EditPage = () => {
   const fetchDelete = useCallback(async (body) => {
     try {
       const fetched = await request(`/api/detail/delete`, 'POST', body)
-      // ToDo: Добавить проверку авторизации токена 2:40:18 на удаление!
+      // ToDo: - Добавить проверку авторизации токена 2:40:18 на удаление! - Проверка на удаление с ответом
 
       setDeletedData(true)
 
@@ -309,7 +309,6 @@ export const EditPage = () => {
                           name="latitude"
                           onChange={handleInputChange}
                           onBlur={handleInputBlur}
-                          onBlur={handleInputBlur}
                         />
 
                       </div>
@@ -342,15 +341,14 @@ export const EditPage = () => {
 
               <div className="edit__block">
 
-                  <TextInput
-                    id="input-type"
-                    label="Тип:"
-                    value={(data.type || '').toString()}
-                    disabled={loading}
-                    name="type"
-                    onChange={handleInputChange}
-                    onBlur={handleInputBlur}
-                  />
+                <SelectArea
+                  name="type_id"
+                  onChange={handleSelectChange}
+                  disabled={loading}
+                  value={data.type_id}
+                  label="Тип:"
+                  query="type"
+                />
 
               </div>
 

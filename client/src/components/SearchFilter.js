@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react'
 import './SearchFilter.scss'
 import {TextInput, Checkbox, CardPanel} from "react-materialize"
 import {useHttp} from "../hooks/http.hook"
-import {SelectArea} from "./SelectArea";
+import {SelectArea} from "./SelectArea"
 
 export const SearchFilter = (props) => {
   const {loading, error, request, clearError} = useHttp()
@@ -14,7 +14,9 @@ export const SearchFilter = (props) => {
     staffing: null,
     foundationYearFrom: null,
     foundationYearTo: null,
-    district_id: null
+    district_id: null,
+    type_id: null,
+    population_id: null
   })
 
   const handleCheckBoxFilterClick = (e) => {
@@ -42,6 +44,8 @@ export const SearchFilter = (props) => {
     const { target } = e
     const { name } = target
     const value = parseInt(target.value)
+
+    console.log(value)
 
     setFilters({
       ...filters,
@@ -122,7 +126,7 @@ export const SearchFilter = (props) => {
 
           <div className="search-filter__block search-filter__block--years">
             <TextInput
-              id="search-filter__year-foundation-from"
+              id="search-filter__year-foundation-from search-filter__block--high"
               name="foundationYearFrom"
               className="search-filter__textarea"
               type="number"
@@ -133,14 +137,14 @@ export const SearchFilter = (props) => {
             <TextInput
               id="search-filter__year-foundation-to"
               type="number"
-              className="search-filter__textarea"
+              className="search-filter__textarea search-filter__block--high"
               name="foundationYearTo"
               label="Год основания (до)"
               onBlur={handleTextareaBlur}
             />
           </div>
 
-          <div className="search-filter__block">
+          <div className="search-filter__block search-filter__block--high">
             <SelectArea
               empty={true}
               name="district_id"
@@ -148,6 +152,28 @@ export const SearchFilter = (props) => {
               disabled={loading}
               label="Район:"
               query="district"
+            />
+          </div>
+
+          <div className="search-filter__block search-filter__block--high">
+            <SelectArea
+              empty={true}
+              name="type_id"
+              onChange={handleSelectChange}
+              disabled={loading}
+              label="Тип:"
+              query="type"
+            />
+          </div>
+
+          <div className="search-filter__block search-filter__block--high">
+            <SelectArea
+              empty={true}
+              name="population_id"
+              onChange={handleSelectChange}
+              disabled={loading}
+              label="Население:"
+              query="population"
             />
           </div>
 

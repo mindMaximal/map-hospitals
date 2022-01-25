@@ -44,13 +44,10 @@ try {
   const querySubjects = 'SELECT `id`, `name` AS `region_name` FROM `region`'
   const queryDistircts = 'SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`'
 
-  let subjectsDB = null
-  let distirctsDB = null
-
   const subjectsGeo = locations.subjects
   const districtsGeo = locations.districts
 
-  connection.query(querySubjects, (err, rows, fields) => {
+  connection.query(querySubjects, (err, rows) => {
 
     if (err) {
       throw err
@@ -71,7 +68,7 @@ try {
       if (flag) {
         const queryAdd = `INSERT INTO \`region\` (\`id\`, \`name\`) VALUES (NULL, '${el}');`
 
-        connection.query(queryAdd, (err, rows, fields) => {
+        connection.query(queryAdd, (err) => {
           if (err) {
             throw err
           }
@@ -82,7 +79,7 @@ try {
     }
   })
 
-  connection.query(queryDistircts, (err, rows, fields) => {
+  connection.query(queryDistircts, (err, rows) => {
 
     if (err) {
       throw err
@@ -104,7 +101,7 @@ try {
       if (flag) {
         const queryAdd = `INSERT INTO \`district\` (\`id\`, \`region_id\`, \`name\`) VALUES (NULL, '1', '${el}');`
 
-        connection.query(queryAdd, (err, rows, fields) => {
+        connection.query(queryAdd, (err) => {
           if (err) {
             throw err
           }
@@ -115,7 +112,7 @@ try {
     }
   })
 
-  /*connection.query('TRUNCATE `map`.`medical_center`', (err, rows, fields) => {
+  /*connection.query('TRUNCATE `map`.`medical_center`', (err, rows) => {
     if (err) {
       throw err
     }
@@ -123,7 +120,7 @@ try {
 
   let districts = []
 
-  connection.query(queryDistircts, (err, rows, fields) => {
+  connection.query(queryDistircts, (err, rows) => {
     if (err) {
       throw err
     }
@@ -145,11 +142,11 @@ try {
       }
 
 
-      const query = 'INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`)' +
+      const query = 'INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type_id`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`)' +
         'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
 
 
-      connection.query(query, [null, localityId, '1', el.types ? el.types.name : null, el.name, el.street, el.house, null, el.lat, el.lon, null, el.foundationYear, null, null, null], (err, rows, fields) => {
+      connection.query(query, [null, localityId, '1', el.types ? el.types.name : null, el.name, el.street, el.house, null, el.lat, el.lon, null, el.foundationYear, null, null, null], (err) => {
 
         if (err) {
           console.log(err)

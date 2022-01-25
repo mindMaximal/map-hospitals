@@ -72,7 +72,7 @@ router.post(
           }
         }
       } else {
-        columns = '`medical_center`.`name`, `type`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
+        columns = '`medical_center`.`name`, `type_id`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
       }
 
       let query = 'SELECT ' + columns + ' FROM `medical_center`\n' +

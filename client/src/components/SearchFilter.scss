@@ -9,6 +9,22 @@
 		max-width: 280px;
 	}
 
+	&__block {
+
+		&--high {
+			margin-bottom: 25px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		&--years {
+			margin-top: 25px;
+			margin-bottom: 25px;
+		}
+	}
+
 	&__span {
 		display: block;
 	}

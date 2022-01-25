@@ -71,9 +71,9 @@ export const SingleView = (props) => {
               </div>
 
               {
-                state.el.type &&
+                state.el.type_name &&
                 <div className="single-view__type">
-                  {state.el.type}
+                  {state.el.type_name}
                 </div>
               }
 
