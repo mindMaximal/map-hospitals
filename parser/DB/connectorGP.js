@@ -1,8 +1,8 @@
 import mysql from 'mysql'
-import data  from '../result/dataGeoPortal.json'
+import data  from '../result/dataGeoPortalFullParse.json'
 import locations  from '../result/locationsGeoPortal.json'
 
-// node --experimental-json-modules connector.js
+// node --experimental-json-modules connectorGP.js
 export const initializeConnection = (config) => {
 
   const addDisconnectHandler = (connection) => {
@@ -43,11 +43,13 @@ try {
 
   const querySubjects = 'SELECT `id`, `name` AS `region_name` FROM `region`'
   const queryDistircts = 'SELECT `id`, `region_id`, `name` AS `district_name` FROM `district`'
+  const queryLocality = 'SELECT `id`, `district_id`, `name` AS `locality_name` FROM `locality`'
 
   const subjectsGeo = locations.subjects
   const districtsGeo = locations.districts
 
-  connection.query(querySubjects, (err, rows) => {
+  // Запрос на добавление областей (регионов), если какой-то области нет в БД
+  /*connection.query(querySubjects, (err, rows) => {
 
     if (err) {
       throw err
@@ -77,9 +79,10 @@ try {
         console.log('Добавлена область', el)
       }
     }
-  })
+  })*/
 
-  connection.query(queryDistircts, (err, rows) => {
+  // Запрос на добавление районов, если их нет в БД
+  /*connection.query(queryDistircts, (err, rows) => {
 
     if (err) {
       throw err
@@ -110,57 +113,83 @@ try {
         console.log('Добавлен район', el)
       }
     }
-  })
+  })*/
 
+  // Сбрасываем счетчик Id и очищаем таблицу
   /*connection.query('TRUNCATE `map`.`medical_center`', (err, rows) => {
     if (err) {
       throw err
     }
   })*/
 
-  let districts = []
+  let localities = []
+  let countElements = 0
+  let countBuildings = 0
 
-  connection.query(queryDistircts, (err, rows) => {
+  // Получим все населенные пункты
+  connection.query(queryLocality, (err, rows) => {
     if (err) {
       throw err
     }
-    districts = rows
-
+    localities = rows
 
     for (let i = 0; i < data.length; i++) {
 
       const el = data[i]
 
       let localityId = null
+      let foundationYear = null
+      let lat = el.lat
+      let lon = el.lon
 
-      for (let j = 0; j < districts.length; j++) {
-        if (districts[j].district_name.toLowerCase().trim() === el.district.toLowerCase().trim()) {
-          console.log(el.district)
-          // Ошибка locality и district
-          localityId = districts[j].id
+      countElements++
+      //console.log('Число элементов ' + countElements)
+
+      // Попроубем добавить населенный пункт
+      if (el.buildings && el.buildings.data.length > 0) {
+
+        //console.log(el.buildings)
+        const building = el.buildings.data[0]
+
+        for (let j = 0; j < localities.length; j++) {
+          // Проверка на вхождение названия населенного пункта в имеющиеся населенны пункты
+          if (localities[j].locality_name.toLowerCase().trim() === building.np_name.toLowerCase().trim()) {
+            localityId = localities[j].id
+            foundationYear = building.year || null
+
+            lat = building.lat
+            lon = building.lon
+
+            /*countBuildings++
+            console.log('Число строений у них ' + countBuildings)*/
+          }
         }
       }
-
 
       const query = 'INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type_id`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`)' +
         'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
 
-
-      connection.query(query, [null, localityId, '1', el.types ? el.types.name : null, el.name, el.street, el.house, null, el.lat, el.lon, null, el.foundationYear, null, null, null], (err) => {
-
+      connection.query(query, [null, localityId, '1', 1, el.name, el.street, el.house, null, lat, lon, null, foundationYear, null, null, null], (err) => {
         if (err) {
           console.log(err)
           throw err
         }
       })
     }
+
+    console.log('Число элементов ' + countElements)
+    /*console.log('Число строений у них ' + countBuildings)*/
   })
+
+
+
 
   pool.end(function(err) {
     if (err) {
       return console.log(err.message)
     }
   })
+
 
 } catch (e) {
   console.log('Что-то пошло не так', e)
