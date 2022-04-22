@@ -24,5 +24,7 @@
     "puppeteer": "^5.4.1",
     "transliteration": "^2.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mysql2": "^2.3.3"
+  }
 }

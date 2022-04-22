@@ -7,6 +7,7 @@ export default class CustomScrollbars extends Component {
     super(props, ...rest);
     this.renderThumb = this.renderThumb.bind(this);
     this.renderTrack = this.renderTrack.bind(this);
+    this.onScroll = props.onScroll.bind(this)
   }
 
   renderTrack({ style, ...props }) {
@@ -32,7 +33,9 @@ export default class CustomScrollbars extends Component {
         <Scrollbars
           renderThumbHorizontal={this.renderThumb}
           renderThumbVertical={this.renderThumb}
-          renderTrackVertical={this.renderTrack}>
+          renderTrackVertical={this.renderTrack}
+          onScroll={this.onScroll}
+        >
           {this.props.children}
         </Scrollbars>
     );

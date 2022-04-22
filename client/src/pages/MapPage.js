@@ -8,12 +8,13 @@ import {Reports} from "../components/Reports"
 export const MapPage = () => {
 
   const {loading, error, request, clearError} = useHttp()
-  const [state, setState] = useState({
+  const [objects, setObjects] = useState({
     data: {
       default: [],
       modified: []
     }
   })
+  const [orgs, setOrgs] = useState([])
   const [singleView, setSingleView] = useState({
     flag: false,
     id: null
@@ -30,13 +31,17 @@ export const MapPage = () => {
     try {
       const fetched = await request('/api/map', 'POST')
 
-      setState({
-        ...state,
+      setObjects({
+        ...objects,
         'data': {
           default: fetched.data,
           modified: fetched.data
         }
       })
+
+      const fetchedOrgs = await request('/api/map/organizations', 'POST')
+      console.log('orgs', fetchedOrgs)
+      setOrgs(fetchedOrgs.data)
 
     } catch (e) {}
   }, [request])
@@ -47,9 +52,9 @@ export const MapPage = () => {
   }, [fetchData])
 
   const updateData = (value, force = false) => {
-    setState({...state,
+    setObjects({...objects,
       'data': {
-        default: force ? value : state.data.default,
+        default: force ? value : objects.data.default,
         modified: value
       }})
   }
@@ -69,7 +74,7 @@ export const MapPage = () => {
 
         <Sidebar
           loading={loading}
-          data={state.data}
+          data={objects.data}
           updateData={updateData}
           singleView={singleView}
           setSingleView={setSingleView}
@@ -77,7 +82,8 @@ export const MapPage = () => {
 
         <Maps
           loading={loading}
-          data={state.data}
+          data={objects.data}
+          orgs={orgs}
           updateData={updateData}
           setSingleView={setSingleView}
         />

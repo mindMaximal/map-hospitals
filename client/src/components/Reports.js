@@ -5,8 +5,9 @@ import './Reports.scss'
 import {ReportPanel} from "./ReportPanel";
 import {useHttp} from "../hooks/http.hook";
 import {Link} from "react-router-dom";
+import {Legend} from "./Legend";
 
-export const Reports = (props) => {
+export const Reports = () => {
 
   const {loading, error, request, clearError} = useHttp()
 
@@ -18,7 +19,7 @@ export const Reports = (props) => {
     show: false
   })
 
-  const handleReportButton = (e) => {
+  const handleReportButton = () => {
     setReportState({...reportState, 'show': !reportState.show})
   }
 
@@ -54,6 +55,27 @@ export const Reports = (props) => {
 
       <div className="reports__controls">
 
+        <Button
+          node="button"
+          style={{
+            marginRight: '5px'
+          }}
+          waves="light"
+        >
+          Легенда
+        </Button>
+
+        <Button
+          node="button"
+          style={{
+            marginRight: '5px'
+          }}
+          waves="light"
+          onClick={handleReportButton}
+        >
+          Отчеты
+        </Button>
+
         <Link to="/view">
           <Button
             node="button"
@@ -67,16 +89,6 @@ export const Reports = (props) => {
           </Button>
         </Link>
 
-        <Button
-          node="button"
-          style={{
-            marginRight: '5px'
-          }}
-          waves="light"
-          onClick={handleReportButton}
-        >
-          Отчеты
-        </Button>
       </div>
 
       { reportState.show ?
@@ -85,6 +97,12 @@ export const Reports = (props) => {
           closeModal={handleReportButton}
         />
         : null
+      }
+
+      { true ?
+        <Legend />
+        : null
+
       }
     </div>
   )

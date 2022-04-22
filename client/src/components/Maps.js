@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import './Maps.scss'
 import { YMaps, Map, Clusterer, Placemark } from "react-yandex-maps"
 import {MapContext} from "../context/MapContext"
@@ -7,37 +7,65 @@ import {Preloader} from "react-materialize";
 export const Maps = (props) => {
   const {mapState, setMapState} = useContext(MapContext)
 
-  const getPointData = () => {
-    return {
-      clusterCaption: "placemark <strong>" + "</strong>"
-    };
-  };
-
   const getPointOptions = (el) => {
+    let color
+
+    if (el.active) {
+      color = '#0d47a1'
+    } else {
+      if (el.staffing === 1) {
+          color = '#26a69a'
+      } else if (el.staffing < 1 && el.staffing >= 0.5) {
+        color = '#9ed3e7';
+      }else if (el.staffing < 0.5 && el.staffing > 0) {
+        color = '#fdc84d'
+      } else if (el.staffing === 0) {
+        color = '#e20101'
+      } else {
+        color = '#8cc9ec'
+      }
+    }
+
     return {
       preset: 'islands#violetIcon',
-      iconColor: el.active === true ? '#e20101' : '#26a69a'
+      iconColor: color
     };
   };
 
-  const handlePlacemarkClick = (e, id) => {
-    const elActive = props.data.default.find(el => el.active === true)
+  const getPointOptionsOrgs = () => {
+    return {
+      preset: 'islands#blueMedicalIcon',
+      iconColor: '#e7d1ab'
+    }
+  }
+
+  const handlePlacemarkClick = (e, element) => {
+    console.log(element)
+    let objects
+    //Проверяем организация или ФАП
+    if (element.type_id === 3) {
+      objects = props.orgs
+    } else {
+      objects = props.data.default
+    }
+
+    const elActive = objects.find(el => el.active === true)
 
     if (elActive)
       elActive.active = false
 
-    const el = props.data.default.find(el => el.id === id)
-    el.active = true
+    element.active = true
 
     setMapState({
       ...mapState,
       zoom: 12,
-      'center': [el.latitude, el.longitude]
+      'center': [element.latitude, element.longitude]
     })
 
     props.setSingleView({
       flag: true,
-      id: el.id
+      id: element.id,
+      typeId: element.type_id
     })
   }
 
@@ -67,7 +95,7 @@ export const Maps = (props) => {
                   clusterHideIconOnBalloonOpen: true,
                   geoObjectHideIconOnBalloonOpen: true,
                   iconColor: '#26a69a',
-                  minClusterSize: props.data.modified.length > 10 ? 2 : 10,
+                  minClusterSize: props.data.modified.length > 10 ? 3 : 10,
                   viewportMargin: 128
                 }}
               >
@@ -75,10 +103,19 @@ export const Maps = (props) => {
                   <Placemark
                     key={i}
                     geometry={[el.latitude, el.longitude]}
-                    properties={getPointData(el)}
                     options={getPointOptions(el)}
                     modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                    onClick={e => handlePlacemarkClick(e, el.id)}
+                    onClick={e => handlePlacemarkClick(e, el)}
+                  />
+                )) : null}
+
+                {props.orgs && props.orgs.length > 0 ? props.orgs.map((el, i) => (
+                  <Placemark
+                    key={i}
+                    geometry={[el.latitude, el.longitude]}
+                    options={getPointOptionsOrgs()}
+                    modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+                    onClick={e => handlePlacemarkClick(e, el)}
                   />
                 )) : null}
               </Clusterer>

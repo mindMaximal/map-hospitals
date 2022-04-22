@@ -8,8 +8,6 @@ import {Skeleton} from "./Skeleton"
 import CustomScrollbars from "./CustomScrollbar";
 
 export const Sidebar = (props) => {
-  let panelScrollRef = React.createRef()
-
   const [state, setState] = useState({
     scroll: false,
     search: null,
@@ -52,8 +50,10 @@ export const Sidebar = (props) => {
     setState({...state, 'search': e.target.value.trim().toLowerCase()})
   }
 
-  const handlePanelScroll = () => {
-    const scrollTop = panelScrollRef.current.scrollTop
+  const handlePanelScroll = (e) => {
+    const scrollTop = e.target.scrollTop
+
+    console.log()
 
     if (scrollTop > 50) {
       setState({...state, 'scroll': true})
@@ -108,7 +108,6 @@ export const Sidebar = (props) => {
 
         <div
           className="sidebar__panel"
-          ref={panelScrollRef}
         >
           {
             props.loading ?
