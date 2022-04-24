@@ -6,6 +6,7 @@ import {SingleView} from "./SingleView"
 import {Search} from "./Search"
 import {Skeleton} from "./Skeleton"
 import CustomScrollbars from "./CustomScrollbar";
+import {SingleViewOrg} from "./SingleViewOrg";
 
 export const Sidebar = (props) => {
   const [state, setState] = useState({
@@ -63,8 +64,20 @@ export const Sidebar = (props) => {
   }
 
   const handleBack = () => {
-    const el = props.data.default.find(el => el.active === true)
-    el.active = false
+    let data
+
+    if (props.singleView.typeId === 3) {
+      data = props.orgs
+    } else {
+      data = props.data.default
+    }
+
+    const el = data.find(el => el.active === true)
+
+    if (el)
+      el.active = false
+
+    props.updateData(props.data.default)
 
     props.setSingleView({
       flag: false,
@@ -95,7 +108,6 @@ export const Sidebar = (props) => {
       >
       </button>
 
-
         <div className="sidebar__wrapper">
 
         <Search
@@ -122,19 +134,27 @@ export const Sidebar = (props) => {
                 <Skeleton />
 
               </div> :
-              props.singleView.flag ?
-                <SingleView
-                  id={props.data.default.find(el => el.id === props.singleView.id).id}
-                  back={(e) => handleBack(e)}
-                /> :
+
                 <CustomScrollbars
                   onScroll={handlePanelScroll}
-                >
+                > {props.singleView.flag ?
+                  props.singleView.typeId === 3 ?
+                    <SingleViewOrg
+                      id={props.orgs.find(el => el.id === props.singleView.id).id}
+                      back={(e) => handleBack(e)}
+                      updateData={props.updateData}
+                    />
+                    :
+                    <SingleView
+                      id={props.data.default.find(el => el.id === props.singleView.id).id}
+                      back={(e) => handleBack(e)}
+                    />
+                  :
                   <ListView
                     loading={props.loading}
                     list={props.data.modified}
                     searchViewClick={searchViewClick}
-                  />
+                  />}
                 </CustomScrollbars>
           }
 

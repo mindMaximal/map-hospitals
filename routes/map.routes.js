@@ -51,7 +51,7 @@ router.post(
   async (req, res) => {
     try {
       const connection = initializeConnection(configDB)
-      const query = 'SELECT `medical_facility`.`id`, `medical_facility`.`name`, `type_id`,  `latitude`, `longitude`, `locality_id`, `region`.`name`, `district`.`name`, `locality`.`name`, `street`, `number_of_house` FROM `medical_facility`\n' +
+      const query = 'SELECT `medical_facility`.`id`, `medical_facility`.`name`, `type_id`,  `latitude`, `longitude`, `locality_id`, `street`, `number_of_house`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name` FROM `medical_facility`\n' +
         'LEFT JOIN `locality`\n' +
         '    ON `medical_facility`.`locality_id` = `locality`.`id`\n' +
         'LEFT JOIN `district`\n' +
@@ -77,4 +77,3 @@ router.post(
 )
 
 export default router
-

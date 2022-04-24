@@ -5,6 +5,17 @@
 	font-size: 14px;
 	padding: 10px 0;
 
+	&__error {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: 18px;
+		font-weight: bold;
+		text-align: center;
+	}
+
 	&__block {
 		padding: 20px;
 		background-color: #ffffff;

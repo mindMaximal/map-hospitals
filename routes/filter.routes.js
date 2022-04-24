@@ -122,8 +122,6 @@ router.post(
         query += '\n' + having
       }
 
-      console.log(query)
-
       connection.query(query, (err, rows) => {
         connection.end()
 

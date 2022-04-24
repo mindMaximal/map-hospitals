@@ -1,7 +1,7 @@
 import React from "react"
 import "./Legend.scss"
 
-export const Legend = (props) => {
+export const Legend = () => {
 
   return (
     <div className="legend shadow">
@@ -87,6 +87,19 @@ export const Legend = (props) => {
 
           <div className="legend__label">
             ФАП <br />укомплектованность 0%
+          </div>
+
+        </div>
+
+        <div className="legend__block">
+
+          <div
+            className="legend__placemark"
+            style={{backgroundImage: "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAApCAYAAABQgPsBAAAAAXNSR0IArs4c6QAABXtJREFUWEe9mEtsG0UYx/+zXufhxImbpxqpkqtKPRBVqYBjldJLpUqEQ6QegtQDl0TcUOGGROFe2rsF4lICqEQtJQcKlSiK0hOPkqKIBio5IOE4aRK/4jj27g76b3fciWN77ZDwSZbi7Mw3P3/vWQEfkVKGAZwF8BKAIQAnAfB/WQBLAP4B8BOAH4QQ/N++RNTa5QFMAJhsQnMMwGf7AaoKIqUcA3DZ++XY2ZHhQsGJlEqy3bZlyHEQMAzYgYDIB4Niu63NSLW2lq1Bq1wTQnzdxA/AHhApJQFepxICpFJ21HFki59SwxDFSCQQ14CmhRDX/Pap57tApJRvA6A7sLlpRwsFp7dRRWpdW5uxfuRIIO59p5s+bERHGcRzxxVuWluzXrAs2V6mFUAoZKCtzYBpChgG4DiAZUkUCg7yeQdSPj8uGBTZvj6TgUz5oBE3uSBeYN5hTFRaggDhcMA9vJYQKpu1XaAqlmHMvOYXwAqEmTHJmNjYsJierhCgs7MOQQVZLue4QEp6eswlL2ZiQghmVE0RnjW+54pk0jqlApOW6O4ONOLeXWvS6eeWYQAPDpqPvAXn6lmFIEzVK7o1hAAGBoJ13VHPTaurpXLMaFZ5Rwhxv9Y+grwP4NV02j6WzzsDXNjRYaCrq3lrqEMyGRtbW8/iJRQyVru7A38DmBVC8KyqQhD67sWnT62TpZJbztHba6KlpWbR9XVXsSixvm6567QM+lkIUbNKE4TxEV5ZKZ2WEq4ZBgf35xZFyCxKJkvuV1bgwcHgQ/YmIcS5ehb5kQ8TiRKbmitHjwZ9f7XfgkTiGYinj00RQoiXfUEOyyLNgPxfMbIkhHB7WDU59KzReg/nFfaymiCHWke6uwPxUMhY90aD6XogTFnODp16szuIyupl4ENmztzc3OTo6OifABjFzG1+yq3yUHuNcouUcsUwjDc0ADYkBeNWPr37ulY5qO5L5aq8x+Pxq8ePH2d5V4frIPzb0eeRVwBcpYKNDfvEzo4TUf5k72lmHuE+raLmxsfH37x161bGA6mEcOEOfEJT8MoaiUTi06Ghoa+qQBCgDFVtZnWbIBWyI2cy9jF9WvOrqLo1pJRb58+ff+vevXu5etZgANea4ukmAnUqIDXFW5YMqZ5UC6q/33xkmqK4vLz8eTQa/cYHgpbZ9rvXsAC51qkUvSXoz1Tbt207aZrmu16K6nGxyyVeOqd8e703wbHosSny01k5UioQTmT9/eYi68bs7Oz1sbGxP/Q4qGIZ1hQWu93B6ud/KaU722Yy9tDWlnO0cn0kEnjS3m6k8vn8bx0dHR83AJHwLLL3glUPRkrJEn2y8rrBPa2tRqqnJ/CEAXrx4sXrMzMzqQoQ3T1bAFaYD+US4WcF9VwN2bxuJpOl0/o+IWAPDAQf0SXz8/NfnDlzZqEOBC/tycpzfWNEA3EL3va2E0ml7BO6IlUzstnsYldX15c1XEIrsNdUfWPQDMieIZswKkvokgsXLnx09+5dHqhKucqQZQC8hj4bZKtIMyC8CQ7pdx/TFNvMEuqNxWKfTE1NMQP0WGAh47y66RcCDYFIKfmC5o5lyZa1NesUlTIu+vrMRa9wPYhGo5xLdYjHAH5XWXFQIBzxLufzTm86bUepVEvV5eHh4e/i8biaM9IAHgBY9Tt8V8A3slhKyVcLZ1VX1qpnfmJi4vbNmzcLnv9/BfALgGIjevcDUr77mKbIq1cOsVhsdmpqivWCn2+992nNMrjrfWNESsm3A9PFogzRLb295mPWi4WFhfsjIyNrAOY8V+wLoOGCpkBYyLiJELlc7q9wOMwZ4zYAxsR/Fl+L8AR1UfdOW7p06dJ7N27cYHE6MGkIxINx368KIdzr40HLv7nXXGejAk+7AAAAAElFTkSuQmCC)"}}
+          />
+
+          <div className="legend__label">
+            ФАП <br />укомплектованность ?
           </div>
 
         </div>

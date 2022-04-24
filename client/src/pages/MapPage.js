@@ -35,7 +35,7 @@ export const MapPage = () => {
         ...objects,
         'data': {
           default: fetched.data,
-          modified: fetched.data
+          modified: fetched.data,
         }
       })
 
@@ -75,6 +75,7 @@ export const MapPage = () => {
         <Sidebar
           loading={loading}
           data={objects.data}
+          orgs={orgs}
           updateData={updateData}
           singleView={singleView}
           setSingleView={setSingleView}

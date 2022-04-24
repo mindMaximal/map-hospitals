@@ -18,6 +18,7 @@ export const DetailPage = () => {
 
   const [data, setData] = useState({})
   const [deletedData, setDeletedData] = useState(false)
+  const [rates, setRates] = useState([])
 
   let { id } = useParams()
 
@@ -35,6 +36,10 @@ export const DetailPage = () => {
       }
 
       setData(fetched[0])
+
+      const fetchedRates = await request(`/api/singe/rates`, 'POST', {id})
+
+      setRates(fetchedRates)
     } catch (e) {}
   }, [request])
 
@@ -309,7 +314,7 @@ export const DetailPage = () => {
                       Укомплектованность фельдшерами:
                     </div>
 
-                    {data.staff || 0}
+                    {data.staffing ? (data.staffing * 100) + '%' : 0}
                   </>
                 }
 
@@ -328,6 +333,32 @@ export const DetailPage = () => {
             />
 
           </div>
+
+          {rates && rates.length > 0 &&
+            <div className="container">
+
+              Укомплектованность:
+
+              {rates.map((el, i) => (
+                <div
+                  key={i}
+                >
+                  <div className="rate-card__name">
+                    <b>Должность:</b> {el.position || 'Неизвестно'}
+                  </div>
+
+                  <div className="rate-card__rate">
+                    <b>Занято ставок:</b> {el.rate_occupied}
+                  </div>
+
+                  <div className="rate-card__rate">
+                    <b>Всего ставок:</b> {el.rate_full}
+                  </div>
+                </div>
+              )) }
+
+            </div>
+          }
 
         </div>
 

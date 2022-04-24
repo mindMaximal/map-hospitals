@@ -95,8 +95,6 @@ router.post(
         }
       }
 
-      console.log(query)
-
       connection.query(query, (err, rows) => {
         connection.end()
 

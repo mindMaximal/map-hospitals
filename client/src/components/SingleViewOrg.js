@@ -5,39 +5,40 @@ import getAddress from "../functions/getAddress"
 import {useHttp} from "../hooks/http.hook"
 import {Button, Preloader} from "react-materialize"
 import {Link} from "react-router-dom"
-import {SingleViewRateCard} from "./SingleViewRateCard";
+import {SingleViewCard} from "./SingleViewCard";
 
-export const SingleView = (props) => {
+export const SingleViewOrg = (props) => {
 
   const [state, setState] = useState({
     el: null
   })
-  const [rates, setRates] = useState([])
-  const [hasError, setHasError] = useState(false)
+
+  const [objects, setObjects] = useState([])
 
   const {loading, error, request, clearError} = useHttp()
 
   useEffect(() => {
     if (error) {
       console.log('Ошибка: ' + error)
-      setHasError(true)
-    } else {
-      setHasError(false)
     }
     clearError()
   }, [clearError, error])
 
   const fetchData = useCallback(async (body) => {
     try {
-      const fetched = await request('/api/map/single', 'POST', body)
+      const fetched = await request('/api/map/org', 'POST', body)
 
       setState({
         el: fetched
       })
 
-      const fetchedRates = await request('/api/map/single/rates', 'POST', body)
+      const fetchedObjects = await request('api/map/org/objects', `POST`, body)
 
-      setRates(fetchedRates)
+      console.log('fetchedObjects', fetchedObjects)
+
+      setObjects(fetchedObjects)
+
+      props.updateData(fetchedObjects)
 
     } catch (e) {}
   }, [request])
@@ -51,11 +52,7 @@ export const SingleView = (props) => {
   return (
     <div className="single-view">
 
-      { hasError ?
-        <div className="single-view__error">
-          Произошла ошибка, <br/> перезагрузите страницу
-        </div>
-        :
+      {
         loading ?
           <div className="single-view__loader">
             <Preloader
@@ -89,11 +86,6 @@ export const SingleView = (props) => {
                 </div>
               }
 
-
-              <div className="single-view__schedule">
-                {state.el.schedule || "График работы не указан"}
-              </div>
-
             </div>
 
             <div className="single-view__block">
@@ -113,57 +105,37 @@ export const SingleView = (props) => {
                   Организация:
                 </div>
 
-                {state.el.parent || 'Неизвестно'}
+                {state.el.organization || 'Неизвестно'}
 
               </div>
 
               <div className="single-view__elem">
 
                 <div className="single-view__subtitle single-view__subtitle--inline">
-                  Аптека:
+                  ОГРН:
                 </div>
 
-                {parseInt(state.el.pharmacy) === 1 ? 'есть' : 'отстуствует'}
+                {state.el.ogrn || 'неизвестно'}
 
               </div>
 
               <div className="single-view__elem">
 
                 <div className="single-view__subtitle single-view__subtitle--inline">
-                  Первая помощь:
+                  КПП:
                 </div>
 
-                {parseInt(state.el.access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
+                {state.el.kpp || 'неизвестно'}
 
               </div>
 
               <div className="single-view__elem">
 
                 <div className="single-view__subtitle single-view__subtitle--inline">
-                  Экстренная помощь:
+                  Телефон:
                 </div>
 
-                {parseInt(state.el.availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
-
-              </div>
-
-              <div className="single-view__elem">
-
-                <div className="single-view__subtitle single-view__subtitle--inline">
-                  Укомплектованность:
-                </div>
-
-                {state.el.staffing ? (state.el.staffing * 100) + '%' : 'Неизвестно'}
-
-              </div>
-
-              <div className="single-view__elem">
-
-                <div className="single-view__subtitle single-view__subtitle--inline">
-                  Год основания:
-                </div>
-
-                {state.el.founding_year || 'неизвестно'}
+                {state.el.phone || 'неизвестно'}
 
               </div>
 
@@ -193,21 +165,22 @@ export const SingleView = (props) => {
 
             </div>
 
-            {rates && rates.length > 0 &&
-              <div className="single-view__block">
+            { objects && objects.length > 0 &&
+            <div className="single-view__block">
 
-                <div className="single-view__subtitle single-view__subtitle--inline">
-                  Укомплектованность:
-                </div>
+              <div className="single-view__subtitle single-view__subtitle--inline">
+                Подчиненные мед. пункты:
+              </div>
 
-                  {rates.map((el, i) => (
-                    <SingleViewRateCard
+              {objects.map((el, i) => (
+                    <SingleViewCard
                       key={i}
                       element={el}
                     />
-                  ))}
+                  )
+              )}
 
-                </div>
+            </div>
             }
 
           </div>

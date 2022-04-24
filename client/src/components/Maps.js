@@ -22,7 +22,7 @@ export const Maps = (props) => {
       } else if (el.staffing === 0) {
         color = '#e20101'
       } else {
-        color = '#8cc9ec'
+        color = '#E6E6FA'
       }
     }
 
@@ -95,8 +95,9 @@ export const Maps = (props) => {
                   clusterHideIconOnBalloonOpen: true,
                   geoObjectHideIconOnBalloonOpen: true,
                   iconColor: '#26a69a',
-                  minClusterSize: props.data.modified.length > 10 ? 3 : 10,
-                  viewportMargin: 128
+                  minClusterSize: props.data.modified.length > 50 ? 3 : 10,
+                  viewportMargin: props.data.modified.length > 50 ? 128 : 12000,
+                  maxZoom: 9
                 }}
               >
                 {props.data && props.data.modified.length > 0 ? props.data.modified.map((el, i) => (
@@ -108,17 +109,17 @@ export const Maps = (props) => {
                     onClick={e => handlePlacemarkClick(e, el)}
                   />
                 )) : null}
-
-                {props.orgs && props.orgs.length > 0 ? props.orgs.map((el, i) => (
-                  <Placemark
-                    key={i}
-                    geometry={[el.latitude, el.longitude]}
-                    options={getPointOptionsOrgs()}
-                    modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                    onClick={e => handlePlacemarkClick(e, el)}
-                  />
-                )) : null}
               </Clusterer>
+
+              {props.orgs && props.orgs.length > 0 ? props.orgs.map((el, i) => (
+                <Placemark
+                  key={i}
+                  geometry={[el.latitude, el.longitude]}
+                  options={getPointOptionsOrgs()}
+                  modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+                  onClick={e => handlePlacemarkClick(e, el)}
+                />
+              )) : null}
 
             </Map>
 

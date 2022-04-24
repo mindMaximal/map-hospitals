@@ -9,6 +9,7 @@ const __dirname = path.resolve()
 import apiMap from './routes/map.routes.js'
 import apiMapFilter from './routes/filter.routes.js'
 import apiMapSingle from './routes/single.routes.js'
+import apiMapOrg from './routes/org.routes.js'
 import apiView from './routes/view.routes.js'
 import apiDetail from './routes/detail.routes.js'
 import apiReports from './routes/reports.routes.js'
@@ -26,6 +27,7 @@ app.use(express.json({
 app.use('/api/map', apiMap)
 app.use('/api/map/filter', apiMapFilter)
 app.use('/api/map/single', apiMapSingle)
+app.use('/api/map/org', apiMapOrg)
 
 app.use('/api/view', apiView)
 
@@ -43,7 +45,7 @@ if (process.env.NODE_ENV === 'production') {
   console.log('Production mode')
   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
-  app.use('/test', (req, res, next) => {
+  app.use('/test', (req, res) => {
     console.log('Test log')
     res.status(200).send('Test ok!');
   })

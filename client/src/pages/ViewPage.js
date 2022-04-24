@@ -6,7 +6,7 @@ import {TableView} from "../components/TableView"
 import {ContextMenu} from "../components/ContextMenu"
 import {ProgressBar} from "react-materialize"
 import { Scrollbars } from 'react-custom-scrollbars'
-import {ReportPanel} from "../components/ReportPanel";
+import {ReportPanel} from "../components/ReportPanel"
 
 export const ViewPage = () => {
 
