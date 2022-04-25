@@ -17,6 +17,7 @@ import apiReportsArea from './routes/area.routes.js'
 import apiReportsPDF from './routes/pdf.routes.js'
 import apiUpload from './routes/upload.routes.js'
 import apiAddress from './routes/address.routes.js'
+import apiLocation from './routes/location.routes.js'
 
 app.use(express.json({
   extended: true,
@@ -36,6 +37,7 @@ app.use('/api/detail', apiDetail)
 app.use('/api/upload', apiUpload)
 
 app.use('/api/address', apiAddress)
+app.use('/api/location', apiLocation)
 
 app.use('/api/reports', apiReports)
 app.use('/api/reports/area', apiReportsArea)

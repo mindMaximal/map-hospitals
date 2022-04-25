@@ -1,0 +1,25 @@
+.management {
+	height: 100vh;
+	min-height: 100%;
+
+	&__header {
+		margin-top: 80px;
+		margin-bottom: 50px;
+	}
+
+	&__title {
+		font-size: 36px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__block {
+		max-width: 48%;
+		width: 100%;
+	}
+}

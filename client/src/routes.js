@@ -5,6 +5,7 @@ import {ViewPage} from "./pages/ViewPage"
 import {DetailPage} from "./pages/DetailPage"
 import {EditPage} from "./pages/EditPage"
 import {ErrorPage} from "./pages/ErrorPage"
+import {AdminPage} from "./pages/AdminPage";
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -33,6 +34,10 @@ export const useRoutes = isAuthenticated => {
 
           <Route path="/view">
             <ViewPage />
+          </Route>
+
+          <Route path="/management">
+            <AdminPage />
           </Route>
 
           <Route path="/error">
