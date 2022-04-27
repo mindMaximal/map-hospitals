@@ -1,9 +1,8 @@
-import React, {useCallback, useEffect, useState, Component} from 'react'
+import React, {useCallback, useEffect, Component} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import './AdminPage.scss'
 import { Scrollbars } from 'react-custom-scrollbars'
-import {Regions} from "../components/Regions";
-import {Districts} from "../components/Districts";
+import {Location} from "../components/AdminPageComponents/Location"
 
 export const AdminPage = () => {
 
@@ -50,15 +49,45 @@ export const AdminPage = () => {
           <div className="management__wrapper">
 
             <div className="management__block">
-              <Regions />
+              <Location
+                title="Населенные пункты"
+                parent="район"
+                queries="localities"
+                parentQueries="districts"
+                label="Население"
+                labelQuery="population"
+                query="locality"
+                parentQuery="district"
+                name="населенный пункт"
+              />
             </div>
 
             <div className="management__block">
-              <Districts />
+              <Location
+                title="Районы"
+                parent="регион"
+                queries="districts"
+                parentQueries="regions"
+                label="Населенные пункты, шт"
+                labelQuery="localities_count"
+                query="district"
+                parentQuery="region"
+                name="район"
+              />
+            </div>
+
+            <div className="management__block">
+              <Location
+                title="Регионы"
+                queries="regions"
+                label="Районы, шт"
+                labelQuery="districts_count"
+                query="district"
+                name="регион"
+              />
             </div>
 
           </div>
-
 
         </div>
 

@@ -35,6 +35,10 @@
 		height: 500px;
 	}
 
+	&__numbers {
+		text-align: right;
+	}
+
 	&__table {
 		
 		thead tr {
@@ -62,4 +66,37 @@
 			}
 		}
 	}
+}
+
+.location-modal {
+	height: 100%;
+	max-height: 100%;
+	right: 0;
+	left: auto;
+	max-width: 500px;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 50px;
+	}
+
+	&__block {
+		margin: 40px 0;
+	}
+
+	&__title {
+		font-size: 24px;
+		margin: 0;
+	}
+
+	&.modal-fixed-footer {
+		height: 100%;
+	}
+
+	.modal-content {
+		height: 100%;
+	}
+
 }
