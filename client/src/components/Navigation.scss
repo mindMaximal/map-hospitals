@@ -1,0 +1,76 @@
+.navigation {
+	z-index: 2;
+
+	&__nav {
+		position: absolute;
+
+		&--top {
+			top: 20px;
+			right: 20px;
+		}
+
+		&--bottom {
+			bottom: 30px;
+			right: 20px;
+		}
+	}
+
+	&__button,
+	a {
+		margin-right: 5px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		display: inline-block;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.navigation {
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		left: 0;
+		top: 0;
+		background-color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		& > button {
+			margin-bottom: 10px;
+			margin-right: 0;
+			max-width: 250px;
+			width: 100%;
+			display: block;
+		}
+
+		& > a {
+			max-width: 250px;
+			width: 100%;
+		}
+
+		&__nav {
+			position: static;
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		&__controls {
+			width: 100%;
+			position: static;
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}

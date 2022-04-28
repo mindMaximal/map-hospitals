@@ -24,4 +24,21 @@
 		width: 100%;
 		margin-bottom: 80px;
 	}
+
+	&__nav {
+		margin: 20px 0;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.management {
+
+		&__container {
+			width: 80%;
+		}
+
+		&__block {
+			max-width: 100%;
+		}
+	}
 }

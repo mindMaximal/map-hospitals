@@ -1,12 +1,20 @@
 import React from "react"
 import "./Legend.scss"
 
-export const Legend = () => {
+export const Legend = (props) => {
+
+  const handleButtonCloseClick = () => {
+    props.setShow()
+  }
 
   return (
     <div className="legend shadow">
 
       <div className="legend__wrapper">
+
+        <h5 className="legend__title">
+          Легенда карты:
+        </h5>
 
         <div className="legend__block">
 
@@ -116,6 +124,17 @@ export const Legend = () => {
           </div>
 
         </div>
+
+      </div>
+
+      <div className="legend__controls">
+
+        <button
+          className="legend__button legend__button--close"
+          onClick={handleButtonCloseClick}
+        >
+          &#10006;
+        </button>
 
       </div>
 

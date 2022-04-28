@@ -37,7 +37,7 @@ export const ReportPanel = (props) => {
     } catch (e) {}
   }, [request])
 
-  const handleReportButton = e => {
+  const handleReportButton = () => {
     setData({
       ...state,
       objects: []
@@ -64,28 +64,26 @@ export const ReportPanel = (props) => {
     //clearState()
   }
 
-  const clearState = () => {
+  /*const clearState = () => {
     setState({
       columns: [],
       conditions: []
     })
-    /*
+    /!*
     * ToDo
     *  - очистка полей формы
-    * */
-  }
+    * *!/
+  }*/
 
   return (
     <div className={`report-panel shadow ${props.className}`}>
 
-      {props.hide &&
-        <button
-          className="report-panel__close"
-          onClick={props.hide}
-        >
-          &#10006;
-        </button>
-      }
+      <button
+        className="report-panel__close"
+        onClick={props.hide}
+      >
+        &#10006;
+      </button>
 
       <div className="report-panel__wrapper">
 

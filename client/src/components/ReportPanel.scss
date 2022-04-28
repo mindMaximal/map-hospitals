@@ -2,11 +2,12 @@
 	background-color: #ffffff;
 	position: fixed;
 	overflow: hidden;
-	top: 30px;
+	top: 20px;
 	right: 20px;
 	border-radius: 8px;
 	max-width: 640px;
 	width: 100%;
+	z-index: 3;
 
 	&__wrapper {
 		display: flex;

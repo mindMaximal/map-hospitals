@@ -27,7 +27,7 @@ router.post(
         'GROUP BY `region`.`id`\n' +
         'ORDER BY `region`.`name`'
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err, rows) => {
         connection.end()
 
         if (err) {
@@ -70,7 +70,7 @@ router.post(
           'ORDER BY `district`.`name`'
       }
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err, rows) => {
         connection.end()
 
         if (err) {
@@ -113,7 +113,7 @@ router.post(
           'ORDER BY `locality`.`name`'
       }
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err, rows) => {
         connection.end()
 
         if (err) {
@@ -141,9 +141,9 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
-      const query = "UPDATE `district` SET `region_id` = "+ req.body.region_id + ", `name` = '" + req.body.name + "' WHERE `district`.`id` = " + req.body.id
+      const query = "UPDATE `district` SET `region_id` = " + req.body.region_id + ", `name` = '" + req.body.name + "' WHERE `district`.`id` = " + req.body.id
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err) => {
         connection.end()
 
         if (err) {
@@ -174,7 +174,37 @@ router.post(
       const query = "UPDATE `locality` SET `district_id` = '" + req.body.district_id + "', `name` = '" + req.body.name + "' WHERE `locality`.`id` = " + req.body.id
 
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err) => {
+        connection.end()
+
+        if (err) {
+          throw err
+        }
+
+        res.json({
+          success: true
+        })
+      })
+
+    } catch (e) {
+      console.log(e)
+      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
+  }
+)
+
+// /api/location/update/region
+router.post(
+  '/update/region',
+  [],
+  async (req, res) => {
+    try {
+      console.log(req.body)
+      const connection = initializeConnection(configDB)
+
+      const query = "UPDATE `region` SET `name` = '" + req.body.name + "' WHERE `region`.`id` = " + req.body.id
+
+      connection.query(query, (err) => {
         connection.end()
 
         if (err) {
@@ -206,7 +236,7 @@ router.post(
 
       const query = "INSERT INTO `district` (`id`, `region_id`, `name`) VALUES (NULL, " + req.body.region_id + ", '" + req.body.name + "')"
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err) => {
         connection.end()
 
         if (err) {
@@ -236,7 +266,37 @@ router.post(
 
       const query = "INSERT INTO `locality` (`id`, `district_id`, `name`) VALUES (NULL, " + req.body.district_id + ", '" + req.body.name + "')"
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err) => {
+        connection.end()
+
+        if (err) {
+          throw err
+        }
+
+        res.json({
+          success: true
+        })
+      })
+
+    } catch (e) {
+      console.log(e)
+      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
+  }
+)
+
+// /api/location/add/region
+router.post(
+  '/add/region',
+  [],
+  async (req, res) => {
+    try {
+
+      const connection = initializeConnection(configDB)
+
+      const query = "INSERT INTO `region` (`id`, `name`) VALUES (NULL, '" + req.body.name + "')"
+
+      connection.query(query, (err) => {
         connection.end()
 
         if (err) {
@@ -269,7 +329,7 @@ router.post(
 
       const query = "DELETE FROM `district` WHERE `district`.`id` = " + req.body.id
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err) => {
         connection.end()
 
         if (err) {
@@ -299,7 +359,37 @@ router.post(
 
       const query = "DELETE FROM `locality` WHERE `locality`.`id` = " + req.body.id
 
-      connection.query(query, (err, rows, fields) => {
+      connection.query(query, (err) => {
+        connection.end()
+
+        if (err) {
+          throw err
+        }
+
+        res.json({
+          success: true
+        })
+      })
+
+    } catch (e) {
+      console.log(e)
+      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
+  }
+)
+
+// /api/location/delete/region
+router.post(
+  '/delete/region',
+  [],
+  async (req, res) => {
+    try {
+
+      const connection = initializeConnection(configDB)
+
+      const query = "DELETE FROM `region` WHERE `region`.`id` = " + req.body.id
+
+      connection.query(query, (err) => {
         connection.end()
 
         if (err) {

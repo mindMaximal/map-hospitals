@@ -3,10 +3,12 @@ import {useHttp} from "../hooks/http.hook"
 import './AdminPage.scss'
 import { Scrollbars } from 'react-custom-scrollbars'
 import {Location} from "../components/AdminPageComponents/Location"
+import {Button} from "react-materialize";
+import {Link} from "react-router-dom";
 
 export const AdminPage = () => {
 
-  const {loading, error, request, clearError} = useHttp()
+  const {error, request, clearError} = useHttp()
 
   useEffect(() => {
     if (error) {
@@ -17,7 +19,7 @@ export const AdminPage = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const fetched = await request('/api/view', 'POST')
+      //const fetched = await request('/api/view', 'POST')
 
     } catch (e) {}
   }, [request])
@@ -39,6 +41,33 @@ export const AdminPage = () => {
             <h1 className="management__title">
               Управление
             </h1>
+
+            <div className="management__nav">
+
+              <Link to="/">
+                <Button
+                  node="button"
+                  className="blue darken-4"
+                  style={{
+                    marginRight: '5px'
+                  }}
+                  waves="light"
+                >
+                  Карта
+                </Button>
+              </Link>
+
+              <Link to="/view">
+                <Button
+                  node="button"
+                  waves="light"
+                  className="blue darken-4"
+                >
+                  Таблица
+                </Button>
+              </Link>
+
+            </div>
 
           </header>
 
@@ -82,7 +111,7 @@ export const AdminPage = () => {
                 queries="regions"
                 label="Районы, шт"
                 labelQuery="districts_count"
-                query="district"
+                query="region"
                 name="регион"
               />
             </div>

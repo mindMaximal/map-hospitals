@@ -3,7 +3,7 @@ import {Sidebar} from "../components/Sidebar"
 import {Maps} from "../components/Maps"
 import {useHttp} from "../hooks/http.hook"
 import {MapContext} from "../context/MapContext"
-import {Reports} from "../components/Reports"
+import {Navigation} from "../components/Navigation"
 
 export const MapPage = () => {
 
@@ -67,7 +67,7 @@ export const MapPage = () => {
   });
 
   return (
-    <div className="container--map">
+    <div className="map-page container--map">
       <MapContext.Provider value={{
         mapState, setMapState
       }}>
@@ -89,7 +89,7 @@ export const MapPage = () => {
           setSingleView={setSingleView}
         />
 
-        <Reports />
+        <Navigation />
 
       </MapContext.Provider>
     </div>

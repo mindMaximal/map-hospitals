@@ -118,7 +118,6 @@ export const Location = (props) => {
 
               <Table
                 className="location__table"
-                responsive
               >
 
                 <thead>
