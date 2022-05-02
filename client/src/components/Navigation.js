@@ -7,7 +7,7 @@ import {useHttp} from "../hooks/http.hook"
 import {Link} from "react-router-dom"
 import {Legend} from "./Legend"
 
-export const Navigation = () => {
+export const Navigation = (props) => {
 
   const {error, request, clearError} = useHttp()
 
@@ -70,88 +70,109 @@ export const Navigation = () => {
     setReportState({...reportState, 'show': !reportState.show})
   }
 
+  const handleButtonCloseClick = () => {
+    props.setHiddenNavigation(!props.hiddenNavigation)
+
+    if (props.hiddenNavigation)
+      props.setHiddenSidebar(true)
+  }
+
   useEffect(() => {
     fetchData()
   }, [])
 
   return (
+    <div className={`navigation ${!props.hiddenNavigation && 'navigation--active'}`}>
 
-    <div className="navigation">
+      <div className="navigation__close">
 
-      <div className="navigation__nav navigation__nav--top">
-
-        <Link to="/management">
-          <Button
-            className="navigation__button blue darken-4"
-            node="button"
-            waves="light"
-          >
-            Управление
-          </Button>
-        </Link>
-
-        <Button
-          className="navigation__button blue darken-4"
-          node="button"
-          waves="light"
-          disabled
+        <button
+          className={`navigation__button navigation__button--close ${!props.hiddenNavigation && 'navigation__button--active'}`}
+          onClick={handleButtonCloseClick}
         >
-          Войти
-        </Button>
+          <span />
+        </button>
 
       </div>
 
-      <div className="navigation__nav navigation__nav--bottom">
+      <div className="navigation__wrapper">
 
+        <div className="navigation__nav navigation__nav--top">
 
-        <div className="navigation__controls">
-
-          <Button
-            className="navigation__button"
-            node="button"
-            waves="light"
-            onClick={handleLegendButtonClick}
-          >
-            Легенда
-          </Button>
-
-          <Button
-            className="navigation__button"
-            node="button"
-            waves="light"
-            onClick={handleReportButtonClick}
-          >
-            Отчеты
-          </Button>
-
-          <Link to="/view">
+          <Link to="/management" className="navigation__link">
             <Button
               className="navigation__button blue darken-4"
               node="button"
-              style={{
-                marginRight: '5px'
-              }}
               waves="light"
             >
-              Таблица
+              Управление
             </Button>
           </Link>
 
+          <Button
+            className="navigation__button blue darken-4 navigation__link"
+            node="button"
+            waves="light"
+            disabled
+          >
+            Войти
+          </Button>
+
         </div>
 
-        { reportState.show &&
+        <div className="navigation__nav navigation__nav--bottom">
+
+
+          <div className="navigation__controls">
+
+            <Button
+              className="navigation__button navigation__link"
+              node="button"
+              waves="light"
+              onClick={handleLegendButtonClick}
+            >
+              Легенда
+            </Button>
+
+            <Button
+              className="navigation__button navigation__link"
+              node="button"
+              waves="light"
+              onClick={handleReportButtonClick}
+            >
+              Отчеты
+            </Button>
+
+            <Link to="/view" className="navigation__link">
+              <Button
+                className="navigation__button blue darken-4"
+                node="button"
+                style={{
+                  marginRight: '5px'
+                }}
+                waves="light"
+              >
+                Таблица
+              </Button>
+            </Link>
+
+          </div>
+
+          { reportState.show &&
           <ReportPanel
             hide={handleReportPanelHide}
             area={state.area}
             closeModal={handleReportButtonClick}
           />
-        }
+          }
 
-        { legendState.show &&
+          { legendState.show &&
           <Legend
             setShow={setLegendShowHandle}
           />
-        }
+          }
+        </div>
+
       </div>
 
     </div>

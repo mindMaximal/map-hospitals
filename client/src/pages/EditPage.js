@@ -8,6 +8,7 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import { Scrollbars } from 'react-custom-scrollbars'
 import {Button, Modal, Preloader, Switch, TextInput} from "react-materialize"
 import {SelectArea} from "../components/SelectArea"
+import {InlineRates} from "../components/InlineRates";
 
 export const EditPage = () => {
   // ToDo: 404 на несуществующий
@@ -445,6 +446,17 @@ export const EditPage = () => {
               loading={loading}
               id={id}
               edit={true}
+            />
+
+          </div>
+
+          <div className="container">
+
+            <InlineRates
+              className="detail__rates"
+              loading={loading}
+              id={id}
+              mode="edit"
             />
 
           </div>

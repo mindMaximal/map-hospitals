@@ -114,6 +114,13 @@ body {
 	}
 }
 
+.input-field {
+
+	label {
+		pointer-events: none;
+	}
+}
+
 /*
 @include media-breakpoint-down(md) {
 }

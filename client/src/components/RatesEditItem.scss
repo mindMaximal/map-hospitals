@@ -1,0 +1,57 @@
+.rates-edit-item {
+	padding: 20px;
+	border: 1px dashed rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	position: relative;
+
+	&:hover {
+
+		.rates-edit-item__delete {
+			display: block;
+		}
+	}
+
+	&__rates {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__input {
+		max-width: 48%;
+	}
+
+	&__controls {
+		position: absolute;
+		right: 20px;
+		top: 18px;
+		font-size: 12px;
+		display: flex;
+		justify-content: flex-end;
+
+		div {
+			margin-right: 5px;
+			line-height: 20px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&__label {
+		color: #ffffff;
+		background-color: #26a69a;
+		padding: 3px 12px;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+
+	&__delete {
+		display: none;
+		color: #ffffff;
+		background-color: #C62828;
+		padding: 3px 12px;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+}

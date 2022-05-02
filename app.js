@@ -18,6 +18,7 @@ import apiReportsPDF from './routes/pdf.routes.js'
 import apiUpload from './routes/upload.routes.js'
 import apiAddress from './routes/address.routes.js'
 import apiLocation from './routes/location.routes.js'
+import apiEdit from './routes/edit.routes.js'
 
 app.use(express.json({
   extended: true,
@@ -33,6 +34,7 @@ app.use('/api/map/org', apiMapOrg)
 app.use('/api/view', apiView)
 
 app.use('/api/detail', apiDetail)
+app.use('/api/edit', apiEdit)
 
 app.use('/api/upload', apiUpload)
 

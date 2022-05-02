@@ -1,0 +1,19 @@
+.rates-add-item {
+	padding: 20px;
+	border: 1px dashed rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: .3s;
+	color: rgba(0, 0, 0, 0.2);
+
+	&:hover,
+	&:focus {
+		background-color: rgb(229 229 229);
+	}
+}

@@ -14,6 +14,8 @@ export const MapPage = () => {
       modified: []
     }
   })
+  const [hiddenSidebar, setHiddenSidebar] = useState(false)
+  const [hiddenNavigation, setHiddenNavigation] = useState(true)
   const [orgs, setOrgs] = useState([])
   const [singleView, setSingleView] = useState({
     flag: false,
@@ -79,6 +81,9 @@ export const MapPage = () => {
           updateData={updateData}
           singleView={singleView}
           setSingleView={setSingleView}
+          hiddenSidebar={hiddenSidebar}
+          setHiddenSidebar={setHiddenSidebar}
+          setHiddenNavigation={setHiddenNavigation}
         />
 
         <Maps
@@ -87,9 +92,14 @@ export const MapPage = () => {
           orgs={orgs}
           updateData={updateData}
           setSingleView={setSingleView}
+          setHiddenSidebar={setHiddenSidebar}
         />
 
-        <Navigation />
+        <Navigation
+          setHiddenSidebar={setHiddenSidebar}
+          hiddenNavigation={hiddenNavigation}
+          setHiddenNavigation={setHiddenNavigation}
+        />
 
       </MapContext.Provider>
     </div>

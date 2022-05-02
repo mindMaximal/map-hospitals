@@ -9,6 +9,7 @@ import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
 import { Scrollbars } from 'react-custom-scrollbars'
 import {Button, Modal, Preloader} from "react-materialize"
 import {Box} from "../components/Skeleton"
+import {InlineRates} from "../components/InlineRates";
 
 export const DetailPage = () => {
   // ToDo: 404 на несуществующий
@@ -18,7 +19,6 @@ export const DetailPage = () => {
 
   const [data, setData] = useState({})
   const [deletedData, setDeletedData] = useState(false)
-  const [rates, setRates] = useState([])
 
   let { id } = useParams()
 
@@ -36,10 +36,6 @@ export const DetailPage = () => {
       }
 
       setData(fetched[0])
-
-      const fetchedRates = await request(`/api/singe/rates`, 'POST', {id})
-
-      setRates(fetchedRates)
     } catch (e) {}
   }, [request])
 
@@ -314,7 +310,7 @@ export const DetailPage = () => {
                       Укомплектованность фельдшерами:
                     </div>
 
-                    {data.staffing ? (data.staffing * 100) + '%' : 0}
+                    {data.staffing ? Math.round(data.staffing * 100) + '%' : 0}
                   </>
                 }
 
@@ -334,31 +330,15 @@ export const DetailPage = () => {
 
           </div>
 
-          {rates && rates.length > 0 &&
-            <div className="container">
+          <div className="container">
 
-              Укомплектованность:
+            <InlineRates
+              className="detail__rates"
+              loading={loading}
+              id={id}
+            />
 
-              {rates.map((el, i) => (
-                <div
-                  key={i}
-                >
-                  <div className="rate-card__name">
-                    <b>Должность:</b> {el.position || 'Неизвестно'}
-                  </div>
-
-                  <div className="rate-card__rate">
-                    <b>Занято ставок:</b> {el.rate_occupied}
-                  </div>
-
-                  <div className="rate-card__rate">
-                    <b>Всего ставок:</b> {el.rate_full}
-                  </div>
-                </div>
-              )) }
-
-            </div>
-          }
+          </div>
 
         </div>
 

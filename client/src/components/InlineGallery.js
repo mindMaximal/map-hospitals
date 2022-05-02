@@ -96,7 +96,6 @@ export const InlineGallery = (props) => {
 
           { loading || props.loading ?
             <>
-
               <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
               <div className="inline-gallery__slide inline-gallery__slide--skeleton" />
               <div className="inline-gallery__slide inline-gallery__slide--skeleton" />

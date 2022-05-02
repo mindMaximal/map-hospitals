@@ -91,16 +91,15 @@ export const Sidebar = (props) => {
     }))
   }, [state.search])
 
-  const handleToggleButton = (e) => {
-    e.target.classList.toggle('sidebar__toggle-button--active')
+  const handleToggleButton = () => {
+    props.setHiddenSidebar(!props.hiddenSidebar)
 
-    const sidebar = e.target.closest('.sidebar')
-
-    sidebar.classList.toggle('sidebar--hidden')
+    if (props.hiddenSidebar)
+      props.setHiddenNavigation(true)
   }
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${props.hiddenSidebar && 'sidebar--hidden'}`}>
 
       <button
         className="sidebar__toggle-button sidebar__toggle-button--a"

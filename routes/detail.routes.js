@@ -88,6 +88,39 @@ router.get(
     }
   }
 )
+
+// /api/rates/:id
+router.get(
+  '/rates/:id',
+  [],
+  async (req, res) => {
+    try {
+      if (req.params.id === undefined || req.params.id === null) {
+        res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+        return
+      }
+
+      const connection = initializeConnection(configDB)
+
+      const query = 'SELECT * FROM `staff` WHERE `medical_center_id` = ' + req.params.id + ' ORDER BY `staff`.`date` DESC'
+
+      connection.query(query, (err, rows) => {
+        connection.end()
+
+        if (err) {
+          throw err
+        }
+
+        res.json(rows)
+      })
+
+    } catch (e) {
+      console.log(e)
+      res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
+    }
+  }
+)
+
 // api/detail/delete
 router.post(
   '/delete',
