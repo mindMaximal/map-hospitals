@@ -21,10 +21,6 @@ export const SearchView = (props) => {
           {props.addres || "Адрес не указан"}
         </div>
 
-        <div className="search-view__schedule">
-          {props.schedule || "График работы не указан"}
-        </div>
-
       </div>
 
     </div>

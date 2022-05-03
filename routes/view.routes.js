@@ -23,7 +23,7 @@ router.post(
     try {
       const connection = initializeConnection(configDB)
 
-        const query = 'SELECT `medical_center`.`name`, `phone`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`  FROM `medical_center`\n' +
+        const query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`  FROM `medical_center`\n' +
         '    JOIN `locality`\n' +
         '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
         '    JOIN `district`\n' +

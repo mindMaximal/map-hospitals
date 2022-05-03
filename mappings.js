@@ -7,7 +7,7 @@ const mappings = [
   },
   {
     columnName: 'Тип',
-    fullQueryName: 'type',
+    fullQueryName: 'types`.`name` AS `type',
     fieldName: 'type'
   },
   {
