@@ -17,7 +17,6 @@ export const RatesEditItem = (props) => {
   })
 
   useEffect(() => {
-    console.log(props.el)
     setState({
       id: props.el.id,
       position: props.el.position,

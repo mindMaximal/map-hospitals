@@ -22,9 +22,7 @@ export const SelectArea = (props) => {
       const fetched = await request(`/api/address/${props.query}`, 'GET', null)
       // ToDo: проверка авторизации по токену
 
-      if (props.empty) {
-        fetched.unshift({id: 0, [`${props.query}_name`]: 'Выберите'})
-      }
+      fetched.unshift({id: 0, [`${props.query}_name`]: 'Выберите ' + props.label.toLowerCase()})
       
       setState(fetched)
     } catch (e) {}
@@ -37,9 +35,10 @@ export const SelectArea = (props) => {
   useEffect(() => {
     if (props.value) {
       setValue(props.value)
+    } else {
+      setValue(0)
     }
-
-  }, [props.value])
+  }, [props])
 
   //ToDo: баг с выбором населенного пункта: дефолтное значение не выбирается
 
@@ -50,16 +49,18 @@ export const SelectArea = (props) => {
       {<Select
           name={props.name}
           onChange={props.onChange}
-          label={props.label || "Название"}
+          label={(props.label || "Название") + ':'}
           options={props.options || {}}
           value={value.toString()}
-          disabled={loading || props.loading || !(state.length > 0)}
+          disabled={props.disabled || loading || props.loading || !(state.length > 0)}
         >
-          {props.value !== 0 && !loading && state && state.length > 0 ? state.map((el, i) => (
+          {!loading && state && state.length > 0 ? state.map((el, i) => (
             <option value={el.id.toString()} key={i}>
               {el[`${props.query}_name`]}
             </option>
-          )) : null}
+          )) :
+            null
+          }
         </Select>
       }
     </div>

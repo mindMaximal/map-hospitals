@@ -22,8 +22,6 @@ export const InlineRates = (props) => {
     try {
       const fetched = await request(`/api/detail/rates/${props.id}`, 'GET', null)
 
-      console.log(fetched)
-
       setState(fetched)
     } catch (e) {}
   }, [request])
@@ -54,9 +52,6 @@ export const InlineRates = (props) => {
     })
   }
 
-  useEffect(() => {
-    console.log('state', state)
-  }, [state])
   return (
     <div className={`inline-rates ${props.className}`}>
 
@@ -74,7 +69,7 @@ export const InlineRates = (props) => {
             />
         }
 
-        {state && state.length > 0 && state.map((el, i) => {
+        {state && state.length > 0 ? state.map((el, i) => {
 
             if (props.mode === 'edit') {
               return (
@@ -95,7 +90,11 @@ export const InlineRates = (props) => {
               )
             }
 
-        })}
+        }) :
+          <div className="inline-rates__empty">
+            Показатели еще не добавлены
+          </div>
+        }
 
       </div>
 

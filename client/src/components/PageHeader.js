@@ -37,6 +37,19 @@ export const PageHeader = (props) => {
           </Button>
         </Link>
 
+        <Link
+          to="/add"
+          className="page-header__control"
+        >
+          <Button
+            node="button"
+            waves="light"
+            className="blue darken-4"
+          >
+            Добавить мед. пункт
+          </Button>
+        </Link>
+
         <Button
           node="button"
           waves="light"

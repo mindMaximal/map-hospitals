@@ -1,17 +1,15 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import {useHttp} from "../hooks/http.hook"
-import {useHistory, useParams} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import './EditPage.scss'
-import {InlineGallery} from "../components/InlineGallery"
 import {Map, Placemark, YMaps} from "react-yandex-maps"
 import {ReactComponent as ArrowBack} from '../img/arrow-back.svg'
-import { Scrollbars } from 'react-custom-scrollbars'
-import {Button, Modal, Preloader, Switch, TextInput} from "react-materialize"
+import {Scrollbars} from 'react-custom-scrollbars'
+import {Button, Preloader, Switch, TextInput} from "react-materialize"
 import {SelectArea} from "../components/SelectArea"
-import {InlineRates} from "../components/InlineRates";
 
-export const EditPage = () => {
-  // ToDo: 404 на несуществующий
+export const AddPage = () => {
+
   const {loading, error, request, clearError} = useHttp()
 
   const history = useHistory()
@@ -24,49 +22,22 @@ export const EditPage = () => {
     locality_id: 0,
     street: '',
     number_of_house: '',
-    latitude: 0,
-    longitude: 0,
+    latitude: 52.289588,
+    longitude: 104.280606,
     medical_facility_id: 0,
     type_id: null,
     phone: '',
     staff: 0,
     pharmacy: 0,
     access_to_primary_health_care: 0,
-    availability_of_emergency_mediical_care: 0
+    availability_of_emergency_mediical_care: 0,
+    founding_year: null
   })
-  const [deletedData, setDeletedData] = useState(false)
-  const [changed, setChanged] = useState(false)
-
-  let { id } = useParams()
 
   useEffect(() => {
     console.log(error)
     clearError()
   }, [clearError, error])
-
-  const fetchData = useCallback(async () => {
-    try {
-      const fetched = await request(`/api/detail/${id}`, 'GET', null)
-      // ToDo: Добавить проверку авторизации токена 2:40:18
-      if (fetched.length === 0) {
-        history.push('/error')
-      }
-
-      console.log(fetched)
-
-      setData(fetched[0])
-    } catch (e) {}
-  }, [request])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
-
-  const getPointData = () => {
-    return {
-      clusterCaption: "placemark <strong>" + "</strong>"
-    };
-  };
 
   const getPointOptions = (el) => {
     return {
@@ -75,41 +46,11 @@ export const EditPage = () => {
     }
   }
 
-  const fetchDelete = useCallback(async (body) => {
-    try {
-      const fetched = await request(`/api/detail/delete`, 'POST', body)
-      // ToDo: - Добавить проверку авторизации токена 2:40:18 на удаление! - Проверка на удаление с ответом
-
-      setDeletedData(true)
-
-      setTimeout(() => {
-        history.push('/view')
-      }, 5000)
-    } catch (e) {}
-  }, [request])
-
-  const handleDeleteModalButton = (id) => {
-    fetchDelete({id})
-  }
-
-  const handleInputChange = (e) => {
-    if (!changed)
-      setChanged(true)
-
-    setData({...data, [e.target.name]: e.target.value})
-  }
-
   const handleSwitchChange = (e) => {
-    if (!changed)
-      setChanged(true)
-
     setData({...data, [e.target.name]: e.target.checked ? 1 : 0})
   }
 
   const handleSelectChange = (e) => {
-    if (!changed)
-      setChanged(true)
-
     setData({...data, [e.target.name]: parseInt(e.target.value)})
   }
 
@@ -118,28 +59,40 @@ export const EditPage = () => {
   }
 
   const handleBackButtonClick = (e) => {
-    if (!changed) {
-      e.preventDefault()
-      history.goBack()
-    }
+    e.preventDefault()
+    history.goBack()
   }
 
-  const fetchUpdate = useCallback(async (body) => {
-    try {
-      const fetched = await request(`/api/detail/update`, 'POST', body)
-      // ToDo: - Добавить проверку авторизации токена
+  const handleInputChange = (e) => {
+    setData({...data, [e.target.name]: e.target.value})
+  }
 
-      return fetched.success
+  const fetchAdd= useCallback(async (body) => {
+    try {
+      // ToDo: Добавить проверку авторизации токена 2:40:18
+      return await request(`/api/detail/add`, 'POST', body)
     } catch (e) {}
   }, [request])
 
-  const handleSaveButtonClick = (relocate = false) => {
-    fetchUpdate(data)
-      .then((success) => {
-        if (success && relocate) {
-          history.goBack()
+  const handleAddButtonClick = () => {
+    fetchAdd(data)
+      .then((res) => {
+        if (res && res.success) {
+          history.push(`/edit/${res.id}`)
+        } else {
+          /*
+            ToDo: Обработка ошибки добавления
+           */
         }
       })
+  }
+
+  const getCoordinates = (e) => {
+    setData({
+      ...data,
+      latitude: e.get("coords")[0],
+      longitude: e.get("coords")[1]
+    })
   }
 
   return (
@@ -170,19 +123,9 @@ export const EditPage = () => {
                   node="button"
                   waves="light"
                   disabled={loading}
-                  onClick={() => handleSaveButtonClick()}
+                  onClick={() => handleAddButtonClick()}
                 >
-                  Сохранить
-                </Button>
-
-                <Button
-                  className="modal-trigger red darken-3 edit__button"
-                  href="#modal-delete"
-                  node="button"
-                  waves="light"
-                  disabled={loading}
-                >
-                  Удалить
+                  Добавить
                 </Button>
 
               </div>
@@ -194,10 +137,11 @@ export const EditPage = () => {
                 id="input-name"
                 label="Название:"
                 name="name"
-                value={(data.name || '').toString()}
+                value={data.name}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
                 disabled={loading}
+                required
               />
             </h1>
 
@@ -247,7 +191,7 @@ export const EditPage = () => {
                 <TextInput
                   id="input-type"
                   label="Улица:"
-                  value={(data.street || '').toString()}
+                  value={data.street}
                   disabled={loading}
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
@@ -261,9 +205,24 @@ export const EditPage = () => {
                 <TextInput
                   id="input-type"
                   label="Номер дома:"
-                  value={(data.number_of_house || '').toString()}
+                  value={data.number_of_house}
                   disabled={loading}
                   name="number_of_house"
+                  onChange={handleInputChange}
+                  onBlur={handleInputBlur}
+                />
+
+              </div>
+
+              <div className="edit__block">
+
+                <TextInput
+                  id="input-type"
+                  label="Год основания:"
+                  value={data.founding_year}
+                  disabled={loading}
+                  name="founding_year"
+                  type="number"
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
                 />
@@ -305,11 +264,12 @@ export const EditPage = () => {
                       'center': [data.latitude, data.longitude]
                     }}
                     className="edit__y-map"
+                    onClick={(e) => getCoordinates(e)}
+
                   >
 
                     <Placemark
                       geometry={[data.latitude, data.longitude]}
-                      properties={getPointData(data)}
                       options={getPointOptions(data)}
                       modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
                     />
@@ -325,7 +285,7 @@ export const EditPage = () => {
                         <TextInput
                           id="input-type"
                           label="Широта:"
-                          value={(data.latitude || '').toString()}
+                          value={data.latitude}
                           disabled={loading}
                           name="latitude"
                           onChange={handleInputChange}
@@ -339,7 +299,7 @@ export const EditPage = () => {
                         <TextInput
                           id="input-type"
                           label="Долгота:"
-                          value={(data.longitude || '').toString()}
+                          value={data.longitude}
                           disabled={loading}
                           name="longitude"
                           onChange={handleInputChange}
@@ -378,7 +338,7 @@ export const EditPage = () => {
                 <TextInput
                   id="input-phone"
                   label="Телефон:"
-                  value={(data.phone || '').toString()}
+                  value={data.phone}
                   disabled={loading}
                   name="phone"
                   onChange={handleInputChange}
@@ -445,7 +405,7 @@ export const EditPage = () => {
 
           </div>
 
-          <div className="container">
+          {/*<div className="container">
 
             <InlineGallery
               className="edit__gallery"
@@ -466,124 +426,10 @@ export const EditPage = () => {
             />
 
           </div>
-
+*/}
         </div>
 
       </Scrollbars>
-
-      <Modal
-        actions={
-          deletedData ?
-            [
-              <Button
-                node="button"
-                waves="green"
-                onClick={async () => { history.push('/view')}}
-              >
-                Закрыть
-              </Button>
-            ] :
-            [
-              <Button
-                className="modal-trigger red darken-3"
-                node="button"
-                waves="light"
-                style={{
-                  marginRight: '5px'
-                }}
-                disabled={loading}
-                onClick={() => handleDeleteModalButton(data.id)}
-              >
-                Да
-              </Button>,
-              <Button
-                modal="close"
-                node="button"
-                waves="green"
-                disabled={loading}
-              >
-                Нет
-              </Button>
-            ]
-        }
-        bottomSheet={false}
-        fixedFooter={false}
-        header={deletedData ? "Мед. пункт был удален" : "Вы действительно хотите удалить этот мед. пункт?"}
-        id="modal-delete"
-        open={false}
-        options={{
-          dismissible: true,
-          endingTop: '30%',
-          opacity: 0.5,
-          outDuration: 250,
-          preventScrolling: true,
-          startingTop: '20%'
-        }}
-      >
-        <div>
-          {deletedData ?
-            <div>
-              Мед. пункт <strong>{data.name}</strong> удален!<br/> Через 5 секунд вы будете перенаправлены на страницу "Таблица"
-            </div> :
-            <div>
-              Будет удален следующий мед. пункт: <br/> <strong>{data.name}</strong>
-            </div>
-          }
-        </div>
-      </Modal>
-
-      <Modal
-        actions={[
-          <Button
-            className="modal-trigger red darken-3"
-            node="button"
-            waves="light"
-            style={{
-              marginRight: '5px'
-            }}
-            disabled={loading}
-            onClick={async () => { history.goBack()}}
-          >
-            Да
-          </Button>,
-          <Button
-            modal="close"
-            node="button"
-            waves="green"
-            disabled={loading}
-            style={{
-              marginRight: '5px'
-            }}
-          >
-            Нет
-          </Button>,
-          <Button
-            node="button"
-            waves="green"
-            disabled={loading}
-            onClick={() => handleSaveButtonClick(true)}
-          >
-            Сохранить и выйти
-          </Button>
-        ]}
-        bottomSheet={false}
-        fixedFooter={false}
-        header="Вы хотите выйти, не сохранив изменения?"
-        id="modal-update"
-        open={false}
-        options={{
-          dismissible: true,
-          endingTop: '30%',
-          opacity: 0.5,
-          outDuration: 250,
-          preventScrolling: true,
-          startingTop: '20%'
-        }}
-      >
-        <div>
-          Измененные данные не будут сохранены!
-        </div>
-      </Modal>
 
     </div>
   )

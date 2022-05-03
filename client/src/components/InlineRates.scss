@@ -31,6 +31,14 @@
 		height: 200px;
 		margin-bottom: 20px;
 	}
+
+	&__empty {
+		width: 100%;
+		text-align: center;
+		padding: 50px 20px;
+		border: 1px dotted rgba(0, 0, 0, 0.2);
+		border-radius: 5px;
+	}
 }
 
 @media only screen and (max-width: 1280px) {

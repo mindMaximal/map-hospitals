@@ -1,4 +1,4 @@
-import {Icon, Preloader, Toast} from "react-materialize";
+import {Icon, Preloader} from "react-materialize";
 import React, {useCallback, useEffect} from "react";
 import './UploaderImage.scss'
 import {useHttp} from "../hooks/http.hook";
@@ -69,7 +69,7 @@ export const UploaderImage = (props) => {
               flashing={false}
               size="small"
           />:
-            <Icon small>file_upload</Icon>
+            <Icon small>add_a_photo</Icon>
         }
       </form>
     </div>

@@ -5,7 +5,8 @@ import {ViewPage} from "./pages/ViewPage"
 import {DetailPage} from "./pages/DetailPage"
 import {EditPage} from "./pages/EditPage"
 import {ErrorPage} from "./pages/ErrorPage"
-import {AdminPage} from "./pages/AdminPage";
+import {AdminPage} from "./pages/AdminPage"
+import {AddPage} from "./pages/AddPage"
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
@@ -28,8 +29,17 @@ export const useRoutes = isAuthenticated => {
           <Route path="/edit/:id">
             <EditPage />
           </Route>
+
           <Route path="/edit/">
             <Redirect to="/view" />
+          </Route>
+
+          <Route path="/add/">
+            <AddPage />
+          </Route>
+
+          <Route path="/add/:id">
+            <Redirect to="/add" />
           </Route>
 
           <Route path="/view">
