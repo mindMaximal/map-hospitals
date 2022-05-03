@@ -90,91 +90,105 @@ export const SearchFilter = (props) => {
 
         <div className="search-filter__flex">
 
-          <div className="search-filter__block">
-            <Checkbox
-              filledIn
-              className="search-filter__checkbox"
-              id="search-filter__pharmacy"
-              label="Аптека"
-              value="pharmacy"
-              onClick={handleCheckBoxFilterClick}
-            />
+          <div className="search-filter__elem">
+
+            <div className="search-filter__block search-filter__block--high">
+              <SelectArea
+                empty={true}
+                name="district_id"
+                onChange={handleSelectChange}
+                disabled={loading}
+                label="Район:"
+                query="district"
+              />
+            </div>
+
+            <div className="search-filter__block search-filter__block--high">
+              <SelectArea
+                empty={true}
+                name="type_id"
+                onChange={handleSelectChange}
+                disabled={loading}
+                label="Тип:"
+                query="type"
+              />
+            </div>
+
+            <div className="search-filter__block search-filter__block--high">
+              <SelectArea
+                empty={true}
+                name="population_id"
+                onChange={handleSelectChange}
+                disabled={loading}
+                label="Население:"
+                query="population"
+              />
+            </div>
+
           </div>
 
-          <div className="search-filter__block">
-            <Checkbox
-              filledIn
-              className="search-filter__checkbox"
-              id="search-filter__first-aid"
-              label="Первая помощь"
-              value="firstAid"
-              checked={false}
-              onClick={handleCheckBoxFilterClick}
-            />
+          <div  className="search-filter__elem">
+
+            <div className="search-filter__block search-filter__block--years">
+
+              <TextInput
+                id="search-filter__year-foundation-from search-filter__block--high"
+                name="foundationYearFrom"
+                className="search-filter__textarea"
+                type="number"
+                label="Год основания (от)"
+                onBlur={handleTextareaBlur}
+              />
+
+              <TextInput
+                id="search-filter__year-foundation-to"
+                type="number"
+                className="search-filter__textarea search-filter__block--high"
+                name="foundationYearTo"
+                label="Год основания (до)"
+                onBlur={handleTextareaBlur}
+              />
+
+            </div>
+
           </div>
 
-          <div className="search-filter__block">
-            <Checkbox
-              filledIn
-              className="search-filter__checkbox"
-              id="search-filter__emergency-assistance"
-              label="Экстренная помощь"
-              value="emergencyAssistance"
-              onClick={handleCheckBoxFilterClick}
-            />
-          </div>
+          <div className="search-filter__elem search-filter__elem--offset">
 
-          <div className="search-filter__block search-filter__block--years">
-            <TextInput
-              id="search-filter__year-foundation-from search-filter__block--high"
-              name="foundationYearFrom"
-              className="search-filter__textarea"
-              type="number"
-              label="Год основания (от)"
-              onBlur={handleTextareaBlur}
-            />
+            <div className="search-filter__block">
+              <Checkbox
+                filledIn
+                className="search-filter__checkbox"
+                id="search-filter__pharmacy"
+                label="Аптека"
+                value="pharmacy"
+                onClick={handleCheckBoxFilterClick}
+              />
+            </div>
 
-            <TextInput
-              id="search-filter__year-foundation-to"
-              type="number"
-              className="search-filter__textarea search-filter__block--high"
-              name="foundationYearTo"
-              label="Год основания (до)"
-              onBlur={handleTextareaBlur}
-            />
-          </div>
+            <div className="search-filter__block">
+              <Checkbox
+                filledIn
+                className="search-filter__checkbox"
+                id="search-filter__first-aid"
+                label="Первая помощь"
+                value="firstAid"
+                checked={false}
+                onClick={handleCheckBoxFilterClick}
+              />
+            </div>
 
-          <div className="search-filter__block search-filter__block--high">
-            <SelectArea
-              empty={true}
-              name="district_id"
-              onChange={handleSelectChange}
-              disabled={loading}
-              label="Район:"
-              query="district"
-            />
-          </div>
+            <div className="search-filter__block">
+              <Checkbox
+                filledIn
+                className="search-filter__checkbox"
+                id="search-filter__emergency-assistance"
+                label="Экстренная помощь"
+                value="emergencyAssistance"
+                onClick={handleCheckBoxFilterClick}
+              />
+            </div>
 
-          <div className="search-filter__block search-filter__block--high">
-            <SelectArea
-              empty={true}
-              name="type_id"
-              onChange={handleSelectChange}
-              disabled={loading}
-              label="Тип:"
-              query="type"
-            />
-          </div>
-
-          <div className="search-filter__block search-filter__block--high">
-            <SelectArea
-              empty={true}
-              name="population_id"
-              onChange={handleSelectChange}
-              disabled={loading}
-              label="Население:"
-              query="population"
-            />
           </div>
 
         </div>
