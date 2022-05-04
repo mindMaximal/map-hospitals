@@ -72,15 +72,6 @@ export const PageHeader = (props) => {
           node="button"
           waves="light"
           className="page-header__control"
-          disabled
-        >
-          Укомплектованность
-        </Button>
-
-        <Button
-          node="button"
-          waves="light"
-          className="page-header__control"
           onClick={props.showReports}
         >
           Отчеты
@@ -125,6 +116,7 @@ export const PageHeader = (props) => {
         visible={filtersVisible}
         style="inline"
         source="table"
+        api={'/api/view/filter'}
       />
 
     </header>

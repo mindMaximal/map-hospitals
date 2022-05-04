@@ -162,8 +162,8 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
-      const query = "UPDATE `medical_center` SET `locality_id` = ?, `medical_facility_id` = ?, `type_id` = ?, `name` = ?, `street` = ?, `number_of_house` = ?, `phone` = ?, `latitude` = ?, `longitude` = ?, `pharmacy` = ?, `founding_year` = ?, `availability_of_emergency_mediical_care` = ?, `access_to_primary_health_care` = ? WHERE `medical_center`.`id` = ?"
-      const data = [req.body.locality_id, req.body.medical_facility_id, req.body.type_id, req.body.name, req.body.street, req.body.number_of_house, req.body.phone, req.body.latitude, req.body.longitude, req.body.pharmacy, null, req.body.availability_of_emergency_mediical_care, req.body.access_to_primary_health_care, req.body.id]
+      const query = "UPDATE `medical_center` SET `locality_id` = ?, `medical_facility_id` = ?, `type_id` = ?, `name` = ?, `street` = ?, `number_of_house` = ?, `phone` = ?, `latitude` = ?, `longitude` = ?, `pharmacy` = ?, `founding_year` = ?, `availability_of_emergency_mediical_care` = ?, `access_to_primary_health_care` = ?, `founding_year` = ? WHERE `medical_center`.`id` = ?"
+      const data = [req.body.locality_id, req.body.medical_facility_id, req.body.type_id, req.body.name, req.body.street, req.body.number_of_house, req.body.phone, req.body.latitude, req.body.longitude, req.body.pharmacy, null, req.body.availability_of_emergency_mediical_care, req.body.access_to_primary_health_care, req.body.founding_year, req.body.id]
 
       connection.query(query, data, (err) => {
         connection.end()

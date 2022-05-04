@@ -27,6 +27,23 @@ export const ReportView = (props) => {
     } catch (e) {}
   })
 
+  const handleWordSaveClick = (e) => {
+    fetchDataWord(props.data)
+  }
+
+  const fetchDataWord = useCallback(async (body) => {
+    try {
+      const fetched = await request('/api/reports/word', 'POST', body)
+
+      const a = window.document.createElement("a");
+      a.href = fetched
+      a.download = `report.${new Date().toLocaleDateString()}.docx`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    } catch (e) {}
+  })
+
   const handlePdfSaveClick = (e) => {
     fetchData(props.data)
   }
@@ -38,6 +55,7 @@ export const ReportView = (props) => {
           node="button"
           waves="light"
           className="report-view__button--footer"
+          onClick={handleWordSaveClick}
         >
           Сохранить в DOCX
         </Button>,
@@ -77,7 +95,6 @@ export const ReportView = (props) => {
         startingTop: '4%'
       }}
     >
-
       <div>
         <h2 className="report-view__title">{props.data && props.data.title ? props.data.title : 'Отчет'}</h2>
       </div>
@@ -88,42 +105,46 @@ export const ReportView = (props) => {
 
           props.data.objects.length === 0 ? 'Элементов по данному запросов не найдено, пожалуйста, измените критерии поиска' :
 
-            <Table>
-              <thead>
-              <tr>
-                {props.data && props.data.headers.map((obj, i) => (
-                  <th
-                    key={i}
-                  >
-                    {obj}
-                  </th>
-                ))}
 
-              </tr>
-              </thead>
-              <tbody>
-              {props.data && props.data.objects.map((obj, i) => (
-                <tr
-                  key={i}
-                >
-                  {Object.keys(obj).map((el, j) => (
-                    <td
-                      key={j}
-                      data-label={props.data.headers[j]}
+
+              <Table>
+                <thead>
+                <tr>
+                  {props.data && props.data.headers.map((obj, i) => (
+                    <th
+                      key={i}
                     >
-                      {
-                        obj[el] == null ? 'Отстуствует' :
-                          obj[el] === 1 ? 'Есть' :
-                            obj[el] === 0 ? 'Нет' :
-                              obj[el]
-                      }
-                    </td>
+                      {obj}
+                    </th>
                   ))}
 
                 </tr>
-              ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                {props.data && props.data.objects.map((obj, i) => (
+                  <tr
+                    key={i}
+                  >
+                    {Object.keys(obj).map((el, j) => (
+                      <td
+                        key={j}
+                        data-label={props.data.headers[j]}
+                      >
+                        {
+                          obj[el] == null ? 'Отстуствует' :
+                            obj[el] === 1 ? 'Есть' :
+                              obj[el] === 0 ? 'Нет' :
+                                obj[el]
+                        }
+                      </td>
+                    ))}
+
+                  </tr>
+                ))}
+                </tbody>
+              </Table>
+
+
 
         }
 
@@ -141,7 +162,6 @@ export const ReportView = (props) => {
           <div className="report-view__loader-message">Отчет формируется ...</div>
         </div>
       }
-
     </Modal>
   )
 }

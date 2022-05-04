@@ -5,28 +5,17 @@ import {Link} from "react-router-dom";
 
 export const TableView = (props) => {
 
-  const getContextMenu = (x, y, id) => {
-    const el = document.querySelector('.context-menu')
-
-    if (!el)
-      return
-
-    el.style = `top: ${y}px; left: ${x}px; display: flex;`
-
-    document.addEventListener('click', (e) => {
-      const { target } = e
-
-      if (target !== el && !el.contains(target)) {
-        el.style.display = 'none'
-      }
-    })
-
-  }
-
   const handleTableContextMenu = (e, id) => {
     e.preventDefault()
-    const { target, clientX, clientY } = e
-    getContextMenu(clientX, clientY, target)
+
+    const {clientX, clientY } = e
+
+    props.setContextMenu({
+        x: clientX,
+        y: clientY,
+        id: id,
+        visible: true
+      })
   }
 
   return (

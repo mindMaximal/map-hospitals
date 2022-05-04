@@ -3,7 +3,6 @@ import {useHttp} from "../hooks/http.hook"
 import './ViewPage.scss'
 import {PageHeader} from "../components/PageHeader"
 import {TableView} from "../components/TableView"
-import {ContextMenu} from "../components/ContextMenu"
 import {ProgressBar} from "react-materialize"
 import { Scrollbars } from 'react-custom-scrollbars'
 import {ReportPanel} from "../components/ReportPanel"
@@ -46,6 +45,7 @@ export const ViewPage = () => {
   }, [request])
 
   const updateData = (value, force = false) => {
+    console.log('updateData')
 
     setState({
       ...state,
@@ -87,6 +87,10 @@ export const ViewPage = () => {
     }
   }
 
+  useEffect(() => {
+    console.log('State view', state)
+  }, [state])
+
   return (
     <div className="view">
 
@@ -114,7 +118,6 @@ export const ViewPage = () => {
                 />
 
           }
-          <ContextMenu />
 
         </div>
 

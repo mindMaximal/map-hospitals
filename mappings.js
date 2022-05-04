@@ -71,6 +71,11 @@ const mappings = [
     columnName: 'Адрес',
     fullQueryName: 'address',
     fieldName: 'address_'
+  },
+  {
+    columnName: 'Население',
+    fullQueryName: 'population',
+    fieldName: 'population'
   }
 ]
 

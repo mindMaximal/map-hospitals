@@ -32,7 +32,8 @@ export const EditPage = () => {
     staff: 0,
     pharmacy: 0,
     access_to_primary_health_care: 0,
-    availability_of_emergency_mediical_care: 0
+    availability_of_emergency_mediical_care: 0,
+    founding_year: ''
   })
   const [deletedData, setDeletedData] = useState(false)
   const [changed, setChanged] = useState(false)
@@ -386,6 +387,20 @@ export const EditPage = () => {
                 />
 
               </div>
+
+              <div className="edit__block">
+
+              <TextInput
+                id="input-founding-year"
+                label="Год основания:"
+                value={(data.founding_year || '').toString()}
+                disabled={loading}
+                name="founding_year"
+                onChange={handleInputChange}
+                onBlur={handleInputBlur}
+              />
+
+            </div>
 
               <div className="edit__block edit__block--small">
 

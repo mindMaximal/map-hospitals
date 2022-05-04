@@ -43,7 +43,6 @@ export const DetailPage = () => {
     fetchData()
   }, [fetchData])
 
-
   const getPointData = () => {
     return {
       clusterCaption: "placemark <strong>" + "</strong>"
@@ -75,6 +74,14 @@ export const DetailPage = () => {
     fetchDelete({id})
   }
 
+  const handleBackButtonClick = () => {
+    if (history.length > 1) {
+      history.goBack()
+    } else {
+      history.push('/')
+    }
+  }
+
   return (
     <div className="detail">
 
@@ -89,9 +96,9 @@ export const DetailPage = () => {
               <div className="detail__back">
                 <button
                   className="detail__back-button"
-                  onClick={() => history.goBack()}
+                  onClick={handleBackButtonClick}
                 >
-                  <span><ArrowBack /></span> Назад
+                  <span><ArrowBack /></span> {history.length > 1 ? 'Назад' : 'Главная'}
                 </button>
               </div>
 
@@ -311,6 +318,23 @@ export const DetailPage = () => {
                     </div>
 
                     {data.staffing ? Math.round(data.staffing * 100) + '%' : 0}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={35}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      Год основания:
+                    </div>
+
+                    {data.founding_year || 'Неизвестно'}
                   </>
                 }
 

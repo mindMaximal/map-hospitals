@@ -23,13 +23,15 @@ router.post(
     try {
       const connection = initializeConnection(configDB)
 
-        const query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`  FROM `medical_center`\n' +
-        '    JOIN `locality`\n' +
-        '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
-        '    JOIN `district`\n' +
-        '        ON `locality`.`district_id` = `district`.`id`\n' +
-        '    JOIN `region`\n' +
-        '        ON `region`.`id` = `district`.`region_id`'
+        const query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`, `population`.`population_adult` AS `population` FROM `medical_center`\n' +
+          '    JOIN `locality`\n' +
+          '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
+          '    JOIN `district`\n' +
+          '        ON `locality`.`district_id` = `district`.`id`\n' +
+          '    JOIN `region`\n' +
+          '        ON `region`.`id` = `district`.`region_id`\n' +
+          '    JOIN `population`\n' +
+          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -53,6 +55,7 @@ router.post(
 
         for (const key of Object.keys(rows[0])) {
 
+          console.log(key)
           for (const mapping of mappings) {
             if (key === mapping.queryName || key === mapping.fullQueryName) {
               headers.push(mapping.columnName)
