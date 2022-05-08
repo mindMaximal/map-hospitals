@@ -2,7 +2,6 @@ import {Router} from 'express'
 import ejs from 'ejs'
 import path from 'path'
 import htmlPdf from 'html-pdf'
-import fs from 'fs'
 
 const router = Router()
 const __dirname = path.resolve()
@@ -38,11 +37,11 @@ router.post(
         format: 'A4',
         orientation: 'landscape',
         border: '10px',
+        "phantomPath": "./node_modules/phantomjs/bin/phantomjs"
       }
 
       const fileName = 'report'
       const renderFile = path.resolve(__dirname, 'views', fileName + '.ejs')
-      const outputFile = path.join(__dirname, 'pdf', fileName + '.pdf')
 
       ejs.renderFile(renderFile, options, (err, html) => {
 
@@ -51,27 +50,15 @@ router.post(
 
         const renderHtml = html.replace(/img src=\"\//g, 'img src="file://' + __dirname + "/")
 
-        htmlPdf.create(renderHtml, pdfOptions).toFile(outputFile, (err) => {
-
-          if (err) {
-            res.status(500).json({message: 'Ошибка конвертации ' + err})
+        htmlPdf.create(renderHtml, pdfOptions).toBuffer((error, buffer) => {
+          if (error) {
+            res.status(500).json({message: 'Ошибка конвертации ' + error})
           }
 
-          fs.readFile(outputFile, (err, data) => {
-            if (err)
-              throw err
-
-            const pdf = data.toString('base64')
-            res.send(pdf)
-
-            fs.unlink(outputFile, (err) => {
-              if (err) {
-                res.status(500).json({message: 'Ошибка удаления ' + err})
-              }
-            })
-
-          })
+          const pdf = buffer.toString('base64')
+          res.send(pdf)
         })
+
       })
 
     } catch (e) {

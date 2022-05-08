@@ -26,6 +26,7 @@
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
     "mysql": "^2.18.1",
+    "phantomjs": "^2.1.7",
     "react-custom-scrollbars": "^4.2.1",
     "react-router-dom": "^5.2.0",
     "react-yandex-maps": "^4.6.0"
