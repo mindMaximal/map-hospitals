@@ -1,15 +1,108 @@
 import {Router} from 'express'
-import ejs from 'ejs'
-import path from 'path'
-import fs from 'fs'
-//import * as docx from 'docx'
 import docx from "docx"
 
-const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell } = docx;
+const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, HeadingLevel, PageOrientation } = docx
 
 
 const router = Router()
-const __dirname = path.resolve()
+const getWordDoc = (data) => {
+
+  const getHeader = (headers) => {
+    const headerCells = []
+
+    for (let i = 0; i < headers.length; i++) {
+      headerCells.push(new TableCell({
+        size: 25,
+        children: [
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: headers[i],
+                bold: true
+              })
+            ],
+          })
+
+        ]
+      }))
+    }
+
+    return new TableRow({
+      children: headerCells,
+      tableHeader: true
+    })
+  }
+
+  const getTableBody = (rowsData) => {
+    const tableBody = []
+
+    for (let i = 0; i < rowsData.length; i++) {
+      const el = rowsData[i]
+      const rowCells = []
+
+      for (let j = 0; j < el.length; j++) {
+        rowCells.push(new TableCell({
+          children: [new Paragraph(el[j] || '-')],
+        }))
+      }
+
+      tableBody.push(new TableRow({
+        children: rowCells
+      }))
+    }
+
+    return tableBody
+  }
+
+  return new Document({
+    sections: [{
+      properties: {
+        page: {
+          size: {
+            orientation: PageOrientation.LANDSCAPE,
+          },
+          margin: {
+            top: 1000,
+            right: 1000,
+            bottom: 1000,
+            left: 1000,
+          },
+        },
+      },
+      children: [
+
+        new Paragraph({
+          heading: HeadingLevel.HEADING_1,
+          children: [
+            new TextRun({
+              text: data.title,
+              size: 22 * 2,
+              bold: true
+            })
+          ],
+        }),
+
+        new Paragraph({
+          spacing: {
+            after: 500,
+          },
+          children: [
+            new TextRun(`Дата: ${data.date}`)
+          ],
+        }),
+
+        new Table({
+          rows: [
+            getHeader(data.headers),
+            ...getTableBody(data.data)
+          ],
+        })
+
+      ],
+    }],
+  })
+}
 
 // /api/reports/pdf
 router.post(
@@ -38,69 +131,11 @@ router.post(
         data: receivedData
       }
 
-      const fileName = 'report'
-      const renderFile = path.resolve(__dirname, 'views', fileName + '.ejs')
-      const outputFile = path.join(__dirname, 'pdf', fileName + '.docx')
-
-      /*const htmlString = await ejs.renderFile(renderFile, options, {async: true})
-
-      fs.writeFile('test.html', htmlString, () => {
-
-      })
-
-      const fileBuffer = await HTMLtoDOCX(htmlString, null, {
-        table: { row: { cantSplit: true } },
-        orientation: 'landscape',
-        pageNumber: true,
-      })*/
-
-      const doc = new Document({
-        sections: [{
-          properties: {},
-          children: [
-
-            new Table({
-              rows: [
-                new TableRow({
-                  children: [
-                    new TableCell({
-                      children: [new Paragraph("hello")],
-                    }),
-                  ],
-                }),
-              ],
-            })
-
-          ],
-        }],
-      });
+      const doc = getWordDoc(options)
 
       Packer.toBuffer(doc).then((buffer) => {
-        fs.writeFileSync("My Document.docx", buffer);
-        const word = buffer.toString('base64')
-
-        res.send(word)
+        res.send(buffer.toString('base64'))
       });
-
-      /*fs.writeFile(outputFile, fileBuffer, (error) => {
-        if (error)
-          throw error
-
-        fs.readFile(outputFile, (err, data) => {
-          if (err)
-            throw err
-
-          const word = data.toString('base64')
-          res.send(word)
-
-          fs.unlink(outputFile, (err) => {
-            if (err) {
-              res.status(500).json({message: 'Ошибка удаления ' + err})
-            }
-          })
-
-        })
-      })*/
 
     } catch (e) {
       console.log(e)

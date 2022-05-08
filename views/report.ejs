@@ -13,6 +13,10 @@
             width: 100%;
         }
 
+        body {
+            padding: 20px;
+        }
+
         .document__title {
             margin: 0;
             font-size: 24px;
@@ -82,7 +86,7 @@
         <Table class="table">
             <thead>
             <tr>
-                <% for(var i = 0; i < headers.length; i++) {%>
+                <% for(let i = 0; i < headers.length; i++) {%>
                     <th>
                         <%=headers[i] %>
                     </th>
@@ -90,9 +94,9 @@
             </tr>
             </thead>
             <tbody>
-            <% for(var i = 0; i < data.length; i++) {%>
+            <% for(let i = 0; i < data.length; i++) {%>
                 <tr>
-                    <% for(var j = 0; j < data[i].length; j++) {%>
+                    <% for(let j = 0; j < data[i].length; j++) {%>
                         <td>
                             <% switch (data[i][j]) {
                             case null: %>
@@ -123,4 +127,4 @@
     </div>
 
 </body>
-<html>
+</html>
