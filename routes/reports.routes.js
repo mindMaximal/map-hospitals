@@ -56,9 +56,11 @@ router.post(
 
       if (req.body.hasOwnProperty('foundationYearFrom') && req.body.foundationYearFrom !== null) {
         limiters.push('`founding_year` > ' + req.body.foundationYearFrom)
-      } else if (req.body.hasOwnProperty('foundationYearTo') && req.body.foundationYearTo !== null) {
+      }
+      if (req.body.hasOwnProperty('foundationYearTo') && req.body.foundationYearTo !== null) {
         limiters.push('`founding_year` < ' + req.body.foundationYearTo)
-      } else if (req.body.hasOwnProperty('area') && req.body.area !== null) {
+      }
+      if (req.body.hasOwnProperty('area') && req.body.area !== null) {
         limiters.push('`locality`.`district_id` = ' + req.body.area)
       }
 
@@ -72,7 +74,7 @@ router.post(
           }
         }
       } else {
-        columns = '`medical_center`.`name`, `types`.`name` AS `type`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
+        columns = '`medical_center`.`name`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
       }
 
       let query = 'SELECT ' + columns + ' FROM `medical_center`\n' +
@@ -111,6 +113,15 @@ router.post(
           })
 
           return
+        }
+
+        if (rows[0].staffing) {
+
+          for (const row of rows) {
+
+            row.staffing = row.staffing * 100 + '%'
+          }
+
         }
 
         if (haveAddress) {

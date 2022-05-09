@@ -4,7 +4,7 @@ import {Button, Modal, Select, TextInput} from "react-materialize"
 
 export const ModalAdd = (props) => {
 
-  const {loading, error, request, clearError} = useHttp()
+  const {error, request, clearError} = useHttp()
 
   const [state, setState] = useState({
     name: '',
@@ -20,8 +20,6 @@ export const ModalAdd = (props) => {
 
   const fetchData = useCallback(async (el) => {
     try {
-      console.log(el)
-
       const fetched = await request(`/api/location/add/${props.query}`, 'POST', {
         id: el.id,
         name: el.name,

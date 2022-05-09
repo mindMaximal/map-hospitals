@@ -9,6 +9,29 @@
 		position: relative;
 	}
 
+	&__empty {
+		width: 100%;
+		text-align: center;
+		min-height: 300px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&--size {
+			max-width: 60px;
+			margin: 20px auto;
+
+			img {
+				max-width: 100%;
+			}
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
 	&__loader {
 		position: fixed;
 		top: 0;

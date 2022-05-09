@@ -208,6 +208,7 @@ export const ReportPanel = (props) => {
                 onClick={handlePreparedReportsButton}
                 href="#report-modal"
                 data-title="Отчёт о медицинских пунктах с просроченной реконструкцией"
+                disabled
               >
                 Отчёт о медицинских пунктах с просроченной реконструкцией
               </Button>

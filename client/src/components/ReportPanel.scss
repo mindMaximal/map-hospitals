@@ -85,9 +85,13 @@
 	}
 
 	&__subtitle {
-		font-size: 16px;
+		font-size: 18px;
 		padding: 0;
-		margin: 10px 0;
+		margin: 10px 0 25px;
+
+		&--margin {
+			margin: 10px 0 0 0;
+		}
 	}
 
 	&__span {

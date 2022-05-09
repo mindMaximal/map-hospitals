@@ -7,6 +7,7 @@ const mappings = [
   },
   {
     columnName: 'Тип',
+    queryName: 'type',
     fullQueryName: 'types`.`name` AS `type',
     fieldName: 'type'
   },
@@ -59,9 +60,9 @@ const mappings = [
   {
     columnName: 'Адрес',
     fullQueryName: [
-      'region`.`name',
-      'district`.`name',
-      'locality`.`name',
+      'region`.`name` AS `region_name',
+      'district`.`name` AS `district_name',
+      'locality`.`name` AS `locality_name',
       'street',
       'number_of_house'
     ],
@@ -76,7 +77,12 @@ const mappings = [
     columnName: 'Население',
     fullQueryName: 'population',
     fieldName: 'population'
-  }
+  },
+  {
+    columnName: 'Укомплектованность',
+    fullQueryName: 'staffing',
+    fieldName: 'staffing',
+  },
 ]
 
 export default mappings

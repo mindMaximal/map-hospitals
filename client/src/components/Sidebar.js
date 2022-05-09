@@ -54,8 +54,6 @@ export const Sidebar = (props) => {
   const handlePanelScroll = (e) => {
     const scrollTop = e.target.scrollTop
 
-    console.log()
-
     if (scrollTop > 50) {
       setState({...state, 'scroll': true})
     } else {

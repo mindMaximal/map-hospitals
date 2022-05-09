@@ -40,11 +40,7 @@ export const Navigation = (props) => {
 
   const fetchData = useCallback(async (body) => {
     try {
-      console.log('body', body)
-
       const fetched = await request('/api/reports/area', 'POST', body)
-
-      console.log('Area fetched:', fetched)
 
       setState({
         ...state,

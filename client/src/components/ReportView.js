@@ -27,7 +27,7 @@ export const ReportView = (props) => {
     } catch (e) {}
   })
 
-  const handleWordSaveClick = (e) => {
+  const handleWordSaveClick = () => {
     fetchDataWord(props.data)
   }
 
@@ -44,7 +44,7 @@ export const ReportView = (props) => {
     } catch (e) {}
   })
 
-  const handlePdfSaveClick = (e) => {
+  const handlePdfSaveClick = () => {
     fetchData(props.data)
   }
 
@@ -103,10 +103,17 @@ export const ReportView = (props) => {
 
         { props.loading ? <ProgressBar /> :
 
-          props.data.objects.length === 0 ? 'Элементов по данному запросов не найдено, пожалуйста, измените критерии поиска' :
+          props.data.objects.length === 0 ?
+            <div className="report-view__empty">
 
+              <div className="report-view__empty--size">
+                <img src="/search.png" alt="Not found"/>
+              </div>
 
-
+              <p>Элементов по данному запросов <b>не найдено.</b></p>
+              <p>Измените критерии поиска</p>
+            </div>
+            :
               <Table>
                 <thead>
                 <tr>
@@ -131,7 +138,7 @@ export const ReportView = (props) => {
                         data-label={props.data.headers[j]}
                       >
                         {
-                          obj[el] == null ? 'Отстуствует' :
+                          obj[el] === null ? '-' :
                             obj[el] === 1 ? 'Есть' :
                               obj[el] === 0 ? 'Нет' :
                                 obj[el]

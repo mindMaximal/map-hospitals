@@ -34,8 +34,6 @@ export const SingleViewOrg = (props) => {
 
       const fetchedObjects = await request('api/map/org/objects', `POST`, body)
 
-      console.log('fetchedObjects', fetchedObjects)
-
       setObjects(fetchedObjects)
 
       props.updateData(fetchedObjects)

@@ -199,7 +199,6 @@ router.post(
   [],
   async (req, res) => {
     try {
-      console.log(req.body)
       const connection = initializeConnection(configDB)
 
       const query = "UPDATE `region` SET `name` = '" + req.body.name + "' WHERE `region`.`id` = " + req.body.id

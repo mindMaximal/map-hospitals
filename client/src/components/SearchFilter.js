@@ -45,8 +45,6 @@ export const SearchFilter = (props) => {
     const { name } = target
     const value = parseInt(target.value)
 
-    console.log(value)
-
     setFilters({
       ...filters,
       [name]: !isNaN(value) ? value !== 0 ? value : null : null

@@ -33,11 +33,17 @@ router.post(
         data: receivedData
       }
 
-      const pdfOptions = {
+      if (process.env.NODE_ENV === 'production') {
+      }
+
+      let pdfOptions = {
         format: 'A4',
         orientation: 'landscape',
-        border: '10px',
-        "phantomPath": "./node_modules/phantomjs/bin/phantomjs"
+        border: '10px'
+      }
+
+      if (process.env.NODE_ENV === 'production') {
+        pdfOptions["phantomPath"] = "./node_modules/phantomjs-prebuilt/bin/phantomjs"
       }
 
       const fileName = 'report'
@@ -48,7 +54,7 @@ router.post(
         if (err)
           res.status(500).json({message: 'Ошибка при рендере .ejs файла ' + err})
 
-        const renderHtml = html.replace(/img src=\"\//g, 'img src="file://' + __dirname + "/")
+        const renderHtml = html.replace(/img src=\//g, 'img src="file://' + __dirname + "/")
 
         htmlPdf.create(renderHtml, pdfOptions).toBuffer((error, buffer) => {
           if (error) {

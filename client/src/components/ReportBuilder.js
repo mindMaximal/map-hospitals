@@ -67,7 +67,7 @@ export const ReportBuilder = (props) => {
 
         <div className="report-panel__wrapper">
 
-          <h4 className="report-panel__subtitle">
+          <h4 className="report-panel__subtitle report-panel__subtitle--margin">
             Фильтры:
           </h4>
 
@@ -155,7 +155,7 @@ export const ReportBuilder = (props) => {
                filledIn
                onClick={handleReportParamClick}
                id="report-panel__staffing"
-               label="Укомплектованность фельдшерами"
+               label="Укомплектован"
                value="staffing"
              />
            </div>
@@ -280,6 +280,17 @@ export const ReportBuilder = (props) => {
                 onClick={handleCheckBoxClick}
                 label="Год основания"
                 name="foundingYear"
+              />
+            </div>
+
+            <div className="report-panel__block report-panel__block--half">
+              <Checkbox
+                filledIn
+                id="report-columns-staffing"
+                className="report-columns"
+                onClick={handleCheckBoxClick}
+                label="Укомплектованость"
+                name="staffing"
               />
             </div>
 

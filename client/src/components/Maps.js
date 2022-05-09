@@ -40,7 +40,6 @@ export const Maps = (props) => {
   }
 
   const handlePlacemarkClick = (e, element) => {
-    console.log(element)
     let objects
     //Проверяем организация или ФАП
     if (element.type_id === 3) {

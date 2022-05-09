@@ -113,7 +113,7 @@ export const SingleView = (props) => {
                   Организация:
                 </div>
 
-                {state.el.parent || 'Неизвестно'}
+                {state.el.facility_name || 'Неизвестно'}
 
               </div>
 

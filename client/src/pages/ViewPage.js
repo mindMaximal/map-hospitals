@@ -45,7 +45,6 @@ export const ViewPage = () => {
   }, [request])
 
   const updateData = (value, force = false) => {
-    console.log('updateData')
 
     setState({
       ...state,
@@ -86,10 +85,6 @@ export const ViewPage = () => {
       setVisibleReports(!visibleReports)
     }
   }
-
-  useEffect(() => {
-    console.log('State view', state)
-  }, [state])
 
   return (
     <div className="view">
