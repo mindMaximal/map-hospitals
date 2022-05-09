@@ -154,7 +154,9 @@ export const ReportPanel = (props) => {
                 onClick={handlePreparedReportsButton}
                 columns={[
                   'name',
-                  'phone'
+                  'address',
+                  'type',
+                  'staffing'
                 ]}
                 href="#report-modal"
                 data-title="Отчет об укомплектованности мед. работниками"
@@ -167,9 +169,7 @@ export const ReportPanel = (props) => {
                 waves="light"
                 columns={[
                   'name',
-                  'locality',
                   'address',
-                  'phone',
                   'foundingYear',
                   'firstAid',
                   'emergencyAssistance'
@@ -189,9 +189,8 @@ export const ReportPanel = (props) => {
                 onClick={handlePreparedReportsButton}
                 columns={[
                   'name',
-                  'locality',
+                  'type',
                   'address',
-                  'phone',
                   'foundingYear',
                   'pharmacy'
                 ]}

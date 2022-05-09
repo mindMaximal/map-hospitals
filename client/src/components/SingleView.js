@@ -153,7 +153,7 @@ export const SingleView = (props) => {
                   Укомплектованность:
                 </div>
 
-                {state.el.staffing ? (state.el.staffing * 100) + '%' : 'Неизвестно'}
+                {(state.el.staffing * 100) + '%'}
 
               </div>
 

@@ -33,9 +33,6 @@ router.post(
         data: receivedData
       }
 
-      if (process.env.NODE_ENV === 'production') {
-      }
-
       let pdfOptions = {
         format: 'A4',
         orientation: 'landscape',
