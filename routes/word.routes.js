@@ -43,7 +43,7 @@ const getWordDoc = (data) => {
 
       for (let j = 0; j < el.length; j++) {
         rowCells.push(new TableCell({
-          children: [new Paragraph(el[j] || '-')],
+          children: [new Paragraph(el[j] ? el[j].toString() : '-')],
         }))
       }
 
