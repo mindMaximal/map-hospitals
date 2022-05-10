@@ -82,26 +82,28 @@ router.post(
 
       if (req.body.source === 'table') {
         query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`, `population`.`population_adult` AS `population` FROM `medical_center`\n' +
-          '    JOIN `locality`\n' +
+          'LEFT JOIN `locality`\n' +
           '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
-          '    JOIN `district`\n' +
+          'LEFT JOIN `district`\n' +
           '        ON `locality`.`district_id` = `district`.`id`\n' +
-          '    JOIN `region`\n' +
+          'LEFT JOIN `region`\n' +
           '        ON `region`.`id` = `district`.`region_id`\n' +
-          '    JOIN `population`\n' +
-          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
+          'LEFT JOIN `population`\n' +
+          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)' +
+          'ORDER BY `medical_center`.`name`'
       } else {
         query = 'SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`  FROM `medical_center`\n' +
-          '    JOIN `locality`\n' +
+          'LEFT JOIN `locality`\n' +
           '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
-          '    JOIN `district`\n' +
+          'LEFT JOIN `district`\n' +
           '        ON `locality`.`district_id` = `district`.`id`\n' +
-          '    JOIN `region`\n' +
+          'LEFT JOIN `region`\n' +
           '        ON `region`.`id` = `district`.`region_id`\n' +
-          '    JOIN `types`\n' +
+          'LEFT JOIN `types`\n' +
           '        ON `medical_center`.`type_id` = `types`.`id`' +
-          '    JOIN `population`\n' +
-          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
+          'LEFT JOIN `population`\n' +
+          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)' +
+          'ORDER BY `medical_center`.`name`'
       }
 
       if (limiters.length !== 0) {
@@ -146,13 +148,13 @@ export default router
 /*
 
 SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`  FROM `medical_center`
-    JOIN `locality`
+LEFT JOIN `locality`
         ON `medical_center`.`locality_id` = `locality`.`id`
-    JOIN `district`
+LEFT JOIN `district`
         ON `locality`.`district_id` = `district`.`id`
-    JOIN `region`
+LEFT JOIN `region`
         ON `region`.`id` = `district`.`region_id`
-    JOIN `population`
+LEFT JOIN `population`
     	ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)
     HAVING (`population`.`population_adult` + `population`.`population_child`) > 20
  */

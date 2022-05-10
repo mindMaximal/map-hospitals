@@ -17,13 +17,18 @@ const normalizeData = (rows, haveAddress = false) => {
     for (const key of Object.keys(row)) {
 
       if (row[key] === null) {
-        row[key] = '-'
-      }
 
-      for (const mapping of mappings) {
-        if (key === mapping.fullQueryName && mapping.binary) {
-          row[key] = row[key] === 1 ? 'Есть' : 'Нет'
+        row[key] = '-'
+
+      } else {
+
+        for (const mapping of mappings) {
+          if (key === mapping.fullQueryName && mapping.binary) {
+            console.log(row[key])
+            row[key] = parseInt(row[key]) === 1 ? 'Есть' : 'Нет'
+          }
         }
+
       }
 
     }

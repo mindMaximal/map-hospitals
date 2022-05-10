@@ -5,6 +5,21 @@ const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, Headin
 
 
 const router = Router()
+
+const getValue = (el) => {
+  let value = el || ''
+
+  if (el === null) {
+    value = '-'
+  } else if (parseInt(el) === 1) {
+    value = 'Есть'
+  } else if (parseInt(el) === 0) {
+    value = 'Нет'
+  }
+
+  return value.toString()
+}
+
 const getWordDoc = (data) => {
 
   const getHeader = (headers) => {
@@ -35,6 +50,7 @@ const getWordDoc = (data) => {
   }
 
   const getTableBody = (rowsData) => {
+    console.log(rowsData)
     const tableBody = []
 
     for (let i = 0; i < rowsData.length; i++) {
@@ -43,7 +59,7 @@ const getWordDoc = (data) => {
 
       for (let j = 0; j < el.length; j++) {
         rowCells.push(new TableCell({
-          children: [new Paragraph(el[j] ? el[j].toString() : '-')],
+          children: [new Paragraph(getValue(el[j]))],
         }))
       }
 

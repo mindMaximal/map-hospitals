@@ -266,7 +266,7 @@ export const DetailPage = () => {
                       Аптека:
                     </div>
 
-                    {parseInt(data.pharmacy) === 1 ? 'есть' : 'отстуствует'}
+                    {data.pharmacy === null ? '-' : parseInt(data.pharmacy) === 1 ? 'Есть' : 'Нет'}
                   </>
                 }
 
@@ -283,7 +283,7 @@ export const DetailPage = () => {
                       Первая помощь:
                     </div>
 
-                    {parseInt(data.access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
+                    {data.access_to_primary_health_care === null ? '-' : parseInt(data.access_to_primary_health_care) === 1 ? 'Есть' : 'Нет'}
                   </>
                 }
 
@@ -300,7 +300,7 @@ export const DetailPage = () => {
                       Экстренная помощь:
                     </div>
 
-                    {parseInt(data.availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
+                    {data.availability_of_emergency_mediical_care === null ? '-' : parseInt(data.availability_of_emergency_mediical_care) === 1 ? 'Есть' : 'Нет'}
                   </>
                 }
 

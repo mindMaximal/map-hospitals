@@ -25,7 +25,8 @@ router.post(
         '    LEFT JOIN `district`\n' +
         '        ON `locality`.`district_id` = `district`.`id`\n' +
         '    LEFT JOIN `region`\n' +
-        '        ON `region`.`id` = `district`.`region_id`'
+        '        ON `region`.`id` = `district`.`region_id`' +
+        '    ORDER BY `medical_center`.`name`'
 
       connection.query(query, (err, rows) => {
         connection.end()

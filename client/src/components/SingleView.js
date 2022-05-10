@@ -123,7 +123,7 @@ export const SingleView = (props) => {
                   Аптека:
                 </div>
 
-                {parseInt(state.el.pharmacy) === 1 ? 'есть' : 'отстуствует'}
+                {state.el.pharmacy === null ? '-' : parseInt(state.el.pharmacy) === 1 ? 'Есть' : 'Нет'}
 
               </div>
 
@@ -133,7 +133,7 @@ export const SingleView = (props) => {
                   Первая помощь:
                 </div>
 
-                {parseInt(state.el.access_to_primary_health_care) === 1 ? 'есть' : 'отстуствует'}
+                {state.el.access_to_primary_health_care === null ? '-' : parseInt(state.el.access_to_primary_health_care) === 1 ? 'Есть' : 'Нет'}
 
               </div>
 
@@ -143,7 +143,7 @@ export const SingleView = (props) => {
                   Экстренная помощь:
                 </div>
 
-                {parseInt(state.el.availability_of_emergency_mediical_care) === 1 ? 'есть' : 'отстуствует'}
+                {state.el.availability_of_emergency_mediical_care === null ? '-' : parseInt(state.el.availability_of_emergency_mediical_care) === 1 ? 'Есть' : 'Нет'}
 
               </div>
 

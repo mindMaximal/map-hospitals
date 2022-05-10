@@ -5,19 +5,6 @@ import {Link} from "react-router-dom";
 
 export const TableView = (props) => {
 
-  const handleTableContextMenu = (e, id) => {
-    e.preventDefault()
-
-    const {clientX, clientY } = e
-
-    props.setContextMenu({
-        x: clientX,
-        y: clientY,
-        id: id,
-        visible: true
-      })
-  }
-
   return (
     <Table className="table-view">
 
@@ -49,7 +36,6 @@ export const TableView = (props) => {
               <td
                 key={j}
                 data-label={props.headers[j]}
-                onContextMenu={(e) => handleTableContextMenu(e, obj.id)}
               >
                 {
                   props.headers[j] === 'Название' ? <Link to={`/detail/${obj.id}`}>{obj[el]}</Link> : obj[el]
