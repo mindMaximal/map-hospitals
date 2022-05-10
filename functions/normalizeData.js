@@ -24,7 +24,6 @@ const normalizeData = (rows, haveAddress = false) => {
 
         for (const mapping of mappings) {
           if (key === mapping.fullQueryName && mapping.binary) {
-            console.log(row[key])
             row[key] = parseInt(row[key]) === 1 ? 'Есть' : 'Нет'
           }
         }

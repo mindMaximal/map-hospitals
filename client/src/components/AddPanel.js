@@ -2,7 +2,7 @@ import {Button, Checkbox, Modal, Select, TextInput} from "react-materialize"
 import React from 'react'
 import './AddPanel.scss'
 
-export const AddPanel = (props) => {
+export const AddPanel = () => {
 
   const handleInputFile = (e) => {
     const { target } = e
@@ -12,7 +12,6 @@ export const AddPanel = (props) => {
       let file = files[0]
 
       const url = URL.createObjectURL(file)
-      console.log(url)
 
       const img = target.closest('.add-panel__block').querySelector('img')
 

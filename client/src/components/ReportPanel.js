@@ -30,8 +30,6 @@ export const ReportPanel = (props) => {
 
       const fetched = await request('/api/reports', 'POST', body)
 
-      console.log(fetched)
-
       setData(fetched)
 
     } catch (e) {}

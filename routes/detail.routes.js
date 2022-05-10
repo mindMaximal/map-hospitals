@@ -20,8 +20,6 @@ router.get(
   async (req, res) => {
     try {
 
-      console.log(req.params)
-
       if (req.params.id === undefined || req.params.id === null) {
         res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
         return
@@ -196,8 +194,6 @@ router.post(
 
       connection.query(query, [data], (err, rows) => {
         connection.end()
-
-        console.log(rows)
 
         if (err) {
           throw err

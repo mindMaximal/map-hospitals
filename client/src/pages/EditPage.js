@@ -52,8 +52,6 @@ export const EditPage = () => {
         history.push('/error')
       }
 
-      console.log(fetched)
-
       setData(fetched[0])
     } catch (e) {}
   }, [request])

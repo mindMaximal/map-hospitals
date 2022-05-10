@@ -91,9 +91,10 @@ export const InlineRates = (props) => {
             }
 
         }) :
-          <div className="inline-rates__empty">
-            Показатели еще не добавлены
-          </div>
+          props.mode !== `edit` &&
+            <div className="inline-rates__empty">
+              Показатели еще не добавлены
+            </div>
         }
 
       </div>

@@ -56,9 +56,8 @@ export const DetailPage = () => {
 
   const fetchDelete = useCallback(async (body) => {
     try {
-      const fetched = await request(`/api/detail/delete`, 'POST', body)
+      await request(`/api/detail/delete`, 'POST', body)
 
-      console.log('Deleted fetch', fetched)
       setDeletedData(true)
 
       setTimeout(() => {

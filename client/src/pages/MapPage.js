@@ -42,12 +42,11 @@ export const MapPage = () => {
       })
 
       const fetchedOrgs = await request('/api/map/organizations', 'POST')
-      console.log('orgs', fetchedOrgs)
+
       setOrgs(fetchedOrgs.data)
 
     } catch (e) {}
   }, [request])
-
 
   useEffect(() => {
     fetchData()

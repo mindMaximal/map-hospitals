@@ -51,11 +51,7 @@ app.use('/api/reports/word', apiReportsWord)
 if (process.env.NODE_ENV === 'production') {
   console.log('Production mode')
   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
-
-  app.use('/test', (req, res) => {
-    console.log('Test log')
-    res.status(200).send('Test ok!');
-  })
+  app.use(express.static(path.join(__dirname, 'client', 'public')));
 
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
