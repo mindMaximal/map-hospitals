@@ -30,7 +30,7 @@ router.post(
         title: req.body.title || 'Отчет',
         date: date,
         headers: req.body.headers || 'Без заголовков',
-        data: receivedData
+        data: receivedData,
       }
 
       let pdfOptions = {
@@ -43,7 +43,9 @@ router.post(
 
       if (process.env.NODE_ENV === 'production') {
         pdfOptions.phantomPath = "./node_modules/phantomjs-prebuilt/bin/phantomjs"
+
         pdfOptions.zoomFactor = 0.7
+        options.zoom = 0.7
       }
 
       const fileName = 'report'
