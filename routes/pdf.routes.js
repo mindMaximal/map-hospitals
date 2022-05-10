@@ -31,6 +31,7 @@ router.post(
         date: date,
         headers: req.body.headers || 'Без заголовков',
         data: receivedData,
+        zoom: 1
       }
 
       let pdfOptions = {
