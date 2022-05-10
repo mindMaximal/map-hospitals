@@ -36,11 +36,14 @@ router.post(
       let pdfOptions = {
         format: 'A4',
         orientation: 'landscape',
-        border: '10px'
+        border: '10px',
+        height: "210mm",
+        width: "297mm"
       }
 
       if (process.env.NODE_ENV === 'production') {
-        pdfOptions["phantomPath"] = "./node_modules/phantomjs-prebuilt/bin/phantomjs"
+        pdfOptions.phantomPath = "./node_modules/phantomjs-prebuilt/bin/phantomjs"
+        pdfOptions.zoomFactor = 0.7
       }
 
       const fileName = 'report'

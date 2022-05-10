@@ -12,7 +12,7 @@ const mappings = [
     fieldName: 'type'
   },
   {
-    columnName: 'Номер телефона',
+    columnName: 'Телефон',
     fullQueryName: 'phone',
     fieldName: 'phone'
   },
