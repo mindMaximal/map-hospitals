@@ -139,7 +139,7 @@ export const SingleViewOrg = (props) => {
 
             </div>
 
-            <div className="single-view__block">
+            {/*<div className="single-view__block">
 
               <Link
                 to={`/detail/${state.el.id}`}
@@ -156,7 +156,7 @@ export const SingleViewOrg = (props) => {
                 </Button>
               </Link>
 
-            </div>
+            </div>*/}
 
             { objects && objects.length > 0 &&
             <div className="single-view__block">
