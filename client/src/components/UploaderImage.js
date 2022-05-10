@@ -41,10 +41,8 @@ export const UploaderImage = (props) => {
         {},
         false
       )
-      // ToDo: проверка авторизации по токену
 
       if (!fetched.image) {
-        // ToDo: обработка ошибок
         console.log('Ошибка')
       }
 

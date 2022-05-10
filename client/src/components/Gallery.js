@@ -22,7 +22,6 @@ export const Gallery = (props) => {
   const fetchData = useCallback(async () => {
     try {
       const fetched = await request(`/api/detail/images/${props.id}`, 'GET', null)
-      // ToDo: проверка авторизации по токену
 
       setState({
         data: fetched

@@ -12,7 +12,6 @@ import {Box} from "../components/Skeleton"
 import {InlineRates} from "../components/InlineRates";
 
 export const DetailPage = () => {
-  // ToDo: 404 на несуществующий
   const {loading, error, request, clearError} = useHttp()
 
   const history = useHistory()
@@ -30,7 +29,6 @@ export const DetailPage = () => {
   const fetchData = useCallback(async () => {
     try {
       const fetched = await request(`/api/detail/${id}`, 'GET', null)
-      // ToDo: Добавить проверку авторизации токена 2:40:18
       if (fetched.length === 0) {
         history.push('/error')
       }
@@ -59,7 +57,6 @@ export const DetailPage = () => {
   const fetchDelete = useCallback(async (body) => {
     try {
       const fetched = await request(`/api/detail/delete`, 'POST', body)
-      // ToDo: Добавить проверку авторизации токена 2:40:18 на удаление!
 
       console.log('Deleted fetch', fetched)
       setDeletedData(true)

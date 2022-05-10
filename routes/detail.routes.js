@@ -129,8 +129,6 @@ router.post(
   [],
   async (req, res) => {
     try {
-      // ToDo: каскадное удаление фото при удаление мед пункта
-      // ToDo: удаление файлов фотографий
 
       const connection = initializeConnection(configDB)
 

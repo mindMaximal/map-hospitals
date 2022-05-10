@@ -1,10 +1,10 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import {useHttp} from "../hooks/http.hook"
 import {Button, Modal} from "react-materialize"
 
 export const ModalDelete = (props) => {
 
-  const {loading, error, request, clearError} = useHttp()
+  const {error, request, clearError} = useHttp()
 
   useEffect(() => {
     if (error) {
@@ -15,8 +15,7 @@ export const ModalDelete = (props) => {
 
   const fetchData = useCallback(async (id, name) => {
     try {
-      const fetched = await request(`/api/upload/images/delete`, 'POST', {id, name})
-      // ToDo: проверка авторизации по токену
+      await request(`/api/upload/images/delete`, 'POST', {id, name})
 
       return true
     } catch (e) {}

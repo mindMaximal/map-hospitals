@@ -69,10 +69,6 @@ export const ReportPanel = (props) => {
       columns: [],
       conditions: []
     })
-    /!*
-    * ToDo
-    *  - очистка полей формы
-    * *!/
   }*/
 
   return (

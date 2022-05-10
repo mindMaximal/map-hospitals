@@ -69,7 +69,6 @@ export const AddPage = () => {
 
   const fetchAdd= useCallback(async (body) => {
     try {
-      // ToDo: Добавить проверку авторизации токена 2:40:18
       return await request(`/api/detail/add`, 'POST', body)
     } catch (e) {}
   }, [request])

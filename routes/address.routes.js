@@ -12,8 +12,6 @@ const configDB = {
   database: config.get('database')
 }
 
-// ToDo: выбор гоорода от района
-
 // api/address/region
 router.get(
   '/region',

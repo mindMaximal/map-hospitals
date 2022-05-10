@@ -139,11 +139,6 @@ export const SingleViewOrg = (props) => {
 
             </div>
 
-            {/* ToDo: починить галерею
-            <Gallery
-              id={state.el.id}
-            />*/}
-
             <div className="single-view__block">
 
               <Link

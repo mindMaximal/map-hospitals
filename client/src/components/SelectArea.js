@@ -20,7 +20,6 @@ export const SelectArea = (props) => {
   const fetchData = useCallback(async () => {
     try {
       const fetched = await request(`/api/address/${props.query}`, 'GET', null)
-      // ToDo: проверка авторизации по токену
 
       fetched.unshift({id: 0, [`${props.query}_name`]: 'Выберите ' + props.label.toLowerCase()})
       
@@ -39,8 +38,6 @@ export const SelectArea = (props) => {
       setValue(0)
     }
   }, [props])
-
-  //ToDo: баг с выбором населенного пункта: дефолтное значение не выбирается
 
   return (
     <div

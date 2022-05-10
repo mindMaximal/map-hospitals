@@ -32,7 +32,6 @@ export const InlineGallery = (props) => {
   const fetchData = useCallback(async () => {
     try {
       const fetched = await request(`/api/detail/images/${props.id}`, 'GET', null)
-      // ToDo: проверка авторизации по токену
 
       setState({
         data: fetched
@@ -66,8 +65,6 @@ export const InlineGallery = (props) => {
   }
 
   const addImg = (img) => {
-    // ToDo: удалить только что загруженный файл - удалить его из галереи загруженных файлов (из стейта)
-    console.log(img)
     setState({
       ...state,
       data: [img, ...state.data]
