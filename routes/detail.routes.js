@@ -189,6 +189,18 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
+      if (req.body.phone) {
+        req.body.phone = req.body.phone.substr(0, 11)
+      }
+
+      if (req.body.founding_year) {
+        req.body.founding_year = req.body.founding_year.substr(0, 4)
+      }
+
+      if (req.body.medical_facility_id === 0) {
+        req.body.medical_facility_id = null
+      }
+
       const query = "INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type_id`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `staffing`) VALUES (?);"
       const data = [null, req.body.locality_id, req.body.medical_facility_id, req.body.type_id, req.body.name, req.body.street, req.body.number_of_house, req.body.phone, req.body.latitude, req.body.longitude, req.body.pharmacy,  req.body.founding_year, req.body.availability_of_emergency_mediical_care, req.body.access_to_primary_health_care, null]
 

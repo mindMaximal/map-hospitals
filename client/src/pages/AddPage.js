@@ -220,6 +220,7 @@ export const AddPage = () => {
                   label="Год основания:"
                   value={data.founding_year}
                   disabled={loading}
+                  data-length={4}
                   name="founding_year"
                   type="number"
                   onChange={handleInputChange}
@@ -337,6 +338,7 @@ export const AddPage = () => {
                 <TextInput
                   id="input-phone"
                   label="Телефон:"
+                  data-length={11}
                   value={data.phone}
                   disabled={loading}
                   name="phone"

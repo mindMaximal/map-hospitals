@@ -25,7 +25,7 @@ router.post(
 
       const query = "INSERT INTO `staff` (`id`, `medical_center_id`, `date`, `position`, `rate_full`, `rate_occupied`) VALUES (?, ?, ?, ?, ?, ?)"
 
-      connection.query(query, [null, req.body.medical_center_id, date, req.body.position, req.body.rate_full, req.body.rate_occupied], (err) => {
+      connection.query(query, [null, req.body.medical_center_id, date, req.body.position, parseFloat(req.body.rate_full), parseFloat(req.body.rate_occupied)], (err) => {
         connection.end()
 
         if (err) {

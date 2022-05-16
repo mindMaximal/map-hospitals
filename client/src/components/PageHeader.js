@@ -50,7 +50,7 @@ export const PageHeader = (props) => {
           </Button>
         </Link>
 
-        <Button
+        {/*<Button
           node="button"
           waves="light"
           className="page-header__control"
@@ -66,7 +66,7 @@ export const PageHeader = (props) => {
           disabled
         >
           Реконструкции
-        </Button>
+        </Button>*/}
 
         <Button
           node="button"

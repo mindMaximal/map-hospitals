@@ -35,11 +35,7 @@ export const RatesEditItem = (props) => {
   }, [state])
 
   const handleInputChange = (e) => {
-    if (e.target.type === 'number') {
-      setState({...state, [e.target.name]: parseInt(e.target.value)})
-    } else {
-      setState({...state, [e.target.name]: e.target.value})
-    }
+    setState({...state, [e.target.name]: e.target.value})
   }
 
   const checkingMatch = (el, state) => {
@@ -105,6 +101,11 @@ export const RatesEditItem = (props) => {
   const handleDeleteButtonClick = () => {
     fetchDelete(state)
   }
+  useEffect(() => {
+    document.querySelectorAll('input.input-step').forEach((el) => {
+      el.setAttribute('step', 'any')
+    })
+  }, [])
 
   return (
     <div className={`rates-edit-item ${props.className}`}>
@@ -156,6 +157,7 @@ export const RatesEditItem = (props) => {
               name="rate_occupied"
               type="number"
               label="Ставок занято:"
+              className="input-step"
               value={state.rate_occupied}
               onChange={handleInputChange}
               disabled={loading}
@@ -166,6 +168,7 @@ export const RatesEditItem = (props) => {
             <TextInput
               name="rate_full"
               type="number"
+              className="input-step"
               label="Ставок всего:"
               value={state.rate_full}
               onChange={handleInputChange}
