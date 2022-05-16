@@ -28,7 +28,7 @@ export const RatesItem = (props) => {
       </div>
 
       <div className="rates-item__percent">
-        {props.el.rate_occupied / props.el.rate_full * 100 + '%'}
+        {Math.round(props.el.rate_occupied / props.el.rate_full * 100) + '%'}
       </div>
 
     </div>
