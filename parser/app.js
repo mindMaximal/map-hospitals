@@ -1,7 +1,8 @@
 import fetch from 'node-fetch'
 import fs from "fs"
 
-const url = 'https://geoportal.egisz.rosminzdrav.ru/list/mo?369p=0&369p_constr=0&buildings=%7B%22type%22:%22active%22,%22subType%22:%22all%22,%22stage%22:null,%22date%22:null%7D&district=%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD&equipments=&limit=100000&offset=0&positionsMO=%7B%22selected%22:null,%22from%22:null,%22to%22:null%7D&profile=&subject=%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&types='
+// Старая ссылка const url = 'https://geoportal.egisz.rosminzdrav.ru/list/mo?369p=0&369p_constr=0&buildings=%7B%22type%22:%22active%22,%22subType%22:%22all%22,%22stage%22:null,%22date%22:null%7D&district=%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD&equipments=&limit=100000&offset=0&positionsMO=%7B%22selected%22:null,%22from%22:null,%22to%22:null%7D&profile=&subject=%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&types='
+const url = 'https://geoportal.egisz.rosminzdrav.ru/list/mo?369p=0&369p_constr=0&buildings=%7B%22type%22:%22active%22&subject=%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&limit=100000&offset=0'
 const subStrShort = 'фап'
 const subStrLong = 'фельд'
 
@@ -72,8 +73,15 @@ fetch(url)
       console.log("Запись файла завершена.");
     });
   })
+  .catch(e => {
+  console.log(e)
+})
 
 /*
 *    https://geoportal.egisz.rosminzdrav.ru/map/object?id=14861957
 *
+*
+*   Проблема с сертификатом: set NODE_TLS_REJECT_UNAUTHORIZED=0 https://medium.com/@jonatascastro12/understanding-self-signed-certificate-in-chain-issues-on-node-js-npm-git-and-other-applications-ad88547e7028
+*
 * */
+

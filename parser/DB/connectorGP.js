@@ -1,5 +1,5 @@
 import mysql from 'mysql2'
-import data  from '../result/dataGeoPortalFullParse.json'
+import data  from '../result/dataGeoPortalPointParse.json'
 
 // node --experimental-json-modules connectorGP.js
 export const initializeConnection = (config) => {
@@ -196,7 +196,7 @@ try {
       if (!medicalFacilityId) {
         const mainOrg = [null, el.mainMo.id, el.mainMo.name, el.mainMo.lat, el.mainMo.lon, null, 3, el.mainMo.street, el.mainMo.house, null, el.mainMo.organization, el.mainMo.ogrn, el.mainMo.kpp]
 
-        await connection.promise().query("INSERT INTO `medical_facility` (`id`, `binding key`, `name`, `latitude`, `longitude`, `locality_id`, `type_id`, `street`, `number_of_house`, `phone`, `organization`, `ogrn`, `kpp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mainOrg)
+        await connection.promise().query("INSERT INTO `medical_facility` (`id`, `binding_key`, `name`, `latitude`, `longitude`, `locality_id`, `type_id`, `street`, `number_of_house`, `phone`, `organization`, `ogrn`, `kpp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mainOrg)
           .then(([rows]) => {
             console.log('Добавили medical_facility ', rows.insertId)
             medicalFacilityId = rows.insertId
@@ -306,7 +306,7 @@ try {
           } else {
             const mainOrg = [null, el.mainMo.id, el.mainMo.name, el.mainMo.lat, el.mainMo.lon, null, 3, el.mainMo.street, el.mainMo.house, null, el.mainMo.organization, el.mainMo.ogrn, el.mainMo.kpp]
 
-            connection.query("INSERT INTO `medical_facility` (`id`, `binding key`, `name`, `latitude`, `longitude`, `locality_id`, `type_id`, `street`, `number_of_house`, `phone`, `organization`, `ogrn`, `kpp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mainOrg, (err, res) => {
+            connection.query("INSERT INTO `medical_facility` (`id`, `binding_key`, `name`, `latitude`, `longitude`, `locality_id`, `type_id`, `street`, `number_of_house`, `phone`, `organization`, `ogrn`, `kpp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", mainOrg, (err, res) => {
               if (err) throw err
 
               medicalFacilityId = res.insertId
