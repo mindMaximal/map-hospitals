@@ -81,7 +81,7 @@ router.post(
       let query
 
       if (req.body.source === 'table') {
-        query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`, `population`.`population_adult` AS `population` FROM `medical_center`\n' +
+        query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`, `population`.`population_adult` AS `population`, `staffing` FROM `medical_center`\n' +
           'LEFT JOIN `locality`\n' +
           '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
           'LEFT JOIN `district`\n' +
@@ -91,7 +91,7 @@ router.post(
           'LEFT JOIN `population`\n' +
           '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
       } else {
-        query = 'SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`  FROM `medical_center`\n' +
+        query = 'SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`, `staffing`  FROM `medical_center`\n' +
           'LEFT JOIN `locality`\n' +
           '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
           'LEFT JOIN `district`\n' +
@@ -143,17 +143,3 @@ router.post(
 )
 
 export default router
-
-/*
-
-SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`  FROM `medical_center`
-LEFT JOIN `locality`
-        ON `medical_center`.`locality_id` = `locality`.`id`
-LEFT JOIN `district`
-        ON `locality`.`district_id` = `district`.`id`
-LEFT JOIN `region`
-        ON `region`.`id` = `district`.`region_id`
-LEFT JOIN `population`
-    	ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)
-    HAVING (`population`.`population_adult` + `population`.`population_child`) > 20
- */
