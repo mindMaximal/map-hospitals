@@ -21,7 +21,7 @@ router.post(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `region`.`id`, `region`.`name`, COUNT(`district`.`id`) liked AS `districts_count` FROM `region`\n' +
+      const query = 'SELECT `region`.`id`, `region`.`name`, COUNT(`district`.`id`) AS `districts_count` FROM `region`\n' +
         'LEFT JOIN `district` \n' +
         '\tON `region`.`id` = `district`.`region_id` \n' +
         'GROUP BY `region`.`id`\n' +
@@ -56,14 +56,14 @@ router.post(
       let query
 
       if (req.body.id) {
-        query = 'SELECT `district`.`id`, `district`.`name`, `district`.`region_id`, COUNT(`locality`.`id`) liked AS `localities_count` FROM `district`\n' +
+        query = 'SELECT `district`.`id`, `district`.`name`, `district`.`region_id`, COUNT(`locality`.`id`) AS `localities_count` FROM `district`\n' +
           'LEFT JOIN `locality`\n' +
           '\tON `district`.`id` = `locality`.`district_id`\n' +
           'WHERE `district`.`region_id` = ' + req.body.id + '\n' +
           'GROUP BY `district`.`id`\n' +
           'ORDER BY `district`.`name`'
       } else {
-        query = 'SELECT `district`.`id`, `district`.`name`, `district`.`region_id`, COUNT(`locality`.`id`) liked AS `localities_count` FROM `district`\n' +
+        query = 'SELECT `district`.`id`, `district`.`name`, `district`.`region_id`, COUNT(`locality`.`id`) AS `localities_count` FROM `district`\n' +
           'LEFT JOIN `locality`\n' +
           '\tON `district`.`id` = `locality`.`district_id`\n' +
           'GROUP BY `district`.`id`\n' +
@@ -109,7 +109,7 @@ router.post(
         query = 'SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult` + `population`.`population_child`) AS `population` FROM `locality`\n' +
           'LEFT JOIN `population`\n' +
           ' ON `locality`.`id` = `population`.`locality_id`\n' +
-          'GROUP BY `locality`.`id`\n' +
+          'GROUP BY `locality`.`name`\n' +
           'ORDER BY `locality`.`name`'
       }
 
