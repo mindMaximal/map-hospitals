@@ -89,7 +89,7 @@ router.post(
           'LEFT JOIN `region`\n' +
           '        ON `region`.`id` = `district`.`region_id`\n' +
           'LEFT JOIN `population`\n' +
-          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)' +
+          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
       } else {
         query = 'SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`  FROM `medical_center`\n' +
           'LEFT JOIN `locality`\n' +
@@ -101,7 +101,7 @@ router.post(
           'LEFT JOIN `types`\n' +
           '        ON `medical_center`.`type_id` = `types`.`id`' +
           'LEFT JOIN `population`\n' +
-          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)' +
+          '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
       }
 
       if (limiters.length !== 0) {
