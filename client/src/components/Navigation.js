@@ -105,14 +105,14 @@ export const Navigation = (props) => {
             </Button>
           </Link>
 
-          <Button
+          {/*<Button
             className="navigation__button blue darken-4 navigation__link"
             node="button"
             waves="light"
             disabled
           >
             Войти
-          </Button>
+          </Button>*/}
 
         </div>
 
