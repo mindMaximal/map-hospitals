@@ -13,7 +13,7 @@ const configDB = {
   database: config.get('database')
 }
 
-// /api/map/filter
+// /api/filter
 router.post(
   '/',
   [],
