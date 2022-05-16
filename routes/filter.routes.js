@@ -90,7 +90,6 @@ router.post(
           '        ON `region`.`id` = `district`.`region_id`\n' +
           'LEFT JOIN `population`\n' +
           '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)' +
-          'ORDER BY `medical_center`.`name`'
       } else {
         query = 'SELECT `medical_center`.`id`, `medical_center`.`name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`latitude`, `medical_center`.`longitude`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `population`.`population_adult`, `population`.`population_child`  FROM `medical_center`\n' +
           'LEFT JOIN `locality`\n' +
@@ -103,7 +102,6 @@ router.post(
           '        ON `medical_center`.`type_id` = `types`.`id`' +
           'LEFT JOIN `population`\n' +
           '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)' +
-          'ORDER BY `medical_center`.`name`'
       }
 
       if (limiters.length !== 0) {
@@ -120,6 +118,7 @@ router.post(
 
       if (having.length > 0) {
         query += '\n' + having
+        query += '\n' + 'ORDER BY `medical_center`.`name`'
       }
 
       connection.query(query, (err, rows) => {
