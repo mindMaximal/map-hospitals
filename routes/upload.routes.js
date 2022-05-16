@@ -41,7 +41,8 @@ const configDB = {
   user: config.get('user'),
   password: config.get('password'),
   port: config.get('portDB'),
-  database: config.get('database')
+  database: config.get('database'),
+  charset: 'utf8'
 }
 
 const deleteFile = (filename) => {
