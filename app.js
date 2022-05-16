@@ -28,7 +28,7 @@ app.use(express.json({
 
 // app.use('/api/auth', apiAuth)
 app.use('/api/map', apiMap)
-app.use('/api/map/filter', apiMapFilter)
+app.use('/api/filter', apiMapFilter)
 app.use('/api/map/single', apiMapSingle)
 app.use('/api/map/org', apiMapOrg)
 

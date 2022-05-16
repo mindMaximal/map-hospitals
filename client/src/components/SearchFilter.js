@@ -68,7 +68,7 @@ export const SearchFilter = (props) => {
         }
       }
 
-      const fetched = await request('/api/map/filter', 'POST', body)
+      const fetched = await request('/api/filter', 'POST', body)
 
       props.updateData(fetched.data, true)
 
