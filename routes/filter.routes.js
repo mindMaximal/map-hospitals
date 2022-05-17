@@ -82,7 +82,7 @@ router.post(
       let query
 
       if (req.body.source === 'table') {
-        query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`, `population`.`population_adult` AS `population`, `staffing` FROM `medical_center`\n' +
+        query = 'SELECT `medical_center`.`name`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`, `medical_center`.`id`, `population`.`population_adult` AS `population` FROM `medical_center`\n' +
           'LEFT JOIN `locality`\n' +
           '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
           'LEFT JOIN `district`\n' +
