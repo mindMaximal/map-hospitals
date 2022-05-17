@@ -7,8 +7,8 @@ export const ModalInfo = (props) => {
   const {loading, error, request, clearError} = useHttp()
 
   const [state, setState] = useState({
-    id: null,
-    name: null,
+    id: 0,
+    name: '',
     [props.parentQuery]: 0
   })
   useEffect(() => {
@@ -59,7 +59,7 @@ export const ModalInfo = (props) => {
     })
   }
 
-  const handleDeleteButtonClick = (e) => {
+  const handleDeleteButtonClick = () => {
     fetchDelete(state)
   }
 
@@ -130,14 +130,14 @@ export const ModalInfo = (props) => {
 
         <div className="location-modal__block">
 
-          {props.parent &&
+          {props.parent && state[props.parentQuery] &&
             <Select
               id="location-select"
               className="location__select"
               multiple={false}
-              name={[props.parentQuery]}
+              name={props.parentQuery}
               onChange={handleFieldChange}
-              value={props.selectData ? state[props.parentQuery] : null}
+              value={state[props.parentQuery].toString()}
               label={props.parent + ':'}
             >
               <option
@@ -150,7 +150,7 @@ export const ModalInfo = (props) => {
                 props.selectData.map((el, i) => (
                   <option
                     key={i}
-                    value={el.id}
+                    value={el.id.toString()}
                   >
                     {el.name}
                   </option>

@@ -103,9 +103,9 @@ export const ModalAdd = (props) => {
               id="location-select"
               className="location__select"
               multiple={false}
-              name={[props.parentQuery]}
+              name={props.parentQuery}
               onChange={handleFieldChange}
-              value={state[props.parentQuery]}
+              value={state[props.parentQuery].toString()}
               label={props.parent + ':'}
             >
               <option
@@ -118,7 +118,7 @@ export const ModalAdd = (props) => {
                 props.selectData.map((el, i) => (
                   <option
                     key={i}
-                    value={el.id}
+                    value={el.id.toString()}
                   >
                     {el.name}
                   </option>

@@ -88,7 +88,7 @@ export const Location = (props) => {
               <Select
                 className="location__select"
                 onChange={(e) => handleSelectChange(e)}
-                value={select}
+                value={select.toString()}
               >
                 <option
                   disabled
@@ -100,7 +100,7 @@ export const Location = (props) => {
                   selectData.map((el, i) => (
                     <option
                       key={i}
-                      value={el.id}
+                      value={el.id.toString()}
                     >
                       {el.name}
                     </option>
@@ -154,7 +154,13 @@ export const Location = (props) => {
                       </td>
                     </tr>
                   ))
-                  : 'Нет данных'}
+                  :
+                    <tr>
+                      <th>
+                        'Нет данных'
+                      </th>
+                    </tr>
+                }
 
                 </tbody>
 
@@ -183,9 +189,9 @@ export const Location = (props) => {
 
       <ModalInfo
         name={props.name}
-        parent={props.parent || null}
+        parent={props.parent}
         query={props.query}
-        parentQuery={props.parentQuery || null}
+        parentQuery={props.parentQuery}
         open={modalInfo.open}
         selectData={selectData}
         el={modalInfo.el}
@@ -198,9 +204,9 @@ export const Location = (props) => {
 
       <ModalAdd
         name={props.name}
-        parent={props.parent || null}
+        parent={props.parent}
         query={props.query}
-        parentQuery={props.parentQuery || null}
+        parentQuery={props.parentQuery}
         open={modalAdd.open}
         selectData={selectData}
         setModal={setModalAdd}
