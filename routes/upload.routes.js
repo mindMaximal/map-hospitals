@@ -2,6 +2,7 @@ import {Router} from 'express'
 import config from 'config'
 import multer from 'multer'
 import {initializeConnection} from '../functions/initializeConnection.js'
+import CyrillicToTranslit from 'cyrillic-to-translit-js'
 import fs from 'fs'
 
 const router = Router()
@@ -12,7 +13,11 @@ const storageConfig = multer.diskStorage({
   },
   filename: (req, file, cb) =>{
 
-    let fileName = file.originalname.split('.')
+    const cyrillicToTranslit = new CyrillicToTranslit();
+
+    const translitFileName = cyrillicToTranslit.transform(file.originalname, '_').toLowerCase();
+
+    let fileName = translitFileName.split('.')
     const exp = fileName.pop()
 
     const now = new Date()
@@ -67,7 +72,7 @@ router.post(
       const connection = initializeConnection(configDB)
 
       try {
-        connection.query('INSERT INTO `photo` (`id`, `medical_center_id`, `name`) VALUES (?, ?, ?)', [null, req.body.id, req.file.filename], (err, rows, fields) => {
+        connection.query('INSERT INTO `photo` (`id`, `medical_center_id`, `name`) VALUES (?, ?, ?)', [null, req.body.id, req.file.filename], (err, rows) => {
           connection.end()
 
           if (err) {
@@ -107,7 +112,7 @@ router.post(
       const connection = initializeConnection(configDB)
 
       try {
-        connection.query('DELETE FROM `photo` WHERE `photo`.`id` = ?', [req.body.id], (err, rows, fields) => {
+        connection.query('DELETE FROM `photo` WHERE `photo`.`id` = ?', [req.body.id], (err) => {
           connection.end()
 
           if (err) {

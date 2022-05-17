@@ -18,6 +18,7 @@
     "bcrypt": "^5.0.1",
     "config": "^3.3.2",
     "cross-env": "^7.0.3",
+    "cyrillic-to-translit-js": "^3.2.1",
     "docx": "^7.3.0",
     "ejs": "^3.1.7",
     "express": "^4.17.1",
