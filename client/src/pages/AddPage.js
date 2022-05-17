@@ -265,7 +265,6 @@ export const AddPage = () => {
                     }}
                     className="edit__y-map"
                     onClick={(e) => getCoordinates(e)}
-
                   >
 
                     <Placemark

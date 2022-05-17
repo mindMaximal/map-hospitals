@@ -138,6 +138,14 @@ export const EditPage = () => {
       })
   }
 
+    const getCoordinates = (e) => {
+        setData({
+            ...data,
+            latitude: e.get("coords")[0],
+            longitude: e.get("coords")[1]
+        })
+    }
+
   return (
     <div className="edit">
 
@@ -301,6 +309,7 @@ export const EditPage = () => {
                       'center': [data.latitude, data.longitude]
                     }}
                     className="edit__y-map"
+                    onClick={(e) => getCoordinates(e)}
                   >
 
                     <Placemark

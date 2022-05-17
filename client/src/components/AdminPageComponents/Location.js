@@ -156,9 +156,9 @@ export const Location = (props) => {
                   ))
                   :
                     <tr>
-                      <th>
-                        'Нет данных'
-                      </th>
+                      <td>
+                        Нет данных
+                      </td>
                     </tr>
                 }
 
