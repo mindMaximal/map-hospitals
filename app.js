@@ -5,7 +5,6 @@ import path from 'path'
 const app = express()
 const __dirname = path.resolve()
 
-// import apiAuth from'./routes/auth.routes.js'
 import apiMap from './routes/map.routes.js'
 import apiMapFilter from './routes/filter.routes.js'
 import apiMapSingle from './routes/single.routes.js'

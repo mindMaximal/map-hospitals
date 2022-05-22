@@ -3,7 +3,6 @@ import docx from "docx"
 
 const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, HeadingLevel, PageOrientation } = docx
 
-
 const router = Router()
 
 const getValue = (el) => {

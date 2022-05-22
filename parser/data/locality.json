@@ -830,7 +830,7 @@
     ]
   },
   {
-    "name": "г.",
+    "name": "Городской округ",
     "objects": [
       {
         "name": "Иркутск",
@@ -6282,6 +6282,1606 @@
         "name": "Ягодный",
         "type": "п.",
         "population": 49
+      }
+    ]
+  },
+  {
+    "name": "Аларский",
+    "objects": [
+      {
+        "name": "Аларь",
+        "type": "село",
+        "population": 1154
+      },
+      {
+        "name": "Александровск",
+        "type": "село",
+        "population": 477
+      },
+      {
+        "name": "Алзобей",
+        "type": "деревня",
+        "population": 133
+      },
+      {
+        "name": "Аляты",
+        "type": "село",
+        "population": 730
+      },
+      {
+        "name": "Ангарский",
+        "type": "посёлок",
+        "population": 572
+      },
+      {
+        "name": "Апхайта",
+        "type": "деревня",
+        "population": 141
+      },
+      {
+        "name": "Апхульта",
+        "type": "село",
+        "population": 502
+      },
+      {
+        "name": "Аргалей",
+        "type": "деревня",
+        "population": 0
+      },
+      {
+        "name": "Аршан",
+        "type": "деревня",
+        "population": 83
+      },
+      {
+        "name": "Балтуй",
+        "type": "деревня",
+        "population": 88
+      },
+      {
+        "name": "Бахтай",
+        "type": "село",
+        "population": 682
+      },
+      {
+        "name": "Берестенникова",
+        "type": "деревня",
+        "population": 78
+      },
+      {
+        "name": "Большая Ерма",
+        "type": "деревня",
+        "population": 23
+      },
+      {
+        "name": "Буркова",
+        "type": "деревня",
+        "population": 140
+      },
+      {
+        "name": "Бурятская",
+        "type": "деревня",
+        "population": 219
+      },
+      {
+        "name": "Быково",
+        "type": "посёлок",
+        "population": 126
+      },
+      {
+        "name": "Вершина",
+        "type": "деревня",
+        "population": 47
+      },
+      {
+        "name": "Высотская",
+        "type": "деревня",
+        "population": 84
+      },
+      {
+        "name": "Головинское",
+        "type": "село",
+        "population": 254
+      },
+      {
+        "name": "Готол",
+        "type": "деревня",
+        "population": 54
+      },
+      {
+        "name": "Дута",
+        "type": "деревня",
+        "population": 94
+      },
+      {
+        "name": "Егоровская",
+        "type": "деревня",
+        "population": 338
+      },
+      {
+        "name": "Жлобина",
+        "type": "деревня",
+        "population": 173
+      },
+      {
+        "name": "Забитуй",
+        "type": "посёлок",
+        "population": 1468
+      },
+      {
+        "name": "Занина",
+        "type": "деревня",
+        "population": 151
+      },
+      {
+        "name": "Заречное",
+        "type": "деревня",
+        "population": 236
+      },
+      {
+        "name": "Зоны",
+        "type": "село",
+        "population": 591
+      },
+      {
+        "name": "Иваническое",
+        "type": "село",
+        "population": 650
+      },
+      {
+        "name": "Иванова",
+        "type": "деревня",
+        "population": 142
+      },
+      {
+        "name": "Идеал",
+        "type": "село",
+        "population": 491
+      },
+      {
+        "name": "Икинат",
+        "type": "деревня",
+        "population": 258
+      },
+      {
+        "name": "Кербулак",
+        "type": "деревня",
+        "population": 100
+      },
+      {
+        "name": "Киркей",
+        "type": "деревня",
+        "population": 182
+      },
+      {
+        "name": "Кирюшина",
+        "type": "деревня",
+        "population": 94
+      },
+      {
+        "name": "Ключи",
+        "type": "деревня",
+        "population": 73
+      },
+      {
+        "name": "Корховская",
+        "type": "деревня",
+        "population": 148
+      },
+      {
+        "name": "Куйта",
+        "type": "деревня",
+        "population": 232
+      },
+      {
+        "name": "Кукунур",
+        "type": "деревня",
+        "population": 131
+      },
+      {
+        "name": "Кундулун",
+        "type": "деревня",
+        "population": 40
+      },
+      {
+        "name": "Куркат",
+        "type": "деревня",
+        "population": 133
+      },
+      {
+        "name": "Кутулик",
+        "type": "посёлок",
+        "population": 4870
+      },
+      {
+        "name": "Малолучинск",
+        "type": "деревня",
+        "population": 123
+      },
+      {
+        "name": "Маломолева",
+        "type": "деревня",
+        "population": 195
+      },
+      {
+        "name": "Малый Кутулик",
+        "type": "деревня",
+        "population": 120
+      },
+      {
+        "name": "Маниловская",
+        "type": "деревня",
+        "population": 397
+      },
+      {
+        "name": "Мардай",
+        "type": "деревня",
+        "population": 18
+      },
+      {
+        "name": "Могоёнок",
+        "type": "село",
+        "population": 496
+      },
+      {
+        "name": "Могой",
+        "type": "деревня",
+        "population": 13
+      },
+      {
+        "name": "Мольта",
+        "type": "деревня",
+        "population": 160
+      },
+      {
+        "name": "Нарены",
+        "type": "деревня",
+        "population": 160
+      },
+      {
+        "name": "Нельхай",
+        "type": "деревня",
+        "population": 297
+      },
+      {
+        "name": "Ныгда",
+        "type": "село",
+        "population": 645
+      },
+      {
+        "name": "Омулёвка",
+        "type": "деревня",
+        "population": 57
+      },
+      {
+        "name": "Отрадная",
+        "type": "деревня",
+        "population": 279
+      },
+      {
+        "name": "Саган-Жалгай",
+        "type": "деревня",
+        "population": 3
+      },
+      {
+        "name": "Табарсук",
+        "type": "село",
+        "population": 542
+      },
+      {
+        "name": "Тыргетуй",
+        "type": "село",
+        "population": 463
+      },
+      {
+        "name": "Тютрина",
+        "type": "деревня",
+        "population": 105
+      },
+      {
+        "name": "Угольная",
+        "type": "деревня",
+        "population": 120
+      },
+      {
+        "name": "Улзет",
+        "type": "деревня",
+        "population": 7
+      },
+      {
+        "name": "Ундэр-Хуан",
+        "type": "деревня",
+        "population": 50
+      },
+      {
+        "name": "Халта",
+        "type": "деревня",
+        "population": 17
+      },
+      {
+        "name": "Халты",
+        "type": "деревня",
+        "population": 33
+      },
+      {
+        "name": "Хигинская",
+        "type": "деревня",
+        "population": 53
+      },
+      {
+        "name": "Хуруй",
+        "type": "деревня",
+        "population": 102
+      },
+      {
+        "name": "Чухлинская",
+        "type": "деревня",
+        "population": 40
+      },
+      {
+        "name": "Шалоты",
+        "type": "деревня",
+        "population": 105
+      },
+      {
+        "name": "Шапшалтуй",
+        "type": "деревня",
+        "population": 60
+      },
+      {
+        "name": "Шастина",
+        "type": "деревня",
+        "population": 31
+      },
+      {
+        "name": "Шаховская",
+        "type": "деревня",
+        "population": 135
+      },
+      {
+        "name": "Шелемина",
+        "type": "деревня",
+        "population": 6
+      },
+      {
+        "name": "Шульгина",
+        "type": "деревня",
+        "population": 109
+      }
+    ]
+  },
+  {
+    "name": "Баяндаевский",
+    "objects": [
+      {
+        "name":"Бадагуй",
+        "type":"деревня",
+        "population":274
+      },
+      {
+        "name":"Байша",
+        "type":"село",
+        "population":252
+      },
+      {
+        "name":"Бахай 1-й",
+        "type":"деревня",
+        "population":152
+      },
+      {
+        "name":"Бахай 2-й",
+        "type":"деревня",
+        "population":19
+      },
+      {
+        "name":"Баяндай",
+        "type":"село",
+        "population":2626
+      },
+      {
+        "name":"Бохолдой",
+        "type":"деревня",
+        "population":86
+      },
+      {
+        "name":"Васильевка",
+        "type":"село",
+        "population":345
+      },
+      {
+        "name":"Вершининск",
+        "type":"деревня",
+        "population":19
+      },
+      {
+        "name":"Духовщина",
+        "type":"деревня",
+        "population":45
+      },
+      {
+        "name":"Еленинск",
+        "type":"деревня",
+        "population":78
+      },
+      {
+        "name":"Загатуй",
+        "type":"деревня",
+        "population":666
+      },
+      {
+        "name":"Зангут",
+        "type":"деревня",
+        "population":11
+      },
+      {
+        "name":"Идыгей",
+        "type":"деревня",
+        "population":94
+      },
+      {
+        "name":"Кайзаран",
+        "type":"деревня",
+        "population":160
+      },
+      {
+        "name":"Каменка",
+        "type":"деревня",
+        "population":2
+      },
+      {
+        "name":"Кокорина",
+        "type":"деревня",
+        "population":255
+      },
+      {
+        "name":"Лидинская",
+        "type":"деревня",
+        "population":86
+      },
+      {
+        "name":"Люры",
+        "type":"деревня",
+        "population":566
+      },
+      {
+        "name":"Малан",
+        "type":"деревня",
+        "population":27
+      },
+      {
+        "name":"Маралтуй",
+        "type":"деревня",
+        "population":59
+      },
+      {
+        "name":"Маяк",
+        "type":"посёлок",
+        "population":54
+      },
+      {
+        "name":"Мильзан",
+        "type":"деревня",
+        "population":7
+      },
+      {
+        "name":"Молой",
+        "type":"деревня",
+        "population":58
+      },
+      {
+        "name":"Нагалык",
+        "type":"село",
+        "population":432
+      },
+      {
+        "name":"Нагатай",
+        "type":"деревня",
+        "population":80
+      },
+      {
+        "name":"Наумовка",
+        "type":"деревня",
+        "population":180
+      },
+      {
+        "name":"Нуху-Нур",
+        "type":"деревня",
+        "population":82
+      },
+      {
+        "name":"Ныгей",
+        "type":"деревня",
+        "population":91
+      },
+      {
+        "name":"Ользоны",
+        "type":"село",
+        "population":658
+      },
+      {
+        "name":"Онгой",
+        "type":"деревня",
+        "population":30
+      },
+      {
+        "name":"Покровка",
+        "type":"деревня",
+        "population":618
+      },
+      {
+        "name":"Половинка",
+        "type":"село",
+        "population":405
+      },
+      {
+        "name":"Старый Хогот",
+        "type":"деревня",
+        "population":55
+      },
+      {
+        "name":"Толстовка",
+        "type":"деревня",
+        "population":56
+      },
+      {
+        "name":"Тургеневка",
+        "type":"село",
+        "population":475
+      },
+      {
+        "name":"Тухум",
+        "type":"деревня",
+        "population":84
+      },
+      {
+        "name":"Тыпкысыр",
+        "type":"деревня",
+        "population":9
+      },
+      {
+        "name":"Улан",
+        "type":"деревня",
+        "population":133
+      },
+      {
+        "name":"Хандабай",
+        "type":"деревня",
+        "population":10
+      },
+      {
+        "name":"Хандагай",
+        "type":"деревня",
+        "population":141
+      },
+      {
+        "name":"Харагун",
+        "type":"деревня",
+        "population":106
+      },
+      {
+        "name":"Хатар-Хадай",
+        "type":"деревня",
+        "population":306
+      },
+      {
+        "name":"Хиней",
+        "type":"деревня",
+        "population":48
+      },
+      {
+        "name":"Хогот",
+        "type":"село",
+        "population":848
+      },
+      {
+        "name":"Хотогор",
+        "type":"деревня",
+        "population":17
+      },
+      {
+        "name":"Шаманка",
+        "type":"деревня",
+        "population":249
+      },
+      {
+        "name":"Шехаргун",
+        "type":"деревня",
+        "population":47
+      },
+      {
+        "name":"Шитхулун",
+        "type":"деревня",
+        "population":155
+      }
+    ]
+  },
+  {
+    "name": "Боханский",
+    "objects": [
+      {
+        "name":"Александровское",
+        "type":"село",
+        "population":1595
+      },
+      {
+        "name":"Базой",
+        "type":"деревня",
+        "population":2
+      },
+      {
+        "name":"Байханова",
+        "type":"деревня",
+        "population":3
+      },
+      {
+        "name":"Бохан",
+        "type":"посёлок",
+        "population":5132
+      },
+      {
+        "name":"Булык",
+        "type":"деревня",
+        "population":128
+      },
+      {
+        "name":"Буреть",
+        "type":"село",
+        "population":1084
+      },
+      {
+        "name":"Буреть",
+        "type":"деревня",
+        "population":166
+      },
+      {
+        "name":"Быргазова",
+        "type":"деревня",
+        "population":160
+      },
+      {
+        "name":"Вантеевская",
+        "type":"заимка",
+        "population":15
+      },
+      {
+        "name":"Вершина",
+        "type":"деревня",
+        "population":329
+      },
+      {
+        "name":"Веселая Поляна",
+        "type":"посёлок",
+        "population":16
+      },
+      {
+        "name":"Воробьевка",
+        "type":"деревня",
+        "population":200
+      },
+      {
+        "name":"Граничная",
+        "type":"деревня",
+        "population":12
+      },
+      {
+        "name":"Грехневка",
+        "type":"деревня",
+        "population":167
+      },
+      {
+        "name":"Гречехан",
+        "type":"заимка",
+        "population":102
+      },
+      {
+        "name":"Гречехан",
+        "type":"деревня",
+        "population":120
+      },
+      {
+        "name":"Грязная",
+        "type":"деревня",
+        "population":145
+      },
+      {
+        "name":"Донская",
+        "type":"деревня",
+        "population":124
+      },
+      {
+        "name":"Дундай",
+        "type":"село",
+        "population":618
+      },
+      {
+        "name":"Ершова",
+        "type":"деревня",
+        "population":70
+      },
+      {
+        "name":"Заведение",
+        "type":"посёлок",
+        "population":0
+      },
+      {
+        "name":"Заглик",
+        "type":"деревня",
+        "population":252
+      },
+      {
+        "name":"Захаровская",
+        "type":"деревня",
+        "population":132
+      },
+      {
+        "name":"Ида",
+        "type":"посёлок",
+        "population":32
+      },
+      {
+        "name":"Ижилха",
+        "type":"деревня",
+        "population":415
+      },
+      {
+        "name":"Казачье",
+        "type":"село",
+        "population":1125
+      },
+      {
+        "name":"Калашникова",
+        "type":"заимка",
+        "population":102
+      },
+      {
+        "name":"Каменка",
+        "type":"село",
+        "population":835
+      },
+      {
+        "name":"Картыгей",
+        "type":"деревня",
+        "population":84
+      },
+      {
+        "name":"Ключи",
+        "type":"деревня",
+        "population":36
+      },
+      {
+        "name":"Крюкова",
+        "type":"деревня",
+        "population":131
+      },
+      {
+        "name":"Кулакова",
+        "type":"деревня",
+        "population":151
+      },
+      {
+        "name":"Лаврентьевская",
+        "type":"деревня",
+        "population":69
+      },
+      {
+        "name":"Логанова",
+        "type":"деревня",
+        "population":178
+      },
+      {
+        "name":"Макаровская",
+        "type":"заимка",
+        "population":43
+      },
+      {
+        "name":"Манькова",
+        "type":"деревня",
+        "population":210
+      },
+      {
+        "name":"Махонькина",
+        "type":"заимка",
+        "population":4
+      },
+      {
+        "name":"Морозова",
+        "type":"деревня",
+        "population":273
+      },
+      {
+        "name":"Мутинова",
+        "type":"деревня",
+        "population":145
+      },
+      {
+        "name":"Нашата",
+        "type":"деревня",
+        "population":170
+      },
+      {
+        "name":"Новая Ида",
+        "type":"село",
+        "population":253
+      },
+      {
+        "name":"Нововоскресенка",
+        "type":"деревня",
+        "population":131
+      },
+      {
+        "name":"Новый Алендарь",
+        "type":"деревня",
+        "population":138
+      },
+      {
+        "name":"Олонки",
+        "type":"село",
+        "population":2259
+      },
+      {
+        "name":"Парамоновка",
+        "type":"деревня",
+        "population":19
+      },
+      {
+        "name":"Пашкова",
+        "type":"заимка",
+        "population":15
+      },
+      {
+        "name":"Петрограновка",
+        "type":"деревня",
+        "population":186
+      },
+      {
+        "name":"Русиновка",
+        "type":"деревня",
+        "population":247
+      },
+      {
+        "name":"Середкина",
+        "type":"село",
+        "population":828
+      },
+      {
+        "name":"Склянка",
+        "type":"заимка",
+        "population":9
+      },
+      {
+        "name":"Тараса",
+        "type":"село",
+        "population":1198
+      },
+      {
+        "name":"Тачигир",
+        "type":"деревня",
+        "population":63
+      },
+      {
+        "name":"Тихоновка",
+        "type":"село",
+        "population":1479
+      },
+      {
+        "name":"Тымырей",
+        "type":"деревня",
+        "population":57
+      },
+      {
+        "name":"Тыргур",
+        "type":"заимка",
+        "population":0
+      },
+      {
+        "name":"Угольная",
+        "type":"деревня",
+        "population":100
+      },
+      {
+        "name":"Укыр",
+        "type":"село",
+        "population":566
+      },
+      {
+        "name":"Усолье-Жилкино",
+        "type":"село",
+        "population":35
+      },
+      {
+        "name":"Усть-Тараса",
+        "type":"посёлок",
+        "population":739
+      },
+      {
+        "name":"Усть-Укыр",
+        "type":"деревня",
+        "population":58
+      },
+      {
+        "name":"Хандагай",
+        "type":"деревня",
+        "population":241
+      },
+      {
+        "name":"Харагун",
+        "type":"деревня",
+        "population":174
+      },
+      {
+        "name":"Харатирген",
+        "type":"деревня",
+        "population":525
+      },
+      {
+        "name":"Херетин",
+        "type":"деревня",
+        "population":102
+      },
+      {
+        "name":"Хонзой",
+        "type":"деревня",
+        "population":49
+      },
+      {
+        "name":"Хоргелок",
+        "type":"деревня",
+        "population":184
+      },
+      {
+        "name":"Хохорск",
+        "type":"село",
+        "population":511
+      },
+      {
+        "name":"Черниговская",
+        "type":"деревня",
+        "population":59
+      },
+      {
+        "name":"Чилим",
+        "type":"деревня",
+        "population":74
+      },
+      {
+        "name":"Шарагун",
+        "type":"деревня",
+        "population":70
+      },
+      {
+        "name":"Шипняговка",
+        "type":"деревня",
+        "population":83
+      },
+      {
+        "name":"Шунта",
+        "type":"деревня",
+        "population":218
+      }
+    ]
+  },
+  {
+    "name": "Нукутский",
+    "objects": [
+      {
+        "name":"Алтарик",
+        "type":"село",
+        "population":710
+      },
+      {
+        "name":"Большебаяновская",
+        "type":"деревня",
+        "population":301
+      },
+      {
+        "name":"Васильевское",
+        "type":"деревня",
+        "population":121
+      },
+      {
+        "name":"Ворот-Онгой",
+        "type":"деревня",
+        "population":432
+      },
+      {
+        "name":"Дружный",
+        "type":"деревня",
+        "population":63
+      },
+      {
+        "name":"Ей",
+        "type":"деревня",
+        "population":194
+      },
+      {
+        "name":"Задоновская",
+        "type":"деревня",
+        "population":16
+      },
+      {
+        "name":"Закулей",
+        "type":"село",
+        "population":801
+      },
+      {
+        "name":"Заречный",
+        "type":"посёлок",
+        "population":364
+      },
+      {
+        "name":"Заходы",
+        "type":"деревня",
+        "population":158
+      },
+      {
+        "name":"Зунгар",
+        "type":"деревня",
+        "population":171
+      },
+      {
+        "name":"Кирилловская",
+        "type":"деревня",
+        "population":201
+      },
+      {
+        "name":"Куйта",
+        "type":"деревня",
+        "population":447
+      },
+      {
+        "name":"Макарьевская",
+        "type":"деревня",
+        "population":106
+      },
+      {
+        "name":"Мельхитуй",
+        "type":"деревня",
+        "population":321
+      },
+      {
+        "name":"Мельхитуй",
+        "type":"деревня",
+        "population":404
+      },
+      {
+        "name":"Наймодай",
+        "type":"деревня",
+        "population":245
+      },
+      {
+        "name":"Новоленино",
+        "type":"посёлок",
+        "population":918
+      },
+      {
+        "name":"Новонукутский",
+        "type":"посёлок",
+        "population":3408
+      },
+      {
+        "name":"Новоселова",
+        "type":"деревня",
+        "population":116
+      },
+      {
+        "name":"Нукуты",
+        "type":"село",
+        "population":696
+      },
+      {
+        "name":"Первомайское",
+        "type":"село",
+        "population":739
+      },
+      {
+        "name":"Большепобединская",
+        "type":"деревня",
+        "population":23
+      },
+      {
+        "name":"Саган-Жалгай",
+        "type":"деревня",
+        "population":7
+      },
+      {
+        "name":"Степное",
+        "type":"деревня",
+        "population":125
+      },
+      {
+        "name":"Тангуты",
+        "type":"деревня",
+        "population":470
+      },
+      {
+        "name":"Татхал-Онгой",
+        "type":"деревня",
+        "population":730
+      },
+      {
+        "name":"Ункурлик",
+        "type":"деревня",
+        "population":261
+      },
+      {
+        "name":"Хадахан",
+        "type":"село",
+        "population":997
+      },
+      {
+        "name":"Хамхар",
+        "type":"деревня",
+        "population":73
+      },
+      {
+        "name":"Хареты",
+        "type":"село",
+        "population":984
+      },
+      {
+        "name":"Целинный",
+        "type":"посёлок",
+        "population":491
+      },
+      {
+        "name":"Чичиковская",
+        "type":"деревня",
+        "population":40
+      },
+      {
+        "name":"Шалоты",
+        "type":"деревня",
+        "population":206
+      },
+      {
+        "name":"Шараты",
+        "type":"село",
+        "population":324
+      }
+    ]
+  },
+  {
+    "name": "Осинский",
+    "objects": [
+      {
+        "name":"Абрамовка",
+        "type":"деревня",
+        "population":247
+      },
+      {
+        "name":"Батхай",
+        "type":"деревня",
+        "population":79
+      },
+      {
+        "name":"Бильчир",
+        "type":"село",
+        "population":1506
+      },
+      {
+        "name":"Борохал",
+        "type":"деревня",
+        "population":107
+      },
+      {
+        "name":"Горхон",
+        "type":"деревня",
+        "population":155
+      },
+      {
+        "name":"Грязнушка",
+        "type":"деревня",
+        "population":388
+      },
+      {
+        "name":"Енисей",
+        "type":"село",
+        "population":1021
+      },
+      {
+        "name":"Жданово",
+        "type":"посёлок",
+        "population":156
+      },
+      {
+        "name":"Заглик",
+        "type":"деревня",
+        "population":269
+      },
+      {
+        "name":"Ирхидей",
+        "type":"село",
+        "population":764
+      },
+      {
+        "name":"Каха",
+        "type":"село",
+        "population":611
+      },
+      {
+        "name":"Кутанка",
+        "type":"деревня",
+        "population":433
+      },
+      {
+        "name":"Лузгина",
+        "type":"деревня",
+        "population":808
+      },
+      {
+        "name":"Майск",
+        "type":"село",
+        "population":952
+      },
+      {
+        "name":"Малаханова",
+        "type":"деревня",
+        "population":3
+      },
+      {
+        "name":"Марковка",
+        "type":"деревня",
+        "population":10
+      },
+      {
+        "name":"Моголют",
+        "type":"деревня",
+        "population":81
+      },
+      {
+        "name":"Мороза",
+        "type":"деревня",
+        "population":190
+      },
+      {
+        "name":"Ново-Ленино",
+        "type":"село",
+        "population":1064
+      },
+      {
+        "name":"Обуса",
+        "type":"село",
+        "population":831
+      },
+      {
+        "name":"Онгой",
+        "type":"деревня",
+        "population":413
+      },
+      {
+        "name":"Онгосор",
+        "type":"деревня",
+        "population":219
+      },
+      {
+        "name":"Оса",
+        "type":"село",
+        "population":4536
+      },
+      {
+        "name":"Приморский",
+        "type":"посёлок",
+        "population":1695
+      },
+      {
+        "name":"Прохоровка",
+        "type":"деревня",
+        "population":201
+      },
+      {
+        "name":"Рассвет",
+        "type":"посёлок",
+        "population":331
+      },
+      {
+        "name":"Русские Янгуты",
+        "type":"деревня",
+        "population":743
+      },
+      {
+        "name":"Северный",
+        "type":"посёлок",
+        "population":2
+      },
+      {
+        "name":"Табатай",
+        "type":"деревня",
+        "population":6
+      },
+      {
+        "name":"Тагай",
+        "type":"деревня",
+        "population":182
+      },
+      {
+        "name":"Унгин",
+        "type":"село",
+        "population":1078
+      },
+      {
+        "name":"Усть-Алтан",
+        "type":"село",
+        "population":798
+      },
+      {
+        "name":"Хайга",
+        "type":"деревня",
+        "population":81
+      },
+      {
+        "name":"Харай",
+        "type":"деревня",
+        "population":433
+      },
+      {
+        "name":"Хокта",
+        "type":"село",
+        "population":419
+      },
+      {
+        "name":"Чупровка",
+        "type":"деревня",
+        "population":2
+      },
+      {
+        "name":"Шотой",
+        "type":"деревня",
+        "population":89
+      }
+    ]
+  },
+  {
+    "name": "Эхирит-Булагатский",
+    "objects": [
+      {
+        "name":"Алужина",
+        "type":"деревня",
+        "population":511
+      },
+      {
+        "name":"Ахины",
+        "type":"село",
+        "population":319
+      },
+      {
+        "name":"Байтог",
+        "type":"деревня",
+        "population":284
+      },
+      {
+        "name":"Барда",
+        "type":"деревня",
+        "population":20
+      },
+      {
+        "name":"Батхай",
+        "type":"село",
+        "population":42
+      },
+      {
+        "name":"Баянгазуй",
+        "type":"село",
+        "population":194
+      },
+      {
+        "name":"Бозой",
+        "type":"посёлок",
+        "population":2632
+      },
+      {
+        "name":"Большая Кура",
+        "type":"деревня",
+        "population":194
+      },
+      {
+        "name":"Булуса",
+        "type":"деревня",
+        "population":389
+      },
+      {
+        "name":"Бухтумур",
+        "type":"деревня",
+        "population":49
+      },
+      {
+        "name":"Верхний Кукут",
+        "type":"деревня",
+        "population":274
+      },
+      {
+        "name":"Верхняя Идыга",
+        "type":"деревня",
+        "population":103
+      },
+      {
+        "name":"Гаханы",
+        "type":"село",
+        "population":750
+      },
+      {
+        "name":"Гушит-Орд",
+        "type":"деревня",
+        "population":139
+      },
+      {
+        "name":"Еловка",
+        "type":"деревня",
+        "population":324
+      },
+      {
+        "name":"Зады",
+        "type":"село",
+        "population":211
+      },
+      {
+        "name":"Захал",
+        "type":"село",
+        "population":369
+      },
+      {
+        "name":"Ишины",
+        "type":"деревня",
+        "population":111
+      },
+      {
+        "name":"Капсал",
+        "type":"село",
+        "population":446
+      },
+      {
+        "name":"Комой",
+        "type":"село",
+        "population":206
+      },
+      {
+        "name":"Корсук",
+        "type":"деревня",
+        "population":509
+      },
+      {
+        "name":"Красный Яр",
+        "type":"посёлок",
+        "population":0
+      },
+      {
+        "name":"Кударейка",
+        "type":"деревня",
+        "population":220
+      },
+      {
+        "name":"Кукунут",
+        "type":"деревня",
+        "population":459
+      },
+      {
+        "name":"Кулункун",
+        "type":"деревня",
+        "population":327
+      },
+      {
+        "name":"Куяда",
+        "type":"деревня",
+        "population":298
+      },
+      {
+        "name":"Мурино",
+        "type":"деревня",
+        "population":42
+      },
+      {
+        "name":"Муромцовка",
+        "type":"село",
+        "population":193
+      },
+      {
+        "name":"Нижний Кукут",
+        "type":"деревня",
+        "population":0
+      },
+      {
+        "name":"Нижняя Идыга",
+        "type":"деревня",
+        "population":294
+      },
+      {
+        "name":"Новониколаевск",
+        "type":"село",
+        "population":438
+      },
+      {
+        "name":"Олой",
+        "type":"село",
+        "population":647
+      },
+      {
+        "name":"Ординск",
+        "type":"посёлок",
+        "population":11
+      },
+      {
+        "name":"Отонхой",
+        "type":"село",
+        "population":263
+      },
+      {
+        "name":"Рудовщина",
+        "type":"деревня",
+        "population":49
+      },
+      {
+        "name":"Сагарук",
+        "type":"деревня",
+        "population":48
+      },
+      {
+        "name":"Свердлово",
+        "type":"посёлок",
+        "population":483
+      },
+      {
+        "name":"Серафимовск",
+        "type":"деревня",
+        "population":174
+      },
+      {
+        "name":"Солянка",
+        "type":"село",
+        "population":4
+      },
+      {
+        "name":"Тимошинск",
+        "type":"деревня",
+        "population":181
+      },
+      {
+        "name":"Толодой",
+        "type":"деревня",
+        "population":22
+      },
+      {
+        "name":"Тотохон",
+        "type":"деревня",
+        "population":93
+      },
+      {
+        "name":"Тугутуй",
+        "type":"село",
+        "population":971
+      },
+      {
+        "name":"Усть-Ордынский",
+        "type":"посёлок",
+        "population":15278
+      },
+      {
+        "name":"Хабаровская",
+        "type":"деревня",
+        "population":281
+      },
+      {
+        "name":"Харазаргай",
+        "type":"село",
+        "population":415
+      },
+      {
+        "name":"Харанут",
+        "type":"деревня",
+        "population":285
+      },
+      {
+        "name":"Харат",
+        "type":"село",
+        "population":849
+      },
+      {
+        "name":"Хуты",
+        "type":"село",
+        "population":10
+      },
+      {
+        "name":"Шохтой",
+        "type":"деревня",
+        "population":167
       }
     ]
   }
