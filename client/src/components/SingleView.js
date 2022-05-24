@@ -167,6 +167,26 @@ export const SingleView = (props) => {
 
               </div>
 
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  Население:
+                </div>
+
+                {parseInt(state.el.population_adult)}
+
+              </div>
+
+              <div className="single-view__elem">
+
+                <div className="single-view__subtitle single-view__subtitle--inline">
+                  В том числе детское:
+                </div>
+
+                {parseInt(state.el.population_child)}
+
+              </div>
+
             </div>
             <div className="single-view__block">
 

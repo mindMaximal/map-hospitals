@@ -67,7 +67,7 @@ export const AddPage = () => {
     setData({...data, [e.target.name]: e.target.value})
   }
 
-  const fetchAdd= useCallback(async (body) => {
+  const fetchAdd = useCallback(async (body) => {
     try {
       return await request(`/api/detail/add`, 'POST', body)
     } catch (e) {}

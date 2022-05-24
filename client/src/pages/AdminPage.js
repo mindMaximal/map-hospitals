@@ -3,31 +3,10 @@ import {useHttp} from "../hooks/http.hook"
 import './AdminPage.scss'
 import { Scrollbars } from 'react-custom-scrollbars'
 import {Location} from "../components/AdminPageComponents/Location"
-import {Button} from "react-materialize";
-import {Link} from "react-router-dom";
+import {Button} from "react-materialize"
+import {Link} from "react-router-dom"
 
 export const AdminPage = () => {
-
-  const {error, request, clearError} = useHttp()
-
-  useEffect(() => {
-    if (error) {
-      console.log('Ошибка: ' + error)
-    }
-    clearError()
-  }, [clearError, error])
-
-  const fetchData = useCallback(async () => {
-    try {
-      //const fetched = await request('/api/view', 'POST')
-
-    } catch (e) {}
-  }, [request])
-
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
 
   return (
     <div className="management">

@@ -58,19 +58,19 @@ router.post(
 
           switch (req.body.population_id) {
             case 1:
-              having = 'HAVING (`population`.`population_adult` + `population`.`population_child`) < 100'
+              having = 'HAVING (`population`.`population_adult`) < 100'
               break
             case 2:
-              having = 'HAVING (`population`.`population_adult` + `population`.`population_child`) >= 100 AND (`population`.`population_adult` + `population`.`population_child`) <= 300'
+              having = 'HAVING (`population`.`population_adult`) >= 100 AND (`population`.`population_adult`) <= 300'
               break
             case 3:
-              having = 'HAVING (`population`.`population_adult` + `population`.`population_child`) > 300 AND (`population`.`population_adult` + `population`.`population_child`) <= 1000'
+              having = 'HAVING (`population`.`population_adult`) > 300 AND (`population`.`population_adult`) <= 1000'
               break
             case 4:
-              having = 'HAVING (`population`.`population_adult` + `population`.`population_child`) > 1000 AND (`population`.`population_adult` + `population`.`population_child`) <= 2000'
+              having = 'HAVING (`population`.`population_adult`) > 1000 AND (`population`.`population_adult`) <= 2000'
               break
             case 5:
-              having = 'HAVING (`population`.`population_adult` + `population`.`population_child`) > 2000'
+              having = 'HAVING (`population`.`population_adult`) > 2000'
               break
           }
 

@@ -100,14 +100,14 @@ router.post(
       let query
 
       if (req.body.id) {
-        query = 'SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult` + `population`.`population_child`) AS `population` FROM `locality`\n' +
+        query = 'SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult`) AS `population` FROM `locality`\n' +
           'LEFT JOIN `population`\n' +
           ' ON `locality`.`id` = `population`.`locality_id`\n' +
           'WHERE `locality`.`district_id` = ' + req.body.id + '\n' +
           'GROUP BY `locality`.`id`\n' +
           'ORDER BY `locality`.`name`'
       } else {
-        query = 'SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult` + `population`.`population_child`) AS `population` FROM `locality`\n' +
+        query = 'SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult`) AS `population` FROM `locality`\n' +
           'LEFT JOIN `population`\n' +
           ' ON `locality`.`id` = `population`.`locality_id`\n' +
           'GROUP BY `locality`.`name`\n' +
@@ -441,13 +441,13 @@ WHERE `district`.`id` = 1
 GROUP BY `district`.`id`
 ORDER BY `district`.`name`
 
-SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult` + `population`.`population_child`) AS `population` FROM `locality`
+SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult`) AS `population` FROM `locality`
 LEFT JOIN `population`
 	ON `locality`.`id` = `population`.`locality_id`
 GROUP BY `locality`.`id`
 ORDER BY `locality`.`name`
 
-SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult` + `population`.`population_child`) AS `population` FROM `locality`
+SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name`, (`population`.`population_adult`) AS `population` FROM `locality`
 LEFT JOIN `population`
 	ON `locality`.`id` = `population`.`locality_id`
 WHERE `locality`.`district_id` = 1

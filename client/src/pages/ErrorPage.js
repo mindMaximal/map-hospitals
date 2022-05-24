@@ -1,10 +1,9 @@
 import React from 'react'
 import './ErrorPage.scss'
-import {Button, Icon} from "react-materialize";
-import {Link} from "react-router-dom";
+import {Button, Icon} from "react-materialize"
+import {Link} from "react-router-dom"
 
 export const ErrorPage = () => {
-
 
   return (
     <div className="error-page">

@@ -138,7 +138,7 @@ export const EditPage = () => {
       })
   }
 
-    const getCoordinates = (e) => {
+  const getCoordinates = (e) => {
         setData({
             ...data,
             latitude: e.get("coords")[0],
