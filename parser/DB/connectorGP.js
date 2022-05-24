@@ -235,6 +235,7 @@ try {
     const query = 'INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type_id`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `staffing`)' +
       ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
 
+
     connection.promise().query(query, [null, localityId, medicalFacilityId, el.typeId, el.name, el.street, el.house, null, lat, lon, null, foundationYear, availabilityOfEmergencyMediicalCare, accessToPrimaryHealthCare, staffing])
       .then(([rows]) => {
         // Подставляем id мед. центра, полученный из запроса

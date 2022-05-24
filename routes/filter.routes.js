@@ -100,13 +100,13 @@ router.post(
           'LEFT JOIN `region`\n' +
           '        ON `region`.`id` = `district`.`region_id`\n' +
           'LEFT JOIN `types`\n' +
-          '        ON `medical_center`.`type_id` = `types`.`id`' +
+          '        ON `medical_center`.`type_id` = `types`.`id`\n' +
           'LEFT JOIN `population`\n' +
           '        ON `population`.`id` = (SELECT `p`.`id` FROM `population` AS `p` WHERE `p`.`locality_id` = `locality`.`id` ORDER BY `p`.`year` ASC LIMIT 1)'
       }
 
       if (limiters.length !== 0) {
-        query += '\n WHERE'
+        query += '\n WHERE '
 
         for (let i = 0; i < limiters.length; i++) {
           if (i === limiters.length - 1) {
@@ -121,6 +121,8 @@ router.post(
         query += '\n' + having
         query += '\n' + 'ORDER BY `medical_center`.`name`'
       }
+
+      console.log(query)
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -144,3 +146,4 @@ router.post(
 )
 
 export default router
+

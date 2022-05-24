@@ -17,6 +17,8 @@ for (let i = 0; i < results.length; i++) {
 
   console.log('Получен объект №', i + 1)
 
+  parseString.typeId = object.typeId
+
   objects.push(parseString)
 }
 
