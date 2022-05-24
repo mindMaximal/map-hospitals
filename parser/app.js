@@ -3,8 +3,33 @@ import fs from "fs"
 
 // Старая ссылка const url = 'https://geoportal.egisz.rosminzdrav.ru/list/mo?369p=0&369p_constr=0&buildings=%7B%22type%22:%22active%22,%22subType%22:%22all%22,%22stage%22:null,%22date%22:null%7D&district=%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD&equipments=&limit=100000&offset=0&positionsMO=%7B%22selected%22:null,%22from%22:null,%22to%22:null%7D&profile=&subject=%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&types='
 const url = 'https://geoportal.egisz.rosminzdrav.ru/list/mo?369p=0&369p_constr=0&buildings=%7B%22type%22:%22active%22&subject=%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&limit=100000&offset=0'
-const subStrShort = 'фап'
-const subStrLong = 'фельд'
+
+const names = [
+  {
+    name: 'фап',
+    type: 1
+  },
+  {
+    name: 'фельд',
+    type: 1
+  },
+  {
+    name: 'амбулатор',
+    type: 2
+  },
+  {
+    name: 'областное государственное бюджетное учреждение здравоохранения',
+    type: 3
+  },
+  {
+    name: 'городская больница',
+    type: 3
+  },
+  {
+    name: 'областная',
+    type: 3
+  }
+]
 
 fetch(url)
   .then(res => res.json())
@@ -44,8 +69,18 @@ fetch(url)
     for (let i = 0; i < elements.length; i++) {
       const el = elements[i]
       let name = el.name.trim().toLowerCase()
+      let nameFlag = false
 
-      if (name.includes(subStrShort) || name.includes(subStrLong)) {
+      for (let j = 0; j < names.length; j++) {
+        if (name.includes(names[j].name)) {
+          nameFlag = true
+          el.typeId = names[j].type
+
+          break
+        }
+      }
+
+      if (nameFlag) {
         results.push(el)
 
         const subject = el.subject

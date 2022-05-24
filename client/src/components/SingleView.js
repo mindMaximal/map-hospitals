@@ -173,7 +173,7 @@ export const SingleView = (props) => {
                   Население:
                 </div>
 
-                {parseInt(state.el.population_adult)}
+                {!isNaN(parseInt(state.el.population_adult)) ? parseInt(state.el.population_adult) : 'Неизвестно'}
 
               </div>
 
@@ -183,7 +183,7 @@ export const SingleView = (props) => {
                   В том числе детское:
                 </div>
 
-                {parseInt(state.el.population_child)}
+                {!isNaN(parseInt(state.el.population_child)) ? parseInt(state.el.population_child) : 'Неизвестно'}
 
               </div>
 

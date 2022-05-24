@@ -28,7 +28,7 @@ router.get(
 
       const connection = initializeConnection(configDB)
 
-      const query = 'SELECT `medical_center`.`name`, `medical_center`.`staffing`, `medical_center`.`type_id` , `medical_center`.`latitude`, `medical_center`.`longitude`, `medical_center`.`phone`, `medical_center`.`founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`id`, `region`.`id` AS `region_id`, `district`.`id` AS `district_id`, `locality`.`id` AS `locality_id`, `medical_facility`.`name` AS `facility_name`, `medical_facility_id`, `types`.`name` AS `type_name`, `medical_facility`.`name` AS `parent` FROM `medical_center`\n' +
+      const query = 'SELECT `medical_center`.`name`, `medical_center`.`staffing`, `medical_center`.`type_id` , `medical_center`.`latitude`, `medical_center`.`longitude`, `medical_center`.`phone`, `medical_center`.`founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `pharmacy`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name`, `region`.`name` AS `region_name`, `medical_center`.`street`, `medical_center`.`number_of_house`, `medical_center`.`id`, `region`.`id` AS `region_id`, `district`.`id` AS `district_id`, `locality`.`id` AS `locality_id`, `medical_facility`.`name` AS `facility_name`, `medical_facility_id`, `types`.`name` AS `type_name`, `medical_facility`.`name` AS `parent`, `population`.`population_adult`, `population`.`population_child` FROM `medical_center`\n' +
         'LEFT JOIN `locality`\n' +
         '    ON `medical_center`.`locality_id` = `locality`.`id`\n' +
         'LEFT JOIN `district`\n' +
@@ -39,6 +39,8 @@ router.get(
         '    ON `medical_center`.`medical_facility_id` =  `medical_facility`.`id`\n' +
         'LEFT JOIN `types`\n' +
         '    ON `medical_center`.`type_id` = `types`.`id`\n' +
+        'LEFT JOIN `population`\n' +
+        '    ON `locality`.`id` = `population`.`locality_id`\n' +
         'WHERE `medical_center`.`id` = ' + req.params.id
 
       connection.query(query, (err, rows) => {

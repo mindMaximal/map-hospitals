@@ -1,5 +1,6 @@
 import mysql from 'mysql2'
 import data  from '../result/dataGeoPortalPointParse.json'
+import localitiesGeoportal  from '../data/localityGeoportal.json'
 
 // node --experimental-json-modules connectorGP.js
 export const initializeConnection = (config) => {
@@ -119,7 +120,9 @@ try {
   date = date.getFullYear() + '-' + (date.getMonth() < 10? '0' + date.getMonth() : date.getMonth()) + '-' + date.getDate()
 
   // Получим все населенные пункты
- await connection.promise().query('SELECT `id`, `district_id`, `name` AS `locality_name` FROM `locality`')
+ await connection.promise().query('SELECT `locality`.`id`, `locality`.`district_id`, `locality`.`name` AS `locality_name`, `district`.`name` AS `district_name` FROM `locality`\n' +
+   'LEFT JOIN `district` \n' +
+   '\tON `locality`.`district_id` = `district`.`id`')
     .then(([rows]) => {
       localities = rows
     })
@@ -135,6 +138,8 @@ try {
     let lon = el.lon
     let staffing = null
     let medicalFacilityId = null
+    let availabilityOfEmergencyMediicalCare = null
+    let accessToPrimaryHealthCare = null
 
     const rates = []
 
@@ -142,13 +147,23 @@ try {
     //console.log('Элемент ' + countElements)
 
     // Попроубем добавить населенный пункт
-    if (el.buildings && el.buildings.data.length > 0) {
+    if (
+      el.buildings &&
+      el.buildings.data.length > 0 &&
+      el.buildings.data[0].street_name &&
+      el.buildings.data[0].house &&
+      el.buildings.data[0].street_name.toLowerCase().trim() === el.street.toLowerCase().trim() &&
+      el.buildings.data[0].house.toLowerCase().trim() === el.house.toLowerCase().trim()
+    ) {
       //console.log(el.buildings)
       const building = el.buildings.data[0]
 
       for (let j = 0; j < localities.length; j++) {
         // Проверка на вхождение названия населенного пункта в имеющиеся населенны пункты
-        if (localities[j].locality_name.toLowerCase().trim() === building.np_name.toLowerCase().trim()) {
+        if (
+          localities[j].locality_name.toLowerCase().trim() === building.np_name.toLowerCase().trim() &&
+          localities[j].district_name.toLowerCase().trim() === building.district.toLowerCase().trim()
+        ) {
           localityId = localities[j].id
           foundationYear = building.year || null
 
@@ -157,10 +172,20 @@ try {
 
           /*countBuildings++
           console.log('Число строений у них ' + countBuildings)*/
+
+          //Добавим первую и экстренную помощью из файла с геопортала
+          for (let k = 0; k < localitiesGeoportal.length; k++) {
+
+            if (localities[j].locality_name.toLowerCase().trim() === localitiesGeoportal[k]['Населенный пункт'].toLowerCase().trim()) {
+              availabilityOfEmergencyMediicalCare = localitiesGeoportal[k]['Доступность скорой медицинской помощи'] === 'Да' ? 1 : 0
+              accessToPrimaryHealthCare = localitiesGeoportal[k]['Доступность первичной медицинской помощи'] === 'Да' ? 1 : 0
+              break
+            }
+
+          }
         }
       }
     }
-
     // Добавляем ставки
     if (el.positions && el.positions.data.length > 0) {
       const positions = el.positions.data
@@ -210,7 +235,7 @@ try {
     const query = 'INSERT INTO `medical_center` (`id`, `locality_id`, `medical_facility_id`, `type_id`, `name`, `street`, `number_of_house`, `phone`, `latitude`, `longitude`, `pharmacy`, `founding_year`, `availability_of_emergency_mediical_care`, `access_to_primary_health_care`, `staffing`)' +
       ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
 
-    connection.promise().query(query, [null, localityId, medicalFacilityId, 1, el.name, el.street, el.house, null, lat, lon, null, foundationYear, null, null, staffing])
+    connection.promise().query(query, [null, localityId, medicalFacilityId, el.typeId, el.name, el.street, el.house, null, lat, lon, null, foundationYear, availabilityOfEmergencyMediicalCare, accessToPrimaryHealthCare, staffing])
       .then(([rows]) => {
         // Подставляем id мед. центра, полученный из запроса
         for (let j = 0; j < rates.length; j++) {

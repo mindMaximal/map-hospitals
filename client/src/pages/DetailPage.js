@@ -336,6 +336,40 @@ export const DetailPage = () => {
 
               </div>
 
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={35}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                     Население:
+                    </div>
+
+                    {!isNaN(parseInt(data.population_adult)) ? parseInt(data.population_adult) : 'Неизвестно'}
+                  </>
+                }
+
+              </div>
+
+              <div className="detail__block">
+
+                { loading ?
+                  <div>
+                    <Box width={35}/>
+                  </div> :
+                  <>
+                    <div className="detail__elem">
+                      В том числе детское:
+                    </div>
+
+                    {!isNaN(parseInt(data.population_child)) ? parseInt(data.population_child) : 'Неизвестно'}
+                  </>
+                }
+
+              </div>
+
             </div>
 
           </div>

@@ -108,17 +108,17 @@ export const Maps = (props) => {
                     onClick={e => handlePlacemarkClick(e, el)}
                   />
                 )) : null}
-              </Clusterer>
 
-              {props.orgs && props.orgs.length > 0 ? props.orgs.map((el, i) => (
-                <Placemark
-                  key={i}
-                  geometry={[el.latitude, el.longitude]}
-                  options={getPointOptionsOrgs()}
-                  modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                  onClick={e => handlePlacemarkClick(e, el)}
-                />
-              )) : null}
+                {props.orgs && props.orgs.length > 0 ? props.orgs.map((el, i) => (
+                  <Placemark
+                    key={i}
+                    geometry={[el.latitude, el.longitude]}
+                    options={getPointOptionsOrgs()}
+                    modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+                    onClick={e => handlePlacemarkClick(e, el)}
+                  />
+                )) : null}
+              </Clusterer>
 
             </Map>
 
