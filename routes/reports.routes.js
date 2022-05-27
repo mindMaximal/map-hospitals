@@ -135,8 +135,8 @@ router.post(
 
         for (const row of rows) {
 
-          if (req.body.hasOwnProperty('staffing') && req.body.staffing !== null) {
-            row.staffing = Math.floor(row.staffing * 100).toString() + '%'
+          if (row.hasOwnProperty('staffing')) {
+            row.staffing = Math.floor(parseInt(row.staffing) * 100).toString() + '%'
           }
         }
 
