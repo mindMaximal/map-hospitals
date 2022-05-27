@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import './ReportPanel.scss'
 import {Select, Button, Checkbox, TextInput} from "react-materialize"
+import {useHttp} from "../hooks/http.hook"
 
 export const ReportBuilder = (props) => {
+
+  const {loading, error, request, clearError} = useHttp()
+  const [types, setTypes] = useState([])
+  const [population, setPopulation] = useState([])
+  const [staffing, setStaffing] = useState([])
 
   const handleTextareaBlur = (e) => {
     const { target } = e
@@ -13,6 +19,41 @@ export const ReportBuilder = (props) => {
       [name]: !isNaN(parseInt(value)) ? parseInt(value) : null
     })
   }
+
+  useEffect(() => {
+    console.log(error)
+    clearError()
+  }, [clearError, error])
+
+  const fetchTypes = useCallback(async () => {
+    try {
+      const fetched = await request(`/api/address/type`, 'GET', null)
+
+      setTypes(fetched)
+    } catch (e) {}
+  }, [request])
+
+  const fetchStaffing = useCallback(async () => {
+    try {
+      const fetched = await request(`/api/address/staffing`, 'GET', null)
+
+      setStaffing(fetched)
+    } catch (e) {}
+  }, [request])
+
+  const fetchPopulation = useCallback(async () => {
+    try {
+      const fetched = await request(`/api/address/population`, 'GET', null)
+
+      setPopulation(fetched)
+    } catch (e) {}
+  }, [request])
+
+  useEffect(() => {
+    fetchTypes()
+    fetchPopulation()
+    fetchStaffing()
+  }, [fetchTypes])
 
   const handleReportParamClick = (e) => {
     const { target } = e
@@ -71,54 +112,209 @@ export const ReportBuilder = (props) => {
             Фильтры:
           </h4>
 
-          <Select
-            id="report-area"
-            className="report-panel__select"
-            multiple={false}
-            onChange={
-              e => props.setParams({
-                ...props.params,
-                'area': e.target.value
-              })
-            }
-            options={{
-              classes: '',
-              dropdownOptions: {
-                alignment: 'left',
-                autoTrigger: true,
-                closeOnClick: true,
-                constrainWidth: true,
-                coverTrigger: true,
-                hover: false,
-                inDuration: 150,
-                onCloseEnd: null,
-                onCloseStart: null,
-                onOpenEnd: null,
-                onOpenStart: null,
-                outDuration: 250
-              }
-            }}
-            value=""
-          >
-            <option
-              disabled
-              value=""
-            >
-              Выберите район
-            </option>
-            {
-              props.area.map((el, i) => (
+          <div className="report-panel__block flex flex--between report-panel__block--mobile-width">
+            <div className="report-panel__block--half report-panel__block--wrap">
+              <Select
+                  id="report-area"
+                  className="report-panel__select"
+                  multiple={false}
+                  onChange={
+                    e => props.setParams({
+                      ...props.params,
+                      'area': e.target.value
+                    })
+                  }
+                  options={{
+                    classes: '',
+                    dropdownOptions: {
+                      alignment: 'left',
+                      autoTrigger: true,
+                      closeOnClick: true,
+                      constrainWidth: true,
+                      coverTrigger: true,
+                      hover: false,
+                      inDuration: 150,
+                      onCloseEnd: null,
+                      onCloseStart: null,
+                      onOpenEnd: null,
+                      onOpenStart: null,
+                      outDuration: 250
+                    }
+                  }}
+                  value="0"
+              >
                 <option
-                  key={i}
-                  value={el.id}
+                    disabled
+                    value="0"
                 >
-                  {el.district_name}
+                  Выберите район
                 </option>
-              ))
-            }
-          </Select>
+                {
+                  props.area.map((el, i) => (
+                      <option
+                          key={i}
+                          value={el.id}
+                      >
+                        {el.district_name}
+                      </option>
+                  ))
+                }
+              </Select>
+            </div>
 
-         <div className="report-panel__container">
+            <div className="report-panel__block--half report-panel__block--wrap">
+              <Select
+                  id="report-population"
+                  className="report-panel__select"
+                  multiple={false}
+                  onChange={
+                    e => props.setParams({
+                      ...props.params,
+                      'staffing': e.target.value
+                    })
+                  }
+                  options={{
+                    classes: '',
+                    dropdownOptions: {
+                      alignment: 'left',
+                      autoTrigger: true,
+                      closeOnClick: true,
+                      constrainWidth: true,
+                      coverTrigger: true,
+                      hover: false,
+                      inDuration: 150,
+                      onCloseEnd: null,
+                      onCloseStart: null,
+                      onOpenEnd: null,
+                      onOpenStart: null,
+                      outDuration: 250
+                    }
+                  }}
+                  value="-"
+              >
+                <option
+                    disabled
+                    value="-"
+                >
+                  Укомплектованность
+                </option>
+                {
+                  staffing.map((el, i) => (
+                      <option
+                          key={i}
+                          value={el.value}
+                      >
+                        {el.staffing_name}
+                      </option>
+                  ))
+                }
+              </Select>
+            </div>
+
+          </div>
+
+          <div className="report-panel__block flex flex--between report-panel__block--mobile-width">
+            <div className="report-panel__block--half report-panel__block--wrap">
+              <Select
+                  id="report-type"
+                  className="report-panel__select"
+                  multiple={false}
+                  onChange={
+                    e => props.setParams({
+                      ...props.params,
+                      'type_id': e.target.value
+                    })
+                  }
+                  options={{
+                    classes: '',
+                    dropdownOptions: {
+                      alignment: 'left',
+                      autoTrigger: true,
+                      closeOnClick: true,
+                      constrainWidth: true,
+                      coverTrigger: true,
+                      hover: false,
+                      inDuration: 150,
+                      onCloseEnd: null,
+                      onCloseStart: null,
+                      onOpenEnd: null,
+                      onOpenStart: null,
+                      outDuration: 250
+                    }
+                  }}
+                  value="0"
+              >
+                <option
+                    disabled
+                    value="0"
+                >
+                  Выберите тип
+                </option>
+                {
+                  types.map((el, i) => (
+                      <option
+                          key={i}
+                          value={el.id}
+                      >
+                        {el.type_name}
+                      </option>
+                  ))
+                }
+              </Select>
+            </div>
+
+            <div className="report-panel__block--half report-panel__block--wrap">
+              <Select
+                  id="report-population"
+                  className="report-panel__select"
+                  multiple={false}
+                  onChange={
+                    e => props.setParams({
+                      ...props.params,
+                      'population': e.target.value
+                    })
+                  }
+                  options={{
+                    classes: '',
+                    dropdownOptions: {
+                      alignment: 'left',
+                      autoTrigger: true,
+                      closeOnClick: true,
+                      constrainWidth: true,
+                      coverTrigger: true,
+                      hover: false,
+                      inDuration: 150,
+                      onCloseEnd: null,
+                      onCloseStart: null,
+                      onOpenEnd: null,
+                      onOpenStart: null,
+                      outDuration: 250
+                    }
+                  }}
+                  value="0"
+              >
+                <option
+                    disabled
+                    value="0"
+                >
+                  Выберите население
+                </option>
+                {
+                  population.map((el, i) => (
+                      <option
+                          key={i}
+                          value={el.value}
+                      >
+                        {el.population_name}
+                      </option>
+                  ))
+                }
+              </Select>
+            </div>
+
+          </div>
+
+         <div className="report-panel__container report-panel__container--margin">
 
            <div className="report-panel__block report-panel__block--half">
              <Checkbox
@@ -147,16 +343,6 @@ export const ReportBuilder = (props) => {
                id="report-panel__emergency-assistance"
                label="Экстренная помощь"
                value="emergency-assistance"
-             />
-           </div>
-
-           <div className="report-panel__block report-panel__block--half">
-             <Checkbox
-               filledIn
-               onClick={handleReportParamClick}
-               id="report-panel__staffing"
-               label="Укомплектован"
-               value="staffing"
              />
            </div>
 
@@ -291,6 +477,17 @@ export const ReportBuilder = (props) => {
                 onClick={handleCheckBoxClick}
                 label="Укомплектованость"
                 name="staffing"
+              />
+            </div>
+
+            <div className="report-panel__block report-panel__block--half">
+              <Checkbox
+                  filledIn
+                  id="report-columns-population"
+                  className="report-columns"
+                  onClick={handleCheckBoxClick}
+                  label="Население"
+                  name="population"f
               />
             </div>
 

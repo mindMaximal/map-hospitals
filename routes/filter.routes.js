@@ -50,6 +50,23 @@ router.post(
 
           limiters.push('`district_id` = ' + req.body.district_id)
 
+        } else if (param === 'staffing' && req.body.staffing !== null) {
+
+          switch (req.body.staffing) {
+            case 1:
+              limiters.push('`medical_center`.`staffing` = 1')
+              break
+            case 2:
+              limiters.push('`medical_center`.`staffing` >= 0.5')
+              break
+            case 3:
+              limiters.push('`medical_center`.`staffing` < 0.5')
+              break
+            case 4:
+              limiters.push('`medical_center`.`staffing` = 0')
+              break
+          }
+
         } else if (param === 'type_id' && req.body.type_id !== null) {
 
           limiters.push('`type_id` = ' + req.body.type_id)
@@ -119,8 +136,11 @@ router.post(
 
       if (having.length > 0) {
         query += '\n' + having
-        query += '\n' + 'ORDER BY `medical_center`.`name`'
+        query += '\n' + 'ORDER BY `medical_center`.`name` ASC'
       }
+
+      console.log(req.body)
+      //console.log(query)
 
       connection.query(query, (err, rows) => {
         connection.end()

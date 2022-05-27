@@ -75,7 +75,7 @@ const mappings = [
   },
   {
     columnName: 'Население',
-    fullQueryName: 'population',
+    fullQueryName: 'population_adult',
     fieldName: 'population'
   },
   {

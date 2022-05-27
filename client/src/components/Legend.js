@@ -68,7 +68,7 @@ export const Legend = (props) => {
           />
 
           <div className="legend__label">
-            ФАП <br />укомплектованность > 50%
+            ФАП <br />укомплектованность &#8805; 50%
           </div>
 
         </div>
@@ -81,7 +81,7 @@ export const Legend = (props) => {
           />
 
           <div className="legend__label">
-            ФАП <br />{"укомплектованность < 50%"}
+            ФАП <br />укомплектованность &lt; 50%
           </div>
 
         </div>

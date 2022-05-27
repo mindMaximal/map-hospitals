@@ -9,6 +9,10 @@
 	width: 100%;
 	z-index: 3;
 
+	.select-dropdown {
+		max-height: 300px;
+	}
+
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
@@ -24,6 +28,10 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
+
+		&--margin {
+			margin-top: 20px;
+		}
 	}
 
 	&__close {

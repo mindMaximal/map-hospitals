@@ -13,6 +13,41 @@ const configDB = {
   charset: 'utf8',
 }
 
+const updateRatesInDataBase = (connection, id) => {
+  let query = 'SELECT `medical_center`.`id`, `staff`.`rate_full`, `staff`.`rate_occupied` FROM `medical_center`\n' +
+      'LEFT JOIN `staff`\n' +
+      ' ON `medical_center`.`id` = `staff`.`medical_center_id`\n' +
+      'WHERE `medical_center`.`id` = 125'
+
+  connection.query(query, (e, rows) => {
+    if (e) {
+      throw e
+    }
+
+    let rateFullSum = 0
+    let rateOccupiedSum = 0
+
+    for (const row of rows) {
+      rateFullSum += row.rate_full
+      rateOccupiedSum += row.rate_occupied
+    }
+
+    const staffing = Math.floor(rateOccupiedSum / rateFullSum * 100) / 100
+
+    query = 'UPDATE `medical_center` SET `staffing` = ' + staffing + ' WHERE `medical_center`.`id` = ' + id
+
+    connection.query(query, (err) => {
+      if (err) {
+        throw err
+      }
+
+      connection.end()
+
+      return true
+    })
+  })
+}
+
 // /api/edit/rate/add
 router.post(
   '/rate/add',
@@ -27,11 +62,11 @@ router.post(
       const query = "INSERT INTO `staff` (`id`, `medical_center_id`, `date`, `position`, `rate_full`, `rate_occupied`) VALUES (?, ?, ?, ?, ?, ?)"
 
       connection.query(query, [null, req.body.medical_center_id, date, req.body.position, parseFloat(req.body.rate_full), parseFloat(req.body.rate_occupied)], (err) => {
-        connection.end()
-
         if (err) {
           throw err
         }
+
+        updateRatesInDataBase(connection, req.body.medical_center_id)
 
         res.json({
           success: true
@@ -59,11 +94,12 @@ router.post(
       const query = "UPDATE `staff` SET `date` = ?, `position` = ?, `rate_full` = ?, `rate_occupied` = ? WHERE `staff`.`id` = ?"
 
       connection.query(query, [date, req.body.position, req.body.rate_full, req.body.rate_occupied, req.body.id], (err) => {
-        connection.end()
 
         if (err) {
           throw err
         }
+
+        updateRatesInDataBase(connection, req.body.medical_center_id)
 
         res.json({
           success: true
@@ -88,11 +124,11 @@ router.post(
       const query = "DELETE FROM `staff` WHERE `staff`.`id` = ?"
 
       connection.query(query, [req.body.id], (err) => {
-        connection.end()
-
         if (err) {
           throw err
         }
+
+        updateRatesInDataBase(connection, req.body.medical_center_id)
 
         res.json({
           success: true

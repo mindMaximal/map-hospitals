@@ -56,6 +56,13 @@ const getWordDoc = (data) => {
       const el = rowsData[i]
       const rowCells = []
 
+      let num = i + 1
+      num = num.toString()
+
+      rowCells.push(new TableCell({
+        children: [new Paragraph(num)],
+      }))
+
       for (let j = 0; j < el.length; j++) {
         rowCells.push(new TableCell({
           children: [new Paragraph(getValue(el[j]))],

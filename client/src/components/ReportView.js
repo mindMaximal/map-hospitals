@@ -132,16 +132,18 @@ export const ReportView = (props) => {
                   <tr
                     key={i}
                   >
+                    <td>{i + 1}</td>
                     {Object.keys(obj).map((el, j) => (
                       <td
                         key={j}
-                        data-label={props.data.headers[j]}
+                        data-label={props.data.headers[j+1]}
                       >
                         {
-                          obj[el] === null ? '-' :
-                            obj[el] === 1 ? 'Есть' :
-                              obj[el] === 0 ? 'Нет' :
-                                obj[el]
+                          props.data.headers[j].toLowerCase() === 'население' ? obj[el] :
+                            obj[el] === null ? '-' :
+                              obj[el] === 1 ? 'Есть' :
+                                obj[el] === 0 ? 'Нет' :
+                                  obj[el]
                         }
                       </td>
                     ))}

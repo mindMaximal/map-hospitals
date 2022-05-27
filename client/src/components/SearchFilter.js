@@ -123,6 +123,17 @@ export const SearchFilter = (props) => {
               />
             </div>
 
+            <div className="search-filter__block search-filter__block--high">
+              <SelectArea
+                  empty={true}
+                  name="staffing"
+                  onChange={handleSelectChange}
+                  disabled={loading}
+                  label="Укомплект:"
+                  query="staffing"
+              />
+            </div>
+
           </div>
 
           <div  className="search-filter__elem">

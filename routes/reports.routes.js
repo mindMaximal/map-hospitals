@@ -21,8 +21,9 @@ router.post(
   [],
   async (req, res) => {
     try {
-
       const connection = initializeConnection(configDB)
+
+      console.log(req.body)
 
       const haveAddress = req.body.columns.length === 0 ? true : req.body.columns.includes('address')
       const haveLocality = req.body.columns.length === 0 ? false : req.body.columns.includes('locality')
@@ -64,6 +65,17 @@ router.post(
       if (req.body.hasOwnProperty('area') && req.body.area !== null) {
         limiters.push('`locality`.`district_id` = ' + req.body.area)
       }
+      if (req.body.hasOwnProperty('type_id') && req.body.type_id !== null) {
+        limiters.push('`medical_center`.`type_Id` = ' + req.body.type_id)
+      }
+      if (req.body.hasOwnProperty('population') && req.body.population !== null) {
+        for (const populationEl of req.body.population.split('|')) {
+          limiters.push('`population`.`population_adult` ' + populationEl)
+        }
+      }
+      if (req.body.hasOwnProperty('staffing') && req.body.staffing !== null) {
+        limiters.push('`medical_center`.`staffing` ' + req.body.type_id)
+      }
 
       if (headersQuery.length !== 0) {
 
@@ -75,18 +87,20 @@ router.post(
           }
         }
       } else {
-        columns = '`medical_center`.`name`, `pharmacy`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `phone`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
+        columns = '`medical_center`.`name`, `founding_year`, `access_to_primary_health_care`, `availability_of_emergency_mediical_care`, `district`.`name` AS `district_name`, `locality`.`name` AS `locality_name`, `region`.`name` AS `region_name`, `street`, `number_of_house`'
       }
 
       let query = 'SELECT ' + columns + ' FROM `medical_center`\n' +
-        '    LEFT JOIN `locality`\n' +
-        '        ON `medical_center`.`locality_id` = `locality`.`id`\n' +
-        '    LEFT JOIN `district`\n' +
-        '        ON `locality`.`district_id` = `district`.`id`\n' +
-        '    LEFT JOIN `region`\n' +
-        '        ON `district`.`region_id` = `region`.`id`\n' +
-        '    LEFT JOIN `types`\n' +
-        '        ON `medical_center`.`type_id` = `types`.`id`'
+          'LEFT JOIN `locality`\n' +
+          ' ON `medical_center`.`locality_id` = `locality`.`id`\n' +
+          'LEFT JOIN `district`\n' +
+          ' ON `locality`.`district_id` = `district`.`id`\n' +
+          'LEFT JOIN `region`\n' +
+          ' ON `district`.`region_id` = `region`.`id`\n' +
+          'LEFT JOIN `types`\n' +
+          ' ON `medical_center`.`type_id` = `types`.`id`\n' +
+          'LEFT JOIN `population`\n' +
+          ' ON `medical_center`.`locality_id` = `population`.`locality_id`'
 
       if (limiters.length !== 0) {
         query += '\n WHERE '
@@ -99,6 +113,8 @@ router.post(
           }
         }
       }
+
+      //console.log(query)
 
       connection.query(query, (err, rows) => {
         connection.end()
@@ -116,13 +132,10 @@ router.post(
           return
         }
 
-        if (rows[0].staffing) {
-
-          for (const row of rows) {
-
+        for (const row of rows) {
+          if (row.staffing) {
             row.staffing = row.staffing * 100 + '%'
           }
-
         }
 
         if (haveAddress) {
@@ -141,7 +154,7 @@ router.post(
           }
         }
 
-        const headers = []
+        const headers = ['№']
 
         for (const key of Object.keys(rows[0])) {
 
