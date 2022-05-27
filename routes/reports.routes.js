@@ -74,7 +74,7 @@ router.post(
         }
       }
       if (req.body.hasOwnProperty('staffing') && req.body.staffing !== null) {
-        limiters.push('`medical_center`.`staffing` ' + req.body.type_id)
+        limiters.push('`medical_center`.`staffing` ' + req.body.staffing)
       }
 
       if (headersQuery.length !== 0) {
@@ -114,6 +114,7 @@ router.post(
         }
       }
 
+      console.log(req.body)
       //console.log(query)
 
       connection.query(query, (err, rows) => {
@@ -133,8 +134,9 @@ router.post(
         }
 
         for (const row of rows) {
-          if (row.staffing) {
-            row.staffing = row.staffing * 100 + '%'
+
+          if (req.body.hasOwnProperty('staffing') && req.body.staffing !== null) {
+            row.staffing = Math.floor(row.staffing * 100).toString() + '%'
           }
         }
 

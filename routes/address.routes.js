@@ -210,22 +210,22 @@ router.get(
           {
             id: 1,
             staffing_name: '100%',
-            value: '100'
+            value: ' = 1'
           },
           {
             id: 2,
             staffing_name: '>= 50%',
-            value: '>= 50'
+            value: '>= 0.5'
           },
           {
             id: 3,
             staffing_name: '< 50%',
-            value: '< 50'
+            value: '< 0.5'
           },
           {
             id: 4,
             staffing_name: '0%',
-            value: '0'
+            value: '= 0'
           }
         ])
 

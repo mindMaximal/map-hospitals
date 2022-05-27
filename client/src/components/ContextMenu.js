@@ -6,10 +6,6 @@ import {Link} from "react-router-dom";
 
 export const ContextMenu = (props) => {
 
-  const handleAddClick = (e) => {
-    console.log(e)
-  }
-
   const menuRef = useRef(null)
 
   const setView = (x, y) => {
@@ -44,8 +40,6 @@ export const ContextMenu = (props) => {
     }
   }, [props])
 
-  console.log(props)
-
   return (
     <div
       ref={menuRef}
@@ -58,7 +52,6 @@ export const ContextMenu = (props) => {
           node="button"
           waves="light"
           className="context-menu__button modal-trigger"
-          onClick={handleAddClick}
           href="#context-menu-add-modal"
         >
           Добавить

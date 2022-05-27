@@ -139,9 +139,6 @@ router.post(
         query += '\n' + 'ORDER BY `medical_center`.`name` ASC'
       }
 
-      console.log(req.body)
-      //console.log(query)
-
       connection.query(query, (err, rows) => {
         connection.end()
 
