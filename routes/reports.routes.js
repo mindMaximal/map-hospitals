@@ -23,7 +23,7 @@ router.post(
     try {
       const connection = initializeConnection(configDB)
 
-      console.log(req.body)
+      const parameters = []
 
       const haveAddress = req.body.columns.length === 0 ? true : req.body.columns.includes('address')
       const haveLocality = req.body.columns.length === 0 ? false : req.body.columns.includes('locality')
@@ -127,7 +127,8 @@ router.post(
         if (rows.length === 0) {
           res.json({
             objects: [],
-            headers: []
+            headers: [],
+            parameters: []
           })
 
           return
@@ -169,7 +170,8 @@ router.post(
         res.json({
           title: req.body.title ? req.body.title : null,
           headers,
-          objects: rows
+          objects: rows,
+          parameters: parameters
         })
       })
 

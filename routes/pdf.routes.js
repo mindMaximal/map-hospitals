@@ -2,6 +2,7 @@ import {Router} from 'express'
 import ejs from 'ejs'
 import path from 'path'
 import htmlPdf from 'html-pdf'
+import {getParameters} from '../functions/getParameters.js'
 
 const router = Router()
 const __dirname = path.resolve()
@@ -20,18 +21,19 @@ router.post(
 
       const receivedData = []
 
-      if (req.body.objects.length > 0) {
-        for (const object of req.body.objects) {
+      if (req.body.data.objects.length > 0) {
+        for (const object of req.body.data.objects) {
           receivedData.push(Object.values(object))
         }
       }
 
       const options = {
-        title: req.body.title || 'Отчет',
+        title: req.body.data.title || 'Отчет',
         date: date,
-        headers: req.body.headers || 'Без заголовков',
+        headers: req.body.data.headers || 'Без заголовков',
         data: receivedData,
-        zoom: 1
+        zoom: 1,
+        params: await getParameters(req.body.parameters)
       }
 
       let pdfOptions = {

@@ -62,7 +62,7 @@ try {
   /*await connection.promise().query(query, [districts])
     .catch(console.log)*/
 
-  districts = await await connection.promise().query('SELECT * FROM `district`')
+  districts = await connection.promise().query('SELECT * FROM `district`')
     .then(([rows]) => {
       return rows
     })
@@ -83,7 +83,7 @@ try {
 
     const locality = [null, district_id, el['Населенный пункт']]
 
-    const localityId = await await await connection.promise().query('INSERT INTO `locality` (`id`, `district_id`, `name`) VALUES (?);', [locality])
+    const localityId = await connection.promise().query('INSERT INTO `locality` (`id`, `district_id`, `name`) VALUES (?);', [locality])
       .then(([rows]) => {
         console.log(rows.insertId)
         return rows.insertId

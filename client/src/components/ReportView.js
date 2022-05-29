@@ -28,7 +28,10 @@ export const ReportView = (props) => {
   })
 
   const handleWordSaveClick = () => {
-    fetchDataWord(props.data)
+    fetchDataWord({
+      data: props.data,
+      parameters: props.parameters
+    })
   }
 
   const fetchDataWord = useCallback(async (body) => {
@@ -45,7 +48,10 @@ export const ReportView = (props) => {
   })
 
   const handlePdfSaveClick = () => {
-    fetchData(props.data)
+    fetchData({
+      data: props.data,
+      parameters: props.parameters
+    })
   }
 
   return (

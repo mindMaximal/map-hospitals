@@ -124,7 +124,7 @@ export const DetailPage = () => {
 
             </div>
 
-            { loading ?
+            { loading?
               <div>
                 <Box width={15}/>
               </div> :
@@ -136,7 +136,7 @@ export const DetailPage = () => {
             }
 
             <h1 className="detail__title">
-              { loading ?
+              { loading?
                 <div className="detail__title--replace">
                   <Box width={100} />
                   <Box width={87} />
@@ -147,7 +147,7 @@ export const DetailPage = () => {
 
             <div className="detail__block">
 
-              { loading ?
+              { loading?
                 <div>
                   <Box width={50}/>
                 </div> :
@@ -164,7 +164,7 @@ export const DetailPage = () => {
 
             <div className="detail__map">
 
-              { loading ?
+              { loading?
                 <div className="detail__preloader">
                   <Preloader
                     active
@@ -202,7 +202,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={30}/>
                   </div> :
@@ -219,7 +219,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={32}/>
                   </div> :
@@ -236,7 +236,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={23}/>
                   </div> :
@@ -253,7 +253,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={20}/>
                   </div> :
@@ -270,7 +270,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={25}/>
                   </div> :
@@ -287,7 +287,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={18}/>
                   </div> :
@@ -304,7 +304,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={31}/>
                   </div> :
@@ -321,7 +321,7 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
                     <Box width={35}/>
                   </div> :
@@ -338,9 +338,9 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
-                    <Box width={35}/>
+                    <Box width={28}/>
                   </div> :
                   <>
                     <div className="detail__elem">
@@ -355,9 +355,9 @@ export const DetailPage = () => {
 
               <div className="detail__block">
 
-                { loading ?
+                { loading?
                   <div>
-                    <Box width={35}/>
+                    <Box width={24}/>
                   </div> :
                   <>
                     <div className="detail__elem">

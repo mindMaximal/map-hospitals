@@ -1,5 +1,6 @@
 import {Router} from 'express'
 import docx from "docx"
+import {getParameters} from '../functions/getParameters.js'
 
 const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, HeadingLevel, PageOrientation } = docx
 
@@ -48,8 +49,30 @@ const getWordDoc = (data) => {
     })
   }
 
+  const getParams = (params) => {
+    const paramsContainer = []
+
+    for (let i = 0; i < params.length; i++) {
+      paramsContainer.push(new Paragraph({
+        spacing: {
+          after: i === params.length - 1 ? 500: 0,
+        },
+        children: [
+          new TextRun({
+            text: params[i].name + ': ',
+            bold: true
+          }),
+          new TextRun({
+            text: params[i].value
+          })
+        ]
+      }))
+    }
+
+    return paramsContainer
+  }
+
   const getTableBody = (rowsData) => {
-    console.log(rowsData)
     const tableBody = []
 
     for (let i = 0; i < rowsData.length; i++) {
@@ -107,12 +130,27 @@ const getWordDoc = (data) => {
 
         new Paragraph({
           spacing: {
-            after: 500,
+            after: 200,
           },
           children: [
             new TextRun(`Дата: ${data.date}`)
-          ],
+          ]
         }),
+
+        new Paragraph({
+          spacing: {
+            after: 50,
+          },
+          children: [
+            new TextRun({
+              text: 'Параметры поиска:',
+              size: 12 * 2,
+              bold: true
+            })
+          ]
+        }),
+
+        ...getParams(data.params),
 
         new Table({
           rows: [
@@ -140,17 +178,18 @@ router.post(
 
       const receivedData = []
 
-      if (req.body.objects.length > 0) {
-        for (const object of req.body.objects) {
+      if (req.body.data.objects.length > 0) {
+        for (const object of req.body.data.objects) {
           receivedData.push(Object.values(object))
         }
       }
 
       const options = {
-        title: req.body.title || 'Отчет',
+        title: req.body.data.title || 'Отчет',
         date: date,
-        headers: req.body.headers || 'Без заголовков',
-        data: receivedData
+        headers: req.body.data.headers || 'Без заголовков',
+        data: receivedData,
+        params: await getParameters(req.body.parameters)
       }
 
       const doc = getWordDoc(options)

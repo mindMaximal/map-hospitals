@@ -83,6 +83,16 @@
             page-break-inside: avoid;
         }
 
+        .params {
+            margin-top: 20px;
+        }
+
+        .params__title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -96,6 +106,29 @@
         </div>
     </header>
     <div class="clearfix"></div>
+
+    <% if(params.length > 0){ %>
+
+        <div class="params">
+
+            <div class="params__title">
+                Параметры поиска:
+            </div>
+
+            <div class="params__wrapper">
+
+                <% for (var i = 0; i < params.length; i++) {%>
+                    <div class="params__item">
+                        <b><%=params[i].name %>:</b> <%=params[i].value %>
+                    </div>
+                <%} %>
+
+            </div>
+
+        </div>
+
+    <% } %>
+
 
     <div class="table__wrapper">
 

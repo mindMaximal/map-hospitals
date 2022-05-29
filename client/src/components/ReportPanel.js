@@ -234,6 +234,7 @@ export const ReportPanel = (props) => {
       <ReportView
         loading={loading}
         data={data}
+        parameters={state}
       />
 
     </div>
