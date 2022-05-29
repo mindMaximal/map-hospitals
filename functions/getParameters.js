@@ -127,7 +127,7 @@ const getParameters = async (params) => {
       let populationName = 'Неизвестно'
 
       for (const el of population)
-        if (el.id === params.population)
+        if (el.value === params.population)
           populationName = el.population_name
 
       result.push({
