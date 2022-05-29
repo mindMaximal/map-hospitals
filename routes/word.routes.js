@@ -137,7 +137,7 @@ const getWordDoc = (data) => {
           ]
         }),
 
-        new Paragraph({
+        data.params && data.params.length > 0 ? new Paragraph({
           spacing: {
             after: 50,
           },
@@ -148,7 +148,7 @@ const getWordDoc = (data) => {
               bold: true
             })
           ]
-        }),
+        }) : [],
 
         ...getParams(data.params),
 
